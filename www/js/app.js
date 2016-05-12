@@ -12,10 +12,18 @@ angular.module('yugma', ['ionic', 'yugma.controllers', 'yugma.services'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+
+  // Set tabs position on bottom of screen in android
+  $ionicConfigProvider.tabs.position('bottom');
 
   $stateProvider
 
+    .state("login", {
+      url: "/login",
+      templateUrl: "templates/login.html",
+      controller: "LoginCtrl"
+    })
     .state('tab', {
       url: '/tab',
       abstract: true,
@@ -63,6 +71,30 @@ angular.module('yugma', ['ionic', 'yugma.controllers', 'yugma.services'])
     });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/chats');
+  $urlRouterProvider.otherwise('/tab/dash');
 
-});
+})
+
+.run(function($rootScope, $state, AuthService, $ionicPlatform) {
+
+  $rootScope.$on("$stateChangeStart", function (event, next, nextParams, fromState) {
+
+    if (!AuthService.isAuthenticated()) {
+      if (next.name !== "login") {
+        console.log("22", next.name)
+        event.preventDefault();
+        $state.go("login");
+      }
+    }
+
+    // if(AuthService.isAuthenticated()) {
+    //   if(next.name === "login") {
+    //     console.log("ASASAS")
+    //     // $ionicHistory.currentView($ionicHistory.backView());
+    //     $state.go('tab.dash', {}, {location: 'replace'});
+    //   }
+    // } 
+
+  });
+
+})
