@@ -9788,3 +9788,32 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+.login-ion-person, .login-ion-locked {
+  font-size: 20px; }
+  .login-ion-person:first-child, .login-ion-locked:first-child {
+    padding-right: 15px; }
+
+.loginUsername, .loginPassword {
+  font-size: 18px;
+  letter-spacing: 1px; }
+
+.login-item-radio input:checked + .radio-content .item-content {
+  background: #387ef5 !important;
+  color: #ffffff; }
+
+.login-item-content {
+  padding-right: 45px; }
+
+.confirmLogout .button.button-default {
+  background-color: lightcoral !important;
+  color: #fff; }
+
+.loginRemovePadding {
+  padding: 0px; }
+  .loginRemovePadding .col {
+    padding: 0px; }
+
+.login-ion-person-stalker, .login-ion-university {
+  padding-top: 10px !important;
+  color: #ffffff; }

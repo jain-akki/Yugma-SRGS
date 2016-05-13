@@ -1,0 +1,59 @@
+.login-ion-person {
+    font-size: $custom-icon-font-size;
+    &:first-child {
+        padding-right: 15px;
+    }
+}
+
+.login-ion-locked {
+    @extend .login-ion-person;
+}
+
+.loginUsername {
+    font-size: $custom-textbox-font-size;
+    letter-spacing: 1px;
+}
+
+.loginPassword {
+    @extend .loginUsername;
+}
+
+.login-item-radio {
+    input {
+        &:checked {
+            + .radio-content {
+                .item-content {
+                    background: $positive !important;
+                    color: $color-white;
+                }
+            }
+        }
+    }
+}
+
+.login-item-content {
+    padding-right: 45px;
+}
+
+.confirmLogout {
+    .button.button-default {
+        background-color: lightcoral !important;
+        color: #fff;
+    }
+}
+
+.loginRemovePadding {
+    padding: 0px;
+    .col {
+        padding: 0px;
+    }
+}
+
+.login-ion-person-stalker {
+    padding-top: 10px !important;
+    color: $color-white;
+}
+
+.login-ion-university {
+    @extend .login-ion-person-stalker;
+}
