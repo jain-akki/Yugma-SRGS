@@ -10,8 +10,13 @@
 }
 
 .loginUsername {
-    font-size: $custom-textbox-font-size;
+    font-size: $custom-icon-font-size !important;
+    padding-right: 25px !important;
     letter-spacing: 1px;
+}
+
+.login-item-input {
+    margin-bottom: 5px;
 }
 
 .loginPassword {
@@ -43,9 +48,9 @@
 }
 
 .loginRemovePadding {
-    padding: 0px;
+    padding: 1px;
     .col {
-        padding: 0px;
+        padding: 1px;
     }
 }
 

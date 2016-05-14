@@ -9795,8 +9795,12 @@ a.button {
     padding-right: 15px; }
 
 .loginUsername, .loginPassword {
-  font-size: 18px;
+  font-size: 20px !important;
+  padding-right: 25px !important;
   letter-spacing: 1px; }
+
+.login-item-input {
+  margin-bottom: 5px; }
 
 .login-item-radio input:checked + .radio-content .item-content {
   background: #387ef5 !important;
@@ -9810,10 +9814,16 @@ a.button {
   color: #fff; }
 
 .loginRemovePadding {
-  padding: 0px; }
+  padding: 1px; }
   .loginRemovePadding .col {
-    padding: 0px; }
+    padding: 1px; }
 
 .login-ion-person-stalker, .login-ion-university {
   padding-top: 10px !important;
   color: #ffffff; }
+
+.login {
+  background: rgba(26, 54, 148, 0.29); }
+
+.list-inset {
+  background-color: transparent !important; }
