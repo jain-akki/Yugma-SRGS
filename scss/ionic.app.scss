@@ -22,3 +22,11 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 @import "variables";
 @import "login";
+
+.login {
+	background: rgba(26, 54, 148, 0.29);
+}
+
+.list-inset {
+	background-color: transparent !important;
+}

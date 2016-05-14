@@ -1,18 +1,12 @@
 angular.module('yugma')
 
-.controller('DashCtrl', function($state, $scope, $ionicPopup, AuthService) {
+.controller('DashCtrl', function($state, $scope, $ionicPopup, customService, authService, USER) {
 
 	$scope.logout = function() {
-	    
-	    var logoutAlert = $ionicPopup.confirm({
-	    	title: 'Attention please',
-     		template: 'Are you sure want logged out?',
-			cssClass: 'confirmLogout'
-	    });
-
-	    logoutAlert.then(function(res) {
+		
+		customService._showConfirm() .then(function(res) {
 	 		if (res) {
-		 		AuthService.logout();
+		 		authService.logout();
 		    	$state.go("login");
 		    }
 		});

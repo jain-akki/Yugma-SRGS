@@ -1,0 +1,14 @@
+<div class="list list-inset">
+	<div class="item item-input login-item-input item-icon-right" ng-show="parentsCredentials.displayUserTextbox">
+	<input type="tel" class="loginUsername" ng-model="parentsCredentials.contact" placeholder="Your contact number">
+	<a class="button button-clear" ng-click="authenticateUser(parentsCredentials)">
+		<i class="icon ion-arrow-right-c"></i>
+	</a>
+	</div>
+	<div class="item item-input login-item-input item-icon-right" ng-show="!parentsCredentials.displayUserTextbox">
+	<input type="text" class="loginUsername" ng-model="parentsCredentials.otp" placeholder="Enter otp">
+	<a class="button button-clear" ng-click="otpVerification(parentsCredentials)">
+		<i class="icon ion-arrow-right-c"></i>
+	</a>
+	</div>
+</div>

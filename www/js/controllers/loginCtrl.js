@@ -1,39 +1,96 @@
 angular.module('yugma')
 
-.controller('LoginCtrl', function($scope, $state, $ionicPopup, AuthService, $ionicPlatform) {
-
-	$scope.data = {};
+.controller('LoginCtrl', function($scope, $state, $ionicPopup, $ionicPlatform, customService, authService) {
 
     $ionicPlatform.registerBackButtonAction(function (event) {
 
 		if ($state.current.name === "tab.dash") {
-
 			// remove this line to disable the exit
 			navigator.app.exitApp();
-
 		} else {
-
 			navigator.app.backHistory();
-
 		}
 
     }, 100);
 
-	$scope.login = function(data) {
-		AuthService.login(data.username, data.password)
-			.then(function(authenticated) {
-				$scope.data = {};
-				$state.go("tab.dash", {}, {reload: true});
-			}, function(err) {
+	$scope.parentsCredentials = {
+		contact : "",
+		otp: "",
+		displayUserTextbox : true
+	};
+
+	$scope.category ={
+       state : "parents"
+   	};
+
+	$scope.loginCategory = function() {
+
+		if ($scope.category.state === "parents") {
+			$state.go("login.parents");
+		} else {
+			$state.go("login.managements");
+		}
+
+	}
+
+	var parentsData = {};
+
+	$scope.authenticateUser = function(data) {
+
+		customService._on();
+
+		authService.getOtp(data.contact) .then(function(data) {
+
+			customService._off();
+
+			$scope.parentsCredentials = {};
+
+			if (typeof data === "object") {
+
+				$scope.parentsCredentials.displayUserTextbox = false;
+
+				parentsData = {
+					parentId: data.id,
+					parentOtp: data.otp,
+					parentName: data.name
+				}
 				
-				var alertPopup = $ionicPopup.alert({
-					title: "Login Failed",
-					template: "Please check your credentials."
-				});
-				alertPopup.then(function(res) {
-			 		$scope.data = {};
-				});
+			} else {
+				$scope.parentsCredentials.displayUserTextbox = true;
+			}
+			
+		})
+	}
+
+	$scope.otpVerification = function(data) {
+
+		customService._on();
+
+		authService.verifyOtp(data.otp, parentsData) .then(function(authenticated) {
+
+			customService._off();
+			$scope.parentsCredentials = {};
+			$scope.parentsCredentials.displayUserTextbox = true;
+			$scope.category.state = "parents";
+			$state.go("tab.dash", {}, {reload: true});
+
+		}, function(err) {
+
+			customService._off();
+			
+			var Data = {
+				title: "Login Failed",
+				template: "Otp doesn't match."
+			}
+			
+			customService._showAlert(Data) .then(function(res) {
+				if (res) {
+					$scope.parentsCredentials = {};
+					$scope.parentsCredentials.displayUserTextbox = true;
+				}
 			});
+
+		});
 	}
 
 })
