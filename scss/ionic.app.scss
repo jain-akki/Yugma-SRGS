@@ -24,9 +24,18 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "login";
 
 .login {
-	background: rgba(26, 54, 148, 0.29);
+	// background: #94FFE0;
 }
 
 .list-inset {
 	background-color: transparent !important;
+}
+
+
+.button {
+	.login-ion-arrow-right-c {
+		&:before {
+			font-size: 30px;
+		}
+	}
 }

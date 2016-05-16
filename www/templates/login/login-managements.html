@@ -1,4 +1,4 @@
-<div class="list list-inset">
+<!--<div class="list list-inset">
    <label class="item item-input" style="margin-bottom:3px">
        <i class="icon ion-person placeholder-icon login-ion-person"></i>
        <input type="text" class="loginUsername" ng-model="data.username" placeholder="Username" >
@@ -8,4 +8,18 @@
        <input type="password" class="loginPassword" ng-model="data.password" placeholder="Password">
    </label>
 </div>
-<button class="button button-block button-positive" ng-click="login(data)">Login</button>
+<button class="button button-block button-positive" ng-click="login(data)">Login</button>-->
+
+<div class="list list-inset">
+	<form name="loginContact">
+		<div class="item item-input login-item-input" style="min-height:59px;margin-bottom:8px">
+            <i class="icon ion-person placeholder-icon login-ion-person"></i>
+			<input type="text" class="loginUsername" ng-model="data.username" placeholder="Username" required>
+		</div>
+        <div class="item item-input login-item-input" style="margin-bottom:18px">
+            <i class="icon ion-locked placeholder-icon login-ion-locked"></i>
+            <input type="password" class="loginPassword" ng-model="data.password" placeholder="Password" required>
+        </div>
+        <button class="button button-block button-positive login-button-positive" ng-click="login(data)">Login</button>
+    </form>
+</div>

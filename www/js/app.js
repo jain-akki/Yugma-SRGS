@@ -29,7 +29,7 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
     .state('tab.dash', {
         url: '/dash',
         views: {
-            'tab-dash': {
+            'menuContent': {
                 templateUrl: 'templates/tab-dash.html',
                 controller: 'DashCtrl'
             }
@@ -38,7 +38,7 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
     .state('tab.chats', {
         url: '/chats',
         views: {
-            'tab-chats': {
+            'menuContent': {
                 templateUrl: 'templates/tab-chats.html',
                 controller: 'ChatsCtrl'
             }
@@ -47,7 +47,7 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
     .state('tab.chat-detail', {
         url: '/chats/:chatId',
         views: {
-            'tab-chats': {
+            'menuContent': {
                 templateUrl: 'templates/chat-detail.html',
                 controller: 'ChatDetailCtrl'
             }
@@ -56,7 +56,7 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
     .state('tab.account', {
         url: '/account',
         views: {
-            'tab-account': {
+            'menuContent': {
                 templateUrl: 'templates/tab-account.html',
                 controller: 'AccountCtrl'
             }

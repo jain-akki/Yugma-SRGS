@@ -9800,7 +9800,10 @@ a.button {
   letter-spacing: 1px; }
 
 .login-item-input {
-  margin-bottom: 5px; }
+  margin-bottom: 5px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid lightseagreen; }
 
 .login-item-radio input:checked + .radio-content .item-content {
   background: #387ef5 !important;
@@ -9822,8 +9825,8 @@ a.button {
   padding-top: 10px !important;
   color: #ffffff; }
 
-.login {
-  background: rgba(26, 54, 148, 0.29); }
-
 .list-inset {
   background-color: transparent !important; }
+
+.button .login-ion-arrow-right-c:before {
+  font-size: 30px; }

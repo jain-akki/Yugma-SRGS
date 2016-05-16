@@ -33,6 +33,10 @@ angular.module('yugma')
 
 	}
 
+	$scope.isFormDisabled = function(){
+		return this.form.$invalid;
+	}
+
 	var parentsData = {};
 
 	$scope.authenticateUser = function(data) {
@@ -53,14 +57,14 @@ angular.module('yugma')
 					parentId: data.id,
 					parentOtp: data.otp,
 					parentName: data.name
-				}
+				};
 				
 			} else {
 				$scope.parentsCredentials.displayUserTextbox = true;
 			}
 			
-		})
-	}
+		});
+	};
 
 	$scope.otpVerification = function(data) {
 

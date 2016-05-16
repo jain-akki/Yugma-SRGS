@@ -1,14 +1,18 @@
 <div class="list list-inset">
-	<div class="item item-input login-item-input item-icon-right" ng-show="parentsCredentials.displayUserTextbox">
-	<input type="tel" class="loginUsername" ng-model="parentsCredentials.contact" placeholder="Your contact number">
-	<a class="button button-clear" ng-click="authenticateUser(parentsCredentials)">
-		<i class="icon ion-arrow-right-c"></i>
-	</a>
-	</div>
-	<div class="item item-input login-item-input item-icon-right" ng-show="!parentsCredentials.displayUserTextbox">
-	<input type="text" class="loginUsername" ng-model="parentsCredentials.otp" placeholder="Enter otp">
-	<a class="button button-clear" ng-click="otpVerification(parentsCredentials)">
-		<i class="icon ion-arrow-right-c"></i>
-	</a>
-	</div>
+	<form name="loginContact" ng-show="parentsCredentials.displayUserTextbox">
+		<div class="item item-input login-item-input item-icon-right">
+			<input type="tel" class="loginUsername" ng-model="parentsCredentials.contact" maxlength="10" minlength="10" placeholder="Your contact number" required>
+			<a class="button button-clear" ng-click="authenticateUser(parentsCredentials)" ng-disabled="loginContact.$invalid">
+				<i class="icon ion-arrow-right-c positive login-ion-arrow-right-c"></i>
+			</a>
+		</div>
+	</form>
+	<form name="loginOtp" ng-show="!parentsCredentials.displayUserTextbox">
+		<div class="item item-input login-item-input item-icon-right">
+			<input type="text" class="loginUsername" ng-model="parentsCredentials.otp" maxlength="4" minlength="4" placeholder="Enter otp" required>
+			<a class="button button-clear" ng-click="otpVerification(parentsCredentials)" ng-disabled="loginOtp.$invalid">
+				<i class="icon ion-arrow-right-c positive login-ion-arrow-right-c"></i>
+			</a>
+		</div>
+	</form>
 </div>
