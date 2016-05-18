@@ -1,9 +1,9 @@
-<ion-view view-title="Sign-In" name="login-view" class="login">
-  <ion-content class="padding">
-    <div class="row loginRemovePadding">
-      <div class="col">
+<ion-view view-title="Sign-In" name="login-view" id="login-view" class="login">
+  <ion-content class="padding watermark">
+    <div class="row loginRemovePadding " >
+      <div class="col animated bounceInLeft" >
         <label class="item item-radio login-item-radio">
-          <input type="radio" name="group" ng-model="category.state" value="parents" ng-click="loginCategory()">
+          <input type="radio" name="group" id="radio-parents" ng-model="category.state" value="parents" ng-click="loginCategory()">
           <div class="radio-content">
             <div class="item-content login-item-content">
               Parents
@@ -12,11 +12,11 @@
           </div>
        </label>
       </div>
-      <div class="col">
+      <div class="col animated bounceInRight" id="school">
         <label class="item item-radio login-item-radio">
           <input type="radio" name="group" ng-model="category.state" value="managements" ng-click="loginCategory()">
           <div class="radio-content">
-            <div class="item-content">
+            <div class="item-content" >
               School
             </div>
             <i class="radio-icon ion-university login-ion-university"></i>

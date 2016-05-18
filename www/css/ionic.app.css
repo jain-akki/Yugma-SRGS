@@ -13684,15 +13684,15 @@ a.button {
   border-bottom: 1px solid lightseagreen; }
 
 .login-item-radio input:checked + .radio-content .item-content {
-  background: #387ef5 !important;
-  color: #ffffff; }
+  background: #8e44ad;
+  color: #bdc3c7; }
 
 .login-item-content {
   padding-right: 45px; }
 
 .confirmLogout .button.button-default {
   background-color: lightcoral !important;
-  color: #fff; }
+  color: #bdc3c7; }
 
 .loginRemovePadding {
   padding: 1px; }
@@ -13701,7 +13701,7 @@ a.button {
 
 .login-ion-person-stalker, .login-ion-university {
   padding-top: 10px !important;
-  color: #ffffff; }
+  color: #bdc3c7; }
 
 .list-inset {
   background-color: transparent !important; }
@@ -13709,11 +13709,19 @@ a.button {
 .button .login-ion-arrow-right-c:before {
   font-size: 30px; }
 
-.login-button-positive {
-  border-radius: 0px;
-  min-height: 40px;
-  margin-top: 30px !important;
-  line-height: 36px; }
+#login-view {
+  background-color: #e2caf2; }
+
+.login-btn-purpleb {
+  color: #ffffff; }
+  .login-btn-purpleb, .login-btn-purpleb:hover, .login-btn-purpleb:link, .login-btn-purpleb:visited, .login-btn-purpleb:focus {
+    background-color: #8e44ad;
+    line-height: 36px;
+    min-height: 38px;
+    border-radius: 0px;
+    margin-top: 27px !important; }
+  .login-btn-purpleb.activated {
+    background-color: #ae70d7; }
 
 .ion-nifty-modal .ion-modal-content-custom {
   background-color: #ffffff; }

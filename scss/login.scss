@@ -19,7 +19,7 @@
     margin-bottom: 5px;
     background: transparent;
     border: none;
-    border-bottom: 1px solid lightseagreen;
+    @include border-bottom(1px solid lightseagreen);
 }
 
 .loginPassword {
@@ -31,8 +31,8 @@
         &:checked {
             + .radio-content {
                 .item-content {
-                    background: $positive !important;
-                    color: $color-white;
+                    background: $btn-bg-color;
+                    color: #bdc3c7;
                 }
             }
         }
@@ -46,7 +46,7 @@
 .confirmLogout {
     .button.button-default {
         background-color: lightcoral !important;
-        color: #fff;
+        color: #bdc3c7;
     }
 }
 
@@ -59,7 +59,7 @@
 
 .login-ion-person-stalker {
     padding-top: 10px !important;
-    color: $color-white;
+    color: #bdc3c7;
 }
 
 .login-ion-university {
@@ -78,9 +78,28 @@
 	}
 }
 
-.login-button-positive {
-    border-radius: 0px;
-    min-height: 40px;
-    margin-top: 30px !important;
-    line-height: 36px;
+// .watermark {
+//     background-image: url(/img/logot.png);
+//     background-position: 50% 50%;
+//     background-size: 60% 40%;
+//     background-repeat: no-repeat;
+//     background-attachment: fixed;
+// }
+
+#login-view{
+    background-color: $background-color;
+}
+
+.login-btn-purpleb {
+    @include setLinkSelectorStyle {
+        background-color: $btn-bg-color;
+        line-height: 36px;
+        min-height: 38px;
+        @include border-radius(0px);
+        margin-top: 27px !important;
+    }
+    &.activated {
+        background-color:#ae70d7;
+    }
+    color: $color-white;
 }
