@@ -11,3 +11,8 @@
 .scroll-content {
    margin-bottom: 50px;
 }
+
+#complaints{
+   @extend #login-view;
+   margin-bottom: 0px;
+}

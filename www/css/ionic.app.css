@@ -13667,6 +13667,18 @@ a.button {
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp; }
 
+.sidebar-purplel {
+  background-color: #ae70d7;
+  color: #ffffff; }
+
+.sidebar-header {
+  background-color: #8e44ad;
+  color: #ffffff; }
+
+.item-complex .item-content {
+  background-color: #ae70d7 !important;
+  color: #ffffff; }
+
 .login-ion-person, .login-ion-locked {
   font-size: 20px; }
   .login-ion-person:first-child, .login-ion-locked:first-child {
@@ -13709,7 +13721,7 @@ a.button {
 .button .login-ion-arrow-right-c:before {
   font-size: 30px; }
 
-#login-view {
+#login-view, #dashboard, #complaints {
   background-color: #e2caf2; }
 
 .login-btn-purpleb {
@@ -13733,3 +13745,6 @@ a.button {
 
 .scroll-content {
   margin-bottom: 50px; }
+
+#complaints {
+  margin-bottom: 0px; }
