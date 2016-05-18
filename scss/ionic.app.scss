@@ -21,6 +21,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 @import "www/lib/ionic-nifty-modal/nifty.modal";
+@import "animate";
 @import "variables";
 @import "login";
 @import "complaints";
