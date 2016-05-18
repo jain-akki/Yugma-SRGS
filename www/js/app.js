@@ -14,8 +14,7 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
     })
     .state('login.parents',{
         url:"/parents",
-        templateUrl: 'templates/login/login-parents.html',       
-        
+        templateUrl: 'templates/login/login-parents.html'    
     })
     .state('login.managements',{
         url:"/managements",
@@ -24,7 +23,7 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
     .state('tab', {
         url: '/tab',
         abstract: true,
-        templateUrl: 'templates/tabs.html'
+        templateUrl: 'templates/sidebar.html'
     })
     .state('tab.dash', {
         url: '/dash',
@@ -35,24 +34,33 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
             }
         }
     })
-    .state('tab.chats', {
-        url: '/chats',
+    .state('tab.complaints', {
+        url: '/complaints',
+        abstract: true,
+        views : {
+            'menuContent' : {
+                templateUrl: 'templates/parents/complaints.html'
+            }
+        }
+    }) 
+    .state('tab.complaints.teacher', {
+        url: '/teacher',
         views: {
             'menuContent': {
-                templateUrl: 'templates/tab-chats.html',
-                controller: 'ChatsCtrl'
+                templateUrl: 'templates/parents/complaintsTeacher.html',
+                controller: 'teacherComplaintsCtrl'
             }
         }
     })
-    .state('tab.chat-detail', {
-        url: '/chats/:chatId',
+    .state('tab.complaints.other', {
+        url: '/other',
         views: {
-            'menuContent': {
-                templateUrl: 'templates/chat-detail.html',
-                controller: 'ChatDetailCtrl'
+            'other-menuContent': {
+                templateUrl: 'templates/parents/complaintsOthers.html',
+                controller: 'otherComplaintsCtrl'
             }
         }
-    })
+    })    
     .state('tab.account', {
         url: '/account',
         views: {

@@ -20,22 +20,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+@import "www/lib/ionic-nifty-modal/nifty.modal";
 @import "variables";
 @import "login";
-
-.login {
-	// background: #94FFE0;
-}
-
-.list-inset {
-	background-color: transparent !important;
-}
-
-
-.button {
-	.login-ion-arrow-right-c {
-		&:before {
-			font-size: 30px;
-		}
-	}
-}
+@import "complaints";

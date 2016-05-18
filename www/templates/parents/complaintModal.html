@@ -1,0 +1,18 @@
+<ion-modal-view class="ion-nifty-modal complaint-ion-nifty-modal">
+  <div class="ion-modal-content-custom">
+    <ion-content class="padding">
+      <button ng-click="closeModal()"><span aria-hidden="true">&times;</span></button>
+      <h4>Title:</h4>{{cmpl.title}}
+      <h4>Create Date: </h4>{{cmpl.createdAt}}
+      <h4 ng-show="cmpl.closedOn.length">Closed Date: </h4>{{cmpl.closedOn}}
+      <h4>Description: </h4>{{cmpl.description}}
+      <h4 ng-show="cmpl.rca.length">Root Cause: </h4>{{cmpl.rca}}
+      <h4>Status: </h4>{{cmpl.statusName}}
+      <h4 ng-show="cmpl.authorityName.length">Authority Name: </h4>{{cmpl.authorityName}}
+    </ion-content>
+    <div class="bar bar-footer">
+      <button class="button button-clear button-calm">Left</button>
+      <button class="button button-clear button-balanced">Right</button>
+    </div>
+  </div>
+</ion-modal-view>

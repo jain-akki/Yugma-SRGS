@@ -1,6 +1,6 @@
 angular.module('yugma')
 
-.controller('LoginCtrl', function($scope, $state, $ionicPopup, $ionicPlatform, customService, authService) {
+.controller('LoginCtrl', function($scope, $state, $ionicPopup, $ionicPlatform, customService, authService, USER) {
 
     $ionicPlatform.registerBackButtonAction(function (event) {
 
@@ -96,5 +96,5 @@ angular.module('yugma')
 
 		});
 	}
-
+	
 })

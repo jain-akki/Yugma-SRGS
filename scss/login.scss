@@ -65,3 +65,22 @@
 .login-ion-university {
     @extend .login-ion-person-stalker;
 }
+
+.list-inset {
+	background-color: transparent !important;
+}
+
+.button {
+	.login-ion-arrow-right-c {
+		&:before {
+			font-size: 30px;
+		}
+	}
+}
+
+.login-button-positive {
+    border-radius: 0px;
+    min-height: 40px;
+    margin-top: 30px !important;
+    line-height: 36px;
+}

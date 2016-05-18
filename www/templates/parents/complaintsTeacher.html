@@ -1,0 +1,14 @@
+<ion-view view-title="Teacher's Complaints" align-title="center">
+  <ion-content class="padding">
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+     <ion-list>
+        <ion-item class="item-remove-animate item-icon-right" ng-repeat="cmpl in teacherComplaints" type="item-text-wrap" on-hold="showActionsheet()" ng-click="openModal(cmpl)">
+           <h2>{{cmpl.categoryName}}</h2>
+           <p>{{cmpl.title}}</p>
+           <p class="icon icon-accessory">
+             {{cmpl.statusName}}
+           </p>
+        </ion-item>
+     </ion-list>
+   </ion-content>
+</ion-view>
