@@ -16,3 +16,43 @@
    @extend #login-view;
    margin-bottom: 0px;
 }
+
+.ion-nifty-modal .ion-modal-content-custom {
+   background-color: $color-white;  
+}
+
+.complaint-ion-nifty-modal {
+   height: auto !important;
+   top: 20% !important;
+   bottom: 20% !important;
+}
+
+.scroll-content {
+   margin-bottom: 50px;
+}
+
+#complaints{
+   @extend #login-view;
+   margin-bottom: 0px;
+}
+
+.close-button {
+    color: white;
+    float: right;
+}
+
+.cmplModalDate {
+   padding-left: 0px;
+   padding-right: 0px;
+}
+
+.cmplModalDate {
+   .col:first-child {
+      padding-left: 0px;
+   }
+}
+
+.cmplModalTitle {
+    font-weight: 600 !important;
+    font-size: 21px !important;
+}
