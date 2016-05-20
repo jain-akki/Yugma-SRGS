@@ -12160,16 +12160,17 @@ a.button {
   color: #ffffff; }
 
 .sidebar-header {
-  background-color: #8e44ad;
+  background-color: #5051A6;
   color: #ffffff; }
 
 .item-complex .item-content {
   background-color: #ae70d7 !important;
   color: #ffffff; }
 
-.login-ion-person, .login-ion-locked {
-  font-size: 20px; }
-  .login-ion-person:first-child, .login-ion-locked:first-child {
+.login-ion-person, .login-ion-locked, .login-ion-android-call {
+  font-size: 20px;
+  color: #5051A6; }
+  .login-ion-person:first-child, .login-ion-locked:first-child, .login-ion-android-call:first-child {
     padding-right: 15px; }
 
 .loginUsername, .loginPassword {
@@ -12184,7 +12185,7 @@ a.button {
   border-bottom: 1px solid lightseagreen; }
 
 .login-item-radio input:checked + .radio-content .item-content {
-  background: #8e44ad;
+  background: #5051A6;
   color: #bdc3c7; }
 
 .login-item-content {
@@ -12210,18 +12211,41 @@ a.button {
   font-size: 30px; }
 
 #login-view, #dashboard, #complaints {
-  background-color: #e2caf2; }
+  background-color: #b2b4ee; }
 
 .login-btn-purpleb {
   color: #ffffff; }
   .login-btn-purpleb, .login-btn-purpleb:hover, .login-btn-purpleb:link, .login-btn-purpleb:visited, .login-btn-purpleb:focus {
-    background-color: #8e44ad;
+    background-color: #5051A6;
     line-height: 36px;
     min-height: 38px;
     border-radius: 0px;
     margin-top: 27px !important; }
   .login-btn-purpleb.activated {
-    background-color: #ae70d7; }
+    background-color: #a5a6dc; }
+
+.purple-back {
+  background-color: #b2b4ee;
+  color: white; }
+
+.dark-purple-back {
+  background-color: #5051A6;
+  color: white !important; }
+
+.login-radio {
+  margin-top: 80px; }
+
+.purple-text {
+  color: #5051A6; }
+
+::-webkit-input-placeholder {
+  color: #525252 !important; }
+
+.login-header-title {
+  color: white !important; }
+
+i.icon {
+  color: #5051A6; }
 
 #complaints {
   margin-bottom: 0px; }

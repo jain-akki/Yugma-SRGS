@@ -1,11 +1,16 @@
 .login-ion-person {
     font-size: $custom-icon-font-size;
+    color:#5051A6;
     &:first-child {
         padding-right: 15px;
     }
 }
 
 .login-ion-locked {
+    @extend .login-ion-person;
+}
+
+.login-ion-android-call {
     @extend .login-ion-person;
 }
 
@@ -78,14 +83,6 @@
 	}
 }
 
-// .watermark {
-//     background-image: url(/img/logot.png);
-//     background-position: 50% 50%;
-//     background-size: 60% 40%;
-//     background-repeat: no-repeat;
-//     background-attachment: fixed;
-// }
-
 #login-view{
     background-color: $background-color;
 }
@@ -99,7 +96,37 @@
         margin-top: 27px !important;
     }
     &.activated {
-        background-color:#ae70d7;
+        background-color:#a5a6dc;
     }
     color: $color-white;
+}
+
+.purple-back {
+    background-color: $background-color;
+    color: white;
+}
+
+.dark-purple-back {
+    background-color: #5051A6;
+    color: white !important;
+}
+
+.login-radio {
+    margin-top: 80px;
+}
+
+.purple-text {
+    color: $btn-bg-color;
+}
+
+::-webkit-input-placeholder {
+   color: #525252 !important;
+}
+
+.login-header-title {
+    color: white !important;
+}
+
+i.icon{
+    color:#5051A6;
 }
