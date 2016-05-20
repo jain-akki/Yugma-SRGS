@@ -17,3 +17,7 @@ $color-white: #ffffff;
 @mixin border-bottom($border) {
     border-bottom: $border;
 }
+
+@mixin border-top($border) {
+    border-top: $border;
+}

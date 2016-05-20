@@ -127,6 +127,12 @@
     color: white !important;
 }
 
-i.icon{
-    color:#5051A6;
+.sidebar-ion-home {
+    color: $btn-bg-color;
+}
+
+.sidebar-ion-ios-chatboxes,
+.sidebar-ion-ios-gear,
+.sidebar-ion-power {
+    @extend .sidebar-ion-home;
 }

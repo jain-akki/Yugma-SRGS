@@ -1,23 +1,27 @@
 <ion-view view-title="Teacher's Complaints" align-title="center" hide-back-button="true">
   <ion-nav-buttons side="left">
-    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    <button menu-toggle="left" class="button button-icon button-clear ion-navicon sidebar-ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="padding" id="complaints">
     <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
     <ion-list class="teacher-complaint-list">
-      <ion-item class="item-remove-animate item-icon-right" ng-repeat="cmpl in teacherComplaints" type="item-text-wrap" href="#/tab/view-teacher-complaint/{{cmpl.id}}">
+      <ion-item class="item-remove-animate item-icon-right animated lightSpeedIn" ng-repeat="cmpl in teacherComplaints" type="item-text-wrap"
+        href="#/tab/view-teacher-complaint/{{cmpl.id}}">
         <h2>{{cmpl.categoryName}}</h2>
         <p>{{cmpl.title}}</p>
-        <i id="{{cmpl.id}}" class="icon ion-chevron-right icon-accessory"></i>
+        <p class="icon icon-accessory responsive-sm" style="padding-top:18px">
+          <span>{{cmpl.statusName}}</span>
+          <span>{{cmpl.createdAt}}</span>
+        </p>
       </ion-item>
     </ion-list>
   </ion-content>
-  <div class="tabs tabs-icon-top tabs-color-active-calm">
+  <div class="tabs tabs-icon-top complaints-tab">
     <a class="tab-item active" ui-sref="tab.teacher-complaint">
-      <i class="icon ion-ios-people"></i> Teacher'
+      <i class="icon ion-ios-people complaint-ion-ios-people"></i> Teacher'
     </a>
-    <a class="tab-item" ui-sref="tab.other-complaint">
-      <i class="icon ion-ios-flower-outline"></i> Other's
+    <a class="tab-item" nav-direction="back" ui-sref="tab.other-complaint">
+      <i class="icon ion-ios-flower complaint-ion-ios-flower-outline"></i> Other's
     </a>
   </div>
 </ion-view>

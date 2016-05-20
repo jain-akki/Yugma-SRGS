@@ -10,28 +10,46 @@ angular.module('yugma.controllers', [])
 
 			complaintService.getTeacherComplaint(USER.parentId()).then(function (response) {
 
+				customService._off();
+
 				$scope.teacherComplaints = response;
 
 				$timeout(function () {
-
-					_.each($scope.teacherComplaints, function (value, index) {
-						if (value.statusName === "New") {
-							$('#' + value.id).css('color', 'blue');
-						} else if (value.statusName === "Satisfied") {
-							$('#' + value.id).css('color', 'green');
-						} else {
-							$('#' + value.id).css('color', 'yellow');
-						}
-
-					});
-
-					customService._off();
-
+					dayDiff($scope.teacherComplaints);
 				});
 			});
 		};
 
 		getTeacherComplaint();
+
+		/**
+		 * purpose of this function
+		 * calculate day difference between
+		 * complaint date and current date
+		 */
+		function dayDiff(complaints) {
+
+			var createDate;
+
+			_.forEach(complaints, function (val, index) {
+
+				createDate = val.createdAt.substring(0, 19);
+
+				var d = new Date();
+				var currentDate = moment(d).format("DD-MM-YYYY");
+
+				var a = currentDate.split("-");
+				var b = createDate.split("-");
+
+				//day difference between current date and complaint date
+				if (a[0] - b[0] >= 1) {
+					val.createdAt = createDate.substring(0, 5);
+				} else {
+					val.createdAt = createDate.substring(11, 16);
+				}
+
+			});
+		}
 
 		/**
 		 * When user pull complaint list 

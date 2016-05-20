@@ -6,7 +6,7 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
          * Set tabs position on bottom of screen in android
          */
         $ionicConfigProvider.tabs.position('bottom');
-        
+
         /**
          * Hide back button text value
          */
@@ -30,7 +30,20 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
             .state('tab', {
                 url: '/tab',
                 abstract: true,
-                templateUrl: 'templates/sidebar.html'
+                templateUrl: 'templates/sidebar.html',
+                controller: function ($scope, $state, customService, authService) {
+                    
+                    $scope.logout = function () {
+
+                        customService._showConfirm().then(function (res) {
+                            if (res) {
+                                authService.logout();
+                                $state.go("login");
+                            }
+                        });
+                    };
+
+                }
             })
             .state('tab.dash', {
                 url: '/dash',

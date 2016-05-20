@@ -8,9 +8,11 @@
    color: $color-white;
 }
 
-.item-complex .item-content {
-   background-color:#b2b4ee !important;
-   color: $color-white;
+.sidebar-item-content {
+    a {
+        background-color:#b2b4ee !important;
+        color: $color-white !important;
+    }
 }
 
 .tab-nav {
@@ -19,4 +21,12 @@
 
 .item-complex .item-content:active {
    background-color: #8587C6 !important;   
+}
+
+.sidebar-ion-navicon {
+    color: $color-white !important;
+}
+
+.sidebar-header-title {
+    color: $color-white;
 }

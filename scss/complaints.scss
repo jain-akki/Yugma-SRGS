@@ -8,3 +8,19 @@
       margin-bottom: 69px !important;
    }
 }
+
+.complaint-ion-ios-people,
+.complaint-ion-ios-flower-outline {
+    @extend .sidebar-ion-home;
+    color: $color-white;
+}
+
+.complaints-tab {
+    background-color: $btn-bg-color;
+    color: $color-white;
+}
+
+.tab-item.active, .tab-item.activated {
+    @include border-top(3px solid $background-color);
+    color: $background-color
+}

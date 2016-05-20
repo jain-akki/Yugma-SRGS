@@ -12163,15 +12163,21 @@ a.button {
   background-color: #5051A6;
   color: #ffffff; }
 
-.item-complex .item-content {
+.sidebar-item-content a {
   background-color: #b2b4ee !important;
-  color: #ffffff; }
+  color: #ffffff !important; }
 
 .tab-nav {
   background-color: #5051A6; }
 
 .item-complex .item-content:active {
   background-color: #8587C6 !important; }
+
+.sidebar-ion-navicon {
+  color: #ffffff !important; }
+
+.sidebar-header-title {
+  color: #ffffff; }
 
 .login-ion-person, .login-ion-locked, .login-ion-android-call {
   font-size: 20px;
@@ -12250,7 +12256,10 @@ a.button {
 .login-header-title {
   color: white !important; }
 
-i.icon {
+.sidebar-ion-home, .sidebar-ion-ios-chatboxes,
+.sidebar-ion-ios-gear,
+.sidebar-ion-power, .complaint-ion-ios-people,
+.complaint-ion-ios-flower-outline {
   color: #5051A6; }
 
 #complaints {
@@ -12258,3 +12267,15 @@ i.icon {
 
 .teacher-complaint-list .list {
   margin-bottom: 69px !important; }
+
+.complaint-ion-ios-people,
+.complaint-ion-ios-flower-outline {
+  color: #ffffff; }
+
+.complaints-tab {
+  background-color: #5051A6;
+  color: #ffffff; }
+
+.tab-item.active, .tab-item.activated {
+  border-top: 3px solid #b2b4ee;
+  color: #b2b4ee; }
