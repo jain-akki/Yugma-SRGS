@@ -18,17 +18,17 @@
     </ion-header-bar>
     <ion-content class="sidebar sidebar-purplel">
       <ion-list id="list-item">
-        <ion-item menu-close href="#/tab/dash" class="item item-icon-left animated bounceInLeft">
-          <i class="icon ion-home calm"></i>
-          Dashboard
+        <ion-item menu-close href="#/tab/dash" class="item item-icon-left">
+          <i class="icon ion-home calm"></i> Dashboard
         </ion-item>
-        <ion-item menu-close href="#/tab/teacher-complaint" class="item item-icon-left animated bounceInLeft">
-          <i class="icon ion-ios-chatboxes calm"></i>
-          Complaints
+        <ion-item menu-close href="#/tab/complaints/teacher" class="item item-icon-left">
+          <i class="icon ion-ios-chatboxes calm"></i> Complaints
         </ion-item>
-        <ion-item menu-close href="#/tab/account" class="item item-icon-left animated bounceInLeft">
-          <i class="icon ion-ios-gear calm"></i>
-          Account
+        <ion-item menu-close href="#/tab/account" class="item item-icon-left ">
+          <i class="icon ion-ios-gear calm"></i> Account
+        </ion-item>
+        <ion-item menu-close href="#" class="item item-icon-left " ng-click="logout()">
+          <i class="icon ion-power calm"></i> Logout
         </ion-item>
       </ion-list>
     </ion-content>

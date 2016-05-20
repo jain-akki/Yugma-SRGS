@@ -12156,7 +12156,7 @@ a.button {
   animation-name: slideOutUp; }
 
 .sidebar-purplel {
-  background-color: #ae70d7;
+  background-color: #5051A6;
   color: #ffffff; }
 
 .sidebar-header {
@@ -12164,8 +12164,14 @@ a.button {
   color: #ffffff; }
 
 .item-complex .item-content {
-  background-color: #ae70d7 !important;
+  background-color: #b2b4ee !important;
   color: #ffffff; }
+
+.tab-nav {
+  background-color: #5051A6; }
+
+.item-complex .item-content:active {
+  background-color: #8587C6 !important; }
 
 .login-ion-person, .login-ion-locked, .login-ion-android-call {
   font-size: 20px;
@@ -12210,7 +12216,7 @@ a.button {
 .button .login-ion-arrow-right-c:before {
   font-size: 30px; }
 
-#login-view, #dashboard, #complaints {
+#login-view, #complaints {
   background-color: #b2b4ee; }
 
 .login-btn-purpleb {

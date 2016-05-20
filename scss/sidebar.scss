@@ -1,5 +1,5 @@
 .sidebar-purplel {
-    background-color: #ae70d7;
+    background-color: #5051A6;
     color: $color-white;
 }
 
@@ -9,6 +9,14 @@
 }
 
 .item-complex .item-content {
-   background-color:#ae70d7 !important;
+   background-color:#b2b4ee !important;
    color: $color-white;
+}
+
+.tab-nav {
+   background-color: #5051A6;
+}
+
+.item-complex .item-content:active {
+   background-color: #8587C6 !important;   
 }
