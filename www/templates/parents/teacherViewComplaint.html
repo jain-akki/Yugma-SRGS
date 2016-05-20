@@ -1,0 +1,27 @@
+<ion-view view-title="{{cmpl.title}}">
+  <ion-content class="padding">
+    <ion-list>
+      <div><b>Complaint Against: </b>{{cmpl.categoryName}}</div><br>
+      <div ng-show="{{cmpl.authorityName.length}}"><b>Assigned To: </b>{{cmpl.authorityName}}</div>
+      <div><b>Description: </b>{{cmpl.description}}</div><br>
+      <div><b>Complaint Status: </b>{{cmpl.statusName}}</div><br>
+      <div ng-show="{{cmpl.rca.length}}"><b>Root Cause: </b>{{cmpl.rca}}</div>
+      <div ng-show="{{cmpl.closedOn.length}}"><b>Closed On: </b>{{cmpl.closedOn}}</div><br>
+      <div><b>Created At: </b>{{cmpl.createdAt}}</div><br>
+    </ion-list>
+  </ion-content>
+  <div class="tabs tabs-icon-top tabs-color-active-calm" ng-hide="cmpl.statusId == 6">
+    <a class="tab-item">
+      <i class="icon ion-android-chat"></i> Comments
+    </a>
+    <a class="tab-item" ng-hide="cmpl.statusId == 4 || cmpl.statusId == 6">
+      <i class="icon ion-close-circled"></i> Close Complaint
+    </a>
+    <a class="tab-item" ng-show="cmpl.statusId == 4">
+      <i class="icon ion-happy"></i> Happy ?
+    </a>
+    <a class="tab-item" ng-show="cmpl.statusId == 4">
+      <i class="icon ion-sad-outline"></i> Reopen Complaint
+    </a>
+  </div>
+</ion-view>
