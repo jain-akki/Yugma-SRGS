@@ -4,7 +4,7 @@ angular.module('yugma')
 
 		$ionicPlatform.registerBackButtonAction(function (event) {
 
-			if ($state.current.name === "tab.dash") {
+			if ($state.current.name === "yugma.dashboard") {
 				// remove this line to disable the exit
 				navigator.app.exitApp();
 			} else {
@@ -76,7 +76,7 @@ angular.module('yugma')
 				$scope.parentsCredentials = {};
 				$scope.parentsCredentials.displayUserTextbox = true;
 				$scope.category.state = "parents";
-				$state.go("tab.dash", {}, { reload: true });
+				$state.go("yugma.dashboard", {}, { reload: true });
 
 			}, function (err) {
 

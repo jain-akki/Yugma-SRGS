@@ -27,8 +27,8 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
                 url: "/managements",
                 templateUrl: 'templates/login/login-managements.html',
             })
-            .state('tab', {
-                url: '/tab',
+            .state('yugma', {
+                url: '/yugma',
                 abstract: true,
                 templateUrl: 'templates/sidebar.html',
                 controller: function ($scope, $state, customService, authService) {
@@ -45,16 +45,16 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
 
                 }
             })
-            .state('tab.dash', {
-                url: '/dash',
+            .state('yugma.dashboard', {
+                url: '/dashboard',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/tab-dash.html',
+                        templateUrl: 'templates/dashboard.html',
                         controller: 'DashCtrl'
                     }
                 }
             })
-            .state('tab.teacher-complaint', {
+            .state('yugma.teacher-complaint', {
                 url: '/teacher-complaint',
                 views: {
                     'menuContent': {
@@ -63,7 +63,7 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
                     }
                 }
             })
-            .state('tab.other-complaint', {
+            .state('yugma.other-complaint', {
                 url: '/other-complaint',
                 views: {
                     'menuContent': {
@@ -72,7 +72,7 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
                     }
                 }
             })
-            .state('tab.complaint-detail', {
+            .state('yugma.complaint-detail', {
                 url: '/view-teacher-complaint/:complaintId',
                 views: {
                     'menuContent': {
@@ -81,7 +81,7 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
                     }
                 }
             })
-            .state('tab.account', {
+            .state('yugma.account', {
                 url: '/account',
                 views: {
                     'menuContent': {
@@ -92,6 +92,6 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
             });
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/tab/dash');
+        $urlRouterProvider.otherwise('/yugma/dashboard');
 
     })

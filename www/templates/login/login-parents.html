@@ -9,14 +9,14 @@
 			</button>
 		</div>
 	</form>
-	<form name="loginOtp" ng-show="!parentsCredentials.displayUserTextbox">
+	<form name="loginOtp" ng-submit="otpVerification(parentsCredentials)" ng-show="!parentsCredentials.displayUserTextbox">
 		<div class="item item-input login-item-input">
 			<i class="icon ion-locked placeholder-icon login-ion-locked"></i>
 			<input type="text" class="loginUsername animated bounceInLeft" ng-model="parentsCredentials.otp" maxlength="4" minlength="4"
 				placeholder="Enter otp" required>
-			<a class="button button-clear" ng-click="otpVerification(parentsCredentials)" ng-disabled="loginOtp.$invalid">
+			<button class="button button-clear purple-text" type="submit" ng-disabled="loginOtp.$invalid">
 				<i class="icon ion-arrow-right-c positive login-ion-arrow-right-c"></i>
-			</a>
+			</button>
 		</div>
 	</form>
 </div>

@@ -2,11 +2,14 @@
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon button-clear ion-navicon sidebar-ion-navicon"></button>
   </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button menu-toggle="right" class="button button-icon button-clear ion-ios-compose-outline sidebar-ion-navicon"></button>
+  </ion-nav-buttons>
   <ion-content class="padding" id="complaints">
     <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
     <ion-list class="teacher-complaint-list">
       <ion-item class="item-remove-animate item-icon-right animated lightSpeedIn" ng-repeat="cmpl in teacherComplaints" type="item-text-wrap"
-        href="#/tab/view-teacher-complaint/{{cmpl.id}}">
+        href="#/yugma/view-teacher-complaint/{{cmpl.id}}">
         <h2>{{cmpl.categoryName}}</h2>
         <p>{{cmpl.title}}</p>
         <p class="icon icon-accessory responsive-sm" style="padding-top:18px">
@@ -17,10 +20,10 @@
     </ion-list>
   </ion-content>
   <div class="tabs tabs-icon-top complaints-tab">
-    <a class="tab-item active" ui-sref="tab.teacher-complaint">
+    <a class="tab-item active" ui-sref="yugma.teacher-complaint">
       <i class="icon ion-ios-people complaint-ion-ios-people"></i> Teacher'
     </a>
-    <a class="tab-item" nav-direction="back" ui-sref="tab.other-complaint">
+    <a class="tab-item" nav-direction="back" ui-sref="yugma.other-complaint">
       <i class="icon ion-ios-flower complaint-ion-ios-flower-outline"></i> Other's
     </a>
   </div>
