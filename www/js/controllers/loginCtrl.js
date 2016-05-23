@@ -1,6 +1,6 @@
 angular.module('yugma')
 
-	.controller('LoginCtrl', function ($scope, $state, $ionicPopup, $ionicPlatform, customService, authService, USER) {
+	.controller('LoginCtrl', function ($scope, $state, $ionicPopup, $ionicPlatform, $timeout, customService, authService, USER) {
 
 		$ionicPlatform.registerBackButtonAction(function (event) {
 
@@ -16,7 +16,9 @@ angular.module('yugma')
 		$scope.parentsCredentials = {
 			contact: "",
 			otp: "",
-			displayUserTextbox: true
+			displayUserTextbox: true,
+			displayResendBtn: false,
+			displayChangeContactBtn: false
 		};
 
 		$scope.category = {
@@ -47,11 +49,15 @@ angular.module('yugma')
 
 				customService._off();
 
-				$scope.parentsCredentials = {};
-
 				if (typeof data === "object") {
 
 					$scope.parentsCredentials.displayUserTextbox = false;
+
+					$timeout(function () {
+						$scope.parentsCredentials.displayResendBtn = true;
+						$scope.parentsCredentials.displayChangeContactBtn = true;
+					}, 2000);
+
 
 					parentsData = {
 						parentId: data.id,
@@ -60,11 +66,27 @@ angular.module('yugma')
 					};
 
 				} else {
+					$scope.parentsCredentials = {};
 					$scope.parentsCredentials.displayUserTextbox = true;
 				}
 
 			});
 		};
+
+		$scope.resendOtp = function () {
+			$scope.authenticateUser($scope.parentsCredentials);
+		}
+
+		$scope.changeContact = function (params) {
+
+			customService._on();
+
+			$timeout(function () {
+				$scope.parentsCredentials = {};
+				$scope.parentsCredentials.displayUserTextbox = true;
+				customService._off();
+			}, 2000);
+		}
 
 		$scope.otpVerification = function (data) {
 

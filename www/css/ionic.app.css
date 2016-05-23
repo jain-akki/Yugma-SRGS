@@ -12179,6 +12179,9 @@ a.button {
 .sidebar-header-title {
   color: #ffffff; }
 
+.item-complex .item-content.activated {
+  background-color: #8587C6 !important; }
+
 .login-ion-person, .login-ion-locked, .login-ion-android-call {
   font-size: 20px;
   color: #5051A6; }
@@ -12262,6 +12265,15 @@ a.button {
 .complaint-ion-ios-flower-outline {
   color: #5051A6; }
 
+.login-button-dark {
+  color: #000000 !important; }
+
+.resendOtp.ng-hide-remove {
+  animation: bounceInLeft 1.5s; }
+
+.changeNo.ng-hide-remove {
+  animation: bounceInRight 1.5s; }
+
 #complaints {
   margin-bottom: 0px; }
 
@@ -12279,3 +12291,9 @@ a.button {
 .tab-item.active, .tab-item.activated {
   border-top: 3px solid #b2b4ee;
   color: #b2b4ee; }
+
+select {
+  width: 100%;
+  height: 40px;
+  color: #5051A6;
+  background-color: #b2b4ee; }

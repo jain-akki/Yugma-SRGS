@@ -90,7 +90,7 @@ angular.module("yugma")
             }
         });
     }
-    
+
     var logout = function() {
         destroyUserCredentials();
         $window.location.reload(true);

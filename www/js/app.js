@@ -1,6 +1,6 @@
 angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.services'])
 
-    .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+    .config(function ($stateProvider, $locationProvider, $urlRouterProvider, $ionicConfigProvider) {
 
         /**
          * Set tabs position on bottom of screen in android
@@ -32,7 +32,7 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
                 abstract: true,
                 templateUrl: 'templates/sidebar.html',
                 controller: function ($scope, $state, customService, authService) {
-                    
+
                     $scope.logout = function () {
 
                         customService._showConfirm().then(function (res) {
@@ -63,6 +63,15 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
                     }
                 }
             })
+            .state('yugma.add-teacher-complaint', {
+                url: '/add-teacher-complaint',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/addTeacherComplaint.html',
+                        controller: 'addTeacherComplaintsCtrl'
+                    }
+                }
+            })
             .state('yugma.other-complaint', {
                 url: '/other-complaint',
                 views: {
@@ -90,6 +99,13 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
                     }
                 }
             });
+
+        /**
+         * When need to remove # from url uncomment below line of code
+         */
+        /**
+         *   $locationProvider.html5Mode(true);
+         */
 
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/yugma/dashboard');

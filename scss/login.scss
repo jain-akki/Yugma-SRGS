@@ -136,3 +136,15 @@
 .sidebar-ion-power {
     @extend .sidebar-ion-home;
 }
+
+.login-button-dark {
+    color: $color-black !important;
+}
+
+.resendOtp.ng-hide-remove {
+    animation: bounceInLeft 1.5s;
+}
+
+.changeNo.ng-hide-remove {
+    animation: bounceInRight 1.5s;
+}

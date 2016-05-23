@@ -24,3 +24,10 @@
     @include border-top(3px solid $background-color);
     color: $background-color
 }
+
+select {
+    width: 100%;
+    height: 40px;
+    color: $btn-bg-color;
+    background-color: $background-color;
+}

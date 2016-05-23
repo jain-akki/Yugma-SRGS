@@ -39,6 +39,40 @@ angular.module("yugma")
          return deferred.promise;
       }
 
+      var getTeacher = function (standardId) {
+
+         var deferred = $q.defer();
+
+         $http({
+            method: "GET",
+            contentType: "application/json",
+            url: baseUrl + "/parent/teacher/" + standardId
+         }).success(function (response) {
+            deferred.resolve(response);
+         }).error(function (params) {
+            deferred.reject(response);
+         })
+
+         return deferred.promise;
+      }
+
+      var getAllCategory = function () {
+
+         var deferred = $q.defer();
+
+         $http({
+            method: 'GET',
+            contentType: 'application/json',
+            url: baseUrl + "/fetchParentCategory"
+         }).success(function (response) {
+            deferred.resolve(response);
+         }).error(function (response) {
+            deferred.reject(response);
+         });
+
+         return deferred.promise;
+      }
+
       return {
          getTeacherComplaint: getTeacherComplaint,
          getOtherComplaint: getOtherComplaint,
@@ -49,6 +83,8 @@ angular.module("yugma")
                }
             }
             return null;
-         }
+         },
+         getTeacher: getTeacher,
+         getAllCategory: getAllCategory
       }
    })

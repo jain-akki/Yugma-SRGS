@@ -18,5 +18,15 @@
 				<i class="icon ion-arrow-right-c positive login-ion-arrow-right-c"></i>
 			</button>
 		</div>
+		<div class="row resendOtp" style="text-align:center" ng-show="parentsCredentials.displayResendBtn">
+			<div class="col">
+				<button class="button button-clear button-dark login-button-dark" ng-click="resendOtp()"><i class="ion-paper-airplane"></i> Resend OTP</button>
+			</div>
+		</div>
+		<div class="row changeNo" style="text-align:center" ng-show="parentsCredentials.displayChangeContactBtn">
+			<div class="col">
+				<button class="button button-clear button-dark login-button-dark" ng-click="changeContact()"><i class="ion-edit"></i> Change Number</button>
+			<div>
+		</div>
 	</form>
 </div>
