@@ -12197,7 +12197,7 @@ a.button {
   margin-bottom: 5px;
   background: transparent;
   border: none;
-  border-bottom: 1px solid lightseagreen; }
+  border-bottom: 1px solid #5051A6; }
 
 .login-item-radio input:checked + .radio-content .item-content {
   background: #5051A6;
@@ -12222,8 +12222,10 @@ a.button {
 .list-inset {
   background-color: transparent !important; }
 
-.button .login-ion-arrow-right-c:before {
-  font-size: 30px; }
+.button .login-ion-arrow-right-c {
+  color: #5051A6; }
+  .button .login-ion-arrow-right-c:before {
+    font-size: 30px; }
 
 #login-view, #complaints {
   background-color: #b2b4ee; }
