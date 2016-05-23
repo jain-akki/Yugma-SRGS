@@ -1,3 +1,12 @@
+<style>
+  .watermark {
+    background-image: url(img/logot.png);
+    background-position: center;
+    background-size: 300px;
+    background-repeat: no-repeat;
+  }
+</style>
+
 <ion-view view-title="Teacher's Complaints" align-title="center" hide-back-button="true">
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon button-clear ion-navicon sidebar-ion-navicon"></button>
@@ -5,17 +14,31 @@
   <ion-nav-buttons side="right">
     <a menu-toggle="right" class="button button-icon button-clear ion-ios-compose-outline sidebar-ion-navicon" ui-sref="yugma.add-teacher-complaint"></a>
   </ion-nav-buttons>
-  <ion-content class="padding" id="complaints">
+  <ion-content class="padding watermark" id="complaints">
     <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
     <ion-list class="teacher-complaint-list">
-      <ion-item class="item-remove-animate item-icon-right animated lightSpeedIn" ng-repeat="cmpl in teacherComplaints" type="item-text-wrap"
-        href="#/yugma/view-teacher-complaint/{{cmpl.id}}">
-        <h2>{{cmpl.categoryName}}</h2>
-        <p>{{cmpl.title}}</p>
-        <p class="icon icon-accessory responsive-sm" style="padding-top:18px">
-          <span>{{cmpl.statusName}}</span>
-          <span>{{cmpl.createdAt}}</span>
-        </p>
+      <ion-item class="ComplaintSpace item-remove-animate item-icon-right animated fadeInLeft" ng-repeat="cmpl in teacherComplaints"
+        type="item-text-wrap" href="#/yugma/view-teacher-complaint/{{cmpl.id}}">
+        <div class="complaint-lists">
+          <div class="row">
+            <div class="col col-90">
+              <h2>{{cmpl.categoryName}}</h2>
+            </div>
+            <div class="col">
+              <p class="icon icon-accessory responsive-sm" style="padding-top:18px">
+                <p><span>{{cmpl.statusName}}</span></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-90">
+              <p>{{cmpl.title}}</p>
+            </div>
+            <div class="col">
+              <p>{{cmpl.createdAt}}</p>
+
+            </div>
+          </div>
+        </div>
       </ion-item>
     </ion-list>
   </ion-content>

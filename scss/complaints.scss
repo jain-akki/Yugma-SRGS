@@ -5,7 +5,7 @@
 
 .teacher-complaint-list {
    .list {
-      margin-bottom: 69px !important;
+      margin-bottom: 62px !important;
    }
 }
 
@@ -30,4 +30,13 @@ select {
     height: 40px;
     color: $btn-bg-color;
     background-color: $background-color;
+}
+
+.ComplaintSpace {
+    margin-bottom: 3px;
+    // background-color: transparent !important;
+    a {
+        padding: 10px 49px 10px 16px !important;
+        // background-color: transparent !important;
+    }
 }

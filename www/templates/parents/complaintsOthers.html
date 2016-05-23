@@ -8,7 +8,7 @@
   <ion-content class="padding" id="complaints">
     <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
     <ion-list>
-      <ion-item class="item-remove-animate item-icon-right animated lightSpeedIn" ng-repeat="cmpl in otherComplaints" type="item-text-wrap">
+      <ion-item class="item-remove-animate item-icon-right animated fadeInLeft" ng-repeat="cmpl in otherComplaints" type="item-text-wrap">
         <h2>{{cmpl.categoryName}}</h2>
         <p>{{cmpl.title}}</p>
         <p class="icon icon-accessory">

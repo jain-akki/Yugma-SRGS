@@ -102,8 +102,6 @@ angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.servi
 
         /**
          * When need to remove # from url uncomment below line of code
-         */
-        /**
          *   $locationProvider.html5Mode(true);
          */
 

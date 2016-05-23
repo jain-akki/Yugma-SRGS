@@ -12170,9 +12170,6 @@ a.button {
 .tab-nav {
   background-color: #5051A6; }
 
-.item-complex .item-content:active {
-  background-color: #8587C6 !important; }
-
 .sidebar-ion-navicon {
   color: #ffffff !important; }
 
@@ -12280,7 +12277,7 @@ a.button {
   margin-bottom: 0px; }
 
 .teacher-complaint-list .list {
-  margin-bottom: 69px !important; }
+  margin-bottom: 62px !important; }
 
 .complaint-ion-ios-people,
 .complaint-ion-ios-flower-outline {
@@ -12299,3 +12296,8 @@ select {
   height: 40px;
   color: #5051A6;
   background-color: #b2b4ee; }
+
+.ComplaintSpace {
+  margin-bottom: 3px; }
+  .ComplaintSpace a {
+    padding: 10px 49px 10px 16px !important; }

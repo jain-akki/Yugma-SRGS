@@ -1,14 +1,46 @@
-<ion-view view-title="{{cmpl.title}}">
-  <ion-content class="padding">
-    <ion-list>
-      <div><b>Complaint Against: </b>{{cmpl.categoryName}}</div><br>
-      <div ng-show="{{cmpl.authorityName.length}}"><b>Assigned To: </b>{{cmpl.authorityName}}</div>
-      <div><b>Description: </b>{{cmpl.description}}</div><br>
-      <div><b>Complaint Status: </b>{{cmpl.statusName}}</div><br>
-      <div ng-show="{{cmpl.rca.length}}"><b>Root Cause: </b>{{cmpl.rca}}</div>
-      <div ng-show="{{cmpl.closedOn.length}}"><b>Closed On: </b>{{cmpl.closedOn}}</div><br>
-      <div><b>Created At: </b>{{cmpl.createdAt}}</div><br>
-    </ion-list>
+<!-------------- styles for card----------------->
+<style>
+  .card-text{
+    font-size:13px;
+  }
+  .card-comp{
+    margin:5px 5px;
+  }
+</style>  
+<!------------------------------------------------>
+<ion-view view-title="{{cmpl.title}}" class="purple-back watermark">
+  <ion-content class="padding animated fadeInRight" >
+    <div class="card card-comp">
+      <div class="item item-text-wrap card-text">
+            <div><b>Complaint Against: </b>{{cmpl.categoryName}}</div>
+      </div>
+    </div>
+    <div class="card card-comp" ng-show="{{cmpl.authorityName.length}}">
+      <div class="item item-text-wrap card-text">
+            <div><b>Assigned To: </b>{{cmpl.authorityName}}</div>
+      </div>
+    </div>
+    <div class="card card-comp" >
+      <div class="item item-text-wrap card-text">
+            <div><b>Description: </b>{{cmpl.description}}</div>
+      </div>
+    </div>
+    <div class="card card-comp" ng-show="{{cmpl.rca.length}}">
+      <div class="item item-text-wrap card-text">
+            <div ><b>Root Cause: </b>{{cmpl.rca}}</div>
+      </div>
+    </div>
+    <div class="card card-comp" ng-show="{{cmpl.closedOn.length}}">
+      <div class="item item-text-wrap card-text">
+            <div ><b>Closed On: </b>{{cmpl.closedOn}}</div>
+      </div>
+    </div>
+    <div class="card card-comp">
+      <div class="item item-text-wrap card-text">
+            <div><b>Created At: </b>{{cmpl.createdAt}}</div>
+      </div>
+    </div>                    
+    
   </ion-content>
   <div class="tabs tabs-icon-top complaints-tab" ng-hide="cmpl.statusId == 6">
     <a class="tab-item">
