@@ -1,7 +1,7 @@
 angular.module('yugma')
 
-.value("baseUrl", "http://www.nxtlifetechnologies.com/school")
-// .value("baseUrl", "http://nxtlifetechnologies.ind-cloud.everdata.com/srgsrk-test")
+// .value("baseUrl", "http://www.nxtlifetechnologies.com/school")
+.value("baseUrl", "http://nxtlifetechnologies.ind-cloud.everdata.com/srgsrk-test")
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {

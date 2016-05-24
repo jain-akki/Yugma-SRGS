@@ -12332,6 +12332,16 @@ select {
   border-color: #5051A6;
   color: #5051A6 !important; }
 
+#other {
+  display: none;
+  margin: 10px 10px 0px 10px; }
+
+#subCategory {
+  display: none; }
+
+#teacher {
+  display: none; }
+
 /**
 * To change add complaint style remove below comment
 

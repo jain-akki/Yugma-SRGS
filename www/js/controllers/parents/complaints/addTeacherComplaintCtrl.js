@@ -5,6 +5,16 @@ angular.module('yugma')
       $scope.childs = USER.parentChilds();
 
       $scope.totalChilds = $scope.childs.length;
+      
+      if ($scope.totalChilds === 1) {
+         customService._on();
+         $scope.standardId = $scope.childs[0].standardId;
+         $scope.studentId = $scope.childs[0].studentId;
+         $scope.singleStudentName = $scope.childs[0].studentName;
+         getAllCategory();
+         customService._off();
+         $("#category").css("display", "table").addClass("animated bounceInLeft");
+      }
 
       var getTeacher = function (standardId) {
          complaintService.getTeacher(standardId).then(function (response) {
@@ -15,7 +25,7 @@ angular.module('yugma')
          });
       }
 
-      var getAllCategory = function () {
+      function getAllCategory () {
          complaintService.getAllCategory().then(function (response) {
             $scope.category = response;
             customService._off();
@@ -26,8 +36,8 @@ angular.module('yugma')
 
       $scope.selectChild = function (child) {
          $scope.standardId = child.standardId;
-         $scope.studentName = child.studentName;
          $scope.studentId = child.studentId;
+         $scope.studentName = child.studentName;
          $(".add-complaint-child-name").html(child.studentName);
          $(".button-positive").addClass("animated bounceOutRight");
          customService._on();
@@ -59,7 +69,7 @@ angular.module('yugma')
                $("#category").addClass("animated bounceOutLeft");
                $(".teachersName").addClass("animated bounceInRight");
                $(".teachersName").css("display", "inherit");
-               getTeacher($scope.studentId);
+               getTeacher($scope.standardId);
                customService._on();
 
             }

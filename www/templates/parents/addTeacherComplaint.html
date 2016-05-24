@@ -5,16 +5,6 @@
     background-position: center;
     background-size: 90%;
   }
-  #other {
-    display:none;
-    margin:10px 10px 0px 10px;
-  }
-  #subCategory {
-    display: none;
-  }
-  #teacher {
-    display: none;
-  }
 </style>
 <ion-view view-title="Create new complaint" class="purple-back watermark-addComp">
   <ion-nav-buttons side="right">
@@ -22,6 +12,9 @@
   </ion-nav-buttons>
   <div class="bar bar-subheader button-to-select" ng-show="totalChilds > 1">
     <h2 class="title add-complaint-child-name">Select childs</h2>
+  </div>
+  <div class="bar bar-subheader button-to-select" ng-show="totalChilds === 1">
+    <h2 class="title add-complaint-child-name">{{singleStudentName}}</h2>
   </div>
   <ion-content class="has-subheader">
     <ion-list class="teachersName">
@@ -32,7 +25,7 @@
       <ion-item id="other">
       </ion-item>
     </ion-list>
-    <ion-list class="studentName">
+    <ion-list class="studentName" ng-show="totalChilds > 1">
       <button id="test" class="button button-block button-positive button-block-margin animated bounceInRight" ng-click="selectChild(child)"
         ng-repeat="child in childs">
         {{child.studentName}}
