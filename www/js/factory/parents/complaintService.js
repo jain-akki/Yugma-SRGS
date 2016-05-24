@@ -73,6 +73,24 @@ angular.module("yugma")
          return deferred.promise;
       }
 
+      var saveTeacherComplaint = function (data) {
+
+         var deferred = $q.defer();
+
+         $http({
+            method: 'POST',
+            contentType: 'application/json',
+            data: data,
+            url: baseUrl + "/save-complaint"
+         }).success(function (response) {
+            deferred.resolve(response);
+         }).error(function (response) {
+            deferred.reject(response);
+         });
+
+         return deferred.promise;
+      }
+
       return {
          getTeacherComplaint: getTeacherComplaint,
          getOtherComplaint: getOtherComplaint,
@@ -85,6 +103,7 @@ angular.module("yugma")
             return null;
          },
          getTeacher: getTeacher,
-         getAllCategory: getAllCategory
+         getAllCategory: getAllCategory,
+         saveTeacherComplaint: saveTeacherComplaint
       }
    })

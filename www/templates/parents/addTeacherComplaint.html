@@ -1,32 +1,65 @@
-<ion-view view-title="Create new complaint">
-  <div class="bar bar-subheader" ng-show="totalChilds > 1">
+<style>
+  .watermark-addComp {
+    background-image: url(img/logot.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90%;
+  }
+  #other {
+    display:none;
+    margin:10px 10px 0px 10px;
+  }
+  #subCategory {
+    display: none;
+  }
+  #teacher {
+    display: none;
+  }
+</style>
+<ion-view view-title="Create new complaint" class="purple-back watermark-addComp">
+  <ion-nav-buttons side="right">
+    <a menu-toggle="right" class="button button-icon button-clear ion-ios-undo sidebar-ion-navicon" ui-sref="yugma.teacher-complaint"></a>
+  </ion-nav-buttons>
+  <div class="bar bar-subheader button-to-select" ng-show="totalChilds > 1">
     <h2 class="title add-complaint-child-name">Select childs</h2>
   </div>
   <ion-content class="has-subheader">
     <ion-list class="teachersName">
-      <select id="teacher" style="display:none" ng-options="val as val.name for val in teachers track by val.id" ng-model="category.teacher">
+      <select id="teacher" class="button-block-margin" ng-options="val as val.name for val in teachers track by val.id"
+        ng-model="category.teacher">
           <option value="" style="display:none;">select teacher</option>
-        </select>
-      <ion-item id="teachersName" style="display:none">
-      </ion-item>
-      <ion-item id="extraCircular" style="display:none">
-      </ion-item>
-      <ion-item id="other" style="display:none">
+      </select>
+      <ion-item id="other">
       </ion-item>
     </ion-list>
     <ion-list class="studentName">
-      <button id="test" class="button button-block button-positive" ng-click="selectChild(child)" ng-repeat="child in childs">
+      <button id="test" class="button button-block button-positive button-block-margin animated bounceInRight" ng-click="selectChild(child)"
+        ng-repeat="child in childs">
         {{child.studentName}}
       </button>
     </ion-list>
     <ion-list>
-      <select id="category" style="display:none" ng-options="val as val.categoryName for val in category track by val.categoryId"
+      <select id="category" class="button-block-margin" style="display:none" ng-options="val as val.categoryName for val in category track by val.categoryId"
         ng-model="category.mainCategory">
-            <option value="" style="display:none;">-- choose complaint category --</option>
+        <option value="" style="display:none;">select complaint category</option>
       </select>
-      <select id="subCategory" style="display:none" ng-options="val as val.name for val in subCategory track by val.id" ng-model="category.subCategory">
-          <option value="" style="display:none;">Select category</option>
+      <select id="subCategory" class="button-block-margin" ng-options="val as val.name for val in subCategory track by val.id" ng-model="category.subCategory">
+        <option value="" style="display:none;">select category</option>
       </select>
+    </ion-list>
+    <ion-list style="display:none" class="padding" id="addCmplTextBox">
+      <form name="complaintForm" class="list trans-back" ng-submit="complaintSubmit(complaint)">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Complaint Title <sapn style="font-size: 80%;padding: 5px;">(max 30)</span>
+          <input type="text" class="input-style" ng-model="complaint.title" maxlength="30" required>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Complaint Description</span>
+          <textarea rows="10" class="input-style" ng-model="complaint.description" required></textarea>
+        </label>
+        <ion-checkbox ng-model="complaint.isChecked" class="form-select checkbox-royal">Complaint as anonymous</ion-checkbox>
+        <button type="submit" class="button button-block animated bounceInBottom login-btn-purpleb" ng-disabled="complaintForm.$invalid">Submit</button>
+      </form>
     </ion-list>
   </ion-content>
 </ion-view>

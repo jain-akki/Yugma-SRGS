@@ -7,11 +7,10 @@ angular.module('yugma.controllers', [])
 		function getTeacherComplaint() {
 
 			customService._on();
-
+			
 			complaintService.getTeacherComplaint(USER.parentId()).then(function (response) {
 
 				customService._off();
-
 				$scope.teacherComplaints = response;
 
 				$timeout(function () {
@@ -29,25 +28,27 @@ angular.module('yugma.controllers', [])
 		 */
 		function dayDiff(complaints) {
 
-			var createDate;
+			var b,
+				 createDate,
+				 d = new Date(),
+				 currentDate = moment(d).format("DD/MM/YYYY"),
+				 a = currentDate.split("/");
 
 			_.forEach(complaints, function (val, index) {
 
 				createDate = val.createdAt.substring(0, 19);
 
-				var d = new Date();
-				var currentDate = moment(d).format("DD-MM-YYYY");
-
-				var a = currentDate.split("-");
-				var b = createDate.split("-");
-
-				//day difference between current date and complaint date
+				b = createDate.split("-");
+				
+				/**
+				 * Now replace '-' to '/'
+				 * and change year to two digits
+				 */
 				if (a[0] - b[0] >= 1) {
-					val.createdAt = createDate.substring(0, 5);
+					val.createdAt = moment(createDate.replace(/-/g, '/').substring(0, 10), "DD/MM/YYYY").format("DD/MM/YY");
 				} else {
-					val.createdAt = createDate.substring(11, 16);
+					val.createdAt = createDate.replace(/-/g, '/').substring(11, 16);
 				}
-
 			});
 		}
 

@@ -1,7 +1,7 @@
 angular.module('yugma')
 
 .value("baseUrl", "http://www.nxtlifetechnologies.com/school")
-// .value("baseUrl", "http://localhost:8080/YUGMA")
+// .value("baseUrl", "http://nxtlifetechnologies.ind-cloud.everdata.com/srgsrk-test")
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -15,7 +15,7 @@ angular.module('yugma')
     });
 })
 
-.run(function($rootScope, $state, authService, $ionicPlatform) {
+.run(function($rootScope, $state, authService, $ionicPlatform, $cordovaStatusbar) {
 
     $rootScope.$on("$stateChangeStart", function (event, next, nextParams, fromState) {
         if (!authService.isAuthenticated()) {
@@ -25,5 +25,13 @@ angular.module('yugma')
             }
         }
     });
-
+    
+    /**
+     * We can change color of statusbar
+     */
+    
+    if(window.StatusBar) {
+        statusBar.backgroundColorByName("green");
+    }
+    
 })

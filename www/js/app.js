@@ -1,4 +1,4 @@
-angular.module('yugma', ['ionic', 'ngStorage', 'yugma.controllers', 'yugma.services'])
+angular.module('yugma', ['ionic', 'ngCordova', 'ngStorage', 'yugma.controllers', 'yugma.services'])
 
     .config(function ($stateProvider, $locationProvider, $urlRouterProvider, $ionicConfigProvider) {
 
