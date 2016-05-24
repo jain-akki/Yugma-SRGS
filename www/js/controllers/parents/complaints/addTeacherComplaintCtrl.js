@@ -1,6 +1,6 @@
 angular.module('yugma')
 
-   .controller('addTeacherComplaintsCtrl', function ($scope, $state, USER, complaintService, customService) {
+   .controller('addTeacherComplaintsCtrl', function ($scope, $state, $ionicHistory, USER, complaintService, customService) {
 
       $scope.childs = USER.parentChilds();
 
@@ -12,7 +12,6 @@ angular.module('yugma')
          $scope.studentId = $scope.childs[0].studentId;
          $scope.singleStudentName = $scope.childs[0].studentName;
          getAllCategory();
-         customService._off();
          $("#category").css("display", "table").addClass("animated bounceInLeft");
       }
 
@@ -78,9 +77,9 @@ angular.module('yugma')
 
             addClassAndCss("category", "bounceOutLeft", "none");
             addClassAndCss("subCategory", "bounceOutLeft", "none");
-            $("#other").append(newval.categoryName);
-            $("#other").addClass("animated slideInDown");
-            $("#other").css("display", "inherit");
+            $("#otherData").append(newval.categoryName);
+            $("#otherData").addClass("animated slideInDown");
+            $("#otherData").css("display", "inherit");
             $("#addCmplTextBox").addClass("animated slideInDown");
             $("#addCmplTextBox").css("display", "inherit");
          }
@@ -100,9 +99,9 @@ angular.module('yugma')
             $("#teacher").addClass("animated bounceOutLeft").css("display", "none");
             $("#addCmplTextBox").addClass("animated slideInDown");
             $("#addCmplTextBox").css("display", "inherit");
-            $("#other").html(newval.name);
-            $("#other").css("display", "inherit");
-            $("#other").addClass("animated slideInDown");
+            $("#otherData").html(newval.name);
+            $("#otherData").css("display", "inherit");
+            $("#otherData").addClass("animated slideInDown");
 
          }
 
@@ -117,8 +116,8 @@ angular.module('yugma')
             $("#addCmplTextBox").addClass("animated slideInDown");
             $("#addCmplTextBox").css("display", "inherit");
             addClassAndCss("subCategory", "bounceOutLeft", "none");
-            $("#other").html(newval.name);
-            $("#other").addClass("animated slideInDown").css("display", "inherit");
+            $("#otherData").html(newval.name);
+            $("#otherData").addClass("animated slideInDown").css("display", "inherit");
 
          }
 
@@ -153,6 +152,23 @@ angular.module('yugma')
             $state.go("yugma.teacher-complaint", { reload: true, notify: true });
 
          });
+      }
+      
+      /**
+       * Set back button
+       */
+      
+      $scope.goBack = function () {
+         $state.transitionTo('yugma.complaints.teacher-complaint', {}, {reload: true});
+      }
+      
+      /**
+       * To reload current state
+       * so, that remove $scope from that page
+       */
+
+      $scope.clearHistory = function() {
+         $state.reload();
       }
 
    })

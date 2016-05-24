@@ -9,13 +9,3 @@ angular.module('yugma')
 		$scope.chat = Chats.get($stateParams.chatId);
 
 	})
-
-	.controller('AccountCtrl', function ($scope, USER) {
-
-		$scope.settings = {
-			enableFriends: true
-		};
-
-		$scope.parentName = USER.parentName();
-
-	})

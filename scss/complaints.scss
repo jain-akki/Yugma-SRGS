@@ -12,17 +12,16 @@
 .complaint-ion-ios-people,
 .complaint-ion-ios-flower-outline {
     @extend .sidebar-ion-home;
+    @include border-top(2px solid $background-color);
     color: $color-white;
+    & + span {
+        color: $color-white;
+    }
 }
 
 .complaints-tab {
     background-color: $btn-bg-color;
     color: $color-white;
-}
-
-.tab-item.active, .tab-item.activated {
-    @include border-top(3px solid $background-color);
-    color: $background-color
 }
 
 select {
@@ -79,7 +78,7 @@ select {
     color:#5051A6 !important;
 }
 
-#other {
+#otherData {
     display:none;
     margin:10px 10px 0px 10px;
 }

@@ -48,7 +48,6 @@ angular.module('yugma')
 			authService.getOtp(data.contact).then(function (data) {
 
 				customService._off();
-
 				if (typeof data === "object") {
 
 					$scope.parentsCredentials.displayUserTextbox = false;
@@ -58,11 +57,12 @@ angular.module('yugma')
 						$scope.parentsCredentials.displayChangeContactBtn = true;
 					}, 2000);
 
-
 					parentsData = {
-						parentId: data.id,
-						parentOtp: data.otp,
-						parentName: data.name
+						parentId: data.parentId,
+						parentOtp: data.tokenId,
+						parentName: data.parentName,
+						parentEmail: data.email,
+						parentContact: data.contactNo
 					};
 
 				} else {

@@ -12281,15 +12281,15 @@ a.button {
 
 .complaint-ion-ios-people,
 .complaint-ion-ios-flower-outline {
+  border-top: 2px solid #b2b4ee;
   color: #ffffff; }
+  .complaint-ion-ios-people + span,
+  .complaint-ion-ios-flower-outline + span {
+    color: #ffffff; }
 
 .complaints-tab {
   background-color: #5051A6;
   color: #ffffff; }
-
-.tab-item.active, .tab-item.activated {
-  border-top: 3px solid #b2b4ee;
-  color: #b2b4ee; }
 
 select {
   width: 100%;
@@ -12332,7 +12332,7 @@ select {
   border-color: #5051A6;
   color: #5051A6 !important; }
 
-#other {
+#otherData {
   display: none;
   margin: 10px 10px 0px 10px; }
 

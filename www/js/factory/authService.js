@@ -7,7 +7,9 @@ angular.module("yugma")
     function storeUserCredentials(data) {
         $localStorage.Id = data.parentId;
         $localStorage.Otp = data.parentOtp;
-        $localStorage.Name = data.parentName; 
+        $localStorage.Name = data.parentName;
+        $localStorage.Email = data.parentEmail;
+        $localStorage.Contact = data.parentContact;
         userCredentials($localStorage.Id, $localStorage.Otp);
     }
 
@@ -78,7 +80,7 @@ angular.module("yugma")
     }
 
     var verifyOtp = function(otp, parentsData) {
-        
+        console.log(otp, parentsData)
         return $q(function(resolve, reject) {
 
             if (otp === parentsData.parentOtp) {
