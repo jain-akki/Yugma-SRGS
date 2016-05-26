@@ -1,12 +1,18 @@
 #complaints{
-   @extend #login-view;
-   margin-bottom: 0px;
+    @extend #login-view;
+    margin-bottom: 0px;
+}
+
+.teacher-comment-list {
+    .list:last-child {
+        margin-bottom: 63px !important;
+    }
 }
 
 .teacher-complaint-list {
-   .list {
-      margin-bottom: 62px !important;
-   }
+    .list:last-child {
+        margin-bottom: 0px !important;
+    }
 }
 
 .complaint-ion-ios-people,
@@ -35,8 +41,11 @@ select {
     margin-bottom: 3px;
     // background-color: transparent !important;
     a {
-        padding: 10px 49px 10px 16px !important;
+        padding: 0px 49px 0px 16px !important;
         // background-color: transparent !important;
+    }
+    a.activated {
+        background-color: #E0E3F3 !important;
     }
 }
 
@@ -82,12 +91,27 @@ select {
     display:none;
     margin:10px 10px 0px 10px;
 }
+
 #subCategory {
     display: none;
 }
+
 #teacher {
     display: none;
 }
+
+textarea {
+    resize: none;
+    padding: 8px;
+    line-height: 17px;
+}
+
+// .txtAreaComment {
+//     background-color: green !important;
+//     color: black !important;
+//     border: none !important;
+//     // height: 63px !important;
+// }
 
 /**
 * To change add complaint style remove below comment

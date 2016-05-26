@@ -1,6 +1,6 @@
 angular.module('yugma')
 
-   .controller('addTeacherComplaintsCtrl', function ($scope, $state, $ionicHistory, USER, complaintService, customService) {
+   .controller('addTeacherComplaintsCtrl', function ($scope, $state, $ionicHistory, $ionicViewService, USER, complaintService, customService) {
 
       $scope.childs = USER.parentChilds();
 
@@ -149,7 +149,7 @@ angular.module('yugma')
          complaintService.saveTeacherComplaint(finalData).then(function (response) {
 
             customService._off();
-            $state.go("yugma.teacher-complaint", { reload: true, notify: true });
+            $state.go("yugma.complaints.teacher-complaint", {}, { reload: true, notify: true });
 
          });
       }
@@ -168,7 +168,8 @@ angular.module('yugma')
        */
 
       $scope.clearHistory = function() {
-         $state.reload();
+         // $state.reload();
+         $state.go($state.current, {}, {reload:true})
       }
 
    })

@@ -1,4 +1,4 @@
-angular.module('yugma', ['ionic', 'ngCordova', 'ngStorage', 'yugma.controllers', 'yugma.services'])
+angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',  'ionic.service.push', 'yugma.controllers', 'yugma.services'])
 
     .config(function ($stateProvider, $locationProvider, $urlRouterProvider, $ionicConfigProvider) {
 
@@ -30,12 +30,18 @@ angular.module('yugma', ['ionic', 'ngCordova', 'ngStorage', 'yugma.controllers',
             .state('yugma', {
                 url: '/yugma',
                 abstract: true,
+                cache: false,
                 templateUrl: 'templates/sidebar.html',
                 controller: function ($scope, $state, customService, authService) {
 
                     $scope.logout = function () {
 
-                        customService._showConfirm().then(function (res) {
+                        var data  = {
+                            title: 'Attention please',
+                            template: 'Are you sure want logged out?'
+                        }
+
+                        customService._showConfirm(data).then(function (res) {
                             if (res) {
                                 authService.logout();
                                 $state.go("login");
@@ -64,6 +70,7 @@ angular.module('yugma', ['ionic', 'ngCordova', 'ngStorage', 'yugma.controllers',
             })
             .state('yugma.complaints.teacher-complaint', {
                 url: '/teacher-complaint',
+                cache: false,
                 views: {
                     'complaint-teacher': {
                         templateUrl: 'templates/parents/complaints/complaintsTeacher.html',
@@ -90,8 +97,18 @@ angular.module('yugma', ['ionic', 'ngCordova', 'ngStorage', 'yugma.controllers',
                     }
                 }
             })
+            .state('yugma.add-teacher-comment', {
+                url: '/add-teacher-comment/:complaintId/:title',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/complaints/addTeacherComment.html',
+                        controller: 'addTeacherCommentCtrl as vm'
+                    }
+                }
+            })
             .state('yugma.complaint-detail', {
                 url: '/view-teacher-complaint/:complaintId',
+                cache: false,
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/parents/complaints/teacherViewComplaint.html',

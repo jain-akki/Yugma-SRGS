@@ -91,6 +91,62 @@ angular.module("yugma")
          return deferred.promise;
       }
 
+      var closeComplaint = function (data) {
+
+         var deferred = $q.defer();
+
+         $http({
+            method: "PUT",
+            contentType: "application/json",
+            data: data,
+            url: baseUrl + "/teacher-complaint-close"
+         }).success(function (response) {
+            deferred.resolve(response);
+         }).error(function (response) {
+            deferred.reject(response);
+         });
+
+         return deferred.promise;
+
+      }
+
+      var satisfyTeacherComplaint = function (complaintId) {
+
+         var deferred = $q.defer();
+
+         $http({
+            method: "GET",
+            contentType: "application/json",
+            url: baseUrl + "/teacher-complaint-close/" + complaintId
+         }).success(function (response) {
+            deferred.resolve(response);
+         }).error(function (response) {
+            deferred.reject(response);
+         });
+
+         return deferred.promise;
+
+      }
+
+      var reOpenComplaint = function (data) {
+
+         var deferred = $q.defer();
+
+         $http({
+            method: "PUT",
+            contentType: "application/json",
+            data: data,
+            url: baseUrl + "/teacher-complaint-reopen"
+         }).success(function (response) {
+            deferred.resolve(response);
+         }).error(function (response) {
+            deferred.reject(response);
+         });
+
+         return deferred.promise;
+
+      }
+
       return {
          getTeacherComplaint: getTeacherComplaint,
          getOtherComplaint: getOtherComplaint,
@@ -104,6 +160,9 @@ angular.module("yugma")
          },
          getTeacher: getTeacher,
          getAllCategory: getAllCategory,
-         saveTeacherComplaint: saveTeacherComplaint
+         saveTeacherComplaint: saveTeacherComplaint,
+         closeComplaint: closeComplaint,
+         satisfyTeacherComplaint: satisfyTeacherComplaint,
+         reOpenComplaint: reOpenComplaint
       }
    })

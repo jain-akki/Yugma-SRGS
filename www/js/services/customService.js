@@ -17,10 +17,10 @@ angular.module('yugma')
         $ionicLoading.hide();
     }
 
-    var _showConfirm = function() {
+    var _showConfirm = function(data) {
         var logoutAlert = $ionicPopup.confirm({
-            title: 'Attention please',
-            template: 'Are you sure want logged out?',
+            title: data.title,
+            template: data.template,
             cssClass: 'confirmLogout'
         });
         return logoutAlert;

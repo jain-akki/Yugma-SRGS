@@ -1,18 +1,22 @@
 <ion-view view-title="Account">
-  <ion-content>
-    <ion-list>
-	    <label class="item item-input">
+	<ion-content>
+		<ion-list>
+			<label class="item item-input">
 		  	<span class="input-label">Username: {{vm.parentName}}</span>
 		  </label>
-      <label class="item item-input" ng-show="vm.childs.length === 1">
+			<label class="item item-input" ng-show="vm.childs.length === 1">
 		  	<span class="input-label">Student Name: {{vm.childs[0].studentName}}</span>
 		  </label>
-      <label class="item item-input">
+			<label class="item item-input" ng-hide="vm.childs.length === 1">
+		  	<span class="input-label">Student Name:</span>
+				<span ng-repeat="child in vm.childs">{{child.studentName}}</span>
+		  </label>
+			<label class="item item-input">
 		  	<span class="input-label">Contact No: {{vm.contactNo}}</span>
 		  </label>
-      <label class="item item-input">
+			<label class="item item-input">
 		  	<span class="input-label">Email Id: {{vm.emailId}}</span>
 		  </label>
-    </ion-list>
-  </ion-content>
+		</ion-list>
+	</ion-content>
 </ion-view>

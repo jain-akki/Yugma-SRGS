@@ -1,4 +1,4 @@
-# Ionic-Demo
+# Yugma SRGS
 Learn Ionic framework
 
 Installation :

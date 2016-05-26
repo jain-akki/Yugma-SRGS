@@ -1,0 +1,35 @@
+<ion-view view-title="{{vm.headetTilte}}" hide-back-button="true">
+   <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-android-arrow-back sidebar-ion-navicon" ng-click="vm.goBack()"></button>
+   </ion-nav-buttons>
+   <ion-content class="padding">
+      <ion-list class="teacher-comment-list">
+         <ion-item ng-repeat="cmpl in vm.comments">
+            <h2>{{cmpl.comment}}</h2>
+            <p>{{cmpl.parentName}}</p>
+            <p>{{cmpl.createdAt}}</p>
+         </ion-item>
+      </ion-list>
+   </ion-content>
+   <!--<div class="bar bar-footer txtAreaComment">
+      <form name="commentForm" class="row" ng-submit="vm.addComment(teacher)">
+         <div class="col col-80">
+            <textarea ng-model="teacher.comment" style="width:100%" placeholder="Type a comment" autofocus required></textarea>
+         </div>
+         <div class="col col-20">
+            <button type="submit" class="button button-icon icon-left ion-android-send" style="padding-left:0px"></button>
+         </div>
+      </form>
+   </div>-->
+   <div class="bar bar-footer">
+      <form name="commentForm" class="row" ng-submit="vm.addComment(vm.teacher)">
+         <div class="col col-90" style="margin-top:-18px; background-color:transparent;">
+            <textarea ng-model="vm.teacher.comment" style="width:100%;background-color:transparent" placeholder="Type a comment..." autofocus
+               required></textarea>
+         </div>
+         <div class="col ">
+            <button type="submit" class="button button-icon icon-left ion-android-send" style="padding-left:0px; margin-top:-10px; "></button>
+         </div>
+      </form>
+   </div>
+</ion-view>
