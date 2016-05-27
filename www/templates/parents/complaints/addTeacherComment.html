@@ -11,21 +11,10 @@
          </ion-item>
       </ion-list>
    </ion-content>
-   <!--<div class="bar bar-footer txtAreaComment">
-      <form name="commentForm" class="row" ng-submit="vm.addComment(teacher)">
-         <div class="col col-80">
-            <textarea ng-model="teacher.comment" style="width:100%" placeholder="Type a comment" autofocus required></textarea>
-         </div>
-         <div class="col col-20">
-            <button type="submit" class="button button-icon icon-left ion-android-send" style="padding-left:0px"></button>
-         </div>
-      </form>
-   </div>-->
    <div class="bar bar-footer">
       <form name="commentForm" class="row" ng-submit="vm.addComment(vm.teacher)">
          <div class="col col-90" style="margin-top:-18px; background-color:transparent;">
-            <textarea ng-model="vm.teacher.comment" style="width:100%;background-color:transparent" placeholder="Type a comment..." autofocus
-               required></textarea>
+            <textarea ng-model="vm.teacher.comment" style="width:100%;background-color:transparent" placeholder="Type a comment..." ng-disabled="vm.statusId==4" autofocus required></textarea>
          </div>
          <div class="col ">
             <button type="submit" class="button button-icon icon-left ion-android-send" style="padding-left:0px; margin-top:-10px; "></button>

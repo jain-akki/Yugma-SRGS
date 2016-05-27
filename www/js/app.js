@@ -98,7 +98,7 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
                 }
             })
             .state('yugma.add-teacher-comment', {
-                url: '/add-teacher-comment/:complaintId/:title',
+                url: '/add-teacher-comment/:complaintId/:title/:statusId',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/parents/complaints/addTeacherComment.html',

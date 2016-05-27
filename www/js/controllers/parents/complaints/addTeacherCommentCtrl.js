@@ -1,53 +1,54 @@
 angular.module('yugma')
 
-   .controller('addTeacherCommentCtrl', function ($scope, $state, $stateParams, $timeout, $ionicScrollDelegate, $ionicHistory, USER, commentService, customService) {
+.controller('addTeacherCommentCtrl', function ($scope, $state, $stateParams, $timeout, $ionicScrollDelegate, $ionicHistory, USER, commentService, customService) {
 
-      var vm = this;
+    var vm = this;
 
-      vm.headetTilte = $stateParams.title;
+    vm.headetTilte = $stateParams.title;
+    vm.statusId = $stateParams.statusId;
 
-      function getComment() {
+    function getComment() {
 
-         customService._on();
+        customService._on();
 
-         commentService.getComment($stateParams.complaintId).then(function (response) {
+        commentService.getComment($stateParams.complaintId).then(function (response) {
             vm.comments = response;
             customService._off();
-         });
-      }
+        });
+    }
 
-      getComment();
+    getComment();
 
-      vm.addComment = function (teacher) {
+    vm.addComment = function (teacher) {
 
-         var comment = {
+        var comment = {
             csaId: Number($stateParams.complaintId),
             id: USER.parentId(),
             comment: teacher.comment
-         }
+        }
 
-         console.log(comment)
+        console.log(comment)
 
-         commentService.setComment(comment).then(function (response) {
+        commentService.setComment(comment).then(function (response) {
 
             if (response) {
-               vm.comments.push({
-                  comment: teacher.comment,
-                  parentName: USER.parentName()
-               });
-               vm.teacher = {};
+                vm.comments.push({
+                    comment: teacher.comment,
+                    parentName: USER.parentName()
+                });
+                vm.teacher = {};
             }
 
-         });
+        });
 
-      }
+    }
 
-      vm.goBack = function () {
-         $ionicHistory.goBack();
-      }
+    vm.goBack = function () {
+        $ionicHistory.goBack();
+    }
 
-      $scope.$watch('vm.comments', function (newValue, oldValue) {
-         $ionicScrollDelegate.scrollBottom(false);
-      }, true);
+    $scope.$watch('vm.comments', function (newValue, oldValue) {
+        $ionicScrollDelegate.scrollBottom(false);
+    }, true);
 
-   })
+})

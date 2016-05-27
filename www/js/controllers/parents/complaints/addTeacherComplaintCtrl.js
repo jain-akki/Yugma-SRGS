@@ -168,8 +168,8 @@ angular.module('yugma')
        */
 
       $scope.clearHistory = function() {
-         // $state.reload();
-         $state.go($state.current, {}, {reload:true})
+         $state.reload();
+        //  $state.go($state.current, {}, {reload:true})
       }
 
    })

@@ -1,107 +1,84 @@
 angular.module('yugma')
 
-   .controller('teacherViewComplaintCtrl', function ($scope, $state, $stateParams, $ionicPopup, USER, customService,complaintService) {
+    .controller('teacherViewComplaintCtrl', function ($scope, $state, $stateParams, $ionicPopup, USER, customService, complaintService) {
 
-      $scope.cmpl = complaintService.viewTeacherComplaint($stateParams.complaintId);
-      
-      $scope.goBack = function () {
-         $state.transitionTo('yugma.complaints.teacher-complaint');
-      }
+        $scope.cmpl = complaintService.viewTeacherComplaint($stateParams.complaintId);
 
-      $scope.closeComplaint = {};
+        $scope.goBack = function () {
+            $state.transitionTo('yugma.complaints.teacher-complaint');
+        }
 
-      $scope.closeComplaint = function () {
+        $scope.closeComplaint = {};
 
-         var myPopup = $ionicPopup.show({
-            template: '<textarea ng-model="closeComplaint.comment" name="message"></textarea>',
-            title: 'Why you want to close this complaint ?',
-            scope: $scope,
-            buttons: [{
-               text: 'Cancel',
-               onTap: function (e) {
-                  // alert($scope.closeComplaint.comment);
-                  return 'cancel button'
-               }
-            }, {
-                  text: '<b>Ok</b>',
-                  type: 'button-positive',
-                  onTap: function (e) {
+        $scope.closeComplaint = function () {
 
-                     var data = {
+            var data = {
+                template: "<textarea ng-model='closeComplaint.comment' name='message'></textarea>",
+                title: "title new",
+                scope: $scope,
+                modelName: "closeComplaint"
+            }
+
+            customService._showPopup(data).then(function (res) {
+                if (res) {
+                    var closeComplaintData = {
                         csaId: Number($stateParams.complaintId),
                         id: USER.parentId(),
-                        comment: "ClosedReason: " + $scope.closeComplaint.comment
-                     }
-
-                     complaintService.closeComplaint(data).then(function (response) {
-                        data = {};
-                        $state.go("yugma.complaints.teacher-complaint", {}, {reload: true});
-                     });
-
-                     return 'ok button'
-                  }
-               }]
-         });
-      }
-      
-      $scope.satisfyComplaint = function () {
-            
-            var data  = {
-                  title: 'Close complaint permanently',
-                  template: 'If you are happay with the resolution please close complaint permanently.'
-            }
-            
-            customService._showConfirm(data).then(function (res) {
-                  if (res) {
+                        comment: "ClosedReason: " + res.comment
+                    }
+                    complaintService.closeComplaint(closeComplaintData).then(function (response) {
                         $scope.closeComplaint.comment = "";
-                        complaintService.satisfyTeacherComplaint($stateParams.complaintId).then(function(response) {
-                              $state.go("yugma.complaints.teacher-complaint", {}, {reload: true});
-                        })
-                  }
+                        $state.go("yugma.complaints.teacher-complaint", {}, {
+                            reload: true
+                        });
+                    });
+                }
             });
-      }
-      
-      $scope.reOpenComplaint = {};
-      
-      $scope.reOpenComplaint = function () {
-            
-            var myPopup = $ionicPopup.show({
-                  template: '<textarea ng-model="reOpenComplaint.comment" name="message"></textarea>',
-                  title: 'Why you want to reopen this complaint ?',
-                  scope: $scope,
-                  buttons: [{
-                  text: 'Cancel',
-                  onTap: function (e) {
-                        // alert($scope.closeComplaint.comment);
-                        return 'cancel button'
-                  }
-                  }, {
-                        text: '<b>Ok</b>',
-                        type: 'button-positive',
-                        onTap: function (e) {
+        }
 
-                              if (!$scope.reOpenComplaint.comment) {
-                                    e.preventDefault();
-                              }
+        $scope.satisfyComplaint = function () {
 
-                              var data = {
-                                    csaId: Number($stateParams.complaintId),
-                                    id: USER.parentId(),
-                                    comment: "ReopenReson: " + $scope.reOpenComplaint.comment
-                              }
+            var data = {
+                title: 'Close complaint permanently',
+                template: 'If you are happay with the resolution please close complaint permanently.'
+            }
 
-                              complaintService.reOpenComplaint(data).then(function (response) {
-                                    console.log(response);
-                                    $scope.reOpenComplaint.comment = "";
-                                    $state.go("yugma.complaints.teacher-complaint", {}, {reload: true});
-                                    
-                              });
-
-                              return 'ok button'
-                        }
-                  }]
+            customService._showConfirm(data).then(function (res) {
+                if (res) {
+                    complaintService.satisfyTeacherComplaint($stateParams.complaintId).then(function (response) {
+                        $state.go("yugma.complaints.teacher-complaint", {}, {
+                            reload: true
+                        });
+                    })
+                }
             });
-            
-      }
+        }
 
-   })
+        $scope.reOpenComplaint = {};
+
+        $scope.reOpenComplaint = function () {
+
+            var data = {
+                template: "<textarea ng-model='reOpenComplaint.comment' name='message'></textarea>" ,
+                title: "title new",
+                scope: $scope,
+                modelName: "reOpenComplaint"
+            }
+
+            customService._showPopup(data).then(function (res) {
+                if (res) {
+                    var reOpenComplaintData = {
+                        csaId: Number($stateParams.complaintId),
+                        id: USER.parentId(),
+                        comment: "ReopenReson: " + res.comment
+                    }
+                    complaintService.closeComplaint(reOpenComplaintData).then(function (response) {
+                        $scope.closeComplaint.comment = "";
+                        $state.go("yugma.complaints.teacher-complaint", {}, {
+                            reload: true
+                        });
+                    });
+                }
+            });
+        }
+    })
