@@ -1,6 +1,6 @@
 angular.module('yugma')
 
-  .factory("notificationService", function ($http, $http, $q, $ionicPlatform, $ionicPush, $localStorage, USER) {
+  .factory("notificationService", function ($http, $q, $ionicPlatform, $ionicPush, $localStorage, USER) {
 
     var notification = function () {
 

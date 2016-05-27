@@ -15,7 +15,7 @@ angular.module('yugma')
         });
     })
 
-    .run(function ($rootScope, $state, authService, $ionicPlatform, $cordovaStatusbar) {
+    .run(function ($rootScope, $state, authService, $ionicPlatform, $cordovaStatusbar, customService) {
 
         $rootScope.$on("$stateChangeStart", function (event, next, nextParams, fromState) {
             if (!authService.isAuthenticated()) {
@@ -35,15 +35,17 @@ angular.module('yugma')
         }
 
         $rootScope.$on('$cordovaNetwork:online', function (event, networkState) {
-            alert("online");
             $scope.isOnline = true;
         });
-        $rootScope.$on('$cordovaNetwork:offline', function (event, networkState) {
-            alert("offline");
 
-            $ionicPopup.confirm({
+        $rootScope.$on('$cordovaNetwork:offline', function (event, networkState) {
+
+            var data = {
                 title: 'No Internet Connection',
-                content: 'Sorry, no Internet connectivity detected.'
+                template: "Please check your connection, make sure it's turn on"
+            }
+
+            customService._showConfirm(data).then(function (res) {
             });
 
             $scope.isOnline = false;

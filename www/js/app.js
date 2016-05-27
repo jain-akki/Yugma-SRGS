@@ -21,6 +21,7 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
             })
             .state('login.parents', {
                 url: "/parents",
+                cache: false,
                 templateUrl: 'templates/login/login-parents.html'
             })
             .state('login.managements', {
@@ -31,25 +32,7 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
                 url: '/yugma',
                 abstract: true,
                 cache: false,
-                templateUrl: 'templates/sidebar.html',
-                controller: function ($scope, $state, customService, authService) {
-
-                    $scope.logout = function () {
-
-                        var data  = {
-                            title: 'Attention please',
-                            template: 'Are you sure want logged out?'
-                        }
-
-                        customService._showConfirm(data).then(function (res) {
-                            if (res) {
-                                authService.logout();
-                                $state.go("login");
-                            }
-                        });
-                    };
-
-                }
+                templateUrl: 'templates/sidebar.html'
             })
             .state('yugma.dashboard', {
                 url: '/dashboard',
