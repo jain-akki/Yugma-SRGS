@@ -21,7 +21,7 @@ angular.module('yugma')
             var confirmPopup = $ionicPopup.confirm({
                 title: data.title,
                 template: data.template,
-                cssClass: 'confirmLogout'
+                cssClass: 'customConfirm'
             });
             return confirmPopup;
         }
@@ -29,7 +29,8 @@ angular.module('yugma')
         var _showAlert = function (data) {
             var alertPopup = $ionicPopup.alert({
                 title: data.title,
-                template: data.template
+                template: data.template,
+                cssClass: 'customAlert'
             });
             return alertPopup;
         }

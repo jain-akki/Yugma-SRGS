@@ -34,4 +34,19 @@ angular.module('yugma')
             statusBar.backgroundColorByName("green");
         }
 
+        $rootScope.$on('$cordovaNetwork:online', function (event, networkState) {
+            alert("online");
+            $scope.isOnline = true;
+        });
+        $rootScope.$on('$cordovaNetwork:offline', function (event, networkState) {
+            alert("offline");
+
+            $ionicPopup.confirm({
+                title: 'No Internet Connection',
+                content: 'Sorry, no Internet connectivity detected.'
+            });
+
+            $scope.isOnline = false;
+        })
+
     })

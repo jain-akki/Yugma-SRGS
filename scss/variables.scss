@@ -23,3 +23,11 @@ $text-center: center;
 @mixin border-top($border) {
     border-top: $border;
 }
+
+@mixin border-right($border) {
+    border-right: $border;
+}
+
+@mixin border-left($border) {
+    border-left: $border;
+}

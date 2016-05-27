@@ -12201,9 +12201,40 @@ a.button {
 .login-item-content {
   padding-right: 45px; }
 
-.confirmLogout .button.button-default {
-  background-color: lightcoral !important;
-  color: #bdc3c7; }
+.customConfirm .popup {
+  box-shadow: 4px 4px 1px rgba(14, 14, 14, 0.37);
+  border-radius: 15px; }
+
+.customConfirm button.button.ng-binding.button-default {
+  margin: 16px 6px -10px -10px;
+  background-color: transparent !important;
+  color: #5051A6 !important;
+  border-top: 2px solid #CAC9C9;
+  border-right: 2px solid #CAC9C9; }
+
+.customConfirm button.button.ng-binding.button-positive {
+  margin: 16px -10px -10px -8px;
+  width: 105%;
+  border-top: solid 2px #CAC9C9;
+  border-left: solid 2px #CAC9C9;
+  background-color: transparent !important;
+  color: #5051A6 !important;
+  font-weight: bold;
+  border-top: solid 2px #CAC9C9;
+  border-left: solid 2px #CAC9C9; }
+
+.customAlert button.button.ng-binding.button-positive {
+  margin: 16px -10px -10px -8px;
+  width: 105%;
+  border-top: solid 2px #CAC9C9;
+  background-color: transparent !important;
+  color: #5051A6 !important;
+  font-weight: bold;
+  border-top: solid 2px #CAC9C9; }
+
+.customAlert div.popup {
+  box-shadow: 4px 4px 1px rgba(14, 14, 14, 0.37);
+  border-radius: 15px !important; }
 
 .loginRemovePadding {
   padding: 1px; }
@@ -12350,33 +12381,5 @@ textarea {
   padding: 8px;
   line-height: 17px; }
 
-/**
-* To change add complaint style remove below comment
-
-.trans-back {
-    background-color: rgba(0, 0, 0, 0.3);
-    color:white;
-}
-
-span.input-label {
-    color: white;
-}
-
-.input-style {
-    width: 90% !important;
-    margin: 5% !important;
-    background-color: rgba(0, 0, 0, 0.3) !important;
-    padding-left: 5px  !important;
-    padding-right: 5px  !important;
-    color: white  !important;
-}
-
-.form-select {
-    background-color: transparent;
-    color: white;
-}
-
-.checkbox-circle {
-
-}
-*/
+a.tab-item {
+  color: #ffffff !important; }

@@ -1,6 +1,6 @@
 angular.module("yugma")
 
-.factory('authService', function ($http, $q, baseUrl, $localStorage, customService, USER, $window) {
+.factory('authService', function ($http, $q, baseUrl, $localStorage, customService, USER, $window, $ionicPush, notificationService) {
 
     var isAuthenticated = false;
 
@@ -10,6 +10,7 @@ angular.module("yugma")
         $localStorage.Name = data.parentName;
         $localStorage.Email = data.parentEmail;
         $localStorage.Contact = data.parentContact;
+        notificationService.notification();
         userCredentials($localStorage.Id, $localStorage.Otp);
     }
 
@@ -29,6 +30,7 @@ angular.module("yugma")
     function destroyUserCredentials() {
         $localStorage.$reset();
         isAuthenticated = false;
+        $localStorage.removeItem("ionic_io_push_token");
         $http.defaults.headers.common["X-Auth-Token"] = undefined;
     }
     
@@ -80,7 +82,7 @@ angular.module("yugma")
     }
 
     var verifyOtp = function(otp, parentsData) {
-        console.log(otp, parentsData)
+
         return $q(function(resolve, reject) {
 
             if (otp === parentsData.parentOtp) {

@@ -48,10 +48,45 @@
     padding-right: 45px;
 }
 
-.confirmLogout {
-    .button.button-default {
-        background-color: lightcoral !important;
-        color: #bdc3c7;
+.customConfirm {
+    .popup{
+        box-shadow: 4px 4px 1px  rgba(14, 14, 14, 0.37);
+        @include border-radius(15px);
+    }
+    button.button.ng-binding.button-default{
+        margin: 16px 6px -10px -10px;
+        background-color: transparent !important;
+        color: #5051A6 !important;
+        @include border-top(2px solid #CAC9C9);
+        @include border-right(2px solid #CAC9C9);
+    }
+    button.button.ng-binding.button-positive{
+        margin: 16px -10px -10px -8px;
+        width:105%;
+        border-top: solid 2px #CAC9C9;
+        border-left: solid 2px #CAC9C9;
+        background-color: transparent !important;
+        color: #5051A6 !important;
+        font-weight:bold;
+        border-top: solid 2px #CAC9C9;
+        border-left: solid 2px #CAC9C9;
+    }
+}
+
+.customAlert {
+    button.button.ng-binding.button-positive{
+        margin: 16px -10px -10px -8px;
+        width:105%;
+        border-top: solid 2px #CAC9C9;
+        background-color: transparent !important;
+        color: #5051A6 !important;
+        font-weight:bold;
+        border-top: solid 2px #CAC9C9;
+    }
+
+    div.popup{
+        box-shadow: 4px 4px 1px  rgba(14, 14, 14, 0.37);
+        border-radius: 15px !important;
     }
 }
 
