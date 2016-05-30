@@ -13,6 +13,9 @@
 
 ```
   NOTE: always use dev branch for latest source (features)
+```
+
+```
   Go to the project directory
   run -> npm install
   run -> bower install
