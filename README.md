@@ -1,9 +1,20 @@
 # Yugma SRGS
-Learn Ionic framework
 
-Installation :
+## App for schools, provides a better interface between parent and teachers.
 
-1) Go to Ionic-Demo
-2) run -> npm install
-3) run -> bower install
-4) run -> ionic serve --lab
+** Yugma a school quality management App comes with following four dynamic features:  **
+
+* Complaint
+* Homework
+* Timetable
+* Food Menu
+
+> Installation :
+
+```
+  NOTE: always use dev branch for latest source (features)
+  Go to the project directory
+  run -> npm install
+  run -> bower install
+  run -> ionic serve --lab
+```
