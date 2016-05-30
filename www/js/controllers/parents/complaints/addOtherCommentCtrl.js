@@ -12,7 +12,6 @@ angular.module('yugma')
         customService._on();
 
         commentService.getOtherComment($stateParams.complaintId).then(function (response) {
-            console.log(response)
             vm.comments = response;
             customService._off();
         });

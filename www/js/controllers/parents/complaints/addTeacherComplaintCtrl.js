@@ -144,8 +144,6 @@ angular.module('yugma')
 
          }
 
-         console.log("DSDSDS", finalData);
-
          complaintService.saveTeacherComplaint(finalData).then(function (response) {
 
             customService._off();

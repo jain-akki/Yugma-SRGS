@@ -4,7 +4,7 @@ angular.module('yugma')
 
         $scope.cmpl = complaintService.viewTeacherComplaint($stateParams.complaintId);
 
-        console.log($stateParams)
+        $scope.cmpl.date = moment($scope.cmpl.createdAt).format("DD-MM-YYYY HH:mm:ss");
 
         $scope.goBack = function () {
             $state.transitionTo('yugma.complaints.teacher-complaint');

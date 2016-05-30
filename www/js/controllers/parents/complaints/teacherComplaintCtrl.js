@@ -1,4 +1,8 @@
-angular.module('yugma.controllers', [])
+(function(){
+
+	"use strict";
+
+	angular.module('yugma.controllers', [])
 
 	.controller('teacherComplaintsCtrl', function ($scope, $timeout, USER, complaintService, customService) {
 
@@ -39,3 +43,5 @@ angular.module('yugma.controllers', [])
 		};
 
 	})
+
+})();
