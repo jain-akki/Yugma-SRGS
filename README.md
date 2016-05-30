@@ -2,7 +2,7 @@
 
 ## App for schools, provides a better interface between parent and teachers.
 
-** Yugma a school quality management App comes with following four dynamic features:  **
+**Yugma a school quality management App comes with following four dynamic features:**
 
 * Complaint
 * Homework
