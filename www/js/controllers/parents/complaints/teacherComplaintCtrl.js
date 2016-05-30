@@ -14,7 +14,7 @@ angular.module('yugma.controllers', [])
 				$scope.teacherComplaints = response;
 
 				_.forEach(response, function(val, index) {
-					var splitDate = (val.createdAt).substring(0, 10).split("-");
+					var splitDate = (val.createdAt).substring(0, 20).split("-");
 					splitDate= [splitDate[1], splitDate[0], splitDate[2]].join("-");
 					val.createdAt = new Date(splitDate);
 				});

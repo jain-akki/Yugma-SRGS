@@ -1,6 +1,6 @@
 angular.module('yugma')
 
-.controller('addTeacherCommentCtrl', function ($scope, $state, $stateParams, $timeout, $ionicScrollDelegate, $ionicHistory, USER, commentService, customService) {
+.controller('addOtherCommentCtrl', function ($scope, $state, $stateParams, $timeout, $ionicScrollDelegate, $ionicHistory, USER, commentService, customService) {
 
     var vm = this;
 
@@ -11,7 +11,7 @@ angular.module('yugma')
 
         customService._on();
 
-        commentService.getComment($stateParams.complaintId).then(function (response) {
+        commentService.getOtherComment($stateParams.complaintId).then(function (response) {
             console.log(response)
             vm.comments = response;
             customService._off();
@@ -28,7 +28,7 @@ angular.module('yugma')
             comment: teacher.comment
         }
 
-        commentService.setComment(comment).then(function (response) {
+        commentService.setOtherComment(comment).then(function (response) {
 
             if (response) {
                 vm.comments.push({

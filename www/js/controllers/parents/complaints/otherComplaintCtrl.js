@@ -9,6 +9,11 @@ angular.module('yugma')
 		complaintService.getOtherComplaint(USER.parentId()) .then(function (response) {
 			customService._off();
 			$scope.otherComplaints = response;
+			_.forEach(response, function(val, index) {
+					var splitDate = (val.createdAt).substring(0, 20).split("-");
+					splitDate= [splitDate[1], splitDate[0], splitDate[2]].join("-");
+					val.createdAt = new Date(splitDate);
+				});
 		});
 
 		/**
