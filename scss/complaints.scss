@@ -31,7 +31,7 @@
 }
 
 select {
-    width: 100%;
+    width: $width;
     height: 50px;
     color: $btn-bg-color;
     background-color: $background-color;
@@ -41,7 +41,7 @@ select {
     margin-bottom: 3px;
     // background-color: transparent !important;
     a {
-        padding: 0px 49px 0px 16px !important;
+        padding: 0px 0px 0px 10px !important;
         // background-color: transparent !important;
     }
     a.activated {
@@ -50,10 +50,10 @@ select {
 }
 
 .card-text {
-    font-size:13px;
+    font-size: 13px;
 }
 .card-complaint {
-    margin:5px 5px;
+    margin: 5px 5px;
 }
 
 .item-stacked-label {
@@ -64,18 +64,18 @@ select {
             margin-left: 4px;
         }
     }
-    background: white;
+    background: $color-white;
 }
 
 .button-to-select {
     background-color: #B1B3EE !important;
-    color:$color-white !important;
+    color: $color-white !important;
 }
 
 .button-block-margin {
     margin: 5%;
     width: 90% !important;
-    background-color: #5051A6 !important;
+    background-color: $btn-bg-color !important;
     color: $color-white !important;
     padding: 0px 20px;
     font-size: 18px;
@@ -83,13 +83,13 @@ select {
 
 .button-block-margin:active {
     background-color: #B1B3EE  !important;
-    border-color:#5051A6;
-    color:#5051A6 !important;
+    border-color: $btn-bg-color;
+    color: $btn-bg-color !important;
 }
 
 #otherData {
-    display:none;
-    margin:10px 10px 0px 10px;
+    display: none;
+    margin: 10px 10px 0px 10px;
 }
 
 #subCategory {
@@ -103,7 +103,7 @@ select {
 textarea {
     resize: none;
     padding: 8px;
-    line-height: 17px;
+    line-height: 20px;
 }
 
 a.tab-item {

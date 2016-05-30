@@ -1,6 +1,6 @@
 angular.module('yugma')
 
-   .controller('addTeacherComplaintsCtrl', function ($scope, $state, $ionicHistory, $ionicViewService, USER, complaintService, customService) {
+   .controller('addTeacherComplaintsCtrl', function ($scope, $state, $ionicHistory, USER, complaintService, customService) {
 
       $scope.childs = USER.parentChilds();
 
@@ -168,8 +168,8 @@ angular.module('yugma')
        */
 
       $scope.clearHistory = function() {
-         $state.reload();
-        //  $state.go($state.current, {}, {reload:true})
+        //  $state.reload();
+         $state.go($state.current, {}, {reload:true});
       }
 
    })

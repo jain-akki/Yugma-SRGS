@@ -22,7 +22,7 @@
 
 .login-item-input {
     margin-bottom: 5px;
-    background: transparent;
+    background: $transparent;
     border: none;
     @include border-bottom(1px solid $btn-bg-color);
 }
@@ -49,44 +49,44 @@
 }
 
 .customConfirm {
-    .popup{
+
+    .popup {
         box-shadow: 4px 4px 1px  rgba(14, 14, 14, 0.37);
         @include border-radius(15px);
     }
-    button.button.ng-binding.button-default{
+
+    .button-default{
         margin: 16px 6px -10px -10px;
-        background-color: transparent !important;
-        color: #5051A6 !important;
+        background-color: $transparent !important;
+        color: $btn-bg-color !important;
         @include border-top(2px solid #CAC9C9);
         @include border-right(2px solid #CAC9C9);
     }
     button.button.ng-binding.button-positive{
+        font-weight: bold;
+        width: $width + 5%;
         margin: 16px -10px -10px -8px;
-        width:105%;
-        border-top: solid 2px #CAC9C9;
-        border-left: solid 2px #CAC9C9;
-        background-color: transparent !important;
-        color: #5051A6 !important;
-        font-weight:bold;
-        border-top: solid 2px #CAC9C9;
-        border-left: solid 2px #CAC9C9;
+        color: $btn-bg-color !important;
+        background-color: $transparent !important;
+        @include border-top(2px solid #CAC9C9);
+        @include border-left(2px solid #CAC9C9);
     }
 }
 
 .customAlert {
-    button.button.ng-binding.button-positive{
+
+    button.button.ng-binding.button-positive {
+        font-weight: bold;
+        width: $width + 5%;
         margin: 16px -10px -10px -8px;
-        width:105%;
-        border-top: solid 2px #CAC9C9;
-        background-color: transparent !important;
-        color: #5051A6 !important;
-        font-weight:bold;
-        border-top: solid 2px #CAC9C9;
+        color: $btn-bg-color !important;
+        background-color: $transparent !important;
+        @include border-top(2px solid #CAC9C9);
     }
 
     div.popup{
         box-shadow: 4px 4px 1px  rgba(14, 14, 14, 0.37);
-        border-radius: 15px !important;
+        @include border-radius(15px);
     }
 }
 
@@ -107,7 +107,7 @@
 }
 
 .list-inset {
-	background-color: transparent !important;
+	background-color: $transparent !important;
 }
 
 .button {
@@ -139,12 +139,12 @@
 
 .purple-back {
     background-color: $background-color;
-    color: white;
+    color: $color-white;
 }
 
 .dark-purple-back {
     background-color: #5051A6;
-    color: white !important;
+    color: $color-white !important;
 }
 
 .login-radio {
@@ -160,7 +160,7 @@
 }
 
 .login-header-title {
-    color: white !important;
+    color: $color-white !important;
 }
 
 .sidebar-ion-home {

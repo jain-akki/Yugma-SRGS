@@ -1,4 +1,4 @@
-angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',  'ionic.service.push', 'yugma.controllers', 'yugma.services'])
+angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',  'ionic.service.push', 'yugma.controllers', 'yugma.services', 'angularMoment'])
 
     .config(function ($stateProvider, $locationProvider, $urlRouterProvider, $ionicConfigProvider) {
 
@@ -31,7 +31,7 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
             .state('yugma', {
                 url: '/yugma',
                 abstract: true,
-                cache: false,
+                // cache: false,
                 templateUrl: 'templates/sidebar.html'
             })
             .state('yugma.dashboard', {

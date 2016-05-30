@@ -13,44 +13,15 @@ angular.module('yugma.controllers', [])
 				customService._off();
 				$scope.teacherComplaints = response;
 
-				$timeout(function () {
-					dayDiff($scope.teacherComplaints);
+				_.forEach(response, function(val, index) {
+					var splitDate = (val.createdAt).substring(0, 10).split("-");
+					splitDate= [splitDate[1], splitDate[0], splitDate[2]].join("-");
+					val.createdAt = new Date(splitDate);
 				});
 			});
 		};
 
 		getTeacherComplaint();
-
-		/**
-		 * purpose of this function
-		 * calculate day difference between
-		 * complaint date and current date
-		 */
-		function dayDiff(complaints) {
-
-			var b,
-				 createDate,
-				 d = new Date(),
-				 currentDate = moment(d).format("DD/MM/YYYY"),
-				 a = currentDate.split("/");
-
-			_.forEach(complaints, function (val, index) {
-
-				createDate = val.createdAt.substring(0, 19);
-
-				b = createDate.split("-");
-				
-				/**
-				 * Now replace '-' to '/'
-				 * and change year to two digits
-				 */
-				if (a[0] - b[0] >= 1) {
-					val.createdAt = moment(createDate.replace(/-/g, '/').substring(0, 10), "DD/MM/YYYY").format("DD/MM/YY");
-				} else {
-					val.createdAt = createDate.replace(/-/g, '/').substring(11, 16);
-				}
-			});
-		}
 
 		/**
 		 * When user pull complaint list 
