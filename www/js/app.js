@@ -53,6 +53,16 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
                     }
                 }
             })
+            .state('yugma.timetable', {
+                url: '/timetable',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/timetable/timetable.html',
+                        controller: 'timetableCtrl as vm'
+                    }
+                }
+            })
             .state('yugma.complaints', {
                 url: '/complaints',
                 cache: false,

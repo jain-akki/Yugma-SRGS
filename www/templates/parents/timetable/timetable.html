@@ -1,0 +1,44 @@
+<style>
+  .watermark {
+    background-image: url(img/logot.png);
+    background-position: center;
+    background-size: 300px;
+    background-repeat: no-repeat;
+  }
+</style>
+
+<ion-view view-title="Timetable" class="purple-back">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-ios-undo sidebar-ion-navicon" ng-click="vm.clearHistory()"></button>
+  </ion-nav-buttons>
+  <div class="bar bar-subheader button-to-select" ng-show="vm.childs.length > 1">
+    <h2 class="title add-complaint-child-name">Select child</h2>
+  </div>
+  <div class="bar bar-subheader button-to-select" ng-show="vm.childs.length === 1">
+    <h2 class="title add-complaint-child-name">{{vm.singleStudentName}}</h2>
+  </div>
+  <ion-content class="padding watermark has-subheader">
+    <ion-list class="studentName" ng-show="vm.childs.length > 1">
+      <button id="test" class="button button-block button-positive button-block-margin animated bounceInRight" ng-click="vm.selectChild(child)"
+        ng-repeat="child in vm.childs">
+        {{child.studentName}}
+      </button>
+    </ion-list>
+    <ion-list class="studentName">
+      <ion-item ng-repeat="val in timetable">
+        <p>{{val.time}}</p>
+        <p>{{val.day}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <!--<ion-content scroll="false" class="has-subheader">
+    <ion-slide-box slide-tabs-scrollable="false" show-pager="false" ion-slide-tabs>
+      <ion-slide ion-slide-tab-label="test">
+        <h1>Tab 1</h1></ion-slide>
+      <ion-slide ion-slide-tab-label="secondTest">
+        <h1>Tab 2</h1></ion-slide>
+      <ion-slide ion-slide-tab-label="<b>boldTest</b>">
+        <h1>Tab 3</h1></ion-slide>
+    </ion-slide-box>
+  </ion-content>-->
+</ion-view>

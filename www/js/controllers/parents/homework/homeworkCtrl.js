@@ -6,7 +6,7 @@ angular.module('yugma')
 
     vm.childs = USER.parentChilds();
 
-    if (vm.totalChilds === 1) {
+    if (vm.childs.length === 1) {
       customService._on();
       vm.singleStudentName = vm.childs[0].studentName;
       getHomework(vm.childs[0].standardId);
