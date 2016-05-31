@@ -43,6 +43,15 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
                     }
                 }
             })
+            .state('yugma.homework', {
+                url: '/homework',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/homework/homework.html',
+                        controller: 'homeworkCtrl'
+                    }
+                }
+            })
             .state('yugma.complaints', {
                 url: '/complaints',
                 cache: false,
