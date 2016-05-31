@@ -45,10 +45,11 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
             })
             .state('yugma.homework', {
                 url: '/homework',
+                cache: false,
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/parents/homework/homework.html',
-                        controller: 'homeworkCtrl'
+                        controller: 'homeworkCtrl as vm'
                     }
                 }
             })

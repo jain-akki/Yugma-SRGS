@@ -1,3 +1,37 @@
-<ion-view view-title="Homework">
-  
+<style>
+  .watermark {
+    background-image: url(img/logot.png);
+    background-position: center;
+    background-size: 300px;
+    background-repeat: no-repeat;
+  }
+</style>
+
+<ion-view view-title="Homework" class="purple-back">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-ios-undo sidebar-ion-navicon" ng-click="vm.clearHistory()"></button>
+  </ion-nav-buttons>
+  <div class="bar bar-subheader button-to-select" ng-show="vm.childs.length > 1">
+    <h2 class="title add-complaint-child-name">Select child</h2>
+  </div>
+  <div class="bar bar-subheader button-to-select" ng-show="vm.childs.length === 1">
+    <h2 class="title add-complaint-child-name">{{vm.singleStudentName}}</h2>
+  </div>
+  <ion-content class="padding watermark has-subheader">
+    <ion-list class="studentName" ng-show="vm.childs.length > 1">
+      <button id="test" class="button button-block button-positive button-block-margin animated bounceInRight" ng-click="vm.selectChild(child)"
+        ng-repeat="child in vm.childs">
+        {{child.studentName}}
+      </button>
+    </ion-list>
+    <ion-list class="studentName">
+      <ion-item ng-repeat="val in vm.homework">
+        <p>{{val.homeworkTitle}}</p>
+        <p>{{val.description}}</p>
+        <p>{{val.createdAt}}</p>
+        <p>{{val.dueDate}}</p>
+        <p>{{val.teacherName}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
 </ion-view>

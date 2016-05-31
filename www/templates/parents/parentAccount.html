@@ -1,8 +1,16 @@
-<ion-view view-title="Account">
+<style>
+  .watermark {
+    background-image: url(img/logot.png);
+    background-position: center;
+    background-size: 300px;
+    background-repeat: no-repeat;
+  }
+</style>
+<ion-view view-title="Account" class="purple-back">
 	<ion-nav-buttons side="right">
 		<a menu-toggle="right" class="button button-icon button-clear ion-power sidebar-ion-navicon" ng-click="vm.logout()"></a>
 	</ion-nav-buttons>
-	<ion-content>
+	<ion-content class="watermark">
 		<ion-list>
 			<label class="item item-input">
 		  	<span class="input-label">Username: {{vm.parentName}}</span>
