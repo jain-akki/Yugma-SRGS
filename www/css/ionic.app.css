@@ -12302,12 +12302,6 @@ a.button {
 #complaints {
   margin-bottom: 0px; }
 
-.teacher-comment-list .list:last-child {
-  margin-bottom: 63px !important; }
-
-.teacher-complaint-list .list:last-child {
-  margin-bottom: 0px !important; }
-
 .complaint-ion-ios-people,
 .complaint-ion-ios-flower-outline {
   border-top: 2px solid #b2b4ee;
@@ -12373,13 +12367,25 @@ select {
 #teacher {
   display: none; }
 
-textarea {
-  resize: none;
-  padding: 8px;
-  line-height: 20px; }
-
 a.tab-item {
   color: #ffffff !important; }
 
 .viewComplaint {
   margin-bottom: 44px; }
+
+.commentForm {
+  background-color: #5051A6;
+  height: 10%; }
+  .commentForm .txtArea {
+    margin-top: -13px;
+    background-color: transparent; }
+  .commentForm textarea {
+    resize: none;
+    padding: 8px;
+    line-height: 20px;
+    width: 100%;
+    background-color: transparent; }
+  .commentForm .commentBtn {
+    padding-left: 0px;
+    margin-top: -2px;
+    color: #ffffff; }

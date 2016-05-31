@@ -46,7 +46,6 @@ angular.module('yugma')
                 buttons: [{
                     text: 'Cancel',
                     onTap: function (e) {
-                        data.scope[data.modelName] = {};
                         return false;
                 }}, {
                     text: 'Close',

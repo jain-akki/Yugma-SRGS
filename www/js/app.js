@@ -54,7 +54,6 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
             })
             .state('yugma.complaints.teacher-complaint', {
                 url: '/teacher-complaint',
-                // cache: false,
                 views: {
                     'complaint-teacher': {
                         templateUrl: 'templates/parents/complaints/complaintsTeacher.html',
@@ -64,7 +63,6 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
             })
             .state('yugma.complaints.other-complaint', {
                 url: '/other-complaint',
-                // cache: false,
                 views: {
                     'complaint-other': {
                         templateUrl: 'templates/parents/complaints/complaintsOthers.html',

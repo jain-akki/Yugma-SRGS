@@ -19,21 +19,21 @@
       <button class="button button-icon button-clear ion-android-arrow-back sidebar-ion-navicon" ng-click="vm.goBack()"></button>
    </ion-nav-buttons>
    <ion-content class="padding">
-      <ion-list class="teacher-comment-list">
+      <ion-list>
          <ion-item ng-repeat="cmpl in vm.comments" class="teacher-comment-list animated slideInLeft">
-            <h2>{{cmpl.comment}}</h2>
+            <h2 style="white-space:normal">{{cmpl.comment}}</h2>
             <p>{{cmpl.parentName}}</p>
             <p>{{cmpl.createdAt}}</p>
          </ion-item>
       </ion-list>
    </ion-content>
-   <div class="bar bar-footer" style="background-color:#5051A6; height:10%;">
+   <div class="bar bar-footer commentForm">
       <form name="commentForm" class="row" ng-submit="vm.addComment(vm.teacher)">
-         <div class="col col-90" style="margin-top:-13px; background-color:transparent;">
-            <textarea ng-model="vm.teacher.comment" style="width:100%;background-color:transparent" placeholder="Type a comment..." ng-disabled="vm.statusId==4" autofocus required></textarea>
+         <div class="col col-90 txtArea">
+            <textarea ng-model="vm.teacher.comment" placeholder="Type a comment..." ng-disabled="vm.statusId == 4" required></textarea>
          </div>
          <div class="col ">
-            <button type="submit" class="button button-icon icon-left ion-android-send" style="padding-left:0px; margin-top:-2px; color:white; "></button>
+            <button type="submit" class="button button-icon icon-left ion-android-send commentBtn"></button>
          </div>
       </form>
    </div>

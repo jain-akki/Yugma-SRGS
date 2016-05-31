@@ -1,5 +1,5 @@
 .sidebar-purplel {
-    background-color: #5051A6;
+    background-color: $btn-bg-color;
     color: $color-white;
 }
 
@@ -10,13 +10,13 @@
 
 .sidebar-item-content {
     a {
-        background-color:#b2b4ee !important;
+        background-color: $background-color !important;
         color: $color-white !important;
     }
 }
 
 .tab-nav {
-   background-color: #5051A6 !important;
+   background-color: $btn-bg-color !important;
    border: none !important;
 }
 
