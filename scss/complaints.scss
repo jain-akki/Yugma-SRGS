@@ -118,3 +118,21 @@ a.tab-item {
         color: $color-white; 
     }
 }
+
+.commentListMarginBottom {
+    margin-bottom: 42px;
+    .item {
+        padding: 9px 9px 6px 11px;
+        .commentParentName {
+            color: forestgreen;
+            font-size: small;
+            font-weight: 600;
+            width: 65%;
+            float: left;
+        }
+        .commentCreateDate {
+            text-align: right;
+            font-size: smaller;
+        }
+    }
+}

@@ -15,8 +15,7 @@ angular.module('yugma')
     vm.logout = function () {
 
       var data = {
-        title: 'Attention please',
-        template: 'Are you sure want logged out?'
+        template: 'Sure you want to logout?'
       }
 
       customService._showConfirm(data).then(function (res) {

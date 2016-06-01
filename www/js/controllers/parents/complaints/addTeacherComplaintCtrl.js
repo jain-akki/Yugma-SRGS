@@ -75,6 +75,7 @@ angular.module('yugma')
 
          } else {
 
+            $scope.categoryId = newval.categoryId;
             addClassAndCss("category", "bounceOutLeft", "none");
             addClassAndCss("subCategory", "bounceOutLeft", "none");
             $("#otherData").append(newval.categoryName);
@@ -143,7 +144,7 @@ angular.module('yugma')
             anonymous: complaint.isChecked
 
          }
-
+         console.log("data", finalData)
          complaintService.saveTeacherComplaint(finalData).then(function (response) {
 
             customService._off();

@@ -104,7 +104,7 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
                 url: '/add-teacher-comment/:complaintId/:title/:statusId',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/parents/complaints/addTeacherComment.html',
+                        templateUrl: 'templates/parents/complaints/comment.html',
                         controller: 'addTeacherCommentCtrl as vm'
                     }
                 }
@@ -113,7 +113,7 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
                 url: '/add-other-comment/:complaintId/:title/:statusId',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/parents/complaints/addTeacherComment.html',
+                        templateUrl: 'templates/parents/complaints/comment.html',
                         controller: 'addOtherCommentCtrl as vm'
                     }
                 }

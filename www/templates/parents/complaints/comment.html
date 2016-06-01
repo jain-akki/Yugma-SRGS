@@ -1,7 +1,4 @@
 <style>
-  .teacher-comment-list{
-    margin: 3px 0px 3px 0px;
-  }
   .watermark-addComp {
     background-image: url(img/logot.png);
     background-repeat: no-repeat;
@@ -13,24 +10,25 @@
     color:    white !important;
     padding: 10px !important;
   }
+  
 </style> 
 <ion-view view-title="{{vm.headetTilte}}" hide-back-button="true" class="purple-back watermark-addComp">
    <ion-nav-buttons side="left">
       <button class="button button-icon button-clear ion-android-arrow-back sidebar-ion-navicon" ng-click="vm.goBack()"></button>
    </ion-nav-buttons>
-   <ion-content class="padding">
-      <ion-list>
-         <ion-item ng-repeat="cmpl in vm.comments" class="teacher-comment-list animated slideInLeft">
-            <h2 style="white-space:normal">{{cmpl.comment}}</h2>
-            <p>{{cmpl.parentName}}</p>
-            <p>{{cmpl.createdAt}}</p>
-         </ion-item>
-      </ion-list>
+   <ion-content class="padding commentListMarginBottom">
+      <div class="card card-complaint" ng-repeat="cmpl in vm.comments">
+        <div class="item item-text-wrap card-text">
+          <div class="commentParentName">{{cmpl.parentName}}</div>
+          <div class="commentCreateDate"><span am-time-ago="cmpl.createdAt"></span></div>
+          <div>{{cmpl.comment}}</div>
+        </div>
+      </div>
    </ion-content>
-   <div class="bar bar-footer commentForm">
+   <div class="bar bar-footer commentForm" ng-hide="vm.statusId == 4 || vm.statusId == 6">
       <form name="commentForm" class="row" ng-submit="vm.addComment(vm.teacher)">
          <div class="col col-90 txtArea">
-            <textarea ng-model="vm.teacher.comment" placeholder="Type a comment..." ng-disabled="vm.statusId == 4" required></textarea>
+            <textarea ng-model="vm.teacher.comment" placeholder="Type a comment..." required></textarea>
          </div>
          <div class="col ">
             <button type="submit" class="button button-icon icon-left ion-android-send commentBtn"></button>

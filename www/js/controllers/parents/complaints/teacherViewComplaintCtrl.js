@@ -42,7 +42,7 @@ angular.module('yugma')
 
             var data = {
                 title: 'Close complaint permanently',
-                template: 'If you are happay with the resolution please close complaint permanently.'
+                template: 'Glad you are happy, complaint will be closed permanently.'
             }
 
             customService._showConfirm(data).then(function (res) {
@@ -62,7 +62,7 @@ angular.module('yugma')
 
             var data = {
                 template: "<textarea ng-model='reOpenComplaint.comment' name='message'></textarea>" ,
-                title: "title new",
+                title: "Reason for reopening the complaint ?",
                 scope: $scope,
                 modelName: "reOpenComplaint"
             }

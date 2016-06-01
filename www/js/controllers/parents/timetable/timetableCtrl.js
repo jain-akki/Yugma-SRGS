@@ -14,11 +14,11 @@ angular.module('yugma')
 
     function getTimetable(standardId) {
 
-      $scope.timetable = [];
+      vm.timetable = [];
 
       timetableService.getTimetable(standardId).then(function (response) {
         _.find(response, function (response, n) {
-          $scope.timetable.push({
+          vm.timetable.push({
             day: response[day],
             time: response.periodTime
           });

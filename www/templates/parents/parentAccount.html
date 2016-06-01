@@ -1,10 +1,10 @@
 <style>
-  .watermark {
-    background-image: url(img/logot.png);
-    background-position: center;
-    background-size: 300px;
-    background-repeat: no-repeat;
-  }
+	.watermark {
+		background-image: url(img/logot.png);
+		background-position: center;
+		background-size: 300px;
+		background-repeat: no-repeat;
+	}
 </style>
 <ion-view view-title="Account" class="purple-back">
 	<ion-nav-buttons side="right">
@@ -12,22 +12,28 @@
 	</ion-nav-buttons>
 	<ion-content class="watermark">
 		<ion-list>
-			<label class="item item-input">
-		  	<span class="input-label">Username: {{vm.parentName}}</span>
-		  </label>
-			<label class="item item-input" ng-show="vm.childs.length === 1">
-		  	<span class="input-label">Student Name: {{vm.childs[0].studentName}}</span>
-		  </label>
-			<label class="item item-input" ng-hide="vm.childs.length === 1">
-		  	<span class="input-label">Student Name:</span>
-				<span ng-repeat="child in vm.childs">{{child.studentName}}</span>
-		  </label>
-			<label class="item item-input">
-		  	<span class="input-label">Contact No: {{vm.contactNo}}</span>
-		  </label>
-			<label class="item item-input">
-		  	<span class="input-label">Email Id: {{vm.emailId}}</span>
-		  </label>
+			<label class="item item-input card" style="margin-top: 10px; margin-bottom: -5px">
+				<span class="input-label"><b>Username:</b> {{vm.parentName}}</span>
+			</label>
+			<label class="item item-input card" style="margin-top: 10px; margin-bottom: -5px">
+				<span class="input-label"><b>Contact No:</b> {{vm.contactNo}}</span>
+			</label>
+			<label class="item item-input card" style="margin-top: 10px; margin-bottom: -5px">
+				<span class="input-label"><b>Email Id:</b> {{vm.emailId}}</span>
+			</label>
+			<label class="item item-input card" ng-show="vm.childs.length === 1" style="margin-top: 10px; margin-bottom: -5px">
+				<span class="input-label"><b>Student Name:</b> {{vm.childs[0].studentName}}</span>
+			</label>
+			<div class="card" ng-hide="vm.childs.length === 1" style="width: 50% !important; margin-left:25%; margin-top:20px; ">
+				<label class="item item-input">
+					<span  style="margin-bottom:20px; text-align:center; margin-left:25%;border-color: transparent !important"><b>Childs</b></span> 
+				</label>
+				<ion-item ng-repeat="child in vm.childs" style="margin:-20px 20px -15px 20px; text-align:center; 		border-color:transparent !important">
+					<div class="complaint-lists">
+						{{child.studentName}}
+					</div>
+				</ion-item>
+			</div>
 		</ion-list>
 	</ion-content>
 </ion-view>

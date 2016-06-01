@@ -19,7 +19,6 @@ angular.module('yugma')
 
         var _showConfirm = function (data) {
             var confirmPopup = $ionicPopup.confirm({
-                title: data.title,
                 template: data.template,
                 cssClass: 'customConfirm'
             });
@@ -28,7 +27,6 @@ angular.module('yugma')
 
         var _showAlert = function (data) {
             var alertPopup = $ionicPopup.alert({
-                title: data.title,
                 template: data.template,
                 cssClass: 'customAlert'
             });
@@ -43,6 +41,7 @@ angular.module('yugma')
                 template: data.template,
                 title: data.title,
                 scope: data.scope,
+                // cssClass: 'customConfirm',
                 buttons: [{
                     text: 'Cancel',
                     onTap: function (e) {

@@ -1,4 +1,4 @@
-<ion-view view-title="{{cmpl.title}}" class="purple-back watermark">
+<ion-view view-title="{{cmpl.title}}" class="purple-back watermark aa">
   <ion-nav-buttons side="left">
     <button class="button button-icon button-clear ion-android-arrow-back sidebar-ion-navicon" ng-click="goBack()"></button>
   </ion-nav-buttons>
@@ -40,7 +40,7 @@
     </div>
 
   </ion-content>
-  <div class="tabs tabs-icon-top complaints-tab" ng-hide="cmpl.statusId == 6">
+  <div class="tabs tabs-icon-top complaints-tab">
     <a class="tab-item" href="#/yugma/add-other-comment/{{cmpl.id}}/{{cmpl.title}}/{{cmpl.statusId}}" nav-direction="back">
       <i class="icon ion-android-chat"></i> Comments
     </a>

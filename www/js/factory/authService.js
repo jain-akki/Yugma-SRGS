@@ -56,8 +56,7 @@ angular.module("yugma")
         var deferred = $q.defer();
 
         var alertData = {
-            title: 	"Login Failed",
-            template : "You enter wrong number."
+            template : "Number not registered."
         };
 
         $http({

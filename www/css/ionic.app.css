@@ -12203,35 +12203,67 @@ a.button {
 
 .customConfirm .popup {
   box-shadow: 4px 4px 1px rgba(14, 14, 14, 0.37);
-  border-radius: 15px; }
+  background-color: #ffffff; }
+
+.customConfirm .popup-head {
+  display: none; }
 
 .customConfirm .button-default {
-  margin: 16px 6px -10px -10px;
+  margin: 16px 6px -10px -8px;
+  border-radius: 0px;
   background-color: transparent !important;
   color: #5051A6 !important;
-  border-top: 2px solid #CAC9C9;
-  border-right: 2px solid #CAC9C9; }
+  border-top: 1px solid #5051A6;
+  border-right: 1px solid #5051A6; }
+
+.customConfirm .button-default:active {
+  background-color: #b2b4ee !important;
+  color: white !important; }
 
 .customConfirm button.button.ng-binding.button-positive {
   font-weight: bold;
   width: 105%;
   margin: 16px -10px -10px -8px;
-  color: #5051A6 !important;
-  background-color: transparent !important;
-  border-top: 2px solid #CAC9C9;
-  border-left: 2px solid #CAC9C9; }
+  color: #ffffff !important;
+  border-radius: 0px;
+  background-color: #5051A6 !important; }
+
+.customConfirm .popup-body {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: larger; }
+
+.customConfirm .popup-buttons {
+  min-height: initial;
+  padding: 0px 10px 10px 8px; }
 
 .customAlert button.button.ng-binding.button-positive {
   font-weight: bold;
   width: 105%;
-  margin: 16px -10px -10px -8px;
+  margin: 0px -10px -10px -8px;
   color: #5051A6 !important;
   background-color: transparent !important;
   border-top: 2px solid #CAC9C9; }
 
+.customAlert button.button.ng-binding.button-positive:active {
+  background: #b2b4ee !important; }
+
 .customAlert div.popup {
   box-shadow: 4px 4px 1px rgba(14, 14, 14, 0.37);
-  border-radius: 15px; }
+  background-color: #ffffff; }
+
+.customAlert .popup-head {
+  display: none; }
+
+.customAlert .popup-body {
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+  font-size: larger; }
+
+.customAlert .popup-buttons {
+  min-height: initial;
+  padding: 8px 10px 10px 8px; }
 
 .loginRemovePadding {
   padding: 1px; }
@@ -12389,6 +12421,20 @@ a.tab-item {
     padding-left: 0px;
     margin-top: -2px;
     color: #ffffff; }
+
+.commentListMarginBottom {
+  margin-bottom: 42px; }
+  .commentListMarginBottom .item {
+    padding: 9px 9px 6px 11px; }
+    .commentListMarginBottom .item .commentParentName {
+      color: forestgreen;
+      font-size: small;
+      font-weight: 600;
+      width: 65%;
+      float: left; }
+    .commentListMarginBottom .item .commentCreateDate {
+      text-align: right;
+      font-size: smaller; }
 
 ion-slide {
   background-color: #f0f0f0; }
