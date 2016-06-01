@@ -15,8 +15,8 @@ angular.module('yugma')
         $scope.closeComplaint = function () {
 
             var data = {
-                template: "<textarea ng-model='closeComplaint.comment' name='message'></textarea>",
-                title: "title new",
+                template: "<textarea ng-model='closeComplaint.comment' name='message' autofocus></textarea>",
+                title: "Why you want to close this complaint ?",
                 scope: $scope,
                 modelName: "closeComplaint"
             }
@@ -61,7 +61,7 @@ angular.module('yugma')
         $scope.reOpenComplaint = function () {
 
             var data = {
-                template: "<textarea ng-model='reOpenComplaint.comment' name='message'></textarea>" ,
+                template: "<textarea ng-model='reOpenComplaint.comment' name='message' autofocus></textarea>" ,
                 title: "Reason for reopening the complaint ?",
                 scope: $scope,
                 modelName: "reOpenComplaint"

@@ -12201,14 +12201,7 @@ a.button {
 .login-item-content {
   padding-right: 45px; }
 
-.customConfirm .popup {
-  box-shadow: 4px 4px 1px rgba(14, 14, 14, 0.37);
-  background-color: #ffffff; }
-
-.customConfirm .popup-head {
-  display: none; }
-
-.customConfirm .button-default {
+.cmplPopup .button-default, .customPopup .button-default, .customConfirm .button-default {
   margin: 16px 6px -10px -8px;
   border-radius: 0px;
   background-color: transparent !important;
@@ -12216,11 +12209,11 @@ a.button {
   border-top: 1px solid #5051A6;
   border-right: 1px solid #5051A6; }
 
-.customConfirm .button-default:active {
+.cmplPopup .button-default:active, .customPopup .button-default:active, .customConfirm .button-default:active {
   background-color: #b2b4ee !important;
   color: white !important; }
 
-.customConfirm button.button.ng-binding.button-positive {
+.cmplPopup button.button.ng-binding.button-positive, .customPopup button.button.ng-binding.button-positive, .customConfirm button.button.ng-binding.button-positive {
   font-weight: bold;
   width: 105%;
   margin: 16px -10px -10px -8px;
@@ -12228,10 +12221,50 @@ a.button {
   border-radius: 0px;
   background-color: #5051A6 !important; }
 
-.customConfirm .popup-body {
+.cmplPopup .popup-body, .customPopup .popup-body, .customConfirm .popup-body {
   margin-top: 10px;
   padding: 10px;
   font-size: larger; }
+
+.customPopup .popup {
+  box-shadow: 4px 4px 1px rgba(14, 14, 14, 0.37);
+  background-color: #ffffff;
+  width: 280px; }
+
+.customPopup .popup-head {
+  letter-spacing: 0.1em; }
+
+.customPopup .button-default {
+  margin: 0px 6px -10px -10px; }
+
+.customPopup button.button.ng-binding.button-positive {
+  margin: 0px -10px -10px -8px; }
+
+.customPopup .popup-body {
+  padding: 0px 5px; }
+
+.customPopup .popup-buttons {
+  height: 45px;
+  min-height: initial;
+  padding: 0px 10px 10px 10px; }
+
+.customPopup textarea {
+  resize: none;
+  padding: 8px;
+  height: 100px;
+  overflow: auto;
+  margin-bottom: 8px;
+  line-height: 20px;
+  width: 100%;
+  background-color: transparent;
+  overflow-y: auto; }
+
+.customConfirm .popup-head {
+  display: none; }
+
+.customConfirm .popup {
+  box-shadow: 4px 4px 1px rgba(14, 14, 14, 0.37);
+  background-color: #ffffff; }
 
 .customConfirm .popup-buttons {
   min-height: initial;

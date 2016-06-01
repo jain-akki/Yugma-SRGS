@@ -48,15 +48,8 @@
     padding-right: 45px;
 }
 
-.customConfirm {
-
-    .popup {
-        box-shadow: 4px 4px 1px  rgba(14, 14, 14, 0.37);
-        background-color: $color-white;
-    }
-    .popup-head {
-        display: none;
-    }
+.cmplPopup {
+    
     .button-default{
         margin: 16px 6px -10px -8px;
         @include border-radius(0px);
@@ -82,10 +75,61 @@
         padding: 10px;
         font-size: larger;
     }
+}
+
+.customPopup {
+
+    @extend .cmplPopup;
+    .popup {
+        box-shadow: 4px 4px 1px  rgba(14, 14, 14, 0.37);
+        background-color: $color-white;
+        width: 280px;
+    }
+    .popup-head {
+        letter-spacing: 0.1em;
+    }
+    .button-default{
+        margin: 0px 6px -10px -10px;
+    }
+    button.button.ng-binding.button-positive {
+        margin: 0px -10px -10px -8px;
+    }
+    .popup-body {
+        padding: 0px 5px;
+    }
+    .popup-buttons {
+        height: 45px;
+        min-height: initial;
+        padding: 0px 10px 10px 10px;
+    }
+    textarea {
+        resize: none;
+        padding: 8px;
+        height: 100px;
+        overflow: auto;
+        margin-bottom: 8px;
+        line-height: 20px;
+        width: $width;
+        background-color: $transparent;
+        overflow-y: auto;
+    }
+}
+
+.customConfirm {
+
+    @extend .cmplPopup;
+    .popup-head {
+        display: none;
+    }
+    .popup {
+        box-shadow: 4px 4px 1px  rgba(14, 14, 14, 0.37);
+        background-color: $color-white;
+    }
     .popup-buttons {
         min-height: initial;
         padding: 0px 10px 10px 8px;
     }
+    
 }
 
 .customAlert {

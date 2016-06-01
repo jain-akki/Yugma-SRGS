@@ -41,7 +41,7 @@ angular.module('yugma')
                 template: data.template,
                 title: data.title,
                 scope: data.scope,
-                // cssClass: 'customConfirm',
+                cssClass: 'customPopup',
                 buttons: [{
                     text: 'Cancel',
                     onTap: function (e) {
