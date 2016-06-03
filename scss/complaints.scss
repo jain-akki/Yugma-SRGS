@@ -115,3 +115,34 @@ a.tab-item {
         }
     }
 }
+
+.commentForm {
+    background-color: $btn-bg-color;
+    height: 12%;
+    width: $width;
+    position: fixed;
+    bottom: 0;
+    textarea {
+        background-color: $transparent;
+        width: $width - 20%;
+        resize: none;
+        margin-top: 2px;
+        color: $color-white;
+        height: $height - 20% ;
+        position: absolute;
+    }
+    .commentBtn {
+        top: 50%;
+        margin-top:0;
+        height: $height ;
+        position: absolute;
+        transform: translateY(-50%);
+        color: $color-white;
+        button {
+            color: $color-white;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}

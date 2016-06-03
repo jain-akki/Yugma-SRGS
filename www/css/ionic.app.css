@@ -12452,6 +12452,33 @@ a.tab-item {
       text-align: right;
       font-size: smaller; }
 
+.commentForm {
+  background-color: #5051A6;
+  height: 12%;
+  width: 100%;
+  position: fixed;
+  bottom: 0; }
+  .commentForm textarea {
+    background-color: transparent;
+    width: 80%;
+    resize: none;
+    margin-top: 2px;
+    color: #ffffff;
+    height: 80%;
+    position: absolute; }
+  .commentForm .commentBtn {
+    top: 50%;
+    margin-top: 0;
+    height: 100%;
+    position: absolute;
+    transform: translateY(-50%);
+    color: #ffffff; }
+    .commentForm .commentBtn button {
+      color: #ffffff;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%); }
+
 .tabbed-slidebox .slider {
   height: 100%; }
 
