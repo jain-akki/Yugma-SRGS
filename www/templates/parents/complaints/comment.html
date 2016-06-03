@@ -5,34 +5,36 @@
     background-position: center;
     background-size: 90%;
   }
-
+  
   ::-webkit-input-placeholder {
-    color:    white !important;
+    color: white !important;
     padding: 10px !important;
   }
-  
-</style> 
+</style>
 <ion-view view-title="{{vm.headetTilte}}" hide-back-button="true" class="purple-back watermark-addComp">
-   <ion-nav-buttons side="left">
-      <button class="button button-icon button-clear ion-android-arrow-back sidebar-ion-navicon" ng-click="vm.goBack()"></button>
-   </ion-nav-buttons>
-   <ion-content class="padding commentListMarginBottom">
-      <div class="card card-complaint" ng-repeat="cmpl in vm.comments">
-        <div class="item item-text-wrap card-text">
-          <div class="commentParentName">{{cmpl.parentName}}</div>
-          <div class="commentCreateDate"><span am-time-ago="cmpl.createdAt"></span></div>
-          <div>{{cmpl.comment}}</div>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-android-arrow-back sidebar-ion-navicon" ng-click="vm.goBack()"></button>
+  </ion-nav-buttons>
+  <ion-content class="padding commentListMarginBottom">
+    <div class="card card-complaint" ng-repeat="cmpl in vm.comments">
+      <div class="item item-text-wrap card-text">
+        <div class="commentParentName">{{cmpl.parentName}}</div>
+        <div class="commentCreateDate"><span am-time-ago="cmpl.createdAt"></span></div>
+        <div>{{cmpl.comment}}</div>
+      </div>
+    </div>
+  </ion-content>
+  <div class="" style="background-color:#5051A6; height: 12%; width:100%;    position: fixed;  bottom: 0;" ng-hide="vm.statusId == 4 || vm.statusId == 6">
+    <form name="commentForm" class="row" ng-submit="vm.addComment(vm.teacher)">
+      <div class="row" style="margin-top:-10px !important">
+        <div class="col col-90">
+          <textarea row="5" ng-model="vm.teacher.comment" style="background-color:transparent;width: 80%;resize: none;margin-top:2px; color:white;height: 80% ;position: absolute;"
+            placeholder="Type a comment..." required></textarea>
+        </div>
+        <div class="col" style="position: relative;top: 50%;transform: translateY(-50%); margin-top:0; color:white;height: 100% ;position: absolute;">
+          <button type="submit" class="button button-icon icon-left ion-android-send" style="color:white; position: relative;top: 50%; transform: translateY(-50%);"></button>
         </div>
       </div>
-   </ion-content>
-   <div class="bar bar-footer commentForm" ng-hide="vm.statusId == 4 || vm.statusId == 6">
-      <form name="commentForm" class="row" ng-submit="vm.addComment(vm.teacher)">
-         <div class="col col-90 txtArea">
-            <textarea ng-model="vm.teacher.comment" placeholder="Type a comment..." required></textarea>
-         </div>
-         <div class="col ">
-            <button type="submit" class="button button-icon icon-left ion-android-send commentBtn"></button>
-         </div>
-      </form>
-   </div>
+    </form>
+  </div>
 </ion-view>

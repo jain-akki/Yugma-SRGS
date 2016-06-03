@@ -8,10 +8,10 @@ angular.module('yugma')
       
       if ($scope.totalChilds === 1) {
          customService._on();
+         getAllCategory();
          $scope.standardId = $scope.childs[0].standardId;
          $scope.studentId = $scope.childs[0].studentId;
-         $scope.singleStudentName = $scope.childs[0].studentName;
-         getAllCategory();
+         $(".has-subheader").removeClass("has-subheader");
          $("#category").css("display", "table").addClass("animated bounceInLeft");
       }
 

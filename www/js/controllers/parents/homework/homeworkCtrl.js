@@ -8,7 +8,7 @@ angular.module('yugma')
 
     if (vm.childs.length === 1) {
       customService._on();
-      vm.singleStudentName = vm.childs[0].studentName;
+      $(".has-subheader").removeClass("has-subheader");
       getHomework(vm.childs[0].standardId);
     }
     

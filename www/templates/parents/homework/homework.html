@@ -8,30 +8,35 @@
 </style>
 
 <ion-view view-title="Homework" class="purple-back">
-  <ion-nav-buttons side="right">
-    <button class="button button-icon button-clear ion-ios-undo sidebar-ion-navicon" ng-click="vm.clearHistory()"></button>
-  </ion-nav-buttons>
-  <div class="bar bar-subheader button-to-select" ng-show="vm.childs.length > 1">
-    <h2 class="title add-complaint-child-name">Select child</h2>
-  </div>
-  <div class="bar bar-subheader button-to-select" ng-show="vm.childs.length === 1">
-    <h2 class="title add-complaint-child-name">{{vm.singleStudentName}}</h2>
-  </div>
-  <ion-content class="padding watermark has-subheader">
-    <ion-list class="studentName" ng-show="vm.childs.length > 1">
-      <button id="test" class="button button-block button-positive button-block-margin animated bounceInRight" ng-click="vm.selectChild(child)"
-        ng-repeat="child in vm.childs">
-        {{child.studentName}}
-      </button>
-    </ion-list>
-    <ion-list class="studentName">
-      <ion-item ng-repeat="val in vm.homework">
-        <p>{{val.homeworkTitle}}</p>
-        <p>{{val.description}}</p>
-        <p>{{val.createdAt}}</p>
-        <p>{{val.dueDate}}</p>
-        <p>{{val.teacherName}}</p>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-ios-undo sidebar-ion-navicon" ng-click="vm.clearHistory()"></button>
+    </ion-nav-buttons>
+    <div class="bar bar-subheader button-to-select" ng-show="vm.childs.length > 1">
+        <h2 class="title add-complaint-child-name">Select child</h2>
+    </div>
+    <ion-content class="padding watermark has-subheader">
+        <ion-list class="studentName" ng-show="vm.childs.length > 1">
+            <button id="test" class="button button-block button-positive button-block-margin animated bounceInRight" ng-click="vm.selectChild(child)" ng-repeat="child in vm.childs">
+                {{child.studentName}}
+            </button>
+        </ion-list>
+        <div class="studentName " ng-repeat="val in vm.homework" style="color:black">
+            <div class="list card animated flipInY">
+                <div class="item" style="background-color:#5051a6; ">
+                    <h2 style="font-size:110%;color:white; text-align:center;margin: -4px 0px -5px 0;"><i class="icon ion-ios-book"> {{val.homeworkTitle}}</i></h2>
+                </div>
+                <div class="" style="padding:10px">
+                    <p><b>Description</b> <span style="float:right; color: #848484 !important">{{val.createdAt}}</span></p>
+                    {{val.description}}
+                </div>
+                <div class="item row" style="color:white; background-color:#5061a6">
+                    <div class="col">
+                        <i class="icon ion-person-stalker" style="padding-top:1%;"> {{val.teacherName}}</i>
+                    </div>
+                    <div class="col" style="text-align: right;font-size: 85%;">{{val.dueDate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
 </ion-view>

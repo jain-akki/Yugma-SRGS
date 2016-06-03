@@ -12438,23 +12438,6 @@ a.tab-item {
 .viewComplaint {
   margin-bottom: 44px; }
 
-.commentForm {
-  background-color: #5051A6;
-  height: 10%; }
-  .commentForm .txtArea {
-    margin-top: -13px;
-    background-color: transparent; }
-  .commentForm textarea {
-    resize: none;
-    padding: 8px;
-    line-height: 20px;
-    width: 100%;
-    background-color: transparent; }
-  .commentForm .commentBtn {
-    padding-left: 0px;
-    margin-top: -2px;
-    color: #ffffff; }
-
 .commentListMarginBottom {
   margin-bottom: 42px; }
   .commentListMarginBottom .item {
@@ -12469,61 +12452,71 @@ a.tab-item {
       text-align: right;
       font-size: smaller; }
 
-ion-slide {
-  background-color: #f0f0f0; }
-  ion-slide:nth-child(2n) {
-    background-color: #fff; }
-
-.slider {
+.tabbed-slidebox .slider {
   height: 100%; }
 
-.slidingTabs {
-  height: 48px;
-  z-index: 10; }
-  .slidingTabs .scroll {
-    height: auto;
-    min-width: 100%; }
-  .slidingTabs ul {
-    background-color: #387ef5;
-    height: 48px; }
-    .slidingTabs ul li {
-      height: 48px;
-      line-height: 48px;
-      text-align: center;
-      float: left;
-      margin: 0;
-      padding: 0 12px 20px 12px;
-      font-size: 11px;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.6);
-      -webkit-transition: color 0.25s ease-in-out;
-      transition: color 0.25s ease-in-out;
-      position: relative;
-      overflow: hidden; }
-      .slidingTabs ul li.tab-active {
-        color: #fff; }
-      .slidingTabs ul li .ink {
-        display: block;
-        position: absolute;
-        background: rgba(56, 147, 245, 0.8);
-        border-radius: 100%;
-        transform: scale(0); }
-      .slidingTabs ul li .ink.animate {
-        -webkit-animation: ripple 0.65s linear;
-        animation: ripple 0.65s linear; }
-  .slidingTabs .tab-indicator-wrapper {
-    width: 100%;
-    height: 2px;
-    background-color: rgba(255, 255, 255, 0.2);
-    -webkit-transform: translateY(-2px);
-    position: absolute; }
-    .slidingTabs .tab-indicator-wrapper .tab-indicator {
-      height: 100%;
-      background-color: #fff;
-      width: 70px;
-      position: relative; }
+.tabbed-slidebox .slider-slides {
+  width: 100%; }
 
-@-webkit-keyframes ripple {
-  100% {
-    opacity: 0;
-    transform: scale(2.5); } }
+.tabbed-slidebox .slider-slide {
+  padding-top: 0;
+  color: #000000;
+  background-color: #ffffff;
+  text-align: center;
+  font-weight: 300;
+  background-color: #0398dc; }
+
+.tabbed-slidebox .tsb-icons {
+  text-align: center;
+  margin: 10px 0;
+  position: relative;
+  background-color: #ffffff; }
+  .tabbed-slidebox .tsb-icons a {
+    display: inline-block;
+    width: 54px;
+    font-size: 2.5em;
+    color: rgba(0, 0, 0, 0.3); }
+    .tabbed-slidebox .tsb-icons a.active {
+      color: black;
+      font-size: 3.5em; }
+  .tabbed-slidebox .tsb-icons:after {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 1.4em 1.4em 1.4em;
+    border-color: transparent transparent #0398dc transparent;
+    position: absolute;
+    content: "";
+    display: block;
+    bottom: -12px;
+    left: 50%;
+    margin-left: -14px; }
+  .tabbed-slidebox .tsb-icons .scroll a {
+    width: auto;
+    font-size: 1.5em;
+    line-height: 1.5em;
+    text-decoration: none;
+    margin: 0 15px;
+    border-bottom: 3px solid transparent; }
+    .tabbed-slidebox .tsb-icons .scroll a.active {
+      font-size: 1.8em;
+      border-bottom: 3px solid #ccc; }
+
+.tabbed-slidebox .tsb-ic-wrp {
+  display: flex;
+  position: relative; }
+
+.tabbed-slidebox .tabbed-slidebox {
+  position: relative;
+  height: 100%;
+  overflow: hidden; }
+
+.tabbed-slidebox.btm .slider {
+  margin-bottom: -50px; }
+
+.tsb-hscroll.scroll-view {
+  white-space: nowrap;
+  margin: 0 auto;
+  overflow: hidden; }
+  .tsb-hscroll.scroll-view .scroll-bar {
+    visibility: hidden; }

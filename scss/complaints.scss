@@ -98,27 +98,6 @@ a.tab-item {
     margin-bottom: 44px;
 }
 
-.commentForm {
-    background-color: $btn-bg-color;
-    height: $height - 90%;
-    .txtArea {
-        margin-top: -13px;
-        background-color: $transparent;
-    }
-    textarea {
-        resize: none;
-        padding: 8px;
-        line-height: 20px;
-        width: $width;
-        background-color: $transparent;
-    }
-    .commentBtn {
-        padding-left: 0px;
-        margin-top:-2px;
-        color: $color-white; 
-    }
-}
-
 .commentListMarginBottom {
     margin-bottom: 42px;
     .item {

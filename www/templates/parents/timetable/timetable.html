@@ -6,7 +6,20 @@
     background-repeat: no-repeat;
   }
 </style>
-
+<style>
+  .slider-slide h3 {
+    color: #fff;
+    margin-top: 10px;
+  }
+  
+  .scroll {
+    height: 100%;
+  }
+  
+  .tabbed-slidebox .tsb-icons:after {
+    display: none;
+  }
+</style>
 <ion-view view-title="Timetable" class="purple-back">
   <ion-nav-buttons side="right">
     <button class="button button-icon button-clear ion-ios-undo sidebar-ion-navicon" ng-click="vm.clearHistory()"></button>
@@ -14,31 +27,61 @@
   <div class="bar bar-subheader button-to-select" ng-show="vm.childs.length > 1">
     <h2 class="title add-complaint-child-name">Select child</h2>
   </div>
-  <div class="bar bar-subheader button-to-select" ng-show="vm.childs.length === 1">
-    <h2 class="title add-complaint-child-name">{{vm.singleStudentName}}</h2>
-  </div>
-  <ion-content class="padding watermark has-subheader">
+  <ion-content class="watermark has-subheader">
     <ion-list class="studentName" ng-show="vm.childs.length > 1">
       <button id="test" class="button button-block button-positive button-block-margin animated bounceInRight" ng-click="vm.selectChild(child)"
         ng-repeat="child in vm.childs">
         {{child.studentName}}
       </button>
     </ion-list>
-    <ion-list class="studentName">
-      <ion-item ng-repeat="val in vm.timetable" class="ComplaintSpace">
-        <p>{{val.time}}</p>
-        <p>{{val.day}}</p>
-      </ion-item>
+    <ion-list ng-if="vm.timetable.length">
+      <tab-slide-box tab="{{day}}">
+        <div class="tsb-icons">
+          <div class="tsb-ic-wrp">
+            <ion-scroll direction="x" class="tsb-hscroll">
+              <a href="javascript:;" class="{{tab.icon}}" ng-repeat="tab in tabs" on-finish-render="test()">{{tab.text}}</a>
+            </ion-scroll>
+          </div>
+        </div>
+        <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+          <ion-slide>
+            <div ng-repeat="val in vm.timetable">
+              <p>{{val.time}}</p>
+              <p>{{val.day}}</p>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div ng-repeat="val in vm.timetable">
+              <p>{{val.time}}</p>
+              <p>{{val.day}}</p>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div ng-repeat="val in vm.timetable">
+              <p>{{val.time}}</p>
+              <p>{{val.day}}</p>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div ng-repeat="val in vm.timetable">
+              <p>{{val.time}}</p>
+              <p>{{val.day}}</p>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div ng-repeat="val in vm.timetable">
+              <p>{{val.time}}</p>
+              <p>{{val.day}}</p>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div ng-repeat="val in vm.timetable">
+              <p>{{val.time}}</p>
+              <p>{{val.day}}</p>
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+      </tab-slide-box>
     </ion-list>
   </ion-content>
-  <!--<ion-content scroll="false" class="has-subheader">
-    <ion-slide-box slide-tabs-scrollable="false" show-pager="false" ion-slide-tabs>
-      <ion-slide ion-slide-tab-label="test">
-        <h1>Tab 1</h1></ion-slide>
-      <ion-slide ion-slide-tab-label="secondTest">
-        <h1>Tab 2</h1></ion-slide>
-      <ion-slide ion-slide-tab-label="<b>boldTest</b>">
-        <h1>Tab 3</h1></ion-slide>
-    </ion-slide-box>
-  </ion-content>-->
 </ion-view>
