@@ -54,7 +54,6 @@ app.controller('timetableCtrl', function ($scope, $state, USER, customService, t
 
     var d = new Date();
     weekday = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-    console.log()
     day = weekday[d.getDay() - 1];
     $scope.day = weekday.indexOf(day);
 

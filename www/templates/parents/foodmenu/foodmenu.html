@@ -1,0 +1,69 @@
+<style>
+  .watermark {
+    background-image: url(img/logot.png);
+    background-position: center;
+    background-size: 300px;
+    background-repeat: no-repeat;
+  }
+</style>
+<style>
+  .slider-slide h3 {
+    color: #fff;
+    margin-top: 10px;
+  }
+  
+  .scroll {
+    height: 100%;
+  }
+  
+  .tabbed-slidebox .tsb-icons:after {
+    display: none;
+  }
+</style>
+<ion-view view-title="Foodmenu" class="purple-back">
+  <ion-content class="watermark">
+    <ion-list>
+      <tab-slide-box tab="{{day}}">
+        <div class="tsb-icons">
+          <div class="tsb-ic-wrp">
+            <ion-scroll direction="x" class="tsb-hscroll">
+              <a href="javascript:;" class="{{tab.icon}}" ng-repeat="tab in tabs" on-finish-render="test()">{{tab.text}}</a>
+            </ion-scroll>
+          </div>
+        </div>
+        <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+          <ion-slide>
+            <div ng-repeat="val in vm.foodmenu">
+              <p><h2>{{val.day}}</h2></p>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div ng-repeat="val in vm.foodmenu">
+              <p><h2>{{val.day}}</h2></p>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div ng-repeat="val in vm.foodmenu">
+              <p><h2>{{val.day}}</h2></p>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div ng-repeat="val in vm.foodmenu">
+              <p><h2>{{val.day}}</h2></p>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div ng-repeat="val in vm.foodmenu">
+              <p><h2>{{val.day}}</h2></p>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div ng-repeat="val in vm.foodmenu">
+              <p><h2>{{val.day}}</h2></p>
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+      </tab-slide-box>
+    </ion-list>
+  </ion-content>
+</ion-view>

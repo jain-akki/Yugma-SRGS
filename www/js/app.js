@@ -63,6 +63,16 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
                     }
                 }
             })
+            .state('yugma.foodmenu', {
+                url: '/foodmenu',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/foodmenu/foodmenu.html',
+                        controller: 'foodmenuCtrl as vm'
+                    }
+                }
+            })
             .state('yugma.complaints', {
                 url: '/complaints',
                 cache: false,
