@@ -8,24 +8,17 @@
 
 		$scope.teacherComplaints = [];
 
-		function getTeacherComplaint() {
-
-			customService._on();
+		complaintService.getTeacherComplaint(USER.parentId()).then(function (response) {
 			
-			complaintService.getTeacherComplaint(USER.parentId()).then(function (response) {
-
-				customService._off();
-				$scope.teacherComplaints = response;
-
-				_.forEach(response, function(val, index) {
-					var splitDate = (val.createdAt).substring(0, 20).split("-");
-					splitDate= [splitDate[1], splitDate[0], splitDate[2]].join("-");
-					val.createdAt = new Date(splitDate);
-				});
+			$scope.teacherComplaints = response;
+			
+			_.forEach(response, function(val, index) {
+				var splitDate = (val.createdAt).substring(0, 20).split("-");
+				splitDate= [splitDate[1], splitDate[0], splitDate[2]].join("-");
+				val.created = new Date(splitDate);
 			});
-		};
 
-		getTeacherComplaint();
+		});
 
 		/**
 		 * When user pull complaint list 
@@ -37,6 +30,14 @@
 
 			complaintService.getTeacherComplaint(USER.parentId()).then(function (response) {
 				$scope.teacherComplaints = response;
+				
+				_.forEach(response, function(val, index) {
+					var splitDate = (val.createdAt).substring(0, 20).split("-");
+					splitDate= [splitDate[1], splitDate[0], splitDate[2]].join("-");
+					val.created = new Date(splitDate);
+				});
+
+				
 				$scope.$broadcast('scroll.refreshComplete');
 			});
 

@@ -12461,16 +12461,13 @@ a.tab-item {
 .tabbed-slidebox .slider-slide {
   padding-top: 0;
   color: #000000;
-  background-color: #ffffff;
   text-align: center;
-  font-weight: 300;
-  background-color: #0398dc; }
+  font-weight: 300; }
 
 .tabbed-slidebox .tsb-icons {
   text-align: center;
   margin: 10px 0;
-  position: relative;
-  background-color: #ffffff; }
+  position: relative; }
   .tabbed-slidebox .tsb-icons a {
     display: inline-block;
     width: 54px;
@@ -12484,7 +12481,6 @@ a.tab-item {
     height: 0;
     border-style: solid;
     border-width: 0 1.4em 1.4em 1.4em;
-    border-color: transparent transparent #0398dc transparent;
     position: absolute;
     content: "";
     display: block;

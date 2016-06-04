@@ -18,11 +18,21 @@ angular.module('yugma')
         return $localStorage.childs;
     }
     
+    var getParentEmail = function() {
+        return $localStorage.Email;
+    }
+    
+    var getParentContact = function() {
+        return $localStorage.Contact;
+    }
+    
     return {
         parentName: getParentName,
         parentId: getParentId,
         parentOtp: getParentOtp,
-        parentChilds: getParentChilds
+        parentChilds: getParentChilds,
+        parentEmail: getParentEmail,
+        parentContact: getParentContact
     }
     
 })

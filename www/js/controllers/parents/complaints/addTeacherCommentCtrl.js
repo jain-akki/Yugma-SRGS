@@ -13,6 +13,7 @@ angular.module('yugma')
 
         commentService.getComment($stateParams.complaintId).then(function (response) {
             vm.comments = response;
+            console.log("comment", response)
             _.forEach(response, function(val, index) {
                 var splitDate = (val.dateTime).substring(0, 20).split("-");
                 splitDate= [splitDate[1], splitDate[0], splitDate[2]].join("-");

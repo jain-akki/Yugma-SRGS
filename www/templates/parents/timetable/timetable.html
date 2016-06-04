@@ -12,12 +12,12 @@
     margin-top: 10px;
   }
   
-  .scroll {
-    height: 100%;
-  }
-  
   .tabbed-slidebox .tsb-icons:after {
     display: none;
+  }
+  
+  ion-slide.slider-slide {
+    background-color: transparent !important;
   }
 </style>
 <ion-view view-title="Timetable" class="purple-back">
@@ -38,46 +38,38 @@
       <tab-slide-box tab="{{day}}">
         <div class="tsb-icons">
           <div class="tsb-ic-wrp">
-            <ion-scroll direction="x" class="tsb-hscroll">
-              <a href="javascript:;" class="{{tab.icon}}" ng-repeat="tab in tabs" on-finish-render="test()">{{tab.text}}</a>
+            <ion-scroll direction="x" class="tsb-hscroll" style="width:100%;margin-top:-12px;background: linear-gradient(to right, #1e5799 0%,#5061a6 0%,#5061a6 0%,#5061a6 0%,#727ca5 52%,#5061a6 100%,#7881a5 100%);">
+              <a href="javascript:;" class="{{tab.icon}}" ng-repeat="tab in tabs" on-finish-render="test()" style="color:white !important; font-size:15px;">
+                <div>
+                  {{tab.text}}
+                </div>
+              </a>
             </ion-scroll>
           </div>
         </div>
-        <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
-          <ion-slide>
-            <div ng-repeat="val in vm.timetable">
-              <p>{{val.time}}</p>
-              <p>{{val.day}}</p>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <div ng-repeat="val in vm.timetable">
-              <p>{{val.time}}</p>
-              <p>{{val.day}}</p>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <div ng-repeat="val in vm.timetable">
-              <p>{{val.time}}</p>
-              <p>{{val.day}}</p>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <div ng-repeat="val in vm.timetable">
-              <p>{{val.time}}</p>
-              <p>{{val.day}}</p>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <div ng-repeat="val in vm.timetable">
-              <p>{{val.time}}</p>
-              <p>{{val.day}}</p>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <div ng-repeat="val in vm.timetable">
-              <p>{{val.time}}</p>
-              <p>{{val.day}}</p>
+        <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)" style="background-color:transparent !important;">
+          <ion-slide ng-repeat="tab in tabs">
+            <div class="card" style="background-color:transparent; margin-top: -3px; ">
+              <div class="row">
+                <div class="ripple col col-40" style="border:2px solid #5061a6; background-color:#999acc; color:white;box-shadow:2px">
+                  <b>Time</b>
+                </div>
+                <div class="col" style="border:2px solid #5061a6; background-color: #999acc; color:white">
+                  <b>Subject</b>
+                </div>
+              </div>
+              <ion-scroll style="">
+                <div ng-repeat="val in vm.timetable" style="">
+                  <div class="row" style="margin: -8px 0px -8px 0px;">
+                    <div class="col col-40" style="border-right:2px solid #5061a6; background-color: white">
+                      {{val.time}}
+                    </div>
+                    <div class="col" style="border-left:2px solid #5061a6; background-color: white">
+                      {{val.day}}
+                    </div>
+                  </div>
+                </div>
+              </ion-scroll>
             </div>
           </ion-slide>
         </ion-slide-box>

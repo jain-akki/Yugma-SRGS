@@ -1,6 +1,6 @@
 angular.module('yugma')
 
-  .factory("notificationService", function ($http, $q, $ionicPlatform, $ionicPush, $localStorage, USER) {
+  .factory("notificationService", function ($http, $q, $ionicPlatform, baseUrl, $ionicPush, $localStorage, USER) {
 
     var notification = function () {
 
@@ -51,7 +51,7 @@ angular.module('yugma')
         method: 'PUT',
         contentType: 'application/json',
         data: data,
-        url: "http://nxtlife-sansha.cloud.cms500.com/school/add-app-token"
+        url: baseUrl + "/add-app-token"
       }).success(function (response) {
         alert("response from notification service" + JSON.stringify(response));
       }).error(function (response) {

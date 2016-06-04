@@ -26,38 +26,17 @@
       <tab-slide-box tab="{{day}}">
         <div class="tsb-icons">
           <div class="tsb-ic-wrp">
-            <ion-scroll direction="x" class="tsb-hscroll">
-              <a href="javascript:;" class="{{tab.icon}}" ng-repeat="tab in tabs" on-finish-render="test()">{{tab.text}}</a>
+            <ion-scroll direction="x" class="tsb-hscroll" style="width:100%;margin-top:-12px;background: linear-gradient(to right, #1e5799 0%,#5061a6 0%,#5061a6 0%,#5061a6 0%,#727ca5 52%,#5061a6 100%,#7881a5 100%);">
+              <a href="javascript:;" class="{{tab.icon}}" ng-repeat="tab in tabs" on-finish-render="test()" style="color:white !important; font-size:15px;">
+                <div>
+                  {{tab.text}}
+                </div>
+              </a>
             </ion-scroll>
           </div>
         </div>
         <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
-          <ion-slide>
-            <div ng-repeat="val in vm.foodmenu">
-              <p><h2>{{val.day}}</h2></p>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <div ng-repeat="val in vm.foodmenu">
-              <p><h2>{{val.day}}</h2></p>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <div ng-repeat="val in vm.foodmenu">
-              <p><h2>{{val.day}}</h2></p>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <div ng-repeat="val in vm.foodmenu">
-              <p><h2>{{val.day}}</h2></p>
-            </div>
-          </ion-slide>
-          <ion-slide>
-            <div ng-repeat="val in vm.foodmenu">
-              <p><h2>{{val.day}}</h2></p>
-            </div>
-          </ion-slide>
-          <ion-slide>
+          <ion-slide ng-repeat="tab in tabs">
             <div ng-repeat="val in vm.foodmenu">
               <p><h2>{{val.day}}</h2></p>
             </div>
