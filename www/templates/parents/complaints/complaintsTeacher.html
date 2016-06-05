@@ -15,9 +15,12 @@
     <a menu-toggle="right" class="button button-icon button-clear ion-ios-compose-outline sidebar-ion-navicon" ui-sref="yugma.add-teacher-complaint"></a>
   </ion-nav-buttons>
   <ion-content class="padding watermark" id="complaints">
+    
     <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+    
     <ion-list class="teacher-complaint-list">
-      <ion-item class="ComplaintSpace item-remove-animate item-icon-right animated fadeInLeft" ng-repeat="cmpl in teacherComplaints"
+      <ion-item id="cmplEmpty" style="display:none"><h3>SASASA</h3></ion-item>
+      <ion-item class="ComplaintSpace item-remove-animate item-icon-right animated fadeInLeft" ng-repeat="cmpl in teacherComplaints" ng-show="teacherComplaints.length >= 0"
         type="item-text-wrap" href="#/yugma/view-teacher-complaint/{{cmpl.id}}">
         <div class="complaint-lists">
           <div class="row">
@@ -31,10 +34,10 @@
           </div>
           <div class="row">
             <div class="col col-70">
-              <p>{{cmpl.title}}</p>
+              <p style="font-size:13px">{{cmpl.title}}</p>
             </div>
             <div class="col" style="text-align:right">
-              <p style="font-size:10px"><span am-time-ago="cmpl.created"></span></p>
+              <p style="font-size:10px"><span am-time-ago="cmpl.createdAt"></span></p>
             </div>
           </div>
         </div>

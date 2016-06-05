@@ -3,8 +3,9 @@ angular.module('yugma')
     .controller('otherViewComplaintCtrl', function ($scope, $state, $stateParams, $ionicPopup, USER, customService, complaintService) {
 
         $scope.cmpl = complaintService.viewOtherComplaint($stateParams.complaintId);
-
-        $scope.cmpl.date = moment($scope.cmpl.createdAt).format("DD-MM-YYYY HH:mm:ss");
+        console.log($scope.cmpl)
+        $scope.cmpl.date = moment($scope.cmpl.createdAt).format("DD-MM-YYYY");
+        $scope.cmpl.closedDate = moment($scope.cmpl.closedOn).format("DD-MM-YYYY");
 
         $scope.goBack = function () {
             $state.transitionTo('yugma.complaints.other-complaint');

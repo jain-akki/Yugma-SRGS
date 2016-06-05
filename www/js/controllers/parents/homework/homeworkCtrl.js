@@ -7,28 +7,39 @@ angular.module('yugma')
     vm.childs = USER.parentChilds();
 
     if (vm.childs.length === 1) {
+
       customService._on();
       $(".has-subheader").removeClass("has-subheader");
       getHomework(vm.childs[0].standardId);
+
     }
-    
+
     function getHomework(standardId) {
+
 			homeworkService.getHomework(standardId).then(function(response) {
         vm.homework = response;
+        angular.forEach(response, function(val, index) {
+          val.hwDuedate = moment(val.dueDate).format("DD-MM-YYYY");
+        });
         customService._off();
       });
+
 		}
-   
+
     vm.selectChild = function (child) {
+
       getHomework(child.standardId);
       $(".button-positive").addClass("animated bounceOutRight");
       $(".button-positive").css("display", "none");
       $(".add-complaint-child-name").html(child.studentName);
       customService._on();
+
     }
-   
+
     vm.clearHistory = function () {
+
       $state.go($state.current, {}, {reload:true});
+
     }
 
   })

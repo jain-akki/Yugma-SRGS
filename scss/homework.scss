@@ -1,0 +1,38 @@
+.homework {
+  
+  .item {
+    background-color: #5051a6;
+    color:white;
+    
+    .hwIcon {
+      padding-top: 1%;
+    }
+    
+    .hwDueDate {
+      text-align: right;
+      font-size: 85%;
+    }
+    
+  }
+  
+  .item2 {
+
+    padding: 10px;
+
+    .hwDescription {
+      float: right;
+      color: #848484 !important
+    }
+
+  }
+  
+  .hwTitle {
+    
+    font-size: 110%;
+    color:white;
+    text-align: center;
+    margin: -4px 0px -5px 0;
+    
+  }
+  
+}

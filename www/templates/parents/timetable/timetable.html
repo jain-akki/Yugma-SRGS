@@ -6,20 +6,6 @@
     background-repeat: no-repeat;
   }
 </style>
-<style>
-  .slider-slide h3 {
-    color: #fff;
-    margin-top: 10px;
-  }
-  
-  .tabbed-slidebox .tsb-icons:after {
-    display: none;
-  }
-  
-  ion-slide.slider-slide {
-    background-color: transparent !important;
-  }
-</style>
 <ion-view view-title="Timetable" class="purple-back">
   <ion-nav-buttons side="right">
     <button class="button button-icon button-clear ion-ios-undo sidebar-ion-navicon" ng-click="vm.clearHistory()"></button>
@@ -38,33 +24,31 @@
       <tab-slide-box tab="{{day}}">
         <div class="tsb-icons">
           <div class="tsb-ic-wrp">
-            <ion-scroll direction="x" class="tsb-hscroll" style="width:100%;margin-top:-12px;background: linear-gradient(to right, #1e5799 0%,#5061a6 0%,#5061a6 0%,#5061a6 0%,#727ca5 52%,#5061a6 100%,#7881a5 100%);">
-              <a href="javascript:;" class="{{tab.icon}}" ng-repeat="tab in tabs" on-finish-render="test()" style="color:white !important; font-size:15px;">
-                <div>
-                  {{tab.text}}
-                </div>
+            <ion-scroll direction="x" class="tsb-hscroll">
+              <a href="javascript:;" class="{{tab.icon}}" ng-repeat="tab in tabs" on-finish-render="test()" style="font-size:13px;">
+                  <b>{{tab.text}}</b>
               </a>
             </ion-scroll>
           </div>
         </div>
-        <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)" style="background-color:transparent !important;">
+        <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
           <ion-slide ng-repeat="tab in tabs">
-            <div class="card" style="background-color:transparent; margin-top: -3px; ">
+            <div class="card timetableCard">
               <div class="row">
-                <div class="ripple col col-40" style="border:2px solid #5061a6; background-color:#999acc; color:white;box-shadow:2px">
+                <div class="col col-40 timetableTime">
                   <b>Time</b>
                 </div>
-                <div class="col" style="border:2px solid #5061a6; background-color: #999acc; color:white">
+                <div class="col timetableTime">
                   <b>Subject</b>
                 </div>
               </div>
-              <ion-scroll style="">
-                <div ng-repeat="val in vm.timetable" style="">
-                  <div class="row" style="margin: -8px 0px -8px 0px;">
-                    <div class="col col-40" style="border-right:2px solid #5061a6; background-color: white">
+              <ion-scroll>
+                <div ng-repeat="val in vm.timetable">
+                  <div class="row timetableContent">
+                    <div class="col col-40 timetableContentTime">
                       {{val.time}}
                     </div>
-                    <div class="col" style="border-left:2px solid #5061a6; background-color: white">
+                    <div class="col timetableContentDay">
                       {{val.day}}
                     </div>
                   </div>

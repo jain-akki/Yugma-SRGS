@@ -12471,11 +12471,11 @@ a.tab-item {
   .tabbed-slidebox .tsb-icons a {
     display: inline-block;
     width: 54px;
-    font-size: 2.5em;
-    color: rgba(0, 0, 0, 0.3); }
+    font-size: 15px;
+    color: #ffffff; }
     .tabbed-slidebox .tsb-icons a.active {
-      color: black;
-      font-size: 3.5em; }
+      color: #ffffff;
+      font-size: 15px; }
   .tabbed-slidebox .tsb-icons:after {
     width: 0;
     height: 0;
@@ -12489,13 +12489,11 @@ a.tab-item {
     margin-left: -14px; }
   .tabbed-slidebox .tsb-icons .scroll a {
     width: auto;
-    font-size: 1.5em;
     line-height: 1.5em;
     text-decoration: none;
     margin: 0 15px;
     border-bottom: 3px solid transparent; }
     .tabbed-slidebox .tsb-icons .scroll a.active {
-      font-size: 1.8em;
       border-bottom: 3px solid #ccc; }
 
 .tabbed-slidebox .tsb-ic-wrp {
@@ -12513,6 +12511,88 @@ a.tab-item {
 .tsb-hscroll.scroll-view {
   white-space: nowrap;
   margin: 0 auto;
-  overflow: hidden; }
+  overflow: hidden;
+  width: 100%;
+  margin-top: -12px;
+  background: linear-gradient(to right, #1e5799 0%, #5061a6 0%, #5061a6 0%, #5061a6 0%, #727ca5 52%, #5061a6 100%, #7881a5 100%); }
   .tsb-hscroll.scroll-view .scroll-bar {
     visibility: hidden; }
+
+.timetableCard {
+  background-color: transparent;
+  margin-top: -3px; }
+
+.timetableTime {
+  border: 2px solid #5061a6;
+  background-color: #999acc;
+  color: #ffffff;
+  box-shadow: 2px; }
+
+.timetableContent {
+  margin: -8px 0px -8px 0px; }
+  .timetableContent .timetableContentTime {
+    border-right: 2px solid #5061a6;
+    background-color: #ffffff; }
+  .timetableContent .timetableContentDay {
+    border-left: 2px solid #5061a6;
+    background-color: #ffffff; }
+
+.slider-slide h3 {
+  color: #fff;
+  margin-top: 10px; }
+
+.tabbed-slidebox .tsb-icons:after {
+  display: none; }
+
+ion-slide.slider-slide {
+  background-color: transparent !important; }
+
+.homework .item {
+  background-color: #5051a6;
+  color: white; }
+  .homework .item .hwIcon {
+    padding-top: 1%; }
+  .homework .item .hwDueDate {
+    text-align: right;
+    font-size: 85%; }
+
+.homework .item2 {
+  padding: 10px; }
+  .homework .item2 .hwDescription {
+    float: right;
+    color: #848484 !important; }
+
+.homework .hwTitle {
+  font-size: 110%;
+  color: white;
+  text-align: center;
+  margin: -4px 0px -5px 0; }
+
+.slider-slide h3 {
+  color: #fff;
+  margin-top: 10px; }
+
+.scroll {
+  height: 100%; }
+
+.tabbed-slidebox .tsb-icons:after {
+  display: none; }
+
+#days {
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(to right, #1e5799 0%, #5061a6 0%, #5061a6 0%, #5061a6 0%, #727ca5 52%, #5061a6 100%, #7881a5 100%); }
+
+#days-text {
+  color: white;
+  font-size: 13px;
+  padding-top: 5px; }
+
+#list-cards {
+  margin: 0px;
+  margin: 7px 15px 7px 15px;
+  color: #5051a6; }
+
+#food-card {
+  margin-top: 5px;
+  background-color: transparent; }

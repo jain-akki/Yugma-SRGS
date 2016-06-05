@@ -10,6 +10,20 @@
     color: white !important;
     padding: 10px !important;
   }
+  
+  .btnAddComment {
+    height: 70px;
+    width: 13%;
+    color: #E2E5DF;
+    border-left: none;
+    outline: none;
+    position: absolute;
+    background: #808B66;
+    border-top: 2px solid #66afe9;
+    border-bottom: 2px solid #66afe9;
+    border-right: 2px solid #66afe9;
+}
+
 </style>
 <ion-view view-title="{{vm.headetTilte}}" hide-back-button="true" class="purple-back watermark-addComp">
   <ion-nav-buttons side="left">
@@ -19,12 +33,12 @@
     <div class="card card-complaint" ng-repeat="cmpl in vm.comments">
       <div class="item item-text-wrap card-text">
         <div class="commentParentName">{{cmpl.parentName}}</div>
-        <div class="commentCreateDate"><span am-time-ago="cmpl.createdAt"></span></div>
+        <div class="commentCreateDate"><span am-time-ago="cmpl.dateTime"></span></div>
         <div>{{cmpl.comment}}</div>
       </div>
     </div>
   </ion-content>
-  <div class="" style="background-color:#5051A6; height: 12%; width:100%;    position: fixed;  bottom: 0;" ng-hide="vm.statusId == 4 || vm.statusId == 6">
+  <!--<div class="" style="background-color:#5051A6; height: 12%; width:100%;    position: fixed;  bottom: 0;" ng-hide="vm.statusId == 4 || vm.statusId == 6">
     <form name="commentForm" class="row" ng-submit="vm.addComment(vm.teacher)">
       <div class="row" style="margin-top:-10px !important">
         <div class="col col-90">
@@ -36,5 +50,13 @@
         </div>
       </div>
     </form>
-  </div>
+  </div>-->
+  <ion-list style="    position: fixed;
+    bottom: 0px;">
+      <form name="complaintForm" class="list trans-back" ng-submit="complaintSubmit(complaint)">
+        <label class="item item-input item-stacked-label">
+          <input type="text" class="input-style" ng-model="complaint.title" maxlength="30" required>
+        </label>
+      </form>
+    </ion-list>
 </ion-view>

@@ -20,20 +20,20 @@
                 {{child.studentName}}
             </button>
         </ion-list>
-        <div class="studentName " ng-repeat="val in vm.homework" style="color:black">
+        <div class="studentName homework" ng-repeat="val in vm.homework" style="color:black">
             <div class="list card animated flipInY">
-                <div class="item" style="background-color:#5051a6; ">
-                    <h2 style="font-size:110%;color:white; text-align:center;margin: -4px 0px -5px 0;"><i class="icon ion-ios-book"> {{val.homeworkTitle}}</i></h2>
+                <div class="item">
+                    <h2 class="hwTitle"><i class="icon ion-ios-book"> {{val.homeworkTitle}}</i></h2>
                 </div>
-                <div class="" style="padding:10px">
-                    <p><b>Description</b> <span style="float:right; color: #848484 !important">{{val.createdAt}}</span></p>
+                <div class="item2">
+                    <p><b>Description</b> <span class="hwDescription"><span am-time-ago="val.createdAt"></span></span></p>
                     {{val.description}}
                 </div>
-                <div class="item row" style="color:white; background-color:#5061a6">
+                <div class="item row">
                     <div class="col">
-                        <i class="icon ion-person-stalker" style="padding-top:1%;"> {{val.teacherName}}</i>
+                        <i class="icon ion-person-stalker hwIcon"> {{val.teacherName}}</i>
                     </div>
-                    <div class="col" style="text-align: right;font-size: 85%;">{{val.dueDate}}
+                    <div class="col hwDueDate">due date: {{val.hwDuedate}}
                     </div>
                 </div>
             </div>
