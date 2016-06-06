@@ -12229,38 +12229,35 @@ a.button {
   padding: 10px;
   font-size: larger; }
 
-.customPopup .popup {
-  box-shadow: 4px 4px 1px rgba(14, 14, 14, 0.37);
-  background-color: #ffffff;
-  width: 280px; }
-
-.customPopup .popup-head {
-  letter-spacing: 0.1em; }
-
-.customPopup .button-default {
-  margin: 0px 6px -10px -10px; }
-
-.customPopup button.button.ng-binding.button-positive {
-  margin: 0px -10px -10px -8px; }
-
-.customPopup .popup-body {
-  padding: 0px 5px; }
-
-.customPopup .popup-buttons {
-  height: 45px;
-  min-height: initial;
-  padding: 0px 10px 10px 10px; }
-
-.customPopup textarea {
-  resize: none;
-  padding: 8px;
-  height: 100px;
-  overflow: auto;
-  margin-bottom: 8px;
-  line-height: 20px;
-  width: 100%;
-  background-color: transparent;
-  overflow-y: auto; }
+.customPopup {
+  top: 5% !important;
+  bottom: initial !important; }
+  .customPopup .popup {
+    box-shadow: 4px 4px 1px rgba(14, 14, 14, 0.37);
+    background-color: #ffffff;
+    width: 280px; }
+  .customPopup .popup-head {
+    letter-spacing: 0.1em; }
+  .customPopup .button-default {
+    margin: 0px 6px -10px -10px; }
+  .customPopup button.button.ng-binding.button-positive {
+    margin: 0px -10px -10px -8px; }
+  .customPopup .popup-body {
+    padding: 0px 5px; }
+  .customPopup .popup-buttons {
+    height: 45px;
+    min-height: initial;
+    padding: 0px 10px 10px 10px; }
+  .customPopup textarea {
+    resize: none;
+    padding: 8px;
+    height: 100px;
+    overflow: auto;
+    margin-bottom: 8px;
+    line-height: 20px;
+    width: 100%;
+    background-color: transparent;
+    overflow-y: auto; }
 
 .customConfirm .popup-head {
   display: none; }
@@ -12381,9 +12378,6 @@ a.button {
 .complaints-tab {
   background-color: #5051A6;
   color: #ffffff; }
-
-.scroll {
-  height: 99% !important; }
 
 select {
   width: 100%;
@@ -12634,9 +12628,6 @@ ion-slide.slider-slide {
   color: #fff;
   margin-top: 10px; }
 
-.scroll {
-  height: 100%; }
-
 .tabbed-slidebox .tsb-icons:after {
   display: none; }
 
@@ -12658,6 +12649,8 @@ ion-slide.slider-slide {
 #food-card {
   margin-top: 5px;
   background-color: transparent; }
+  #food-card .item-icon-left {
+    padding-left: 16px; }
 
 .account .item-input.card {
   margin-top: 10px;

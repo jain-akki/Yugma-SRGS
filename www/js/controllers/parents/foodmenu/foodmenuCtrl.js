@@ -38,6 +38,7 @@ angular.module('yugma')
 
   }
 
+  customService._on();
   getFoodmenu();
 
   var day;
@@ -49,7 +50,6 @@ angular.module('yugma')
 
     weekday = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
     day = weekday[d];
-
     $scope.day = weekday.indexOf(day) - 1;
 
     if (weekday[d] === "sunday") {
@@ -68,10 +68,9 @@ angular.module('yugma')
   $scope.onSlideMove = function (data) {
 
     vm.foodmenu = [];
-
     _.find(arr, function (response, n) {
       vm.foodmenu.push({
-        food: response[weekday[data.index]]
+        food: response[weekday[data.index + 1]]
       });
     });
 

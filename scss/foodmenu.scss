@@ -3,10 +3,6 @@
     margin-top: 10px;
   }
   
-  .scroll {
-    height: 100%;
-  }
-  
   .tabbed-slidebox .tsb-icons:after {
     display: none;
   }
@@ -25,11 +21,14 @@
   
   #list-cards{
     margin:0px;
-        margin: 7px 15px 7px 15px;
-        color: #5051a6;
+    margin: 7px 15px 7px 15px;
+    color: #5051a6;
   }
   
   #food-card{
     margin-top: 5px;
     background-color:transparent;
+    .item-icon-left {
+    padding-left: 16px;
+}
   }

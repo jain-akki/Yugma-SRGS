@@ -16,7 +16,7 @@
   <div class="bar bar-subheader button-to-select" ng-show="totalChilds > 1">
     <h2 class="title add-complaint-child-name">Select child</h2>
   </div>
-  <ion-content class="has-subheader">
+  <ion-content class="has-subheader" overflow-scroll="true">
     <ion-list class="teachersName">
       <select id="teacher" class="button-block-margin" ng-options="val as val.name for val in teachers track by val.id" ng-model="category.teacher">
           <option value="" style="display:none;">select teacher</option>

@@ -7,14 +7,16 @@ app.controller('timetableCtrl', function ($scope, $state, USER, customService, t
   vm.childs = USER.parentChilds();
 
   if (vm.childs.length === 1) {
+
     customService._on();
     $(".has-subheader").removeClass("has-subheader");
     getTimetable(vm.childs[0].standardId);
+
   }
 
   $scope.tabs = [{
-    "text": "Mon"
-  }, {
+      "text": "Mon"
+    }, {
       "text": "Tue"
     }, {
       "text": "Wed"
@@ -71,11 +73,13 @@ app.controller('timetableCtrl', function ($scope, $state, USER, customService, t
   new Date().getTodayDay();
 
   vm.selectChild = function (child) {
+
+    customService._on();
     getTimetable(child.standardId);
     $(".button-positive").addClass("animated bounceOutRight");
     $(".button-positive").css("display", "none");
     $(".add-complaint-child-name").html(child.studentName);
-    customService._on();
+
   }
 
   vm.clearHistory = function () {
@@ -88,7 +92,7 @@ app.controller('timetableCtrl', function ($scope, $state, USER, customService, t
 
     _.find(arr, function (response, n) {
       vm.timetable.push({
-        day: response[weekday[data.index]],
+        day: response[weekday[data.index + 1]],
         time: response.periodTime
       });
     });
