@@ -13,8 +13,8 @@ app.controller('timetableCtrl', function ($scope, $state, USER, customService, t
   }
 
   $scope.tabs = [{
-      "text": "Mon"
-    }, {
+    "text": "Mon"
+  }, {
       "text": "Tue"
     }, {
       "text": "Wed"
@@ -25,9 +25,9 @@ app.controller('timetableCtrl', function ($scope, $state, USER, customService, t
     }, {
       "text": "Sat"
     }];
- 
+
   var arr = [];
- 
+
   function getTimetable(standardId) {
 
     vm.timetable = [];
@@ -42,7 +42,9 @@ app.controller('timetableCtrl', function ($scope, $state, USER, customService, t
           time: response.periodTime
         });
       });
+
       customService._off();
+
     });
 
   }
@@ -52,10 +54,17 @@ app.controller('timetableCtrl', function ($scope, $state, USER, customService, t
 
   Date.prototype.getTodayDay = function () {
 
-    var d = new Date();
-    weekday = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-    day = weekday[d.getDay() - 1];
-    $scope.day = weekday.indexOf(day);
+    var d = new Date().getDay();
+
+    weekday = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+    day = weekday[d];
+
+    $scope.day = weekday.indexOf(day) - 1;
+
+    if (weekday[d] === "sunday") {
+      day = "monday";
+      $scope.day = 0;
+    }
 
   }
 
@@ -74,15 +83,16 @@ app.controller('timetableCtrl', function ($scope, $state, USER, customService, t
   }
 
   $scope.onSlideMove = function (data) {
+
     vm.timetable = [];
-    // console.log(data.index)
-    // console.log("You have selected " , weekday[data.index]);
+
     _.find(arr, function (response, n) {
       vm.timetable.push({
         day: response[weekday[data.index]],
         time: response.periodTime
       });
     });
+
   };
 
 });
@@ -120,16 +130,22 @@ app.directive('onFinishRender', function ($timeout) {
     }
   }
 });
+
 app.directive('tabSlideBox', ['$timeout', '$window', '$ionicSlideBoxDelegate', '$ionicScrollDelegate',
+
   function ($timeout, $window, $ionicSlideBoxDelegate, $ionicScrollDelegate) {
+
     'use strict';
 
     return {
+
       restrict: 'A, E, C',
+
       link: function (scope, element, attrs, ngModel) {
 
         var ta = element[0], $ta = element;
         $ta.addClass("tabbed-slidebox");
+
         if (attrs.tabsPosition === "bottom") {
           $ta.addClass("btm");
         }

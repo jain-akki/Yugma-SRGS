@@ -45,10 +45,17 @@ angular.module('yugma')
 
   Date.prototype.getTodayDay = function () {
 
-    var d = new Date();
-    weekday = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-    day = weekday[d.getDay() - 1];
-    $scope.day = weekday.indexOf(day);
+    var d = new Date().getDay();
+
+    weekday = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+    day = weekday[d];
+
+    $scope.day = weekday.indexOf(day) - 1;
+
+    if (weekday[d] === "sunday") {
+      day = "monday";
+      $scope.day = 0;
+    }
 
   }
 
@@ -59,13 +66,15 @@ angular.module('yugma')
   }
 
   $scope.onSlideMove = function (data) {
+
     vm.foodmenu = [];
+
     _.find(arr, function (response, n) {
       vm.foodmenu.push({
-        day: response[weekday[data.index]],
-        time: response.periodTime
+        food: response[weekday[data.index]]
       });
     });
+
   };
 
 })

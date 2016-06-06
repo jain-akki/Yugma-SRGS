@@ -3,7 +3,6 @@ angular.module('yugma')
     .controller('otherViewComplaintCtrl', function ($scope, $state, $stateParams, $ionicPopup, USER, customService, complaintService) {
 
         $scope.cmpl = complaintService.viewOtherComplaint($stateParams.complaintId);
-        console.log($scope.cmpl)
         $scope.cmpl.date = moment($scope.cmpl.createdAt).format("DD-MM-YYYY");
         $scope.cmpl.closedDate = moment($scope.cmpl.closedOn).format("DD-MM-YYYY");
 

@@ -18,6 +18,10 @@
     color: $color-white;
 }
 
+.scroll {
+    height: 99% !important;
+}
+
 select {
     width: $width;
     height: 50px;
@@ -70,11 +74,11 @@ select {
     font-size: $custom-textbox-font-size;
 }
 
-.button-block-margin:active {
-    background-color: #B1B3EE  !important;
-    border-color: $btn-bg-color;
-    color: $btn-bg-color !important;
-}
+// .button-block-margin:active {
+//     background-color: #B1B3EE  !important;
+//     border-color: $btn-bg-color;
+//     color: $btn-bg-color !important;
+// }
 
 #otherData {
     display: none;
@@ -98,20 +102,105 @@ a.tab-item {
     margin-bottom: 44px;
 }
 
-.commentListMarginBottom {
-    margin-bottom: 42px;
-    .item {
-        padding: 9px 9px 6px 11px;
-        .commentParentName {
-            color: forestgreen;
-            font-size: small;
-            font-weight: 600;
-            width: 65%;
-            float: left;
+.comment {
+
+    .commentListMarginBottom {
+        margin-bottom: 42px;
+        .item {
+            padding: 9px 9px 6px 11px;
+            .commentParentName {
+                color: forestgreen;
+                font-size: small;
+                font-weight: 600;
+                width: 65%;
+                float: left;
+
+            }
+            .commentCreateDate {
+                text-align: right;
+                font-size: smaller;
+            }
         }
-        .commentCreateDate {
-            text-align: right;
-            font-size: smaller;
+    }
+    .commentForm {
+        background-color: $btn-bg-color;
+        height: 12%;
+        width:100%;
+        position: fixed;
+        bottom: 0;
+        textarea {
+            resize: none;
+            margin-top: 2px;
+            position: absolute;
+            width: $width - 20%;
+            height: $height - 20%;
+            color: $color-white;
+            background-color: $transparent;
+        }
+        .commentBtn {
+            top: 50%;
+            margin-top:0;
+            height: $height;
+            position: absolute;
+            transform: translateY(-50%);
+            button {
+                top: 50%;
+                position: relative;
+                color: $color-white;
+                transform: translateY(-50%);
+                color: $btn-bg-color;
+            }
         }
     }
 }
+
+#cmplEmpty {
+
+    position: relative;
+    box-shadow: 3px 3px;
+    margin-top: 50% !important;
+    border-color: $transparent;
+    transform: translateY(-50%);
+    background-color:rgba(118, 118, 118, 0.54);
+    
+     .up-circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-color: $btn-bg-color;
+    }
+    
+    .uf-bar {
+        height: 25%;
+        margin-top: 7px;
+        width: $width - 50%;
+        margin-bottom: 10px; 
+        background-color: $btn-bg-color;
+    }
+
+    .us-bar {
+        height: 17%;
+        width: $width;
+        margin-bottom: 10px;
+        background-color: $btn-bg-color;
+    }
+
+    .ut-bar {
+        height: 15%;
+        width: 25%;
+        margin-bottom: 10px;
+        background-color: $btn-bg-color;
+    }
+
+    .empty-text {
+        width: $width;
+        margin-left: 20%;
+        text-align: center;
+        color: $color-white;
+    }
+    
+  }
+  
+  #cmplOtherEmpty {
+      @extend #cmplEmpty;
+  }

@@ -64,5 +64,15 @@ angular.module('yugma')
     $scope.$watch('vm.comments', function (newValue, oldValue) {
         $ionicScrollDelegate.scrollBottom(false);
     }, true);
+    
+    $("#comment-textarea").keyup(function() {
+
+        if ($(this).val() !== '') {
+            $("#send").css('color', 'blue');
+        } else {
+            $("#send").css('color', '#000000');
+        }
+
+    }); 
 
 })

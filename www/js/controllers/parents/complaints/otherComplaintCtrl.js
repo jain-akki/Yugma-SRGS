@@ -2,11 +2,15 @@ angular.module('yugma')
 
 	.controller('otherComplaintsCtrl', function ($scope, USER, complaintService, customService) {
 
+		customService._on();
+	
 		$scope.otherComplaints = [];
 
 		complaintService.getOtherComplaint(USER.parentId()) .then(function (response) {
 
 			$scope.otherComplaints = response;
+
+			customService._off();
 
 			if ($scope.otherComplaints.length === 0) {
 				$("#cmplOtherEmpty").css("display", "inherit");
@@ -23,14 +27,10 @@ angular.module('yugma')
 			$scope.otherComplaints = [];
 
 			complaintService.getOtherComplaint(USER.parentId()) .then(function (response) {
-				$scope.otherComplaints = response;
-				_.forEach(response, function(val, index) {
-					var splitDate = (val.createdAt).substring(0, 20).split("-");
-					splitDate= [splitDate[1], splitDate[0], splitDate[2]].join("-");
-					val.created = new Date(splitDate);
-				});
 
+				$scope.otherComplaints = response;
 				$scope.$broadcast('scroll.refreshComplete');
+
 			});
 		};
 

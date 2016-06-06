@@ -144,11 +144,16 @@ angular.module('yugma')
             anonymous: complaint.isChecked
 
          }
-         console.log("data", finalData)
+
          complaintService.saveTeacherComplaint(finalData).then(function (response) {
 
             customService._off();
-            $state.go("yugma.complaints.teacher-complaint", {}, { reload: true, notify: true });
+
+            if ($scope.categoryId === 4) {
+              $state.go("yugma.complaints.teacher-complaint", {}, { reload: true, notify: true });  
+            } else {
+              $state.go("yugma.complaints.other-complaint", {}, { reload: true, notify: true });
+            }
 
          });
       }

@@ -9,6 +9,7 @@ angular.module('yugma')
         $ionicPush.init({
           "debug": true,
           "onNotification": function (notification) {
+            alert("notification received");
             var payload = notification.payload;
           },
           "onRegister": function (data) {
