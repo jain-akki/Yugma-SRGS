@@ -1,6 +1,6 @@
 angular.module('yugma')
 
-   .controller('addTeacherComplaintsCtrl', function ($scope, $state, $ionicHistory, USER, complaintService, customService) {
+   .controller('newComplaintCtrl', function ($scope, $state, $ionicHistory, USER, complaintService, customService) {
 
       $scope.childs = USER.parentChilds();
 
