@@ -34,3 +34,7 @@ $height: 100%;
 @mixin border-left($border) {
     border-left: $border;
 }
+
+@mixin border($border) {
+    border: $border;
+}

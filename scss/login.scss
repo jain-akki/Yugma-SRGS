@@ -78,8 +78,10 @@
 }
 
 .customPopup {
-
+    
     @extend .cmplPopup;
+    top: 5% !important;
+    bottom: initial !important;
     .popup {
         box-shadow: 4px 4px 1px  rgba(14, 14, 14, 0.37);
         background-color: $color-white;

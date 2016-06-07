@@ -1,0 +1,22 @@
+.account {
+  .item-input.card {
+    margin-top: 10px;
+    margin-bottom: -5px;
+  }
+  .parentChilds {
+    margin-left: 25%;
+    margin-top: 20px;
+    width: $width - 50%;
+    .lblChild {
+      margin-left: 25%;
+      text-align: center;
+      margin-bottom: 20px;
+      border-color: $transparent;
+    }
+    .childs {
+      text-align: center;
+      margin: -20px 20px -15px 20px;
+      border-color: $transparent;
+    }
+  }
+}

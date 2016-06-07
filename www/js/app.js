@@ -63,6 +63,16 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
                     }
                 }
             })
+            .state('yugma.foodmenu', {
+                url: '/foodmenu',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/foodmenu/foodmenu.html',
+                        controller: 'foodmenuCtrl as vm'
+                    }
+                }
+            })
             .state('yugma.complaints', {
                 url: '/complaints',
                 cache: false,
@@ -90,13 +100,13 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
                     }
                 }
             })
-            .state('yugma.add-teacher-complaint', {
-                url: '/add-teacher-complaint',
+            .state('yugma.new-complaint', {
+                url: '/new-complaint',
                 cache: false,
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/parents/complaints/addTeacherComplaint.html',
-                        controller: 'addTeacherComplaintsCtrl'
+                        templateUrl: 'templates/parents/complaints/newComplaint.html',
+                        controller: 'newComplaintCtrl'
                     }
                 }
             })

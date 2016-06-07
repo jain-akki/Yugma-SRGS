@@ -12,18 +12,19 @@ angular.module('yugma')
         customService._on();
 
         commentService.getOtherComment($stateParams.complaintId).then(function (response) {
+
             vm.comments = response;
+
             _.forEach(response, function(val, index) {
-                var splitDate = (val.dateTime).substring(0, 20).split("-");
-                splitDate= [splitDate[1], splitDate[0], splitDate[2]].join("-");
-                val.createdAt = new Date(splitDate);
                 if (val.parentId) {
                     val.parentName = "ME";
                 } else {
                     val.parentName = val.employeeName;
                 }
             });
+
             customService._off();
+
         });
     }
 
@@ -47,7 +48,7 @@ angular.module('yugma')
                 vm.comments.push({
                     comment: teacher.comment,
                     parentName: "ME",
-                    createdAt: new Date()
+                    dateTime: new Date()
                 });
                 vm.teacher = {};
             }
@@ -63,5 +64,15 @@ angular.module('yugma')
     $scope.$watch('vm.comments', function (newValue, oldValue) {
         $ionicScrollDelegate.scrollBottom(false);
     }, true);
+    
+    $("#comment-textarea").keyup(function() {
+
+        if ($(this).val() !== '') {
+            $("#send").css('color', 'blue');
+        } else {
+            $("#send").css('color', '#000000');
+        }
+
+    }); 
 
 })

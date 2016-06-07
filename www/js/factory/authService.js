@@ -29,6 +29,7 @@ angular.module("yugma")
 
     function destroyUserCredentials() {
         $localStorage.$reset();
+        $ionicPush.unregister();
         isAuthenticated = false;
         $http.defaults.headers.common["X-Auth-Token"] = undefined;
     }

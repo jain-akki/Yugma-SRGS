@@ -12,11 +12,36 @@
     <button menu-toggle="left" class="button button-icon button-clear ion-navicon sidebar-ion-navicon"></button>
   </ion-nav-buttons>
   <ion-nav-buttons side="right">
-    <a menu-toggle="right" class="button button-icon button-clear ion-ios-compose-outline sidebar-ion-navicon" ui-sref="yugma.add-teacher-complaint"></a>
+    <a menu-toggle="right" class="button button-icon button-clear ion-ios-compose-outline sidebar-ion-navicon" ui-sref="yugma.new-complaint"></a>
   </ion-nav-buttons>
   <ion-content class="padding watermark" id="complaints">
     <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
     <ion-list class="teacher-complaint-list">
+      <ion-item id="cmplOtherEmpty" style="display:none">
+        <div class="row">
+          <div class="col col-25">
+            <div class="up-circle"> </div>
+          </div>
+          <div class="col">
+            <div class="uf-bar row"> </div>
+            <div class="us-bar row"> </div>
+            <div class="ut-bar row"> </div>
+          </div>  
+        </div>
+        <div class="row">
+          <div class="col col-25" >
+            <div class="up-circle"  style="background-color:#fff"> </div>
+          </div>
+          <div class="col">
+            <div class="row uf-bar" style="background-color:#fff"> </div>
+            <div class="row us-bar" style="background-color:#fff"> </div>
+            <div class="row ut-bar" style="background-color:#fff"> </div>
+          </div>  
+        </div>   
+        <div class="row empty-text">
+            Tap top-right icon,<br>to add new complaint.
+        </div>   
+      </ion-item>
       <ion-item class="ComplaintSpace item-remove-animate item-icon-right animated fadeInLeft" ng-repeat="cmpl in otherComplaints"
         type="item-text-wrap" href="#/yugma/view-other-complaint/{{cmpl.id}}">
         <div class="complaint-lists">
@@ -31,7 +56,7 @@
           </div>
           <div class="row">
             <div class="col col-70">
-              <p>{{cmpl.title}}</p>
+              <p style="font-size:13px">{{cmpl.title}}</p>
             </div>
             <div class="col" style="text-align:right">
               <p style="font-size:10px"><span am-time-ago="cmpl.createdAt"></span></p>

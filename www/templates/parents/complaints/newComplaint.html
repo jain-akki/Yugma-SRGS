@@ -16,7 +16,7 @@
   <div class="bar bar-subheader button-to-select" ng-show="totalChilds > 1">
     <h2 class="title add-complaint-child-name">Select child</h2>
   </div>
-  <ion-content class="has-subheader">
+  <ion-content class="has-subheader" overflow-scroll="true">
     <ion-list class="teachersName">
       <select id="teacher" class="button-block-margin" ng-options="val as val.name for val in teachers track by val.id" ng-model="category.teacher">
           <option value="" style="display:none;">select teacher</option>
@@ -40,8 +40,8 @@
     <ion-list style="display:none" class="padding" id="addCmplTextBox">
       <form name="complaintForm" class="list trans-back" ng-submit="complaintSubmit(complaint)">
         <label class="item item-input item-stacked-label">
-          <span class="input-label">Complaint Title <sapn style="font-size: 80%;padding: 5px;">(max 32)</span>
-          <input type="text" class="input-style" ng-model="complaint.title" maxlength="32" required>
+          <span class="input-label">Complaint Title <sapn style="font-size: 80%;padding: 5px;">(max 30)</span>
+          <input type="text" class="input-style" ng-model="complaint.title" maxlength="30" required>
         </label>
         <label class="item item-input item-stacked-label">
           <span class="input-label">Complaint Description</span>

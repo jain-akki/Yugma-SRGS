@@ -47,7 +47,7 @@ angular.module('yugma')
                     onTap: function (e) {
                         return false;
                 }}, {
-                    text: 'Close',
+                    text: 'Submit',
                     type: 'button-positive',
                     onTap: function (e) {
                         if (!data.scope[data.modelName].comment) {

@@ -7,9 +7,11 @@ app.controller('timetableCtrl', function ($scope, $state, USER, customService, t
   vm.childs = USER.parentChilds();
 
   if (vm.childs.length === 1) {
+
     customService._on();
     $(".has-subheader").removeClass("has-subheader");
     getTimetable(vm.childs[0].standardId);
+
   }
 
   $scope.tabs = [{
@@ -25,9 +27,9 @@ app.controller('timetableCtrl', function ($scope, $state, USER, customService, t
     }, {
       "text": "Sat"
     }];
- 
+
   var arr = [];
- 
+
   function getTimetable(standardId) {
 
     vm.timetable = [];
@@ -42,7 +44,9 @@ app.controller('timetableCtrl', function ($scope, $state, USER, customService, t
           time: response.periodTime
         });
       });
+
       customService._off();
+
     });
 
   }
@@ -52,22 +56,30 @@ app.controller('timetableCtrl', function ($scope, $state, USER, customService, t
 
   Date.prototype.getTodayDay = function () {
 
-    var d = new Date();
-    weekday = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-    console.log()
-    day = weekday[d.getDay() - 1];
-    $scope.day = weekday.indexOf(day);
+    var d = new Date().getDay();
+
+    weekday = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+    day = weekday[d];
+
+    $scope.day = weekday.indexOf(day) - 1;
+
+    if (weekday[d] === "sunday") {
+      day = "monday";
+      $scope.day = 0;
+    }
 
   }
 
   new Date().getTodayDay();
 
   vm.selectChild = function (child) {
+
+    customService._on();
     getTimetable(child.standardId);
     $(".button-positive").addClass("animated bounceOutRight");
     $(".button-positive").css("display", "none");
     $(".add-complaint-child-name").html(child.studentName);
-    customService._on();
+
   }
 
   vm.clearHistory = function () {
@@ -75,15 +87,16 @@ app.controller('timetableCtrl', function ($scope, $state, USER, customService, t
   }
 
   $scope.onSlideMove = function (data) {
+
     vm.timetable = [];
-    // console.log(data.index)
-    // console.log("You have selected " , weekday[data.index]);
+
     _.find(arr, function (response, n) {
       vm.timetable.push({
-        day: response[weekday[data.index]],
+        day: response[weekday[data.index + 1]],
         time: response.periodTime
       });
     });
+
   };
 
 });
@@ -121,16 +134,22 @@ app.directive('onFinishRender', function ($timeout) {
     }
   }
 });
+
 app.directive('tabSlideBox', ['$timeout', '$window', '$ionicSlideBoxDelegate', '$ionicScrollDelegate',
+
   function ($timeout, $window, $ionicSlideBoxDelegate, $ionicScrollDelegate) {
+
     'use strict';
 
     return {
+
       restrict: 'A, E, C',
+
       link: function (scope, element, attrs, ngModel) {
 
         var ta = element[0], $ta = element;
         $ta.addClass("tabbed-slidebox");
+
         if (attrs.tabsPosition === "bottom") {
           $ta.addClass("btm");
         }

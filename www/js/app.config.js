@@ -6,7 +6,10 @@ angular.module('yugma')
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+                /**
+                 * Fixed selection box issues
+                 */
+                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
                 cordova.plugins.Keyboard.disableScroll(true);
             }
             if (window.StatusBar) {
@@ -26,29 +29,20 @@ angular.module('yugma')
             }
         });
 
-        /**
-         * We can change color of statusbar
-         */
-
-        if (window.StatusBar) {
-            statusBar.backgroundColorByName("green");
-        }
-
         $rootScope.$on('$cordovaNetwork:online', function (event, networkState) {
             $scope.isOnline = true;
         });
 
         $rootScope.$on('$cordovaNetwork:offline', function (event, networkState) {
-
             var data = {
                 title: 'No Internet Connection',
                 template: "Please check your connection, make sure it's turn on"
             }
 
-            customService._showConfirm(data).then(function (res) {
+            customService._showAlert(data).then(function (res) {
             });
 
             $scope.isOnline = false;
-        })
+        });
 
     })

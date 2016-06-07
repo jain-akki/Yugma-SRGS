@@ -8,9 +8,9 @@ angular.module('yugma')
 
     vm.childs = USER.parentChilds();
 
-    vm.contactNo = "9034512998";
+    vm.contactNo = USER.parentContact();
 
-    vm.emailId = "balar.tushar1@gmail.com";
+    vm.emailId = USER.parentEmail();
 
     vm.logout = function () {
 
