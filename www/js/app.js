@@ -38,7 +38,7 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
                 url: '/dashboard',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/dashboard.html',
+                        templateUrl: 'templates/parents/dashboard.html',
                         controller: 'DashCtrl'
                     }
                 }
@@ -161,24 +161,46 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
                 url: '/management',
                 abstract: true,
                 templateUrl: 'templates/managements/sidebar.html',
-                controller: function ($scope, $state, customService, authService,$localStorage) {
+                controller: function ($scope, $state, customService, authService, $localStorage) {
                     $scope.roleName =  $localStorage.sessionData.employeeName;
                 }      
             })
-            .state('management.complaint', {
-                url: '/complaint',
+            .state('management.dashboard', {
+                url: '/dashboard',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/dashboard.html',
+                        controller: 'DashCtrl'
+                    }
+                }
+            })
+            .state('management.complaints', {
+                url: '/complaints',
                 cache:false,
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/managements/complaints/complaint-tab.html',
-                        controller: 'managementComplaintCtrl as vm'
+                        templateUrl: 'templates/managements/complaints/complaint-tab.html'
                     }
                 }
                 
             })            
-            .state('management.complaint.teacherComplaint', {
-                url: "/teacherComplaint",                
-                templateUrl: 'templates/managements/complaints/complaintsTeacher.html',
+            .state('management.complaints.teacher-complaint', {
+                url: "/teacher-complaint",
+                views: {
+                    'complaint-teacher': {             
+                        templateUrl: 'templates/managements/complaints/complaintsTeacher.html',
+                        controller: 'managementTeacherComplaintsCtrl as vm'
+                    }
+                }
+            })
+            .state('management.complaints.other-complaint', {
+                url: "/other-complaint",
+                views: {
+                    'complaint-other': {             
+                        templateUrl: 'templates/managements/complaints/complaintsOthers.html',
+                        controller: 'managementOtherComplaintsCtrl as vm'
+                    }
+                }
             })
 
         /**
@@ -194,7 +216,8 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
             var state = $injector.get('$state');
 
             if (data.employeeName) {
-                state.go("management.complaint.teacherComplaint");
+                // state.go("management.complaint.teacherComplaint");
+                state.go("management.dashboard");
             } else {
                 state.go("yugma.dashboard");
             }

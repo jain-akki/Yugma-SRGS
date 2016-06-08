@@ -7,7 +7,6 @@ angular.module("yugma")
     function storeUserCredentials(data) {
         $localStorage.Id = data.parentId;
         $localStorage.Otp = data.parentOtp;
-        $localStorage.sessionId = data.sessionId;
         $localStorage.parentName = data.parentName;
         $localStorage.Email = data.parentEmail;
         $localStorage.Contact = data.parentContact;
@@ -18,7 +17,7 @@ angular.module("yugma")
     function storeManagementCredentials(data) {
         $localStorage.sessionData = data;
         $localStorage.employeeName = data.employeeName;
-        $localStorage.sessionId = data.sessionId;
+        $localStorage.roles = data.roles;
         $localStorage.Id = data.employeeId;
         notificationService.notification("management");
         userCredentials(data.employeeId, data.employeeName);
@@ -70,7 +69,7 @@ angular.module("yugma")
     function checkManagementSession() {
 
         var deferred = $q.defer();
-        console.log("id", USER.parentId())
+
         $http({
             method: 'GET',
             contentType: 'application/json',

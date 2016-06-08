@@ -131,7 +131,7 @@ angular.module('yugma')
 				if (typeof response === "object") {
 
 					customService._off();
-					$state.go("management.complaint.teacherComplaint");
+					$state.go("management.complaints.teacher-complaint");
 
 				}	else {
 

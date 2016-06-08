@@ -1,29 +1,17 @@
-<ion-view view-title="{{title.name}}">
-    <ion-content class="padding">
-        <div class="row loginRemovePadding">
-            <div class="col">
-                <label class="item item-radio login-item-radio" >
-                <input type="radio" name="tab" ng-click="getComplaint()" ng-model="category.state" value="teacher">
-                <div class="radio-content">
-                    <div class="item-content login-item-content">
-                    Teacher's
-                    </div>
-                    <!--<i class="radio-icon ion-person-stalker login-ion-person-stalker"></i>-->
-                </div>
-            </label>
-            </div>
-            <div class="col">
-                <label class="item item-radio login-item-radio">
-                <input type="radio" name="tab" ng-click="getComplaint()" ng-model="category.state" value="other">
-                <div class="radio-content">
-                    <div class="item-content">
-                    Other's
-                    </div>
-                    <!--<i class="radio-icon ion-university login-ion-university"></i>-->
-                </div>
-            </label>
-            </div>
-            </div>
-        <div ui-view></div>
-    </ion-content>
-</ion-view>
+<style>
+    i.icon:active{
+        color: #b2b4ee !important;
+    }
+</style>
+
+<ion-tabs class="tabs-icon-top">
+
+   <ion-tab title="Teacher's" icon-off="ion-ios-people-outline" icon-on="ion-ios-people complaint-ion-ios-people" href="#/management/complaints/teacher-complaint">
+      <ion-nav-view name="complaint-teacher"></ion-nav-view>
+   </ion-tab>
+
+   <ion-tab title="Other's" icon-off="ion-ios-flower-outline" icon-on="complaint-ion-ios-flower-outline ion-ios-flower" href="#/management/complaints/other-complaint">
+      <ion-nav-view name="complaint-other"></ion-nav-view>
+   </ion-tab>
+
+</ion-tabs>

@@ -37,6 +37,10 @@ angular.module('yugma')
     var getToken = function() {
         return $localStorage.token;
     }
+    
+    var getRoles = function() {
+        return $localStorage.roles;
+    }
 
     return {
         parentName: getParentName,
@@ -47,7 +51,8 @@ angular.module('yugma')
         parentContact: getParentContact,
         sessionId: getSessionId,
         employeeName: getEmployeeName,
-        token: getToken
+        token: getToken,
+        roles: getRoles
     }
     
 })
