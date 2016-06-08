@@ -55,19 +55,7 @@
       </div>
     </div>
   </ion-content>
-  <div class="commentForm" ng-hide="vm.statusId == 4 || vm.statusId == 6">
-    <form name="commentForm" class="row" ng-submit="vm.addComment(vm.teacher)">
-      <div class="row" style="margin-top:-10px !important">
-        <div class="col col-90">
-          <textarea id="comment-textarea" row="5" ng-model="vm.teacher.comment" placeholder="Type a comment..." required></textarea>
-        </div>
-        <div class="col commentBtn">
-          <button type="submit" id="send" class="button button-icon icon-left ion-android-send"></button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <ion-footer-bar keyboard-attach style="background-color:#5051A6;padding: 11px 10px 10px 10px;" class="item-input-inset">
+  <ion-footer-bar keyboard-attach style="background-color:#5051A6;padding: 11px 10px 10px 10px;" class="item-input-inset" ng-hide="vm.statusId == 4 || vm.statusId == 6">
     <form name="commentForm" style="padding:0px" class="row" ng-submit="vm.addComment(vm.teacher)">
       <label class="item-input-wrapper" style="margin-top:0px">
         <input type="text" id="comment-textarea" ng-model="vm.teacher.comment" placeholder="Type a comment..." />

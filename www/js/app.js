@@ -32,7 +32,7 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
                 url: '/yugma',
                 abstract: true,
                 // cache: false,
-                templateUrl: 'templates/sidebar.html'
+                templateUrl: 'templates/parents/sidebar.html'
             })
             .state('yugma.dashboard', {
                 url: '/dashboard',
@@ -156,14 +156,48 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
                         controller: 'AccountCtrl as vm'
                     }
                 }
-            });
+            })
+            .state('management', {
+                url: '/management',
+                abstract: true,
+                templateUrl: 'templates/managements/sidebar.html',
+                controller: function ($scope, $state, customService, authService,$localStorage) {
+                    $scope.roleName =  $localStorage.sessionData.employeeName;
+                }      
+            })
+            .state('management.complaint', {
+                url: '/complaint',
+                cache:false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/complaints/complaint-tab.html',
+                        controller: 'managementComplaintCtrl as vm'
+                    }
+                }
+                
+            })            
+            .state('management.complaint.teacherComplaint', {
+                url: "/teacherComplaint",                
+                templateUrl: 'templates/managements/complaints/complaintsTeacher.html',
+            })
 
         /**
          * When need to remove # from url uncomment below line of code
          *   $locationProvider.html5Mode(true);
          */
 
-        // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/yugma/dashboard');
+        
+        $urlRouterProvider.otherwise(function($injector, $location, $state) {
 
+            var data = $injector.get('$localStorage');
+            var state = $injector.get('$state');
+
+            if (data.employeeName) {
+                state.go("management.complaint.teacherComplaint");
+            } else {
+                state.go("yugma.dashboard");
+            }
+
+        });
     })

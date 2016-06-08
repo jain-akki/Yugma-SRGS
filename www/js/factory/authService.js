@@ -7,11 +7,21 @@ angular.module("yugma")
     function storeUserCredentials(data) {
         $localStorage.Id = data.parentId;
         $localStorage.Otp = data.parentOtp;
-        $localStorage.Name = data.parentName;
+        $localStorage.sessionId = data.sessionId;
+        $localStorage.parentName = data.parentName;
         $localStorage.Email = data.parentEmail;
         $localStorage.Contact = data.parentContact;
-        notificationService.notification();
-        userCredentials($localStorage.Id, $localStorage.Otp);
+        notificationService.notification("parents");
+        userCredentials(data.parentId, data.parentOtp);
+    }
+
+    function storeManagementCredentials(data) {
+        $localStorage.sessionData = data;
+        $localStorage.employeeName = data.employeeName;
+        $localStorage.sessionId = data.sessionId;
+        $localStorage.Id = data.employeeId;
+        notificationService.notification("management");
+        userCredentials(data.employeeId, data.employeeName);
     }
 
     function userCredentials(id, otp) {
@@ -20,9 +30,75 @@ angular.module("yugma")
     }
 
     function loadUserCrendentials() {
-        if ($localStorage.Id && $localStorage.Otp) {
+
+        if (USER.parentName()) {
+
+            checkParentSession().then(function(response) {
+
+                if (response !== USER.token()) {
+
+                    var Data = {
+                        template: "Your session has been expired."
+                    }
+                    customService._showAlert(Data).then(function (res) {
+                        logout();
+                    });
+                }
+            });
+
+        } else if(USER.employeeName()) {
+
+            checkManagementSession().then(function(response) {
+
+                if (response !== USER.token()) {
+
+                    var Data = {
+                        template: "Your session has been expired."
+                    }
+                    customService._showAlert(Data).then(function (res) {
+                        logout();
+                    });
+                }
+            });
+        }
+
+        if ($localStorage.Id || $localStorage.Otp) {
             userCredentials($localStorage.Id, $localStorage.Otp);
         }
+    }
+
+    function checkManagementSession() {
+
+        var deferred = $q.defer();
+        console.log("id", USER.parentId())
+        $http({
+            method: 'GET',
+            contentType: 'application/json',
+            url: baseUrl + "/management/session-check/" + USER.parentId()
+        }).success(function (response) {
+            deferred.resolve(response);
+        }).error(function (response) {
+            deferred.reject(response);
+        });
+
+        return deferred.promise;
+    }
+
+    function checkParentSession() {
+
+        var deferred = $q.defer();
+
+        $http({
+            method: 'GET',
+            contentType: 'application/json',
+            url: baseUrl + "/parent/session-check/" + USER.parentId()
+        }).success(function (response) {
+            deferred.resolve(response);
+        }).error(function (response) {
+            deferred.reject(response);
+        });
+
+        return deferred.promise;
     }
 
     loadUserCrendentials();
@@ -98,11 +174,34 @@ angular.module("yugma")
         destroyUserCredentials();
         $window.location.reload(true);
     }
+
+    var managementAuth = function(data) {
+
+        var deferred = $q.defer();
+
+        $http({
+            method: 'POST',
+            contentType: 'application/json',
+            data: data,
+            url: baseUrl + "/management-login"
+        }).success(function (response) {
+            if (typeof response === "object") {
+                storeManagementCredentials(response);   
+            }
+            deferred.resolve(response);
+        }).error(function (response) {
+            deferred.reject(response);
+        });
+
+        return deferred.promise;
+
+    }
     
     return {
         getOtp: getOtp,
         verifyOtp: verifyOtp,
         logout: logout,
+        managementAuth: managementAuth,
         isAuthenticated: function() { return isAuthenticated; }
     }
 })

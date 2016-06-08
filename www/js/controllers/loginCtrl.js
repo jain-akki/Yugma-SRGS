@@ -48,6 +48,7 @@ angular.module('yugma')
 			authService.getOtp(data.contact).then(function (data) {
 
 				customService._off();
+
 				if (typeof data === "object") {
 
 					$scope.parentsCredentials.displayUserTextbox = false;
@@ -94,7 +95,7 @@ angular.module('yugma')
 
 			authService.verifyOtp(data.otp, parentsData).then(function (authenticated) {
 
-				customService._off();
+				// customService._off();
 				$scope.parentsCredentials = {};
 				$scope.parentsCredentials.displayUserTextbox = true;
 				$scope.category.state = "parents";
@@ -117,6 +118,37 @@ angular.module('yugma')
 				});
 
 			});
+		}
+
+		$scope.managementData = {};
+
+		$scope.managementLogin = function (data) {
+
+			customService._on();
+
+			authService.managementAuth(data).then(function(response){
+
+				if (typeof response === "object") {
+
+					customService._off();
+					$state.go("management.complaint.teacherComplaint");
+
+				}	else {
+
+					customService._off();
+
+					var Data = {
+							template: "wrong username or password"
+					}
+
+					customService._showAlert(Data).then(function (res) {
+						if (res) {
+							$scope.managementData = {};
+						}
+					});
+
+				}
+			}); 
 		}
 
 	})

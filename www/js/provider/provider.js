@@ -7,7 +7,7 @@ angular.module('yugma')
     }
     
     var getParentName = function() {
-        return $localStorage.Name;
+        return $localStorage.parentName;
     }
     
     var getParentOtp = function() {
@@ -26,13 +26,28 @@ angular.module('yugma')
         return $localStorage.Contact;
     }
     
+    var getSessionId = function() {
+        return $localStorage.sessionId;
+    }
+
+    var getEmployeeName = function() {
+        return $localStorage.employeeName;
+    }
+    
+    var getToken = function() {
+        return $localStorage.token;
+    }
+
     return {
         parentName: getParentName,
         parentId: getParentId,
         parentOtp: getParentOtp,
         parentChilds: getParentChilds,
         parentEmail: getParentEmail,
-        parentContact: getParentContact
+        parentContact: getParentContact,
+        sessionId: getSessionId,
+        employeeName: getEmployeeName,
+        token: getToken
     }
     
 })

@@ -1,0 +1,15 @@
+<ion-list class="teacher-complaint-list">
+    <ion-item class="item-remove-animate item-icon-right animated lightSpeedIn" ng-show="teacherComplaints.length===0">        
+            You Don't have any teachers complaint to review       
+    </ion-item>
+    <ion-item class="item-remove-animate item-icon-right animated lightSpeedIn" ng-repeat="cmpl in teacherComplaints" type="item-text-wrap"
+    href="#/management/view-complaint/{{cmpl.encryptId}}/{{category.state || assign.state}}">
+    <h2>{{cmpl.againstName}}</h2>
+    <p>{{cmpl.title}}</p>
+    <p class="icon icon-accessory responsive-sm" style="padding-top:18px">
+        <span>{{cmpl.statusName}}</span>
+        <span>{{cmpl.createdAt}}</span>
+    </p>
+    </ion-item>
+    
+</ion-list>

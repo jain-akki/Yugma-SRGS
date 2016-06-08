@@ -1,6 +1,6 @@
 angular.module('yugma')
 
-  .factory("notificationService", function ($http, $q, $ionicPlatform, baseUrl, $ionicPush, $localStorage, USER) {
+  .factory("notificationService", function ($http, $q, $ionicPlatform, baseUrl, $ionicPush, $localStorage, USER, customService) {
 
     var notification = function () {
 
@@ -13,6 +13,7 @@ angular.module('yugma')
             var payload = notification.payload;
           },
           "onRegister": function (data) {
+            $localStorage.token = data._token;
             saveGcmToken(USER.parentId(), data);
           },
           "pluginConfig": {
@@ -41,19 +42,28 @@ angular.module('yugma')
 
     function saveGcmToken(parentId, token) {
 
+      customService._off();
       var data = {};
 
       angular.extend(data, {
         id: parentId,
         name: token._token
       });
+      
+      var url ;
+      if (USER.parentName()) {
+        url = "/add-app-token";
+      } else {
+        url = "/management/add-app-token";
+      }
 
       $http({
         method: 'PUT',
         contentType: 'application/json',
         data: data,
-        url: baseUrl + "/add-app-token"
+        url: baseUrl + url
       }).success(function (response) {
+        console.log("Response")
         alert("response from notification service" + JSON.stringify(response));
       }).error(function (response) {
         alert("Error " + JSON.stringify(response));

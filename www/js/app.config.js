@@ -18,15 +18,17 @@ angular.module('yugma')
         });
     })
 
-    .run(function ($rootScope, $state, authService, $ionicPlatform, $cordovaStatusbar, customService) {
+    .run(function ($rootScope, $state, $localStorage, authService, $ionicPlatform, $cordovaStatusbar, customService) {
 
         $rootScope.$on("$stateChangeStart", function (event, next, nextParams, fromState) {
+            
             if (!authService.isAuthenticated()) {
                 if ((next.name !== "login.parents") && (next.name !== "login.managements")) {
                     event.preventDefault();
                     $state.go("login.parents");
                 }
             }
+            
         });
 
         $rootScope.$on('$cordovaNetwork:online', function (event, networkState) {
@@ -34,8 +36,8 @@ angular.module('yugma')
         });
 
         $rootScope.$on('$cordovaNetwork:offline', function (event, networkState) {
+
             var data = {
-                title: 'No Internet Connection',
                 template: "Please check your connection, make sure it's turn on"
             }
 
