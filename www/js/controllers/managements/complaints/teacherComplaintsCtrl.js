@@ -25,10 +25,11 @@
         });
         
       } else {
-        
+
         /**
          * For admin, teacher and co-ordinator
          */
+        if(_.isEmpty(val.standardIds)) { return; }
 
         managementComplaintService.getAdminTeacherComplaints(val.standardIds, USER.parentId()).then(function (response) {
           customService._off();
@@ -38,15 +39,6 @@
       }
     });
 
-    vm.doRefresh = function() {
-
-      managementComplaintService.getDirectorTeacherComplaints().then(function (response) {
-        vm.allComplaints = response;
-        $scope.$broadcast('scroll.refreshComplete');
-      });
-
-    }
-    
   })
 
 })();

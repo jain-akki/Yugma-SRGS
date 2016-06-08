@@ -63,7 +63,6 @@ angular.module('yugma')
         data: data,
         url: baseUrl + url
       }).success(function (response) {
-        console.log("Response")
         alert("response from notification service" + JSON.stringify(response));
       }).error(function (response) {
         alert("Error " + JSON.stringify(response));
