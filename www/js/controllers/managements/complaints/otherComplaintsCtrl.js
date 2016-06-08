@@ -19,16 +19,32 @@
          * For director and principle
          */
         
-        managementComplaintService.getOtherComplaints().then(function (response) {
+        managementComplaintService.getDirectorOtherComplaints().then(function (response) {
           customService._off();
           vm.allComplaints = response;
         });
         
       } else {
-        
+
         /**
          * For admin, teacher and co-ordinator
          */
+
+        var categoryIds = val.categoryIds;
+        var standardIds = val.standardIds;
+
+        if (_.isEmpty(categoryIds)) {
+          categoryIds = [0];
+        }
+
+        if (_.isEmpty(standardIds)) {
+          standardIds = [0];
+        }
+
+        managementComplaintService.getAdminOtheComplaints(categoryIds, standardIds).then(function (response) {
+          customService._off();
+          vm.allComplaints = response;
+        });
         
       }
 
@@ -36,7 +52,7 @@
 
     vm.doRefresh = function() {
 
-      managementComplaintService.getOtherComplaints().then(function (response) {
+      managementComplaintService.getDirectorOtherComplaints().then(function (response) {
         vm.allComplaints = response;
         $scope.$broadcast('scroll.refreshComplete');
       });

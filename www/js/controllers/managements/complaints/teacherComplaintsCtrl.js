@@ -19,7 +19,7 @@
          * For director and principle
          */
         
-        managementComplaintService.getTeacherComplaints().then(function (response) {
+        managementComplaintService.getDirectorTeacherComplaints().then(function (response) {
           customService._off();
           vm.allComplaints = response;
         });
@@ -29,13 +29,18 @@
         /**
          * For admin, teacher and co-ordinator
          */
-        
+
+        managementComplaintService.getAdminTeacherComplaints(val.standardIds, USER.parentId()).then(function (response) {
+          customService._off();
+          vm.allComplaints = response;
+        });
+
       }
     });
 
     vm.doRefresh = function() {
 
-      managementComplaintService.getTeacherComplaints().then(function (response) {
+      managementComplaintService.getDirectorTeacherComplaints().then(function (response) {
         vm.allComplaints = response;
         $scope.$broadcast('scroll.refreshComplete');
       });
