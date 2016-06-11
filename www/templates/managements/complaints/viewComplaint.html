@@ -1,0 +1,76 @@
+<style>
+  .watermark {
+      background-image: url(img/logot.png);
+      background-position: center;
+      background-size: 300px;
+      background-repeat: no-repeat;
+  }
+</style>
+<ion-view view-title="View complaint" class="purple-back watermark managementCmpl" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-android-arrow-back sidebar-ion-navicon" ng-click="vm.goBack()"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <a menu-toggle="right" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6" class="button button-icon button-clear ion-edit sidebar-ion-navicon" ng-click="vm.goToEdit()" ui-sref="management.edit({})"></a>
+  </ion-nav-buttons>
+  <ion-content class="padding animated fadeInRight viewComplaint">
+    <div class="card card-complaint">
+      <div class="item item-text-wrap card-text">
+        <div><b>Against: </b>{{vm.cmpl.categoryName}}</div>
+      </div>
+    </div>
+    <div class="card card-complaint">
+      <div class="item item-text-wrap card-text">
+        <div><b>Title: </b>{{vm.cmpl.title}}</div>
+      </div>
+    </div>
+    <div class="card card-complaint">
+      <div class="item item-text-wrap card-text">
+        <div><b>Assigned To: </b>{{vm.cmpl.authorityName}}</div>
+      </div>
+    </div>
+    <div class="card card-complaint">
+      <div class="item item-text-wrap card-text">
+        <div><b>Description: </b>{{vm.cmpl.description}}</div>
+      </div>
+    </div>
+    <div class="card card-complaint" ng-show="vm.cmpl.rca">
+      <div class="item item-text-wrap card-text">
+        <div><b>Root Cause: </b>{{vm.cmpl.rca}}</div>
+      </div>
+    </div>
+    <div class="card card-complaint">
+      <div class="item item-text-wrap card-text">
+        <div><b>Status: </b>{{vm.cmpl.statusName}}</div>
+      </div>
+    </div>
+    <div class="card card-complaint" ng-show="vm.cmpl.closedOn">
+      <div class="item item-text-wrap card-text">
+        <div><b>Closed On: </b>{{vm.cmpl.closedDate}}</div>
+      </div>
+    </div>
+    <div class="card card-complaint">
+      <div class="item item-text-wrap card-text">
+        <div><b>Created At: </b>{{vm.cmpl.date}}</div>
+      </div>
+    </div>
+    <div class="card card-complaint">
+      <div class="item item-text-wrap card-text">
+        <div><b>Parents: </b>{{vm.cmpl.parentName}}</div>
+      </div>
+    </div>
+    <div class="card card-complaint">
+      <div class="item item-text-wrap card-text">
+        <div><b>Priority: </b>{{vm.cmpl.priorityName}}</div>
+      </div>
+    </div>
+  </ion-content>
+  <div class="tabs tabs-icon-top complaints-tab">
+    <a class="tab-item" nav-direction="back">
+      <i class="icon ion-android-chat"></i> Comments
+    </a>
+    <a class="tab-item" nav-direction="back" ng-click="closeComplaint()" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6">
+      <i class="icon ion-close-circled"></i> Close Complaint
+    </a>
+  </div>
+</ion-view>

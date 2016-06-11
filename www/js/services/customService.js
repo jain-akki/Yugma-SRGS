@@ -1,6 +1,6 @@
 angular.module('yugma')
 
-    .factory('customService', function ($ionicLoading, $ionicPopup, $q) {
+    .factory('customService', function ($ionicLoading, $ionicPopup, $q, $http, baseUrl) {
 
         var _on = function () {
             $ionicLoading.show({
@@ -63,7 +63,7 @@ angular.module('yugma')
             return deferred.promise;
 
         }
-
+        
         return {
             _on: _on,
             _off: _off,

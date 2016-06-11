@@ -18,7 +18,7 @@
         /**
          * For director and principle
          */
-        
+
         managementComplaintService.getDirectorTeacherComplaints().then(function (response) {
           customService._off();
           vm.allComplaints = response;
@@ -34,11 +34,12 @@
         managementComplaintService.getAdminTeacherComplaints(val.standardIds, USER.parentId()).then(function (response) {
           customService._off();
           vm.allComplaints = response;
+          console.log(response)
         });
 
       }
     });
-
+    
   })
 
 })();

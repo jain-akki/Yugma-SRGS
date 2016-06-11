@@ -1,4 +1,4 @@
-angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',  'ionic.service.push', 'yugma.controllers', 'yugma.services', 'angularMoment'])
+angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage', 'ionic.service.push', 'yugma.controllers', 'yugma.services', 'angularMoment'])
 
     .config(function ($stateProvider, $locationProvider, $urlRouterProvider, $ionicConfigProvider) {
 
@@ -162,8 +162,8 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
                 abstract: true,
                 templateUrl: 'templates/managements/sidebar.html',
                 controller: function ($scope, $state, customService, authService, $localStorage) {
-                    $scope.roleName =  $localStorage.sessionData.employeeName;
-                }      
+                    $scope.roleName = $localStorage.sessionData.employeeName;
+                }
             })
             .state('management.dashboard', {
                 url: '/dashboard',
@@ -176,19 +176,19 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
             })
             .state('management.complaints', {
                 url: '/complaints',
-                cache:false,
+                cache: false,
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/managements/complaints/complaint-tab.html'
                     }
                 }
-                
-            })            
+
+            })
             .state('management.complaints.teacher-complaint', {
                 url: "/teacher-complaint",
                 views: {
-                    'complaint-teacher': {             
-                        templateUrl: 'templates/managements/complaints/complaintsTeacher.html',
+                    'complaint-teacher': {
+                        templateUrl: 'templates/managements/complaints/teacherComplaints.html',
                         controller: 'managementTeacherComplaintsCtrl as vm'
                     }
                 }
@@ -196,9 +196,50 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
             .state('management.complaints.other-complaint', {
                 url: "/other-complaint",
                 views: {
-                    'complaint-other': {             
-                        templateUrl: 'templates/managements/complaints/complaintsOthers.html',
+                    'complaint-other': {
+                        templateUrl: 'templates/managements/complaints/otherComplaints.html',
                         controller: 'managementOtherComplaintsCtrl as vm'
+                    }
+                }
+            })
+            .state('management.view-teacher-complaint', {
+                url: '/view-teacher-complaint/:complaintId',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/complaints/viewComplaint.html',
+                        controller: 'managementTeacherViewComplaintCtrl as vm'
+                    }
+                }
+            })
+            .state('management.view-other-complaint', {
+                url: '/view-other-complaint/:complaintId',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/complaints/viewComplaint.html',
+                        controller: 'managementOtherViewComplaintCtrl as vm'
+                    }
+                }
+            })
+            // .state('management.edit', {
+            //     url: '/edit/:name/:cmplId/:priority/:assigned/:status',
+            //     views: {
+            //         'menuContent': {
+            //             templateUrl: 'templates/managements/complaints/editComplaint.html',
+            //             controller: 'managementTeacherEditComplaintCtrl as vm'
+            //         }
+            //     }
+            // })
+            .state('management.edit', {
+                url: '/edit',
+                params: {
+                  obj: null  
+                },
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/complaints/editComplaint.html',
+                        controller: 'managementTeacherEditComplaintCtrl as vm'
                     }
                 }
             })
@@ -209,8 +250,8 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
          */
 
         $urlRouterProvider.otherwise('/yugma/dashboard');
-        
-        $urlRouterProvider.otherwise(function($injector, $location, $state) {
+
+        $urlRouterProvider.otherwise(function ($injector, $location, $state) {
 
             var data = $injector.get('$localStorage');
             var state = $injector.get('$state');
@@ -223,4 +264,62 @@ angular.module('yugma', ['ionic','ionic.service.core', 'ngCordova', 'ngStorage',
             }
 
         });
+    })
+
+    .config(function ($httpProvider) {
+
+        $httpProvider.interceptors.push(function ($rootScope, $q, $injector) {
+
+            return {
+                request: function (config) {
+                    config.timeout = 5000;
+                    return config;
+                },
+                responseError: function (res) {
+
+                    var state = $injector.get('$state');
+                    var data = $injector.get('$localStorage');
+                    var $ionicPopup = $injector.get('$ionicPopup');
+                    var $ionicLoading = $injector.get('$ionicLoading');
+
+                    var template;
+                    var title;
+
+                    switch (res.status) {
+                        case 400:
+                            title = "Error 400",
+                            template = "Error 400: Bad request"
+                            break;
+                        case 403:
+                            title = "Error 403",
+                            template = "Error 403: Access Denied/Forbidden"
+                            break;
+                        case 404:
+                            title = "Error 404",
+                            template = "Error 404: File not found."
+                            break;
+                    
+                        default:
+                            template = "connection timeout"
+                            break;
+                    }
+
+                    var alertPopup = $ionicPopup.alert({
+                      title: title,
+                      template: template,
+                      cssClass: 'customAlert'
+                    });
+
+                    $ionicLoading.hide();
+
+                    alertPopup.then(function(res) {
+                      if (data.employeeName) {
+                        state.go("management.dashboard");
+                      } else {
+                        state.go("yugma.dashboard");
+                      }
+                    });
+                }
+            }
+        })
     })

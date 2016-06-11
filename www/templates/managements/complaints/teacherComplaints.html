@@ -1,11 +1,11 @@
-  <style>
-    .watermark {
-        background-image: url(img/logot.png);
-        background-position: center;
-        background-size: 300px;
-        background-repeat: no-repeat;
-    }
-  </style>
+<style>
+  .watermark {
+      background-image: url(img/logot.png);
+      background-position: center;
+      background-size: 300px;
+      background-repeat: no-repeat;
+  }
+</style>
 
 <ion-view view-title="Teacher's Complaints" align-title="center" hide-back-button="true">
 
@@ -15,7 +15,7 @@
 
   <ion-content class="padding watermark" id="complaints">
     <ion-list class="teacher-complaint-list">
-      <ion-item class="ComplaintSpace item-remove-animate item-icon-right animated lightSpeedIn" ng-repeat="cmpl in vm.allComplaints" type="item-text-wrap" href="#/yugma/view-teacher-complaint/{{cmpl.id}}">
+      <ion-item class="ComplaintSpace item-remove-animate item-icon-right animated lightSpeedIn" ng-repeat="cmpl in vm.allComplaints" type="item-text-wrap" href="#/management/view-teacher-complaint/{{cmpl.encryptId}}">
         <div class="complaint-lists">
           <div class="row">
             <div class="col col-75">
