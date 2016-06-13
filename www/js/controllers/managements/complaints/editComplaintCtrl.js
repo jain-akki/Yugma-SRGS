@@ -9,13 +9,11 @@
   function ($scope, $state, $stateParams, $ionicHistory, managementComplaintService, customService) {
 
     customService._on();
-    
-    console.log("in edit ctrl", $stateParams.obj)
-    
+
     var vm = this;
     vm.status = false;
     vm.statusId = $stateParams.obj.status;
-    
+
     var id = $stateParams.obj.cmplId,
         name = $stateParams.obj.name;
 
