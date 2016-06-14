@@ -203,8 +203,7 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                 }
             })
             .state('management.view-teacher-complaint', {
-                url: '/view-teacher-complaint/:complaintId',
-                cache: false,
+                url: '/view-teacher-complaint/:complaintId/:name',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/managements/complaints/viewComplaint.html',
@@ -213,7 +212,7 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                 }
             })
             .state('management.view-other-complaint', {
-                url: '/view-other-complaint/:complaintId',
+                url: '/view-other-complaint/:complaintId/:name',
                 cache: false,
                 views: {
                     'menuContent': {
@@ -222,15 +221,6 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     }
                 }
             })
-            // .state('management.edit', {
-            //     url: '/edit/:name/:cmplId/:priority/:assigned/:status',
-            //     views: {
-            //         'menuContent': {
-            //             templateUrl: 'templates/managements/complaints/editComplaint.html',
-            //             controller: 'managementTeacherEditComplaintCtrl as vm'
-            //         }
-            //     }
-            // })
             .state('management.edit', {
                 url: '/edit',
                 params: {
@@ -240,6 +230,27 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     'menuContent': {
                         templateUrl: 'templates/managements/complaints/editComplaint.html',
                         controller: 'managementTeacherEditComplaintCtrl as vm'
+                    }
+                }
+            })
+            .state('management.closeCmpl', {
+                url: '/closeCmpl/:complaintId/:name',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/complaints/closeComplaint.html',
+                        controller: 'managementTeacherCloseComplaintCtrl as vm'
+                    }
+                }
+            })
+            .state('management.add-comment', {
+                url: '/add-comment',
+                params: {
+                  obj: null
+                },
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/complaints/comment.html',
+                        controller: 'managementCommentCtrl as vm'
                     }
                 }
             })

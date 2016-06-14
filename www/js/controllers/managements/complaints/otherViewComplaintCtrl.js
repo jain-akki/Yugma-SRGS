@@ -13,6 +13,7 @@
     customService._on();
 
     vm.cmplId = $stateParams.complaintId;
+    vm.name = $stateParams.name;
 
     managementComplaintService.viewOtherComplaint($stateParams.complaintId).then(function(response) {
 
@@ -43,6 +44,19 @@
       }
 
       $state.go("management.edit", {obj: data}, {reload: true});
+    }
+    
+    vm.addComment = function() {
+
+      var complaint = {
+        id: vm.cmpl.id,
+        name: vm.name,
+        title: vm.cmpl.title,
+        status: vm.cmpl.statusId
+      }
+
+      $state.go("management.add-comment", {obj: complaint}, {reload: true});
+
     }
 
   });

@@ -11,6 +11,7 @@
     var vm = this;
 
     vm.cmplId = $stateParams.complaintId;
+    vm.name = $stateParams.name;
 
     customService._on();
 
@@ -19,7 +20,7 @@
       customService._off();
 
       vm.cmpl = response;
-
+      console.log("AAAA", response)
       angular.extend(vm.cmpl, {
         date: moment(vm.cmpl.createdAt).format("DD-MM-YYYY"),
         closedDate: moment(vm.cmpl.closedOn).format("DD-MM-YYYY"),
@@ -43,6 +44,19 @@
       }
 
       $state.go("management.edit", {obj: data}, {reload: true});
+    }
+
+    vm.addComment = function() {
+
+      var complaint = {
+        id: vm.cmpl.id,
+        name: vm.name,
+        title: vm.cmpl.title,
+        status: vm.cmpl.statusId
+      }
+
+      $state.go("management.add-comment", {obj: complaint}, {reload: true});
+
     }
 
   });

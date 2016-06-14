@@ -256,6 +256,42 @@
 
     }
 
+    var closeTeacherComplaint = function(params) {
+
+        var deferred = $q.defer();
+
+        $http({
+            method: 'PUT',
+            contentType: 'application/json',
+            data: params,
+            url: baseUrl + "/management/teacher/complaint-close"
+        }).success(function (response) {
+            deferred.resolve(response);
+        }).error(function (response) {
+            deferred.reject(response);
+        });
+
+        return deferred.promise;
+    }
+
+    var closeOtherComplaint = function(params) {
+
+        var deferred = $q.defer();
+
+        $http({
+            method: 'PUT',
+            contentType: 'application/json',
+            data: params,
+            url: baseUrl + "/management/other/complaint-close"
+        }).success(function (response) {
+            deferred.resolve(response);
+        }).error(function (response) {
+            deferred.reject(response);
+        });
+
+        return deferred.promise;
+    }    
+
     return {
       getDirectorTeacherComplaints: getDirectorTeacherComplaints,
       getDirectorOtherComplaints: getDirectorOtherComplaints,
@@ -270,7 +306,9 @@
       setStatus: setStatus,
       assignOtherComplaint: assignOtherComplaint,
       setOtherPriority: setOtherPriority,
-      setOtherStatus: setOtherStatus
+      setOtherStatus: setOtherStatus,
+      closeTeacherComplaint: closeTeacherComplaint,
+      closeOtherComplaint: closeOtherComplaint
     }
 
   })

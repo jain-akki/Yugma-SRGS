@@ -11,7 +11,7 @@
     <button class="button button-icon button-clear ion-android-arrow-back sidebar-ion-navicon" ng-click="vm.goBack()"></button>
   </ion-nav-buttons>
   <ion-nav-buttons side="right">
-    <a menu-toggle="right" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6" class="button button-icon button-clear ion-edit sidebar-ion-navicon" ng-click="vm.goToEdit()" ui-sref="management.edit({})"></a>
+    <a menu-toggle="right" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6" class="button button-icon button-clear ion-edit sidebar-ion-navicon" ng-click="vm.goToEdit()" ui-sref="management.edit"></a>
   </ion-nav-buttons>
   <ion-content class="padding animated fadeInRight viewComplaint">
     <div class="card card-complaint">
@@ -66,10 +66,10 @@
     </div>
   </ion-content>
   <div class="tabs tabs-icon-top complaints-tab">
-    <a class="tab-item" nav-direction="back">
+    <a class="tab-item" ng-click="vm.addComment()" nav-direction="back">
       <i class="icon ion-android-chat"></i> Comments
     </a>
-    <a class="tab-item" nav-direction="back" ng-click="closeComplaint()" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6">
+    <a class="tab-item" ui-sref="management.closeCmpl({complaintId: vm.cmpl.id, name: vm.name})" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6">
       <i class="icon ion-close-circled"></i> Close Complaint
     </a>
   </div>
