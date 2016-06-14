@@ -1,9 +1,32 @@
 <style>
   .watermark {
-      background-image: url(img/logot.png);
-      background-position: center;
-      background-size: 300px;
-      background-repeat: no-repeat;
+    background-image: url(img/logot.png);
+    background-position: center;
+    background-size: 300px;
+    background-repeat: no-repeat;
+  }
+  
+  a.cmpln {
+    padding: 0px;
+    min-height: 61px;
+  }
+  
+  .card {
+    margin: 3px !important;
+  }
+  
+  .cmpln .name {
+    font-size: 14px;
+    color: gray;
+  }
+  
+  .cmpln i {
+    color: #5061a6;
+  }
+  
+  .cmpln .title {
+    font-size: 14px;
+    color: black;
   }
 </style>
 <ion-view view-title="View complaint" class="purple-back watermark managementCmpl" hide-back-button="true">
@@ -11,66 +34,178 @@
     <button class="button button-icon button-clear ion-android-arrow-back sidebar-ion-navicon" ng-click="vm.goBack()"></button>
   </ion-nav-buttons>
   <ion-nav-buttons side="right">
-    <a menu-toggle="right" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6" class="button button-icon button-clear ion-edit sidebar-ion-navicon" ng-click="vm.goToEdit()" ui-sref="management.edit"></a>
+    <a menu-toggle="right" id="editBtn" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6" class="button button-icon button-clear ion-edit sidebar-ion-navicon" ng-click="vm.goToEdit()"></a>
   </ion-nav-buttons>
-  <ion-content class="padding animated fadeInRight viewComplaint">
-    <div class="card card-complaint">
-      <div class="item item-text-wrap card-text">
-        <div><b>Against: </b>{{vm.cmpl.categoryName}}</div>
-      </div>
+  <ion-content class="padding animated fadeInRight">
+    <div class="list card">
+      <a class="item item-icon-left cmpln">
+        <div class="row cmpln">
+          <div class="col col-20">
+            <i class="icon ion-hammer"></i>
+          </div>
+          <div>
+            <div class="row title">
+              Against:
+            </div>
+            <div class="row name">
+              {{vm.cmpl.categoryName}}
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
-    <div class="card card-complaint">
-      <div class="item item-text-wrap card-text">
-        <div><b>Title: </b>{{vm.cmpl.title}}</div>
-      </div>
+    <div class="list card">
+      <a class="item item-icon-left cmpln">
+        <div class="row cmpln">
+          <div class="col col-20">
+            <i class="icon ion-social-tumblr"></i>
+          </div>
+          <div>
+            <div class="row title">
+              Title:
+            </div>
+            <div class="row name">
+              {{vm.cmpl.title}}
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
-    <div class="card card-complaint">
-      <div class="item item-text-wrap card-text">
-        <div><b>Assigned To: </b>{{vm.cmpl.authorityName}}</div>
-      </div>
+    <div class="list card">
+      <a class="item item-icon-left cmpln">
+        <div class="row cmpln">
+          <div class="col col-20">
+            <i class="icon ion-person-add"></i>
+          </div>
+          <div>
+            <div class="row title">
+              Assigned to:
+            </div>
+            <div class="row name">
+              {{vm.cmpl.authorityName}}
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
-    <div class="card card-complaint">
-      <div class="item item-text-wrap card-text">
-        <div><b>Description: </b>{{vm.cmpl.description}}</div>
-      </div>
+    <div class="list card">
+      <a class="item item-icon-left cmpln">
+        <div class="row cmpln">
+          <div class="col col-20">
+            <i class="icon ion-document-text"></i>
+          </div>
+          <div>
+            <div class="row title">
+              Description:
+            </div>
+            <div class="row name item-text-wrap">
+              <p>
+                {{vm.cmpl.description}}
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
-    <div class="card card-complaint" ng-show="vm.cmpl.rca">
-      <div class="item item-text-wrap card-text">
-        <div><b>Root Cause: </b>{{vm.cmpl.rca}}</div>
-      </div>
+    <div class="list card">
+      <a class="item item-icon-left cmpln">
+        <div class="row cmpln">
+          <div class="col col-20">
+            <i class="icon ion-help"></i>
+          </div>
+          <div>
+            <div class="row title">
+              Root Cause:
+            </div>
+            <div class="row name">
+              {{vm.cmpl.rca}}
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
-    <div class="card card-complaint">
-      <div class="item item-text-wrap card-text">
-        <div><b>Status: </b>{{vm.cmpl.statusName}}</div>
-      </div>
+    <div class="list card">
+      <a class="item item-icon-left cmpln">
+        <div class="row cmpln">
+          <div class="col col-20">
+            <i class="icon ion-arrow-graph-up-right"></i>
+          </div>
+          <div>
+            <div class="row title">
+              Status
+            </div>
+            <div class="row name">
+              {{vm.cmpl.statusName}}
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
-    <div class="card card-complaint" ng-show="vm.cmpl.closedOn">
-      <div class="item item-text-wrap card-text">
-        <div><b>Closed On: </b>{{vm.cmpl.closedDate}}</div>
-      </div>
+    <div class="list card">
+      <a class="item item-icon-left cmpln">
+        <div class="row cmpln">
+          <div class="col col-20">
+            <i class="icon ion-minus-circled"></i>
+          </div>
+          <div>
+            <div class="row title">
+              Closed on:
+            </div>
+            <div class="row name">
+              {{vm.cmpl.closedDate}}
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
-    <div class="card card-complaint">
-      <div class="item item-text-wrap card-text">
-        <div><b>Created At: </b>{{vm.cmpl.date}}</div>
-      </div>
+    <div class="list card">
+      <a class="item item-icon-left cmpln">
+        <div class="row cmpln">
+          <div class="col col-20">
+            <i class="icon ion-plus-circled"></i>
+          </div>
+          <div>
+            <div class="row title">
+              Created at:
+            </div>
+            <div class="row name">
+              {{vm.cmpl.date}}
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
-    <div class="card card-complaint">
-      <div class="item item-text-wrap card-text">
-        <div><b>Parents: </b>{{vm.cmpl.parentName}}</div>
-      </div>
+    <div class="list card">
+      <a class="item item-icon-left cmpln">
+        <div class="row cmpln">
+          <div class="col col-20">
+            <i class="icon ion-person-stalker"></i>
+          </div>
+          <div>
+            <div class="row title">
+              Parents:
+            </div>
+            <div class="row name">
+              {{vm.cmpl.parentName}}
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
-    <div class="card card-complaint">
-      <div class="item item-text-wrap card-text">
-        <div><b>Priority: </b>{{vm.cmpl.priorityName}}</div>
-      </div>
+    <div class="list card">
+      <a class="item item-icon-left cmpln">
+        <div class="row cmpln">
+          <div class="col col-20">
+            <i class="icon ion-android-checkmark-circle"></i>
+          </div>
+          <div>
+            <div class="row title">
+              Priority
+            </div>
+            <div class="row name">
+              {{vm.cmpl.priorityName}}
+            </div>
+          </div>
+        </div>
+      </a>
     </div>
-  </ion-content>
-  <div class="tabs tabs-icon-top complaints-tab">
-    <a class="tab-item" ng-click="vm.addComment()" nav-direction="back">
-      <i class="icon ion-android-chat"></i> Comments
-    </a>
-    <a class="tab-item" ui-sref="management.closeCmpl({complaintId: vm.cmpl.id, name: vm.name})" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6">
-      <i class="icon ion-close-circled"></i> Close Complaint
-    </a>
-  </div>
 </ion-view>

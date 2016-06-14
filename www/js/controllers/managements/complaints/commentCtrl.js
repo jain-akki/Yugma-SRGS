@@ -12,7 +12,8 @@
 
     customService._on();
     
-    console.log($stateParams)
+    console.log($stateParams);
+    vm.statusId = $stateParams.obj.status;
     
     function getTeacherComments() {
 
@@ -20,6 +21,7 @@
 
         vm.comments = response;
 
+        console.log(response)
         _.forEach(response, function(val, index) {
           if (val.parentId) {
             val.parentName = "ME";

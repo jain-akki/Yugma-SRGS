@@ -204,6 +204,7 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
             })
             .state('management.view-teacher-complaint', {
                 url: '/view-teacher-complaint/:complaintId/:name',
+                cache: false,
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/managements/complaints/viewComplaint.html',

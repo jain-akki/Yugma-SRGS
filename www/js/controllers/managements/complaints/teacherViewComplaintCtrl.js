@@ -15,12 +15,16 @@
 
     customService._on();
 
-    managementComplaintService.viewTeacherComplaint($stateParams.complaintId).then(function(response){
+    managementComplaintService.viewTeacherComplaint(vm.cmplId).then(function(response){
 
       customService._off();
 
+      if (response.statusId === 4 || response.statusId === 6) {
+        $("#editBtn").css("display", "none");
+      }
+
       vm.cmpl = response;
-      console.log("AAAA", response)
+
       angular.extend(vm.cmpl, {
         date: moment(vm.cmpl.createdAt).format("DD-MM-YYYY"),
         closedDate: moment(vm.cmpl.closedOn).format("DD-MM-YYYY"),
@@ -32,7 +36,7 @@
     vm.goBack = function() {
       $state.go("management.complaints.teacher-complaint", {}, {reload: true})
     }
-    
+
     vm.goToEdit = function() {
 
       var data = {
