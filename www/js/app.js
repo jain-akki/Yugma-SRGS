@@ -176,7 +176,7 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
             })
             .state('management.complaints', {
                 url: '/complaints',
-                cache: false,
+                // cache: false,
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/managements/complaints/complaint-tab.html'
@@ -204,7 +204,7 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
             })
             .state('management.view-teacher-complaint', {
                 url: '/view-teacher-complaint/:complaintId/:name',
-                cache: false,
+                // cache: false,
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/managements/complaints/viewComplaint.html',
@@ -214,7 +214,7 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
             })
             .state('management.view-other-complaint', {
                 url: '/view-other-complaint/:complaintId/:name',
-                cache: false,
+                // cache: false,
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/managements/complaints/viewComplaint.html',

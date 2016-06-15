@@ -6,7 +6,7 @@
 
   .controller('managementTeacherViewComplaintCtrl',
 
-  function ($scope, $state, $stateParams, USER, managementComplaintService, customService) {
+  function ($scope, $state, $stateParams, $ionicHistory, USER, managementComplaintService, customService, $ionicViewSwitcher) {
 
     var vm = this;
 
@@ -15,7 +15,7 @@
 
     customService._on();
 
-    managementComplaintService.viewTeacherComplaint(vm.cmplId).then(function(response){
+    managementComplaintService.viewTeacherComplaint(vm.cmplId).then(function(response) {
 
       customService._off();
 
@@ -32,10 +32,6 @@
       });
 
     });
-
-    vm.goBack = function() {
-      $state.go("management.complaints.teacher-complaint", {}, {reload: true})
-    }
 
     vm.goToEdit = function() {
 

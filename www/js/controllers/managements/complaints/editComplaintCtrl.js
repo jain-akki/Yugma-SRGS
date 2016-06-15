@@ -109,9 +109,16 @@
     }
 
     vm.editComplaint = function() {
+
+      customService._on();
+
       if (name === "other") { editOtherComplaint(); }
       editTeacherComplaint();
+
+      $ionicHistory.clearCache();
+
     }
+
   });
 
 })();

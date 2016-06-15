@@ -6,34 +6,47 @@
     background-size: 90%;
   }
 </style>
+
 <ion-view view-title="Edit Complaints" hide-back-button="true" class="purple-back watermark">
 
   <ion-nav-buttons side="left">
     <button class="button button-icon button-clear ion-android-arrow-back sidebar-ion-navicon" ng-click="vm.goBack()"></button>
   </ion-nav-buttons>
 
-  <ion-content class="padding">
+  <ion-content class="padding editCmpln">
     <ion-list>
-      <label>Complaint assign to:</label>
-      <select class="button-block-margin" ng-options="val as val.name for val in vm.authors track by val.id" ng-model="vm.selectAuthor">
-          <option value="" style="display:none;">select authors</option>
-      </select>
+      <div class="row title">
+        Assign to:
+      </div>
+      <div class="row ">
+        <select class="button-block-margin" ng-options="val as val.name for val in vm.authors track by val.id" ng-model="vm.selectAuthor">
+            <option value="" style="display:none;">select authors</option>
+        </select>
+      </div>
     </ion-list>
     <ion-list>
-      <label>Complaint priority:</label>
-      <select class="button-block-margin" ng-options="val as val.name for val in vm.priorities track by val.id" ng-model="vm.selectPriority">
+      <div class="row title">
+        Priority:
+      </div>
+      <div class="row ">
+        <select class="button-block-margin" ng-options="val as val.name for val in vm.priorities track by val.id" ng-model="vm.selectPriority">
           <option value="" style="display:none;">select priority</option>
       </select>
+      </div>
     </ion-list>
     <ion-list ng-hide="vm.statusId == 3">
-      <label>Complaint status:</label>
-      <ion-checkbox style="margin:15px" ng-model="vm.status" class="form-select checkbox-royal"> InProgress </ion-checkbox>
+      <div class="row title">
+        Status:
+      </div>
+      <div class="row ">
+        <ion-checkbox style="margin:15px" ng-model="vm.status" class="form-select checkbox-stable editCkb check">InProgress</ion-checkbox>
+      </div>
     </ion-list>
     <ion-list>
-      <button class="button button-full button-positive" style="width: 90%;margin: 15px;" ng-click="vm.editComplaint()">
+      <button class="button button-full login-btn-purpleb" style="width: 90%;margin: 15px;" ng-click="vm.editComplaint()">
         SUBMIT
       </button>
     </ion-list>
   </ion-content>
-  
+
 </ion-view>

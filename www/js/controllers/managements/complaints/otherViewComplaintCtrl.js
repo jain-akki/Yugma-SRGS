@@ -29,10 +29,6 @@
 
     });
 
-    vm.goBack = function() {
-      $state.go("management.complaints.other-complaint", {}, {reload: true})
-    }
-
     vm.goToEdit = function() {
 
       var data = {
