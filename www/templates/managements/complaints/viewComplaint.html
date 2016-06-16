@@ -17,7 +17,7 @@
     <a menu-toggle="right" id="editBtn" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6" class="button button-icon button-clear ion-edit sidebar-ion-navicon" ng-click="vm.goToEdit()" nav-direction="forward"></a>
   </ion-nav-buttons>
 
-  <ion-content class="padding animated fadeInRight viewCmpl">
+  <ion-content class="padding animated fadeInRight viewCmpl viewComplaint">
     <div class="list card">
       <a class="item item-icon-left cmpln">
         <div class="row cmpln">
@@ -82,6 +82,7 @@
             <div class="row name item-text-wrap">
               <p>
                 {{vm.cmpl.description}}
+              </p>
             </div>
           </div>
         </div>
@@ -189,4 +190,13 @@
         </div>
       </a>
     </div>
+  </ion-content>
+  <div class="tabs tabs-icon-top complaints-tab">
+    <a class="tab-item" nav-direction="back" ng-click="vm.addComment()">
+      <i class="icon ion-android-chat"></i> Comments
+    </a>
+    <a class="tab-item" nav-direction="back" ui-sref="management.closeCmpl({complaintId: vm.cmpl.id, name: vm.name})" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6">
+      <i class="icon ion-close-circled"></i> Close Complaint
+    </a>
+  </div>
 </ion-view>
