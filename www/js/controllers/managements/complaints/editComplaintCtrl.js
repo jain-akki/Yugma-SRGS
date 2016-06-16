@@ -57,11 +57,19 @@
     }, true);
 
     function stateChangeToOther() {
-      $state.go("management.complaints.other-complaint", {}, {reload: true});
+      if (name === "assignOther") {
+        $state.go("management.assignComplaint.assignOtherComplaint", {}, {reload: true});
+      } else {
+        $state.go("management.complaints.other-complaint", {}, {reload: true});
+      }
     }
     
     function stateChangeToTeacher() {
-      $state.go("management.complaints.teacher-complaint", {}, {reload: true});
+      if (name === "assignTeacher") {
+        $state.go("management.assignComplaint.assignTeacherComplaint", {}, {reload: true});
+      } else {
+        $state.go("management.complaints.teacher-complaint", {}, {reload: true});
+      }
     }
     
     function editOtherComplaint() {
@@ -111,12 +119,14 @@
     vm.editComplaint = function() {
 
       customService._on();
-
-      if (name === "other") { editOtherComplaint(); }
-      editTeacherComplaint();
-
       $ionicHistory.clearCache();
 
+      if (name === "other" || name === "assignOther") {
+        editOtherComplaint();
+      } else {
+        editTeacherComplaint();
+      }
+      
     }
 
   });

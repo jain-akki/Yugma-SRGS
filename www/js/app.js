@@ -255,6 +255,41 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     }
                 }
             })
+            .state('management.assignComplaint', {
+                url: '/assignComplaint',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/complaints/assignComplaintTab.html'
+                    }
+                }
+            })
+            .state('management.assignComplaint.assignTeacherComplaint', {
+                url: '/assignTeacherComplaint',
+                views: {
+                    'complaint-teacher': {
+                        templateUrl: 'templates/managements/complaints/assignTeacherComplaints.html',
+                        controller: 'assignTeacherComplaintCtrl as vm'
+                    }
+                }
+            })
+            .state('management.assignComplaint.assignOtherComplaint', {
+                url: '/assignOtherComplaint',
+                views: {
+                    'complaint-other': {
+                        templateUrl: 'templates/managements/complaints/assignOtherComplaints.html',
+                        controller: 'assignOtherComplaintCtrl as vm'
+                    }
+                }
+            })
+            .state('management.assign-view-teacher-complaint', {
+                url: '/assign-view-teacher-complaint/:complaintId/:name',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/complaints/viewComplaint.html',
+                        controller: 'assignTeacherComplaintCtrl as vm'
+                    }
+                }
+            })
 
         /**
          * When need to remove # from url uncomment below line of code

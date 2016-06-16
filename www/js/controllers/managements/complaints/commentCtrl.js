@@ -10,10 +10,8 @@
 
     var vm = this;
 
-    customService._on();
-    
     vm.statusId = $stateParams.obj.status;
-    
+
     function getTeacherComments() {
 
       managementCommentService.getTeacherComments($stateParams.obj.id).then(function(response) {

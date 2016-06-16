@@ -192,7 +192,7 @@
     </div>
   </ion-content>
   <div class="tabs tabs-icon-top complaints-tab">
-    <a class="tab-item" nav-direction="back" ng-click="vm.addComment()">
+    <a href="" class="tab-item" nav-direction="exit" ng-click="vm.addComment()">
       <i class="icon ion-android-chat"></i> Comments
     </a>
     <a class="tab-item" nav-direction="back" ui-sref="management.closeCmpl({complaintId: vm.cmpl.id, name: vm.name})" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6">

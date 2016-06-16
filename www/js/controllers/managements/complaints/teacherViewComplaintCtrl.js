@@ -28,7 +28,7 @@
       angular.extend(vm.cmpl, {
         date: moment(vm.cmpl.createdAt).format("DD-MM-YYYY"),
         closedDate: moment(vm.cmpl.closedOn).format("DD-MM-YYYY"),
-        name: "teacher"
+        name: $stateParams.name
       });
 
     });
@@ -55,12 +55,16 @@
         status: vm.cmpl.statusId
       }
 
-      $state.go("management.add-comment", {obj: complaint}, {reload: true});
+      $state.go("management.add-comment", {obj: complaint}, {reload: false});
 
     }
 
     vm.goBack = function () {
-      $state.go("management.complaints.teacher-complaint", {}, {reload: true});
+      if ($stateParams.name === "assignTeacher") {
+        $state.go("management.assignComplaint.assignTeacherComplaint", {}, {reload: false});  
+      } else {
+        $state.go("management.complaints.teacher-complaint", {}, {reload: false});
+      }
     }
 
   });

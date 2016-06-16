@@ -6,7 +6,7 @@
 
   .controller('managementTeacherComplaintsCtrl',
   
-  function($http, $scope, USER, managementComplaintService, customService) {
+  function($http, $scope, $state, USER, managementComplaintService, customService) {
   
     var vm = this;
 
@@ -24,7 +24,7 @@
       managementComplaintService.getAdminTeacherComplaints(id, USER.parentId()).then(function (response) {
         customService._off();
         vm.allComplaints = response;
-        console.log(response)
+        console.log("getAdminTeacherAssignComplaints", response);
       });
     };
 
@@ -43,6 +43,10 @@
       }
 
     });
+
+    vm.viewAssignCmpl = function() {
+      $state.go("management.assignComplaint.assignTeacherComplaint", {}, {reload: true});
+    }
 
   });
 

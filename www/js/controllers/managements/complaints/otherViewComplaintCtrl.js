@@ -24,7 +24,7 @@
       angular.extend(vm.cmpl, {
         date: moment(vm.cmpl.createdAt).format("DD-MM-YYYY"),
         closedDate: moment(vm.cmpl.closedOn).format("DD-MM-YYYY"),
-        name: "other"
+        name: $stateParams.name
       });
 
     });
@@ -56,7 +56,11 @@
     }
 
     vm.goBack = function () {
-      $state.go("management.complaints.other-complaint", {}, {reload: true});
+      if ($stateParams.name === "assignOther") {
+        $state.go("management.assignComplaint.assignOtherComplaint", {}, {reload: false});  
+      } else {
+        $state.go("management.complaints.other-complaint", {}, {reload: false});
+      }
     }
 
   });
