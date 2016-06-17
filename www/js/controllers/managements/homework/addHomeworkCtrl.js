@@ -4,7 +4,7 @@
 
   angular.module('yugma')
 
-  .controller('newHomeworkCtrl',
+  .controller('addHomeworkCtrl',
   
   function($scope, $state, $filter, USER, managementHomeworkService, customService, $ionicHistory) {
 

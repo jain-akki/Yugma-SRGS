@@ -58,10 +58,28 @@
       return deferred.promise;
     }
 
+    var getHomework = function (id) {
+
+      var deferred = $q.defer();
+
+      $http({
+        method: "GET",
+        contentType: "application/json",
+        url: baseUrl + "/management/homework/"+ id
+      }).success(function (response) {
+        deferred.resolve(response);
+      }).error(function (response) {
+        deferred.reject(response);
+      });
+
+      return deferred.promise;
+    }
+
     return {
       getStandards: getStandards,
       getHomework: getHomework,
-      addHomework: addHomework
+      addHomework: addHomework,
+      getHomework: getHomework
     }
 
   });

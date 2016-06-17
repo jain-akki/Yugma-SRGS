@@ -298,12 +298,21 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     }
                 }
             })
-            .state('management.homework.new-assignment',{
-                url: '/new-assignment',
+            .state('management.homework.addHomework',{
+                url: '/addHomework',
                 views: {
                     'new-homework': {
-                        templateUrl: 'templates/managements/homework/newHomework.html',
-                        controller: 'newHomeworkCtrl as vm'
+                        templateUrl: 'templates/managements/homework/addHomework.html',
+                        controller: 'addHomeworkCtrl as vm'
+                    }
+                }
+            })
+            .state('management.homework.dueHomework',{
+                url: '/dueHomework',
+                views: {
+                    'due-homework': {
+                        templateUrl: 'templates/managements/homework/dueHomework.html',
+                        controller: 'dueHomeworkCtrl as vm'
                     }
                 }
             })
