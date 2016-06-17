@@ -4,7 +4,9 @@
 
   angular.module('yugma')
 
-  .controller('managementOtherComplaintsCtrl', function($http, $scope, USER, managementComplaintService, customService) {
+  .controller('managementOtherComplaintsCtrl',
+
+  function($http, $scope, $state, USER, managementComplaintService, customService) {
 
     var vm = this,
         roles = USER.roles(),
@@ -55,6 +57,11 @@
         }
       }
     });
+
+    vm.viewAssignCmpl = function() {
+      $state.go("management.assignComplaint.assignTeacherComplaint", {}, {reload: true});
+    }
+
 
   });
 

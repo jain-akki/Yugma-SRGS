@@ -42,12 +42,15 @@
         if(_.isEmpty(val.standardIds)) { return; }
         getAdminTeacherAssignComplaints();
       }
-
-      vm.goBack = function () {
-        $state.go("management.assignComplaint.assignTeacherComplaint", {}, {reload: true});
-      }
-
     });
+
+    vm.goBack = function () {
+      $state.go("management.assignComplaint.assignTeacherComplaint", {}, {reload: true});
+    }
+
+    vm.viewCmpl = function() {
+      $state.go("management.complaints.teacher-complaint", {}, {reload: true});
+    }
 
   });
 

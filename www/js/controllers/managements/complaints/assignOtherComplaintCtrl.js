@@ -45,6 +45,10 @@
 
     });
 
+    vm.viewCmpl = function() {
+      $state.go("management.complaints.teacher-complaint", {}, {reload: true});
+    }
+
   });
 
 })();
