@@ -6,7 +6,7 @@
 
   .controller('managementTeacherCloseComplaintCtrl',
   
-  function($http, $scope, $state, $stateParams, USER, managementComplaintService, customService, $ionicHistory) {
+  function($scope, $state, $stateParams, USER, managementComplaintService, customService, $ionicHistory) {
 
     var vm = this;
 
