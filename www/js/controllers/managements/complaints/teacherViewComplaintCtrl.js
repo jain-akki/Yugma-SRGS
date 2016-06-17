@@ -55,16 +55,21 @@
         status: vm.cmpl.statusId
       }
 
+      $ionicViewSwitcher.nextDirection("forward");
       $state.go("management.add-comment", {obj: complaint}, {reload: false});
 
     }
 
     vm.goBack = function () {
+
       if ($stateParams.name === "assignTeacher") {
+        $ionicViewSwitcher.nextDirection("back");
         $state.go("management.assignComplaint.assignTeacherComplaint", {}, {reload: false});  
       } else {
+        $ionicViewSwitcher.nextDirection("back");
         $state.go("management.complaints.teacher-complaint", {}, {reload: false});
       }
+
     }
 
   });

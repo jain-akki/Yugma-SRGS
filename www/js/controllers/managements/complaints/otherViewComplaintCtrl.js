@@ -6,7 +6,7 @@
 
   .controller('managementOtherViewComplaintCtrl',
 
-  function ($scope, $state, $stateParams, USER, managementComplaintService, customService) {
+  function ($scope, $state, $stateParams, USER, managementComplaintService, customService, $ionicViewSwitcher) {
 
     var vm = this;
 
@@ -56,11 +56,15 @@
     }
 
     vm.goBack = function () {
+
       if ($stateParams.name === "assignOther") {
+        $ionicViewSwitcher.nextDirection("back");
         $state.go("management.assignComplaint.assignOtherComplaint", {}, {reload: false});  
       } else {
+        $ionicViewSwitcher.nextDirection("back");
         $state.go("management.complaints.other-complaint", {}, {reload: false});
       }
+
     }
 
   });

@@ -1,6 +1,6 @@
 angular.module('yugma')
 
-    .controller('teacherViewComplaintCtrl', function ($scope, $state, $stateParams, $ionicPopup, USER, customService, complaintService) {
+    .controller('teacherViewComplaintCtrl', function ($scope, $state, $stateParams, $ionicPopup, USER, customService, complaintService, $ionicViewSwitcher) {
 
         $scope.cmpl = complaintService.viewTeacherComplaint($stateParams.complaintId);
         $scope.cmpl.date = moment($scope.cmpl.createdAt).format("DD-MM-YYYY");
@@ -22,17 +22,26 @@ angular.module('yugma')
             }
 
             customService._showPopup(data).then(function (res) {
+
                 if (res) {
+
+                    customService._on();
+
                     var closeComplaintData = {
                         csaId: Number($stateParams.complaintId),
                         id: USER.parentId(),
                         comment: "ClosedReason: " + res.comment
                     }
+
                     complaintService.closeComplaint(closeComplaintData).then(function (response) {
+
+                        customService._off();
                         $scope.closeComplaint.comment = "";
+                        $ionicViewSwitcher.nextDirection('swap');
                         $state.go("yugma.complaints.teacher-complaint", {}, {
                             reload: true
                         });
+
                     });
                 }
             });
@@ -46,8 +55,11 @@ angular.module('yugma')
             }
 
             customService._showConfirm(data).then(function (res) {
+
                 if (res) {
+                    customService._on();
                     complaintService.satisfyTeacherComplaint($stateParams.complaintId).then(function (response) {
+                        customService._off();
                         $state.go("yugma.complaints.teacher-complaint", {}, {
                             reload: true
                         });
@@ -68,17 +80,25 @@ angular.module('yugma')
             }
 
             customService._showPopup(data).then(function (res) {
+
                 if (res) {
+
+                    customService._on();
+
                     var reOpenComplaintData = {
                         csaId: Number($stateParams.complaintId),
                         id: USER.parentId(),
                         comment: "ReopenReson: " + res.comment
                     }
+
                     complaintService.reOpenComplaint(reOpenComplaintData).then(function (response) {
+
+                        customService._off();
                         $scope.reOpenComplaint.comment = "";
                         $state.go("yugma.complaints.teacher-complaint", {}, {
                             reload: true
                         });
+
                     });
                 }
             });
