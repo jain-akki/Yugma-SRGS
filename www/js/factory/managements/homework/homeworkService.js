@@ -97,6 +97,23 @@
       return deferred.promise;
     }
 
+    var getOldHomework = function (id) {
+
+      var deferred = $q.defer();
+
+      $http({
+        method: 'GET',
+        contentType: 'application/json',
+        url: baseUrl + "/management/old-homework/"+ id
+      }).success(function (response) {
+        deferred.resolve(response);
+      }).error(function (response) {
+        deferred.reject(response);
+      });
+
+      return deferred.promise;
+    }
+
     return {
       getStandards: getStandards,
       dueHomework: dueHomework,
@@ -110,7 +127,8 @@
         return null;
       },
       updateDesc: updateDesc,
-      updateDueDate: updateDueDate
+      updateDueDate: updateDueDate,
+      getOldHomework: getOldHomework
     }
 
   });

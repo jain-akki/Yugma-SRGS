@@ -12706,6 +12706,10 @@ ion-slide.slider-slide {
 .editCmpln .editCkb {
   padding: 9px 55px !important; }
 
+p.lblGreen {
+  color: #00A54B;
+  font-weight: 600; }
+
 /*!
  * Copyright 2016 PREGIOTEK
  * http://pregiotek.com/

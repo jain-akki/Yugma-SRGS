@@ -1,0 +1,25 @@
+<style>
+  .watermark {
+    background-image: url(img/logot.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90%;
+  }
+</style>
+
+<ion-view view-title="Old Assignment" class="purple-back watermark">
+  <ion-content class="padding editCmpln">
+    <ion-list class="teacher-complaint-list ">
+      <ion-item class="ComplaintSpace item-remove-animate item-icon-right" ng-repeat="hw in vm.oldHomework">
+        <div class="complaint-lists">
+          <h2>{{hw.homeworkTitle}}</h2>
+          <p class="homework-desc">{{hw.description}}</p>
+          <p class="icon icon-accessory responsive-sm" style="padding-top:18px">
+            <p>{{hw.dueDate}}</p>
+            <p>{{hw.standardId}}th standard</p>
+          </p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

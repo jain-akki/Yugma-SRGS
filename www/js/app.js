@@ -325,6 +325,15 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     }
                 }
             })
+            .state('management.homework.oldHomework',{
+                url: '/oldHomework',
+                views: {
+                    'old-homework': {
+                        templateUrl: 'templates/managements/homework/oldHomework.html',
+                        controller: 'oldHomeworkCtrl as vm'
+                    }
+                }
+            })
 
         /**
          * When need to remove # from url uncomment below line of code
