@@ -68,6 +68,7 @@
         contentType: "application/json",
         url: baseUrl + "/management/fetch-other-complaint/" + categoryIds + "/" + standardIds
       }).success(function (response) {
+        console.log("SASAs", response)
         deferred.resolve(response);
       }).error(function (response) {
         deferred.reject(response);

@@ -29,8 +29,6 @@
       });
     }
 
-    getDirectorOtherComplaints();
-
     angular.forEach(roles, function (val, index) {
 
       if (roles.length != index) {

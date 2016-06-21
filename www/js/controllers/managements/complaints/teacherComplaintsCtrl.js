@@ -24,7 +24,6 @@
       managementComplaintService.getAdminTeacherComplaints(id, USER.parentId()).then(function (response) {
         customService._off();
         vm.allComplaints = response;
-        console.log("getAdminTeacherAssignComplaints", response);
       });
     };
 
@@ -38,7 +37,11 @@
       } else {
 
         /****** For admin, teacher and co-ordinator *******/
-        if(_.isEmpty(val.standardIds)) { return; }
+        if(_.isEmpty(val.standardIds)) { 
+          customService._off();
+          return;
+        }
+
         getAdminTeacherComplaints(val.standardIds);
       }
 

@@ -14,7 +14,7 @@
 <ion-view view-title="Edit homework" class="purple-back watermark " hide-back-button="false">
   <ion-content class="padding">
     <ion-list>
-      <form name="complaintForm" class="list trans-back" ng-submit="editHomework(hw)">
+      <form name="complaintForm" class="list trans-back" ng-submit="vm.updateHomework()">
         <label class="item item-input item-stacked-label">
           Title
           <input type="text" class="input-style" ng-model="vm.hw.homeworkTitle">
