@@ -6,7 +6,7 @@
 
   .controller('dueHomeworkCtrl',
 
-  function($scope, $state, USER, managementHomeworkService, customService) {
+  function($scope, $state, $filter, USER, managementHomeworkService, customService) {
 
     var vm = this;
 
@@ -15,8 +15,11 @@
     managementHomeworkService.dueHomework(USER.parentId()).then(function(response){
       customService._off();
       vm.dueHomework = response;
+      _.forEach(response, function(val, index) {
+        val.due = $filter('date')(val.dueDate, 'MM/dd/yyyy');
+      });
+      // vm.hw.dueDate = new Date(vm.hw.dueDate);
     });
-
   });
 
 })();

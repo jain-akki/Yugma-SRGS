@@ -6,7 +6,7 @@
 
   .controller('editHomeworkCtrl',
 
-  function($scope, $state, $filter, $stateParams, USER, managementHomeworkService, customService, $ionicHistory, $timeout) {
+  function($scope, $state, $filter, $stateParams, USER, managementHomeworkService, customService, $ionicHistory, $ionicViewSwitcher) {
 
     var vm = this;
 
@@ -37,43 +37,42 @@
 
     function updateDesc(data) {
       managementHomeworkService.updateDesc(data).then(function(response) {
-        $timeout(function() {
-          customService._off();
-          $ionicHistory.goBack();
-        }, 1000);
+        customService._off();
+        $ionicViewSwitcher.nextDirection("exit");
+        $state.go("management.homework.dueHomework", {}, {reload: true});
       });
     }
 
     function updateDueDate(data) {
       managementHomeworkService.updateDueDate(data).then(function(response) {
-        $timeout(function() {
-          $ionicHistory.goBack();
-        }, 1000);
-        // $state.go("management.homework.dueHomework", {}, {reload: true});
+        customService._off();
+        $ionicViewSwitcher.nextDirection("exit");
+        $state.go("management.homework.dueHomework");
       });
     }
 
     vm.updateHomework = function () {
 
       customService._on();
+
       if (newDecs) {
         var data = {
           id: $stateParams.homeworkId,
           name: newDecs
         }
         updateDesc(data);
-      }
-
-      if (newDueDate) {
-
+      } else if(newDueDate) {
         var data = {
           id: $stateParams.homeworkId,
           name: newDueDate
         }
+        $ionicHistory.clearCache();
         updateDueDate(data);
+      } else {
+        alert("AA")
+        customService._off();
       }
 
-      customService._off();
     }
 
   });

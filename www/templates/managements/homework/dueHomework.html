@@ -7,7 +7,7 @@
   }
 </style>
 
-<ion-view view-title="Due Homework" class="purple-back watermark">
+<ion-view view-title="Due Homework" cache-view="false" class="purple-back watermark">
 
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon button-clear ion-navicon sidebar-ion-navicon"></button>
@@ -22,9 +22,9 @@
               <h2>{{cmpl.homeworkTitle}}</h2>
             </div>
             <div class="col" style="text-align:right">
-              <p class="icon icon-accessory responsive-sm" style="padding-top:18px">
+              <span class="icon icon-accessory responsive-sm" style="padding-top:18px">
                 <p style="font-size: 84%;">{{cmpl.standardId}}th standard</p>
-              </p>
+              </span>
             </div>
           </div>
           <div class="row">
@@ -33,7 +33,7 @@
             </div>
             <div class="col" style="text-align:right">
               <p class="icon icon-accessory responsive-sm" style="padding-top:18px">
-                <p style="font-size:10px"><span am-time-ago="cmpl.createdAt"></span></p>
+                <p style="font-size:10px">{{cmpl.due}}</p>
               </p>
             </div>
           </div>

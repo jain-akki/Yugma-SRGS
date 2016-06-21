@@ -5,7 +5,7 @@
     background-size: 300px;
     background-repeat: no-repeat;
   }
-  .item {
+  p.lblGreen {
     color: #00A54B;
     font-weight: 600;
   }
@@ -16,19 +16,19 @@
     <ion-list>
       <form name="complaintForm" class="list trans-back" ng-submit="vm.updateHomework()">
         <label class="item item-input item-stacked-label">
-          Title
+          <p class="lblGreen">Title</p>
           <input type="text" class="input-style" ng-model="vm.hw.homeworkTitle">
         </label>
         <label class="item item-input item-stacked-label">
-          Description
+          <p class="lblGreen">Description</p>
           <textarea rows="10" class="input-style" ng-model="vm.hw.description"></textarea>
         </label>
         <label class="item item-input item-stacked-label">
-          Created At
+          <p class="lblGreen">Created At</p>
           <p style="color: #111;font-weight: 300;">{{vm.hw.createDate}}</p>
         </label>
         <label class="item item-input item-stacked-label">
-          Due Date
+          <p class="lblGreen">Due Date</p>
           <input type="date" ng-model="vm.hw.dueDate">
         </label>
         <button type="submit" class="button button-block animated bounceInBottom login-btn-purpleb" ng-disabled="complaintForm.$invalid">Submit</button>
