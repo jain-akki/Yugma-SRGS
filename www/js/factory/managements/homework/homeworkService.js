@@ -6,6 +6,8 @@
 
   .factory('managementHomeworkService', function ($http, $q, baseUrl) {
 
+    var dueHomework = [];
+
     var getStandards = function () {
 
       var deferred = $q.defer();
@@ -23,7 +25,7 @@
       return deferred.promise;
     }
 
-    var getHomework = function (id) {
+    var dueHomework = function (id) {
 
       var deferred = $q.defer();
 
@@ -32,6 +34,7 @@
         contentType: "application/json",
         url: baseUrl + "/management/homework/"+ id
       }).success(function (response) {
+        dueHomework = response;
         deferred.resolve(response);
       }).error(function (response) {
         deferred.reject(response);
@@ -58,28 +61,18 @@
       return deferred.promise;
     }
 
-    var getHomework = function (id) {
-
-      var deferred = $q.defer();
-
-      $http({
-        method: "GET",
-        contentType: "application/json",
-        url: baseUrl + "/management/homework/"+ id
-      }).success(function (response) {
-        deferred.resolve(response);
-      }).error(function (response) {
-        deferred.reject(response);
-      });
-
-      return deferred.promise;
-    }
-
     return {
       getStandards: getStandards,
-      getHomework: getHomework,
+      dueHomework: dueHomework,
       addHomework: addHomework,
-      getHomework: getHomework
+      viewHomework:function (homeworkId) {
+        for (var i = 0; i < dueHomework.length; i++) {
+          if (dueHomework[i].homeworkId === parseInt(homeworkId)) {
+            return dueHomework[i];
+          }
+        }
+        return null;
+      }
     }
 
   });

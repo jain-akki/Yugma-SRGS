@@ -15,7 +15,7 @@
 
   <ion-content class="padding">
     <ion-list class="teacher-complaint-list">
-      <ion-item class="ComplaintSpace item-remove-animate item-icon-right" ng-repeat="cmpl in vm.dueHomework" type="item-text-wrap" href="#/management/view-teacher-complaint/{{cmpl.encryptId}}/teacher">
+      <ion-item class="ComplaintSpace item-remove-animate item-icon-right" ng-repeat="cmpl in vm.dueHomework" type="item-text-wrap" href="#/management/homework/editHomework/{{cmpl.homeworkId}}">
         <div class="complaint-lists">
           <div class="row">
             <div class="col col-67">
@@ -33,7 +33,7 @@
             </div>
             <div class="col" style="text-align:right">
               <p class="icon icon-accessory responsive-sm" style="padding-top:18px">
-                <p style="font-size:10px"><span am-time-ago="cmpl.dueDate"></span></p>
+                <p style="font-size:10px"><span am-time-ago="cmpl.createdAt"></span></p>
               </p>
             </div>
           </div>

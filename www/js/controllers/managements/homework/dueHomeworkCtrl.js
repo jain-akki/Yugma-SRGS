@@ -5,12 +5,15 @@
   angular.module('yugma')
 
   .controller('dueHomeworkCtrl',
-  
-  function($scope, $state, USER, managementHomeworkService, customService, $ionicHistory) {
+
+  function($scope, $state, USER, managementHomeworkService, customService) {
 
     var vm = this;
 
-    managementHomeworkService.getHomework(USER.parentId()).then(function(response){
+    customService._on();
+
+    managementHomeworkService.dueHomework(USER.parentId()).then(function(response){
+      customService._off();
       vm.dueHomework = response;
     });
 
