@@ -22,9 +22,10 @@
     }
 
     function getAdminTeacherAssignComplaints() {
+      
       managementComplaintService.getAdminTeacherAssignComplaints(USER.parentId()).then(function (response) {
         customService._off();
-        console.log("getAdminTeacherAssignComplaints", response);
+        console.log("getAdminTeacherAssignComplaint", response);
         vm.allComplaints = response;
       });
     }
@@ -39,7 +40,7 @@
       } else {
 
         /****** For admin, teacher and co-ordinator *******/
-        if(_.isEmpty(val.standardIds)) { return; }
+        // if(_.isEmpty(val.standardIds)) { return; }
         getAdminTeacherAssignComplaints();
       }
     });
