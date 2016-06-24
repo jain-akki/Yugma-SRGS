@@ -157,6 +157,32 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     }
                 }
             })
+            .state('yugma.suggestions', {
+                url: '/suggestions',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/suggestions/suggestion-tabs.html'
+                    }
+                }
+            })
+            .state('yugma.suggestions.suggestionByParent', {
+                url: "/suggestionByParent",
+                views: {
+                    'by-parents': {
+                        templateUrl: "templates/parents/suggestions/suggestionByParent.html",
+                        controller: 'suggestionByParentCtrl as vm'
+                     }
+                }
+            })
+            .state('yugma.suggestions.suggestionForParent', {
+                url: "/suggestionForParent",
+                views: {
+                    'for-parents': {
+                        templateUrl: "templates/parents/suggestions/suggestionForParent.html",
+                        controller: 'suggestionForParentCtrl as vm'
+                     }
+                }
+            })
             .state('management', {
                 url: '/management',
                 abstract: true,
