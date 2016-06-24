@@ -61,6 +61,77 @@
       return deferred.promise;
     }
 
+    var updateDesc = function (params) {
+ 
+      var deferred = $q.defer();
+
+      $http({
+        method: 'PUT',
+        contentType: 'application/json',
+        data: params,
+        url: baseUrl + "/management/homework/description"
+      }).success(function (response) {
+        deferred.resolve(response);
+      }).error(function (response) {
+        deferred.reject(response);
+      });
+
+      return deferred.promise;
+    }
+
+    var updateDueDate = function (params) {
+
+      var deferred = $q.defer();
+
+      $http({
+        method: 'PUT',
+        contentType: 'application/json',
+        data: params,
+        url: baseUrl + "/management/homework/due-date"
+      }).success(function (response) {
+        deferred.resolve(response);
+      }).error(function (response) {
+        deferred.reject(response);
+      });
+
+      return deferred.promise;
+    }
+
+    var updateTitle = function (params) {
+
+      var deferred = $q.defer();
+
+      $http({
+        method: 'PUT',
+        contentType: 'application/json',
+        data: params,
+        url: baseUrl + "/management/homework/title"
+      }).success(function (response) {
+        deferred.resolve(response);
+      }).error(function (response) {
+        deferred.reject(response);
+      });
+
+      return deferred.promise;
+    }
+
+    var getOldHomework = function (id) {
+
+      var deferred = $q.defer();
+
+      $http({
+        method: 'GET',
+        contentType: 'application/json',
+        url: baseUrl + "/management/old-homework/"+ id
+      }).success(function (response) {
+        deferred.resolve(response);
+      }).error(function (response) {
+        deferred.reject(response);
+      });
+
+      return deferred.promise;
+    }
+
     return {
       getStandards: getStandards,
       dueHomework: dueHomework,
@@ -72,7 +143,11 @@
           }
         }
         return null;
-      }
+      },
+      updateDesc: updateDesc,
+      updateDueDate: updateDueDate,
+      getOldHomework: getOldHomework,
+      updateTitle: updateTitle
     }
 
   });

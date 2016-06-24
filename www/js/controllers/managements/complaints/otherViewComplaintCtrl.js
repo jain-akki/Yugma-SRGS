@@ -39,6 +39,7 @@
         status: vm.cmpl.statusId
       }
 
+      $ionicViewSwitcher.nextDirection('swap');
       $state.go("management.edit", {obj: data}, {reload: true});
     }
     

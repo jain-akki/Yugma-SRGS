@@ -30,36 +30,36 @@ angular.module("yugma")
 
     function loadUserCrendentials() {
 
-        if (USER.parentName()) {
+        // if (USER.parentName()) {
 
-            checkParentSession().then(function(response) {
+        //     checkParentSession().then(function(response) {
 
-                if (response !== USER.token()) {
+        //         if (response !== USER.token()) {
 
-                    var Data = {
-                        template: "Your session has been expired."
-                    }
-                    customService._showAlert(Data).then(function (res) {
-                        logout();
-                    });
-                }
-            });
+        //             var Data = {
+        //                 template: "Your session has been expired."
+        //             }
+        //             customService._showAlert(Data).then(function (res) {
+        //                 logout();
+        //             });
+        //         }
+        //     });
 
-        } else if(USER.employeeName()) {
+        // } else if(USER.employeeName()) {
 
-            checkManagementSession().then(function(response) {
+        //     checkManagementSession().then(function(response) {
 
-                if (response !== USER.token()) {
+        //         if (response !== USER.token()) {
 
-                    var Data = {
-                        template: "Your session has been expired."
-                    }
-                    customService._showAlert(Data).then(function (res) {
-                        logout();
-                    });
-                }
-            });
-        }
+        //             var Data = {
+        //                 template: "Your session has been expired."
+        //             }
+        //             customService._showAlert(Data).then(function (res) {
+        //                 logout();
+        //             });
+        //         }
+        //     });
+        // }
 
         if ($localStorage.Id || $localStorage.Otp) {
             userCredentials($localStorage.Id, $localStorage.Otp);

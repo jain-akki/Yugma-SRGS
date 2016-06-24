@@ -13,11 +13,7 @@
     vm.cmplId = $stateParams.complaintId;
     vm.name = $stateParams.name;
 
-    customService._on();
-
     managementComplaintService.viewTeacherComplaint(vm.cmplId).then(function(response) {
-
-      customService._off();
 
       if (response.statusId === 4 || response.statusId === 6) {
         $("#editBtn").css("display", "none");
@@ -43,6 +39,7 @@
         status: vm.cmpl.statusId
       }
 
+      $ionicViewSwitcher.nextDirection('swap');
       $state.go("management.edit", {obj: data}, {reload: true});
     }
 

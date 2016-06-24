@@ -12433,19 +12433,17 @@ a.tab-item {
 .viewComplaint {
   margin-bottom: 44px; }
 
-.comment .commentListMarginBottom {
-  margin-bottom: 42px; }
-  .comment .commentListMarginBottom .item {
-    padding: 9px 9px 6px 11px; }
-    .comment .commentListMarginBottom .item .commentParentName {
-      color: forestgreen;
-      font-size: small;
-      font-weight: 600;
-      width: 65%;
-      float: left; }
-    .comment .commentListMarginBottom .item .commentCreateDate {
-      text-align: right;
-      font-size: smaller; }
+.comment .commentListMarginBottom .item {
+  padding: 9px 9px 6px 11px; }
+  .comment .commentListMarginBottom .item .commentParentName {
+    color: forestgreen;
+    font-size: small;
+    font-weight: 600;
+    width: 65%;
+    float: left; }
+  .comment .commentListMarginBottom .item .commentCreateDate {
+    text-align: right;
+    font-size: smaller; }
 
 .comment .commentForm {
   background-color: #5051A6;
@@ -12705,6 +12703,10 @@ ion-slide.slider-slide {
 
 .editCmpln .editCkb {
   padding: 9px 55px !important; }
+
+p.lblGreen {
+  color: #00A54B;
+  font-weight: 600; }
 
 /*!
  * Copyright 2016 PREGIOTEK

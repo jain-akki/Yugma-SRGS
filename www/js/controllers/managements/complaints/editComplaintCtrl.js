@@ -6,7 +6,7 @@
 
   .controller('managementTeacherEditComplaintCtrl',
 
-  function ($scope, $state, $stateParams, $ionicHistory, managementComplaintService, customService) {
+  function ($scope, $state, $stateParams, $ionicHistory, managementComplaintService, customService, $ionicViewSwitcher) {
 
     customService._on();
 
@@ -37,6 +37,7 @@
     });
 
     vm.goBack = function() {
+      $ionicViewSwitcher.nextDirection('back');
       $ionicHistory.goBack();
     }
 

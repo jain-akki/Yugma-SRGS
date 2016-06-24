@@ -65,7 +65,7 @@ angular.module("yugma")
          $http({
             method: 'GET',
             contentType: 'application/json',
-            url: baseUrl + "/fetchParentCategory"
+            url: baseUrl + "/fetch-category"
          }).success(function (response) {
             deferred.resolve(response);
          }).error(function (response) {

@@ -14,7 +14,7 @@
 
   <ion-side-menu side="left">
     <ion-header-bar class="sidebar-header">
-      <h1 class="title sidebar-header-title">{{roleName}}'s Dash</h1>
+      <h1 class="title sidebar-header-title" style="text-align:center">{{roleName}}</h1>
     </ion-header-bar>
     <ion-content class="sidebar sidebar-purplel">
       <ion-list id="list-item">
@@ -22,10 +22,10 @@
           <i class="icon ion-home sidebar-ion-home"></i> Dashboard
         </ion-item>
         <ion-item menu-close href="#/management/complaints/teacher-complaint" class="item item-icon-left sidebar-item-content" ng-click="pageChange()">
-          <i class="icon ion-ios-chatboxes sidebar-ion-ios-chatboxes"></i> Complaints
+          <i class="icon ion-sad sidebar-ion-ios-chatboxes"></i> Complaints
         </ion-item>
         <ion-item menu-close href="#/management/assignComplaint/assignTeacherComplaint" class="item item-icon-left sidebar-item-content" ng-click="pageChange()">
-          <i class="icon ion-ios-gear sidebar-ion-ios-gear" ></i> Assigned Complaints
+          <i class="icon ion-arrow-graph-up-right sidebar-ion-ios-gear" ></i> Assigned Complaints
         </ion-item>
         <ion-item menu-close href="#/management/homework/addHomework" class="item item-icon-left sidebar-item-content">
           <i class="icon ion-ios-book sidebar-ion-home"></i> Homework

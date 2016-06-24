@@ -30,7 +30,7 @@ angular.module('yugma')
                     var closeComplaintData = {
                         csaId: Number($stateParams.complaintId),
                         id: USER.parentId(),
-                        comment: "ClosedReason: " + res.comment
+                        comment: "Closed Reason: " + res.comment
                     }
 
                     complaintService.closeComplaint(closeComplaintData).then(function (response) {
@@ -88,7 +88,7 @@ angular.module('yugma')
                     var reOpenComplaintData = {
                         csaId: Number($stateParams.complaintId),
                         id: USER.parentId(),
-                        comment: "ReopenReson: " + res.comment
+                        comment: "Re-open Reason: " + res.comment
                     }
 
                     complaintService.reOpenComplaint(reOpenComplaintData).then(function (response) {

@@ -2,6 +2,7 @@ angular.module('yugma')
 
     // .value("baseUrl", "http://www.nxtlifetechnologies.com/school")
     .value("baseUrl", "http://nxtlifetechnologies.ind-cloud.everdata.com/srgsrk-test")
+    // .value("baseUrl", "http://localhost:8080/YUGMA")
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {

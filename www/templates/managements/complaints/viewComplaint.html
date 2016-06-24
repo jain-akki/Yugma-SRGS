@@ -10,14 +10,14 @@
 <ion-view view-title="View complaint" class="purple-back watermark managementCmpl" hide-back-button="true">
 
   <ion-nav-buttons side="left">
-    <a ng-click="vm.goBack()" class="button button-icon button-clear ion-android-arrow-back sidebar-ion-navicon"></a>
+    <a ng-click="vm.goBack()" class="button button-icon button-clear ion-ios-arrow-back sidebar-ion-navicon"></a>
   </ion-nav-buttons>
 
   <ion-nav-buttons side="right">
-    <a menu-toggle="right" id="editBtn" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6" class="button button-icon button-clear ion-edit sidebar-ion-navicon" ng-click="vm.goToEdit()" nav-direction="forward"></a>
+    <a menu-toggle="right" id="editBtn" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6" class="button button-icon button-clear ion-edit sidebar-ion-navicon" ng-click="vm.goToEdit()"></a>
   </ion-nav-buttons>
 
-  <ion-content class="padding animated fadeInRight viewCmpl viewComplaint">
+  <ion-content class="padding viewCmpl" style="margin-bottom:53px">
     <div class="list card">
       <a class="item item-icon-left cmpln">
         <div class="row cmpln">

@@ -39,7 +39,7 @@
       } else {
 
         /****** For admin, teacher and co-ordinator *******/
-        if(_.isEmpty(val.standardIds)) { return; }
+        // if(_.isEmpty(val.standardIds)) { return; }
         getAdminOtherAssignComplaints();
       }
 

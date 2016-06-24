@@ -204,7 +204,6 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
             })
             .state('management.view-teacher-complaint', {
                 url: '/view-teacher-complaint/:complaintId/:name',
-                // cache: false,
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/managements/complaints/viewComplaint.html',
@@ -224,6 +223,7 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
             })
             .state('management.edit', {
                 url: '/edit',
+                cache: false,
                 params: {
                   obj: null  
                 },
@@ -322,6 +322,24 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     'due-homework': {
                         templateUrl: 'templates/managements/homework/editHomework.html',
                         controller: 'editHomeworkCtrl as vm'
+                    }
+                }
+            })
+            .state('management.homework.oldHomework',{
+                url: '/oldHomework',
+                views: {
+                    'old-homework': {
+                        templateUrl: 'templates/managements/homework/oldHomework.html',
+                        controller: 'oldHomeworkCtrl as vm'
+                    }
+                }
+            })
+            .state('management.account', {
+                url: '/account',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/managementAccount.html',
+                        controller: 'managementAccountCtrl as vm'
                     }
                 }
             })
