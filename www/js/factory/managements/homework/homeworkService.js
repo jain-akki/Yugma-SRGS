@@ -97,6 +97,24 @@
       return deferred.promise;
     }
 
+    var updateTitle = function (params) {
+
+      var deferred = $q.defer();
+
+      $http({
+        method: 'PUT',
+        contentType: 'application/json',
+        data: params,
+        url: baseUrl + "/management/homework/title"
+      }).success(function (response) {
+        deferred.resolve(response);
+      }).error(function (response) {
+        deferred.reject(response);
+      });
+
+      return deferred.promise;
+    }
+
     var getOldHomework = function (id) {
 
       var deferred = $q.defer();
@@ -128,7 +146,8 @@
       },
       updateDesc: updateDesc,
       updateDueDate: updateDueDate,
-      getOldHomework: getOldHomework
+      getOldHomework: getOldHomework,
+      updateTitle: updateTitle
     }
 
   });

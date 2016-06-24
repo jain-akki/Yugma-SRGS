@@ -6,7 +6,7 @@
 
   .controller('managementTeacherComplaintsCtrl',
   
-  function($http, $scope, $state, USER, managementComplaintService, customService) {
+  function($http, $scope, $state, USER, managementComplaintService, customService, $ionicViewSwitcher) {
   
     var vm = this;
 
@@ -49,6 +49,13 @@
 
     vm.viewAssignCmpl = function() {
       $state.go("management.assignComplaint.assignTeacherComplaint", {}, {reload: true});
+    }
+    
+    vm.goToViewTeacher = function(id, name) {
+      console.log(id, name);
+      // customService._on();
+      // $ionicViewSwitcher.nextDirection("forward");
+      $state.go("management.view-teacher-complaint", {complaintId: id, name: name}, {reload: true});
     }
 
   });
