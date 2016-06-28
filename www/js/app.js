@@ -183,6 +183,16 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                      }
                 }
             })
+            .state('yugma.addSuggestion', {
+                url: "/addSuggestion",
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/parents/suggestions/addSuggestion.html",
+                        controller: 'addSuggestionCtrl as vm'
+                     }
+                }
+            })
             .state('management', {
                 url: '/management',
                 abstract: true,
