@@ -159,6 +159,7 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
             })
             .state('yugma.suggestions', {
                 url: '/suggestions',
+                cache: false,
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/parents/suggestions/suggestion-tabs.html'
@@ -370,6 +371,42 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     'menuContent': {
                         templateUrl: 'templates/managements/complaints/viewComplaint.html',
                         controller: 'assignTeacherComplaintCtrl as vm'
+                    }
+                }
+            })
+            .state('management.suggestionByTeacher', {
+                url: '/suggestionByTeacher',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/suggestion/suggestionByTeacher.html',
+                        controller: 'suggestionByTeacherCtrl as vm'
+                    }
+                }
+            })
+            .state('management.suggestion', {
+                url: '/suggestion',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/suggestion/suggestion-tab.html',
+                    }
+                }
+            })
+            .state('management.suggestion.suggestionForTeacherSelf', {
+                url: '/suggestionForTeacherSelf',
+                views: {
+                    'self': {
+                        templateUrl: 'templates/managements/suggestion/suggestionForTeacherSelf.html',
+                        controller: 'suggestionForTeacherSelfCtrl as vm'
+                    }
+                }
+            })
+            .state('management.suggestion.suggestionForTeacherAssigned', {
+                url: '/suggestionForTeacherAssigned',
+                views: {
+                    'assigned': {
+                        templateUrl: 'templates/managements/suggestion/suggestionForTeacherAssigned.html',
+                        controller: 'suggestionForTeacherAssignedCtrl as vm'
                     }
                 }
             })
