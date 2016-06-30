@@ -165,19 +165,28 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     }
                 }
             })
-            .state('yugma.suggestions.suggestionByParent', {
-                url: "/suggestionByParent",
+            .state('yugma.suggestions.suggestionByParentForTeacher', {
+                url: "/suggestionByParentForTeacher",
                 views: {
-                    'by-parents': {
-                        templateUrl: "templates/parents/suggestions/suggestionByParent.html",
+                    'for-teacher': {
+                        templateUrl: "templates/parents/suggestions/suggestionByParentForTeacher.html",
                         controller: 'suggestionByParentCtrl as vm'
                      }
                 }
             })
-            .state('yugma.suggestions.suggestionForParent', {
+            .state('yugma.suggestions.suggestionByParentForOther', {
+                url: "/suggestionByParentForOther",
+                views: {
+                    'for-other': {
+                        templateUrl: "templates/parents/suggestions/suggestionByParentForOther.html",
+                        controller: 'suggestionByParentForOtherCtrl as vm'
+                    }
+                }
+            })
+            .state('yugma.suggestionForParent', {
                 url: "/suggestionForParent",
                 views: {
-                    'for-parents': {
+                    'menuContent': {
                         templateUrl: "templates/parents/suggestions/suggestionForParent.html",
                         controller: 'suggestionForParentCtrl as vm'
                      }
@@ -191,6 +200,44 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                         templateUrl: "templates/parents/suggestions/addSuggestion.html",
                         controller: 'addSuggestionCtrl as vm'
                      }
+                }
+            })
+            .state('yugma.suggestionByParentForTeacherView', {
+                url: '/suggestionByParentForTeacherView/:suggestionId',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/suggestions/suggestionByParentForTeacherView.html',
+                        controller: 'suggestionByParentViewCtrl'
+                    }
+                }
+            })
+            .state('yugma.suggestionByParentForOtherView', {
+                url: '/suggestionByParentForOtherView/:suggestionId',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/suggestions/suggestionByParentForOtherView.html',
+                        controller: 'suggestionByParentForOtherViewCtrl'
+                    }
+                }
+            })
+            .state('yugma.respond', {
+                url: '/respond/:suggestionId/:title/:statusId',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/suggestions/respond.html',
+                        controller: 'respondCtrl as vm'
+                    }
+                }
+            })
+            .state('yugma.otherComment', {
+                url: '/otherComment/:suggestionId/:title/:statusId',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/suggestions/respond.html',
+                        controller: 'addOtherCommentCtrl as vm'
+                    }
                 }
             })
             .state('management', {

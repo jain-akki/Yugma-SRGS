@@ -158,16 +158,16 @@
                         customService._off();
 
                         if ($scope.categoryId === 4) {
-                            $state.go("yugma.complaints.teacher-complaint", {}, { reload: true, notify: true });
+                            $state.go("yugma.suggestions.suggestionByParentForTeacher", {}, { reload: true, notify: true });
                         } else {
-                            $state.go("yugma.complaints.other-complaint", {}, { reload: true, notify: true });
+                            $state.go("yugma.suggestions.suggestionByParentForOther", {}, { reload: true, notify: true });
                         }
 
                     });
                 }
 
                 $scope.goBack = function () {
-                    $state.transitionTo('yugma.suggestions.suggestionByParent', {}, { reload: true });
+                    $state.transitionTo('yugma.suggestions.suggestionByParentForTeacher', {}, { reload: true });
                 }
 
                 $scope.clearHistory = function () {

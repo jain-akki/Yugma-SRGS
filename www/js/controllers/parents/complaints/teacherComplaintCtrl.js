@@ -16,6 +16,8 @@
 
 			customService._off();
 
+			console.log("Complaint Object: "+ response);
+
 			if ($scope.teacherComplaints.length === 0) {
 				$("#cmplEmpty").css("display", "inherit");
 			}
@@ -32,7 +34,8 @@
 
 			complaintService.getTeacherComplaint(USER.parentId()).then(function (response) {
 
-				$scope.teacherComplaints = response;
+			    $scope.teacherComplaints = response;
+			    console.log(response);
 				$scope.$broadcast('scroll.refreshComplete');
 
 			});
