@@ -241,6 +241,7 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     }
                 }
             })
+//----------------------------------------------------------------------------------------------------
             .state('management', {
                 url: '/management',
                 abstract: true,
@@ -258,6 +259,7 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     }
                 }
             })
+
             .state('management.complaints', {
                 url: '/complaints',
                 // cache: false,
@@ -286,6 +288,7 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     }
                 }
             })
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             .state('management.view-teacher-complaint', {
                 url: '/view-teacher-complaint/:complaintId/:name',
                 views: {
@@ -374,8 +377,10 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     }
                 }
             })
+//==============================================================================================
             .state('management.suggestionByTeacher', {
                 url: '/suggestionByTeacher',
+                cache:false,
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/managements/suggestion/suggestionByTeacher.html',
@@ -392,24 +397,48 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     }
                 }
             })
-            .state('management.suggestion.suggestionForTeacherSelf', {
-                url: '/suggestionForTeacherSelf',
+            .state('management.suggestion.teacherSuggestion', {
+                url: '/teacherSuggestion',
                 views: {
-                    'self': {
-                        templateUrl: 'templates/managements/suggestion/suggestionForTeacherSelf.html',
-                        controller: 'suggestionForTeacherSelfCtrl as vm'
+                    'for-teacher': {
+                        templateUrl: 'templates/managements/suggestion/teacherSuggestion.html',
+                        controller: 'managementTeacherSuggestionsCtrl as vm'
                     }
                 }
             })
-            .state('management.suggestion.suggestionForTeacherAssigned', {
-                url: '/suggestionForTeacherAssigned',
+            .state('management.viewTeacherSuggestion', {
+                url: '/viewTeacherSuggestion/:suggestionId/:name',
                 views: {
-                    'assigned': {
-                        templateUrl: 'templates/managements/suggestion/suggestionForTeacherAssigned.html',
-                        controller: 'suggestionForTeacherAssignedCtrl as vm'
+                    'menuContent': {
+                        templateUrl: 'templates/managements/suggestion/viewSuggestion.html',
+                        controller: 'managementTeacherViewSuggestionCtrl as vm'
                     }
                 }
             })
+            .state('management.addCommentsToSuggestion', {
+                url: '/addCommentsToSuggestion',
+                params: {
+                    obj: null
+                },
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/suggestion/comment.html',
+                        controller: 'managementSuggestionCommentCtrl as vm'
+                    }
+                }
+            })
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            .state('management.addSuggestion', {
+                url: "/addSuggestion",
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/managements/suggestion/addSuggestion.html",
+                        controller: 'newSuggestionCtrl as vm'
+                    }
+                }
+            })
+//==========================================================================================            
             .state('management.homework',{
                 url: '/homework',
                 views: {
