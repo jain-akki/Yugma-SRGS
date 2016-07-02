@@ -40,7 +40,7 @@
             }
 
             $ionicViewSwitcher.nextDirection('swap');
-            $state.go("management.edit", { obj: data }, { reload: true });
+            $state.go("management.editSuggestion", { obj: data }, { reload: true });
         }
 
         vm.addComment = function () {
