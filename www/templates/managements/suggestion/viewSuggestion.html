@@ -7,11 +7,7 @@
     }
 </style>
 
-<ion-view view-title="View Suggestion" class="purple-back watermark managementCmpl" hide-back-button="true">
-
-    <ion-nav-buttons side="left">
-        <a ng-click="vm.goBack()" class="button button-icon button-clear ion-ios-arrow-back sidebar-ion-navicon"></a>
-    </ion-nav-buttons>
+<ion-view view-title="View Suggestion" class="purple-back watermark managementCmpl">
 
     <ion-nav-buttons side="right">
         <a menu-toggle="right" id="editBtn" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6" class="button button-icon button-clear ion-edit sidebar-ion-navicon" ng-click="vm.goToEdit()"></a>
@@ -195,8 +191,8 @@
         <a href="" class="tab-item" ng-click="vm.addComment()">
             <i class="icon ion-android-chat"></i> Comments
         </a>
-        <a class="tab-item" nav-direction="swap" ui-sref="management.closeCmpl({complaintId: vm.cmpl.id, name: vm.name})" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6">
-            <i class="icon ion-close-circled"></i> Close Complaint
+        <a class="tab-item" nav-direction="swap" ui-sref="management.closeSuggestion({suggestionId: vm.cmpl.id, name: vm.name})" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6">
+            <i class="icon ion-close-circled"></i> Close Suggestion
         </a>
     </div>
 </ion-view>

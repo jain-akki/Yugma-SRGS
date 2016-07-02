@@ -62,6 +62,42 @@
 
         }
 
+        var closeTeacherSuggestion = function (params) {
+
+            var deferred = $q.defer();
+            console.log('data1: ',params);
+            $http({
+                method: 'PUT',
+                contentType: 'application/json',
+                data: params,
+                url: baseUrl + "/management/teacher/suggestion-close"
+            }).success(function (response) {
+                deferred.resolve(response);
+            }).error(function (response) {
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
+        }
+
+        var closeOtherSuggestion = function (params) {
+
+            var deferred = $q.defer();
+            console.log('data2: ', params);
+            $http({
+                method: 'PUT',
+                contentType: 'application/json',
+                data: params,
+                url: baseUrl + "/management/suggestion-close"
+            }).success(function (response) {
+                deferred.resolve(response);
+            }).error(function (response) {
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
+        }
+
         var getTeacherSuggestions = function (id) {
 
             var deferred = $q.defer();
@@ -155,6 +191,8 @@
             getDirectorTeacherSuggestions: getDirectorTeacherSuggestions,
             getAdminTeacherSuggestions: getAdminTeacherSuggestions,
             viewTeacherSuggestion: viewTeacherSuggestion,
+            closeTeacherSuggestion: closeTeacherSuggestion,
+            closeOtherSuggestion: closeOtherSuggestion,
             getTeacherSuggestions: getTeacherSuggestions,
             getStandards: getStandards,
             getChildrens: getChildrens,

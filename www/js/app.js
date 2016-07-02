@@ -427,6 +427,15 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     }
                 }
             })
+            .state('management.closeSuggestion', {
+                url: '/closeSuggestion/:suggestionId/:name',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/suggestion/closeSuggestion.html',
+                        controller: 'managementTeacherCloseSuggestionCtrl as vm'
+                    }
+                }
+            })
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             .state('management.addSuggestion', {
                 url: "/addSuggestion",
