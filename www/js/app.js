@@ -399,6 +399,7 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
             })
             .state('management.suggestion.teacherSuggestion', {
                 url: '/teacherSuggestion',
+                cache: false,
                 views: {
                     'for-teacher': {
                         templateUrl: 'templates/managements/suggestion/teacherSuggestion.html',
@@ -449,10 +450,18 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     }
                 }
             })
+            .state('management.suggestion.otherSuggestion', {
+                url: "/otherSuggestion",
+                views: {
+                    'for-other': {
+                        templateUrl: 'templates/managements/suggestion/otherSuggestion.html',
+                        controller: 'managementOtherSuggestionCtrl as vm'
+                    }
+                }
+            })
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             .state('management.addSuggestion', {
                 url: "/addSuggestion",
-                cache: false,
                 views: {
                     'menuContent': {
                         templateUrl: "templates/managements/suggestion/addSuggestion.html",

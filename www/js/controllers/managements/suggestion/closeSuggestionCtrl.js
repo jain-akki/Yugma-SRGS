@@ -27,38 +27,19 @@
             });
         }
 
-        function closeOtherSuggestion(data) {
-            customService._off();
-            managementSuggestionService.closeOtherSuggestion(data).then(function (response) {
-                if ($stateParams.name === "assignOther") {
-                    $state.go("management.assignComplaint.assignOtherComplaint", {}, { reload: true });
-                } else {
-                    $state.go("management.complaints.other-complaint", {}, { reload: true });
-                }
-            });
-        }
-
-        vm.closeSuggestion = function (data) {
+        vm.closeSuggestion = function (data1) {
 
             customService._on();
 
-            $ionicHistory.clearCache();
-
-            angular.extend(data, {
-                comment: "ClosedReason: " + data.comment,
+            angular.extend(data1, {
+                comment: "ClosedReason: " + data1.comment,
                 csaId: parseInt($stateParams.suggestionId),
                 teacherId: USER.parentId()
             });
 
-            console.log('data: ', data);
+            managementSuggestionService.closeTeacherSuggestion(data1).then(function (response) {
 
-            if ($stateParams.name === "other" || $stateParams.name === "assignOther") {
-                closeOtherSuggestion(data);
-            } else {
-                closeTeacherSuggestion(data);
-            }
-
-            $scope.suggestion = {};
+            });
         }
 
     });

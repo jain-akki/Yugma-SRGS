@@ -7,7 +7,11 @@
     }
 </style>
 
-<ion-view view-title="View Suggestion" class="purple-back watermark managementCmpl">
+<ion-view view-title="View Suggestion" hide-back-button="true" class="purple-back watermark managementCmpl">
+
+    <ion-nav-buttons side="left">
+        <a ng-click="vm.goBack()" class="button button-icon button-clear ion-ios-arrow-back sidebar-ion-navicon"></a>
+    </ion-nav-buttons>
 
     <ion-nav-buttons side="right">
         <a menu-toggle="right" id="editBtn" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6" class="button button-icon button-clear ion-edit sidebar-ion-navicon" ng-click="vm.goToEdit()"></a>
