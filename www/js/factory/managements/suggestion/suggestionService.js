@@ -62,18 +62,20 @@
 
         }
 
-        var closeTeacherSuggestion = function (params) {
+        var closeTeacherSuggestion = function (data1) {
 
             var deferred = $q.defer();
-            console.log('data1: ',params);
+            console.log('data1: ',data1);
             $http({
                 method: 'PUT',
                 contentType: 'application/json',
-                data: params,
+                data: data1,
                 url: baseUrl + "/management/teacher/suggestion-close"
             }).success(function (response) {
+                console.log('jkbk', response);
                 deferred.resolve(response);
             }).error(function (response) {
+                console.log('jkbk', response);
                 deferred.reject(response);
             });
 
@@ -187,6 +189,154 @@
             return deferred.promise;
         }
 
+        var getAuthors = function () {
+
+            var deferred = $q.defer();
+
+            $http({
+                method: "GET",
+                contentType: "application/json",
+                url: baseUrl + "/assign"
+            }).success(function (response) {
+                deferred.resolve(response);
+            }).error(function (response) {
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
+
+        }
+
+        var getPriorities = function () {
+
+            var deferred = $q.defer();
+
+            $http({
+                method: "GET",
+                contentType: "application/json",
+                url: baseUrl + "/priority"
+            }).success(function (response) {
+                deferred.resolve(response);
+            }).error(function (response) {
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
+
+        }
+
+        var assignOtherSuggestion = function (suggestionId, assignedTo) {
+
+            var deferred = $q.defer();
+
+            $http({
+                method: "PUT",
+                contentType: "application/json",
+                url: baseUrl + "/management/suggestion-assign/" + suggestionId + "/" + assignedTo
+            }).success(function (response) {
+                console.log("response from assign suggestion", response)
+                deferred.resolve(response);
+            }).error(function (response) {
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
+
+        }
+
+        var setOtherPriority = function (suggestionId, priorityId) {
+
+            var deferred = $q.defer();
+
+            $http({
+                method: "PUT",
+                contentType: "application/json",
+                url: baseUrl + "/management/suggestion-priority/" + suggestionId + "/" + priorityId
+            }).success(function (response) {
+                deferred.resolve(response);
+            }).error(function (response) {
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
+
+        }
+
+        var setOtherStatus = function (suggestionId, statusId) {
+
+            var deferred = $q.defer();
+
+            $http({
+                method: "PUT",
+                contentType: "application/json",
+                url: baseUrl + "/management/suggestion-status/" + suggestionId + "/" + statusId
+            }).success(function (response) {
+                deferred.resolve(response);
+            }).error(function (response) {
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
+
+        }
+
+        var assignSuggestion = function (suggestionId, assignedTo) {
+
+            var deferred = $q.defer();
+            console.log('suggestionId: ', suggestionId)
+            console.log('assignedTo: ', assignedTo)
+            $http({
+                method: "PUT",
+                contentType: "application/json",
+                url: baseUrl + "/management/teacher/suggestion-assign/" + suggestionId + "/" + assignedTo
+            }).success(function (response) {
+                deferred.resolve(response);
+            }).error(function (response) {
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
+
+        }
+
+        var setPriority = function (suggestionId, priorityId) {
+
+            var deferred = $q.defer();
+            console.log('suggestionId: ', suggestionId)
+            console.log('assignedTo: ', priorityId)
+            $http({
+                method: "PUT",
+                contentType: "application/json",
+                url: baseUrl + "/management/teacher/suggestion-priority/" + suggestionId + "/" + priorityId
+            }).success(function (response) {
+                deferred.resolve(response);
+            }).error(function (response) {
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
+
+        }
+
+        var setStatus = function (suggestionId, statusId) {
+
+            var deferred = $q.defer();
+            console.log('suggestionId: ', suggestionId)
+            console.log('assignedTo: ', statusId)
+            $http({
+                method: "PUT",
+                contentType: "application/json",
+                url: baseUrl + "/management/teacher/suggestion-status/" + suggestionId + "/" + statusId
+            }).success(function (response) {
+                deferred.resolve(response);
+            }).error(function (response) {
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
+
+        }
+
         return {
             getDirectorTeacherSuggestions: getDirectorTeacherSuggestions,
             getAdminTeacherSuggestions: getAdminTeacherSuggestions,
@@ -197,7 +347,15 @@
             getStandards: getStandards,
             getChildrens: getChildrens,
             saveSuggestionByTeacher: saveSuggestionByTeacher,
-            getSuggestionByTeacher: getSuggestionByTeacher
+            getSuggestionByTeacher: getSuggestionByTeacher,
+            getAuthors: getAuthors,
+            getPriorities: getPriorities,
+            assignOtherSuggestion: assignOtherSuggestion,
+            setOtherPriority: setOtherPriority,
+            setOtherStatus: setOtherStatus,
+            assignSuggestion: assignSuggestion,
+            setPriority: setPriority,
+            setStatus: setStatus
         }
 
     })
