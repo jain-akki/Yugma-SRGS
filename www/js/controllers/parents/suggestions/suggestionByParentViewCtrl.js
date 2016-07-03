@@ -44,7 +44,7 @@
                             customService._off();
                             $scope.closeSuggestion.comment = "";
                             $ionicViewSwitcher.nextDirection('swap');
-                            $state.go("yugma.suggestions.suggestionByParentForTeacherView", {}, {
+                            $state.go("yugma.suggestions.suggestionByParentForTeacher", {}, {
                                 reload: true
                             });
 
@@ -66,7 +66,7 @@
                         customService._on();
                         suggestionService.satisfyTeacherSuggestion($stateParams.suggestionId).then(function (response) {
                             customService._off();
-                            $state.go("yugma.suggestions.suggestionByParentForTeacherView", {}, {
+                            $state.go("yugma.suggestions.suggestionByParentForTeacher", {}, {
                                 reload: true
                             });
                         })
@@ -101,7 +101,7 @@
 
                             customService._off();
                             $scope.reOpenSuggestion.comment = "";
-                            $state.go("yugma.suggestions.suggestionByParentForTeacherView", {}, {
+                            $state.go("yugma.suggestions.suggestionByParentForTeacher", {}, {
                                 reload: true
                             });
 
