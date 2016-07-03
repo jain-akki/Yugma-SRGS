@@ -2,6 +2,9 @@ angular.module("yugma")
 
    .factory('suggestionService', function ($http, $q, baseUrl, customService) {
 
+       TeacherSuggestions = [];
+       OtherSuggestions = [];
+
        var getSuggestionByTeacher = function (studentId) {
 
            var deferred = $q.defer();
@@ -28,6 +31,7 @@ angular.module("yugma")
                contentType: "application/json",
                url: baseUrl + "/teacher-suggestion/" + id
            }).success(function (response) {
+               TeacherSuggestions = response;
                deferred.resolve(response);
            }).error(function (response) {
                deferred.reject(response);
