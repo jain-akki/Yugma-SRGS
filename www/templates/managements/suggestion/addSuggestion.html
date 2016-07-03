@@ -6,11 +6,11 @@
         background-repeat: no-repeat;
     }
 </style>
-<ion-view view-title="Add Suggestion" class="purple-back">
+<ion-view view-title="Add Suggestion" class="purple-back watermark">
     <ion-nav-buttons side="right">
         <button class="button button-icon button-clear ion-ios-undo sidebar-ion-navicon" ng-click="clearHistory()"></button>
     </ion-nav-buttons>
-    <ion-content class="watermark has-subheader">
+    <ion-content class="has-subheader">
         <ion-list id="std" class="teachersName">
             <select class="button-block-margin" ng-options="std.name for std in totalStandards track by std.id" ng-model="suggestion.stdSelected">
                 <option value="">Select Standard</option>
@@ -21,7 +21,7 @@
                 <option value="">Select Child</option>
             </select>
         </ion-list>
-        
+
         <ion-list class="padding" id="addSuggForm">
             <form name="complaintForm" class="list trans-back" ng-submit="suggestionSubmit(suggestion)">
                 <label class="item item-input item-stacked-label">
