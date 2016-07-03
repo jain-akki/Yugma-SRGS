@@ -409,6 +409,7 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
             })
             .state('management.viewTeacherSuggestion', {
                 url: '/viewTeacherSuggestion/:suggestionId/:name',
+                cache: false,
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/managements/suggestion/viewSuggestion.html',

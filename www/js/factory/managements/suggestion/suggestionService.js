@@ -62,20 +62,18 @@
 
         }
 
-        var closeTeacherSuggestion = function (data1) {
+        var closeTeacherSuggestion = function (data) {
 
             var deferred = $q.defer();
-            console.log('data1: ',data1);
+ 
             $http({
                 method: 'PUT',
                 contentType: 'application/json',
-                data: data1,
-                url: baseUrl + "/management/teacher/suggestion-close"
+                data: data,
+                url: baseUrl + "/teacher/suggestion-close"
             }).success(function (response) {
-                console.log('jkbk', response);
                 deferred.resolve(response);
             }).error(function (response) {
-                console.log('jkbk', response);
                 deferred.reject(response);
             });
 

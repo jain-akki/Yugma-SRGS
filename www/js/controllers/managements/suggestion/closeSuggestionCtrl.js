@@ -27,18 +27,19 @@
             });
         }
 
-        vm.closeSuggestion = function (data1) {
+        vm.closeSuggestion = function (data) {
 
             customService._on();
 
-            angular.extend(data1, {
-                comment: "ClosedReason: " + data1.comment,
+            angular.extend(data, {
+                comment: "ClosedReason: " + data.comment,
                 csaId: $stateParams.suggestionId,
                 teacherId: USER.parentId()
             });
 
-            managementSuggestionService.closeTeacherSuggestion(data1).then(function (response) {
-
+            managementSuggestionService.closeTeacherSuggestion(data).then(function () {
+                customService._off();
+                $ionicHistory.goBack();
             });
         }
 
