@@ -6,9 +6,9 @@
         background-repeat: no-repeat;
     }
 </style>
-<ion-view view-title="Suggestion For Parents" class="purple-back">
-    <ion-content class="watermark has-subheader">
-        
+<ion-view view-title="Suggestion For Parents" class="purple-back watermark">
+    <ion-content class="has-subheader">
+
         <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
 
         <ion-list>
@@ -16,23 +16,24 @@
                 <option value="">Select Child</option>
             </select>
         </ion-list>
-        <ion-list>
-            <ion-item ng-repeat="cmpl in suggestionsByTeacher"
+        <div id="sugg" class="card">
+            <ion-item class="item-text-wrap" ng-repeat="cmpl in suggestionsByTeacher"
                       type="item-text-wrap">
                 <div class="row">
                     <div class="col col-75">
-                        <h2>{{cmpl.suggestionTitle}}</h2>
+                        <h3><b>{{cmpl.suggestionTitle}}</b></h3>
                     </div>
                     <div class="col" style="text-align:right">
                         <p style="font-size:10px"><span am-time-ago="cmpl.createdAt"></span></p>
                     </div>
                 </div>
+                <hr/>
                 <div class="row">
                     <div class="col col-100">
-                        <p style="font-size:13px">{{cmpl.suggestionDesc}}</p>
+                        <p style="font-size:13px;height:100%">{{cmpl.suggestionDesc}}</p>
                     </div>
                 </div>
             </ion-item>
-        </ion-list>
+        </div>
     </ion-content>
 </ion-view>
