@@ -77,18 +77,21 @@
 
             if (vm.newAssign) {
                 managementSuggestionService.assignOtherSuggestion(id, vm.newAssign).then(function (response) {
+                    customService._off();
                     stateChangeToOther();
                 });
             }
 
             if (vm.newPriority) {
                 managementSuggestionService.setOtherPriority(id, vm.newPriority).then(function (response) {
+                    customService._off();
                     stateChangeToOther();
                 });
             }
 
             if (vm.status) {
                 managementSuggestionService.setOtherStatus(id, 3).then(function (response) {
+                    customService._off();
                     stateChangeToOther();
                 });
             }
@@ -99,18 +102,21 @@
 
             if (vm.newAssign) {
                 managementSuggestionService.assignSuggestion(id, vm.newAssign).then(function (response) {
+                    customService._off();
                     stateChangeToTeacher();
                 });
             }
 
             if (vm.newPriority) {
                 managementSuggestionService.setPriority(id, vm.newPriority).then(function (response) {
+                    customService._off();
                     stateChangeToTeacher();
                 });
             }
 
             if (vm.status) {
                 managementSuggestionService.setStatus(id, 3).then(function (response) {
+                    customService._off();
                     stateChangeToTeacher();
                 });
             }

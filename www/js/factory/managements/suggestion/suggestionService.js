@@ -286,7 +286,7 @@
             $http({
                 method: "PUT",
                 contentType: "application/json",
-                url: baseUrl + "/management/teacher/suggestion-assign/" + suggestionId + "/" + assignedTo
+                url: baseUrl + "/teacher/suggestion-assign/" + suggestionId + "/" + assignedTo
             }).success(function (response) {
                 deferred.resolve(response);
             }).error(function (response) {
@@ -305,7 +305,7 @@
             $http({
                 method: "PUT",
                 contentType: "application/json",
-                url: baseUrl + "/management/teacher/suggestion-priority/" + suggestionId + "/" + priorityId
+                url: baseUrl + "/teacher/suggestion-priority/" + suggestionId + "/" + priorityId
             }).success(function (response) {
                 deferred.resolve(response);
             }).error(function (response) {
@@ -324,7 +324,7 @@
             $http({
                 method: "PUT",
                 contentType: "application/json",
-                url: baseUrl + "/management/teacher/suggestion-status/" + suggestionId + "/" + statusId
+                url: baseUrl + "/teacher/suggestion-status/" + suggestionId + "/" + statusId
             }).success(function (response) {
                 deferred.resolve(response);
             }).error(function (response) {
