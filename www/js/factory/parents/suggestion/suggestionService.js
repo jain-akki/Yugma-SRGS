@@ -2,8 +2,22 @@ angular.module("yugma")
 
    .factory('suggestionService', function ($http, $q, baseUrl, customService) {
 
-       var TeacherSuggestions = [];
-       var OtherSuggestions = [];
+       var getSuggestionByTeacher = function (studentId) {
+
+           var deferred = $q.defer();
+           console.log('studentId: ',studentId);
+           $http({
+               method: "GET",
+               contentType: "application/json",
+               url: baseUrl + "/student-suggestion-by-student/" + studentId
+           }).success(function (response) {
+               deferred.resolve(response);
+           }).error(function (response) {
+               deferred.reject(response);
+           });
+
+           return deferred.promise;
+       }
 
        var getTeacherSuggestions = function (id) {
 
@@ -14,7 +28,6 @@ angular.module("yugma")
                contentType: "application/json",
                url: baseUrl + "/teacher-suggestion/" + id
            }).success(function (response) {
-               TeacherSuggestions = response;
                deferred.resolve(response);
            }).error(function (response) {
                deferred.reject(response);
@@ -206,6 +219,7 @@ angular.module("yugma")
        }
 
        return {
+           getSuggestionByTeacher: getSuggestionByTeacher,
            getTeacherSuggestions: getTeacherSuggestions,
            getOtherSuggestion: getOtherSuggestion,
            getTeacher: getTeacher,

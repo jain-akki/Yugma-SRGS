@@ -1,14 +1,38 @@
 ﻿<style>
-  .watermark {
-    background-image: url(img/logot.png);
-    background-position: center;
-    background-size: 300px;
-    background-repeat: no-repeat;
-  }
+    .watermark {
+        background-image: url(img/logot.png);
+        background-position: center;
+        background-size: 300px;
+        background-repeat: no-repeat;
+    }
 </style>
+<ion-view view-title="Suggestion For Parents" class="purple-back">
+    <ion-content class="watermark has-subheader">
+        
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
 
-<ion-view view-title="Suggestions" class="purple-back">
-  <ion-content class="watermark has-subheader">
-    Suggestions For Parents
-  </ion-content>
+        <ion-list>
+            <select class="button-block-margin" ng-options="std.studentName for std in childs track by std.studentId" ng-model="suggestion.chldSelected">
+                <option value="">Select Child</option>
+            </select>
+        </ion-list>
+        <ion-list>
+            <ion-item ng-repeat="cmpl in suggestionsByTeacher"
+                      type="item-text-wrap">
+                <div class="row">
+                    <div class="col col-75">
+                        <h2>{{cmpl.suggestionTitle}}</h2>
+                    </div>
+                    <div class="col" style="text-align:right">
+                        <p style="font-size:10px"><span am-time-ago="cmpl.createdAt"></span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-100">
+                        <p style="font-size:13px">{{cmpl.suggestionDesc}}</p>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>
