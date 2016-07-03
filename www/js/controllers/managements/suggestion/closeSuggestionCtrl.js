@@ -33,7 +33,7 @@
 
             angular.extend(data1, {
                 comment: "ClosedReason: " + data1.comment,
-                csaId: parseInt($stateParams.suggestionId),
+                csaId: $stateParams.suggestionId,
                 teacherId: USER.parentId()
             });
 

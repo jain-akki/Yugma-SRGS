@@ -293,7 +293,7 @@
         return deferred.promise;
     }    
 
-        var getDirectorTeacherAssignComplaints = function(employeeId) {
+    var getDirectorTeacherAssignComplaints = function(employeeId) {
 
       var deferred = $q.defer();
 

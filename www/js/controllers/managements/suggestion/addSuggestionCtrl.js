@@ -64,6 +64,15 @@
                 });
             };
 
+            $scope.goBack = function () {
+                $state.transitionTo('management.suggestionByTeacher', {}, { reload: true });
+            }
+
+            $scope.clearHistory = function () {
+                //  $state.reload();
+                $state.go($state.current, {}, { reload: true });
+            }
+
             //$scope.childs = USER.parentChilds();
 
             //$scope.totalChilds = $scope.childs.length;
@@ -220,14 +229,6 @@
             //    });
             //}
 
-            $scope.goBack = function () {
-                $state.transitionTo('management.suggestionByTeacher', {}, { reload: true });
-            }
-
-            $scope.clearHistory = function () {
-                //  $state.reload();
-                $state.go($state.current, {}, { reload: true });
-            }
         })
 
 })();
