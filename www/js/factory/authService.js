@@ -116,7 +116,7 @@ angular.module("yugma")
         $http({
             method: 'GET',
             contentType: 'application/json',
-            url: baseUrl + "/fetchChild/" + id
+            url: baseUrl + "/fetch-child/" + id
         }).success(function (response) {
             $localStorage.childs = response;
             deferred.resolve(response);
