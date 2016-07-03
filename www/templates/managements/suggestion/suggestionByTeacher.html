@@ -45,24 +45,24 @@
                     Tap top-right icon,<br>to add new complaint.
                 </div>
             </ion-item>
-            <ion-item class="ComplaintSpace item-remove-animate item-icon-right animated lightSpeedIn" ng-repeat="cmpl in suggestionsByTeacher" ng-show="suggestionsByTeacher.length >= 0"
-                      type="item-text-wrap">
-                <div class="complaint-lists">
-                    <div class="row">
-                        <div class="col col-75">
-                            <h2>{{cmpl.suggestionTitle}}</h2>
-                        </div>
-                        <div class="col" style="text-align:right">
-                            <p style="font-size:10px"><span am-time-ago="cmpl.createdAt"></span></p>
-                        </div>
+        </ion-list>
+        <div class="card" ng-repeat="cmpl in suggestionsByTeacher" ng-show="suggestionsByTeacher.length >= 0">
+            <ion-item class="item-text-wrap">
+                <div class="row">
+                    <div class="col col-75">
+                        <h2>{{cmpl.suggestionTitle}}</h2>
                     </div>
-                    <div class="row">
-                        <div class="col col-100">
-                            <p style="font-size:13px">{{cmpl.suggestionDesc}}</p>
-                        </div>
+                    <div class="col" style="text-align:right">
+                        <p style="font-size:10px"><span am-time-ago="cmpl.createdAt"></span></p>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="col col-100">
+                        <p style="font-size:13px">{{cmpl.suggestionDesc}}</p>
                     </div>
                 </div>
             </ion-item>
-        </ion-list>
+        </div>
     </ion-content>
 </ion-view>
