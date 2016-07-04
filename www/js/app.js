@@ -460,6 +460,15 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     }
                 }
             })
+            .state('management.viewOtherSuggestion', {
+                url: '/viewOtherSuggestion/:suggestionId/:name',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/suggestion/viewSuggestion.html',
+                        controller: 'managementOtherViewSuggestionCtrl as vm'
+                    }
+                }
+            })
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             .state('management.addSuggestion', {
                 url: "/addSuggestion",

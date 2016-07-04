@@ -355,6 +355,8 @@
 
         var getAdminOtherSuggestion = function (categoryIds, standardIds) {
 
+            console.log("cat : ", categoryIds);
+            console.log("sta : ", standardIds);
             var deferred = $q.defer();
 
             $http({
@@ -362,9 +364,12 @@
                 contentType: "application/json",
                 url: baseUrl + "/management/fetch-suggestion/" + categoryIds + "/" + standardIds
             }).success(function (response) {
+                console.log('response-1: ', response);
                 deferred.resolve(response);
             }).error(function (response) {
                 deferred.reject(response);
+            }).then(function (response) {
+                console.log('response-2: ', response);
             });
 
             return deferred.promise;
