@@ -59,7 +59,7 @@
         });
 
         vm.viewAssignCmpl = function () {
-            $state.go("management.assignSuggestion.assignTeacherSuggestion", {}, { reload: true });
+            $state.go("management.assignSuggestion.assignOtherSuggestion", {}, { reload: true });
         }
     });
 
