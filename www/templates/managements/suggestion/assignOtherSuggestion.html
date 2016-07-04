@@ -21,7 +21,29 @@
     </ion-nav-buttons>
 
     <ion-content class="padding watermark" id="complaints">
-        Assign Other Suggestion
+        <ion-list class="teacher-complaint-list">
+            <ion-item class="ComplaintSpace item-remove-animate item-icon-right" ng-repeat="cmpl in vm.allSuggestion" type="item-text-wrap" href="#/management/viewOtherSuggestion/{{cmpl.encryptId}}/assignOther">
+                <div class="complaint-lists">
+                    <div class="row">
+                        <div class="col col-75">
+                            <h2>{{cmpl.againstName}}</h2>
+                        </div>
+                        <div class="col" style="text-align:right">
+                            <p class="icon icon-accessory responsive-sm" style="padding-top:18px">
+                            <p style="font-size: 84%;">{{cmpl.statusName}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-70">
+                            <p style="font-size:13px">{{cmpl.title}}</p>
+                        </div>
+                        <div class="col" style="text-align:right">
+                            <p style="font-size:10px"><span am-time-ago="cmpl.createdAt"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
     </ion-content>
 
 </ion-view>
