@@ -90,6 +90,7 @@
                 data: params,
                 url: baseUrl + "/management/suggestion-close"
             }).success(function (response) {
+                console.log('success: ', response);
                 deferred.resolve(response);
             }).error(function (response) {
                 deferred.reject(response);

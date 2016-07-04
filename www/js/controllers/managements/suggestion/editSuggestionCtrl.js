@@ -61,7 +61,7 @@
             if (name === "assignOther") {
                 $state.go("management.assignComplaint.assignOtherComplaint", {}, { reload: true });
             } else {
-                $state.go("management.complaints.other-complaint", {}, { reload: true });
+                $state.go("management.suggestion.otherSuggestion", {}, { reload: true });
             }
         }
 
