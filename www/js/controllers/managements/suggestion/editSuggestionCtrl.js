@@ -19,9 +19,11 @@
 
         managementSuggestionService.getAuthors().then(function (response) {
             vm.authors = response;
+            console.log('vm.authors: ', vm.authors);
             angular.forEach(response, function (val, index) {
                 if (val.id == $stateParams.obj.assigned) {
                     vm.selectAuthor = response[index];
+                    console.log('vm.selectAuthor: ', vm.selectAuthor);
                 }
             })
         });
@@ -42,10 +44,8 @@
         }
 
         $scope.$watch("vm.selectAuthor", function (newval, oldval) {
-            if (newval && oldval) {
-                if (newval.id != oldval.id) {
-                    vm.newAssign = newval.id;
-                }
+            if (newval){
+                vm.newAssign = newval.id;
             }
         }, true);
 
