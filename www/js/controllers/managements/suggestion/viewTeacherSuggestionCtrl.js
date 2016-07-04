@@ -61,7 +61,7 @@
 
             if ($stateParams.name === "assignTeacher") {
                 $ionicViewSwitcher.nextDirection("back");
-                $state.go("management.assignComplaint.assignTeacherComplaint", {}, { reload: false });
+                $state.go("management.assignSuggestion.assignTeacherSuggestion", {}, { reload: false });
             } else {
                 $ionicViewSwitcher.nextDirection("back");
                 $state.go("management.suggestion.teacherSuggestion", {}, { reload: false });

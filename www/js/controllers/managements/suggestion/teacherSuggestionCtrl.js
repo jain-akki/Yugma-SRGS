@@ -52,7 +52,7 @@
         });
 
         vm.viewAssignCmpl = function () {
-            $state.go("management.assignComplaint.assignTeacherComplaint", {}, { reload: true });
+            $state.go("management.assignSuggestion.assignTeacherSuggestion", {}, { reload: true });
         }
 
         vm.goToViewTeacher = function (id, name) {

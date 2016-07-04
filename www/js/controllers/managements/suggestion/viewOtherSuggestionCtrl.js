@@ -62,7 +62,7 @@
 
             if ($stateParams.name === "assignOther") {
                 $ionicViewSwitcher.nextDirection("back");
-                $state.go("management.assignComplaint.assignOtherComplaint", {}, { reload: false });
+                $state.go("management.assignSuggestion.assignOtherSuggestion", {}, { reload: false });
             } else {
                 $ionicViewSwitcher.nextDirection("back");
                 $state.go("management.suggestion.otherSuggestion", {}, { reload: false });
