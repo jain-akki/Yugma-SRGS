@@ -409,6 +409,22 @@
             return deferred.promise;
         }
 
+        var viewOtherSuggestion = function (suggestionId) {
+
+            var deferred = $q.defer();
+
+            $http({
+                method: "GET",
+                contentType: "application/json",
+                url: baseUrl + "/management/suggestion/" + suggestionId
+            }).success(function (response) {
+                deferred.resolve(response);
+            }).error(function (response) {
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
+        }
 
         return {
             getDirectorTeacherSuggestions: getDirectorTeacherSuggestions,
@@ -432,7 +448,8 @@
             getDirectorOtherSuggestion: getDirectorOtherSuggestion,
             getAdminOtherSuggestion: getAdminOtherSuggestion,
             getDirectorOtherAssignSuggestion: getDirectorOtherAssignSuggestion,
-            getAdminOtherAssignSuggestion: getAdminOtherAssignSuggestion
+            getAdminOtherAssignSuggestion: getAdminOtherAssignSuggestion,
+            viewOtherSuggestion: viewOtherSuggestion
         }
 
     })
