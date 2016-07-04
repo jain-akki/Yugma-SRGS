@@ -7,7 +7,7 @@
         background-repeat: no-repeat;
     }
 </style>
-<ion-view view-title="Add Suggestion" class="purple-back">
+<ion-view view-title="Add Suggestion" class="purple-back watermark">
     <ion-nav-buttons side="left">
         <button class="button button-icon button-clear ion-android-arrow-back sidebar-ion-navicon" ng-click="goBack()"></button>
     </ion-nav-buttons>
@@ -17,40 +17,40 @@
     <div class="bar bar-subheader button-to-select" ng-show="totalChilds > 1">
         <h2 class="title add-complaint-child-name">Select child</h2>
     </div>
-    <ion-content class="watermark has-subheader">
-      <ion-list class="teachersName">
-          <select id="teacher" class="button-block-margin" ng-options="val as val.name for val in teachers track by val.id" ng-model="category.teacher">
-              <option value="" style="display:none;">select teacher</option>
-          </select>
-          <ion-item id="otherData">
-          </ion-item>
-      </ion-list>
-      <ion-list class="studentName" ng-show="totalChilds > 1">
-          <button id="test" class="button button-block button-positive button-block-margin animated bounceInRight" ng-click="selectChild(child)" ng-repeat="child in childs">
-              {{child.studentName}}
-          </button>
-      </ion-list>
-      <ion-list>
-          <select id="category" class="button-block-margin" style="display:none" ng-options="val as val.categoryName for      val in category track by val.categoryId" ng-model="category.mainCategory">
-              <option value="" style="display:none;">select suggestion category</option>
-          </select>
-          <select id="subCategory" class="button-block-margin" ng-options="val as val.name for val in subCategory track by    val.id" ng-model="category.subCategory">
-              <option value="" style="display:none;">select category</option>
-          </select>
-      </ion-list>
-      <ion-list style="display:none" class="padding" id="addCmplTextBox">
-          <form name="complaintForm" class="list trans-back" ng-submit="suggestionSubmit(suggestion)">
-              <label class="item item-input item-stacked-label">
-                  <span class="input-label">Suggestion Title <sapn style="font-size: 80%;padding: 5px;">(max 30)</span>
-                  <input type="text" class="input-style" ng-model="suggestion.title" maxlength="30" required>
-              </label>
-              <label class="item item-input item-stacked-label">
-                  <span class="input-label">Suggestion Description</span>
-                  <textarea rows="10" class="input-style" ng-model="suggestion.description" required></textarea>
-              </label>
-              <ion-checkbox ng-model="suggestion.isChecked" class="form-select checkbox-royal">Suggestion as anonymous</ion-checkbox>
-              <button type="submit" class="button button-block animated bounceInBottom login-btn-purpleb" ng-disabled="complaintForm.$invalid">Submit</button>
-          </form>
-      </ion-list>
-  </ion-content>
+    <ion-content class="has-subheader">
+        <ion-list class="teachersName">
+            <select id="teacher" class="button-block-margin" ng-options="val as val.name for val in teachers track by val.id" ng-model="category.teacher">
+                <option value="" style="display:none;">select teacher</option>
+            </select>
+            <ion-item id="otherData">
+            </ion-item>
+        </ion-list>
+        <ion-list class="studentName" ng-show="totalChilds > 1">
+            <button id="test" class="button button-block button-positive button-block-margin animated bounceInRight" ng-click="selectChild(child)" ng-repeat="child in childs">
+                {{child.studentName}}
+            </button>
+        </ion-list>
+        <ion-list>
+            <select id="category" class="button-block-margin" style="display:none" ng-options="val as val.categoryName for      val in category track by val.categoryId" ng-model="category.mainCategory">
+                <option value="" style="display:none;">select suggestion category</option>
+            </select>
+            <select id="subCategory" class="button-block-margin" ng-options="val as val.name for val in subCategory track by    val.id" ng-model="category.subCategory">
+                <option value="" style="display:none;">select category</option>
+            </select>
+        </ion-list>
+        <ion-list style="display:none" class="padding" id="addCmplTextBox">
+            <form name="complaintForm" class="list trans-back" ng-submit="suggestionSubmit(suggestion)">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Suggestion Title <sapn style="font-size: 80%;padding: 5px;">(max 30)</span>
+                    <input type="text" class="input-style" ng-model="suggestion.title" maxlength="30" required>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Suggestion Description</span>
+                    <textarea rows="10" class="input-style" ng-model="suggestion.description" required></textarea>
+                </label>
+                <ion-checkbox ng-model="suggestion.isChecked" class="form-select checkbox-royal">Suggestion as anonymous</ion-checkbox>
+                <button type="submit" class="button button-block animated bounceInBottom login-btn-purpleb" ng-disabled="complaintForm.$invalid">Submit</button>
+            </form>
+        </ion-list>
+    </ion-content>
 </ion-view>
