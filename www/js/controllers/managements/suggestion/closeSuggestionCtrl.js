@@ -12,6 +12,8 @@
 
         console.log('managementTeacherCloseSuggestionCtrl');
 
+        var vm = this;
+
         vm.goBack = function () {
             $ionicHistory.goBack();
         }
@@ -27,9 +29,22 @@
             });
         }
 
+        function closeOtherSuggestion(data) {
+            customService._off();
+            managementSuggestionService.closeOtherSuggestion(data).then(function (response) {
+                if ($stateParams.name === "assignOther") {
+                    $state.go("management.assignComplaint.assignOtherComplaint", {}, { reload: true });
+                } else {
+                    $state.go("management.suggestion.otherSuggestion", {}, { reload: true });
+                }
+            });
+        }
+
         vm.closeSuggestion = function (data) {
 
             customService._on();
+
+            $ionicHistory.clearCache();
 
             angular.extend(data, {
                 comment: "ClosedReason: " + data.comment,
@@ -37,10 +52,13 @@
                 teacherId: USER.parentId()
             });
 
-            managementSuggestionService.closeTeacherSuggestion(data).then(function () {
-                customService._off();
-                $ionicHistory.goBack();
-            });
+            if ($stateParams.name === "other" || $stateParams.name === "assignOther") {
+                closeOtherSuggestion(data);
+            } else {
+                closeTeacherSuggestion(data);
+            }
+
+            $scope.suggestion = {};
         }
 
     });
