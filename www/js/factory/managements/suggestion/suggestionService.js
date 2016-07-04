@@ -70,7 +70,7 @@
                 method: 'PUT',
                 contentType: 'application/json',
                 data: data,
-                url: baseUrl + "/teacher/suggestion-close"
+                url: baseUrl + "/management/teacher/suggestion-close"
             }).success(function (response) {
                 deferred.resolve(response);
             }).error(function (response) {
