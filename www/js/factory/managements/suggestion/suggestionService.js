@@ -374,16 +374,68 @@
             });
 
             return deferred.promise;
+        }        
+
+        var viewOtherSuggestion = function (suggestionId) {
+
+            var deferred = $q.defer();
+
+            $http({
+                method: "GET",
+                contentType: "application/json",
+                url: baseUrl + "/management/suggestion/" + suggestionId
+            }).success(function (response) {
+                deferred.resolve(response);
+            }).error(function (response) {
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
+        }
+
+        var getDirectorTeacherAssignSuggestion = function (employeeId) {
+
+            var deferred = $q.defer();
+
+            $http({
+                method: 'GET',
+                contentType: 'application/json',
+                url: baseUrl + "/director/teacher-assign-suggestion/" + employeeId
+            }).success(function (response) {
+                deferred.resolve(response);
+            }).error(function (response) {
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
+        }
+
+        var getAdminTeacherAssignSuggestion = function (employeeId) {
+
+            var deferred = $q.defer();
+
+            $http({
+                method: 'GET',
+                contentType: 'application/json',
+                dataType: 'jsonp',
+                url: baseUrl + "/management/fetch-assign-teacher-suggestion/" + employeeId
+            }).success(function (response) {
+                deferred.resolve(response);
+            }).error(function (response) {
+                deferred.reject(response);
+            });
+
+            return deferred.promise;
         }
 
         var getDirectorOtherAssignSuggestion = function (employeeId) {
 
             var deferred = $q.defer();
-            console.log('teacherId-dir: ', employeeId);
+
             $http({
                 method: 'GET',
                 contentType: 'application/json',
-                url: baseUrl + "/assign-suggestion/" + employeeId
+                url: baseUrl + "/director/assign-suggestion/" + employeeId
             }).success(function (response) {
                 deferred.resolve(response);
             }).error(function (response) {
@@ -396,28 +448,11 @@
         var getAdminOtherAssignSuggestion = function (employeeId) {
 
             var deferred = $q.defer();
-            console.log('teacherId-admin: ', employeeId);
+
             $http({
                 method: 'GET',
                 contentType: 'application/json',
                 url: baseUrl + "/management/fetch-assign-suggestion/" + employeeId
-            }).success(function (response) {
-                deferred.resolve(response);
-            }).error(function (response) {
-                deferred.reject(response);
-            });
-
-            return deferred.promise;
-        }
-
-        var viewOtherSuggestion = function (suggestionId) {
-
-            var deferred = $q.defer();
-
-            $http({
-                method: "GET",
-                contentType: "application/json",
-                url: baseUrl + "/management/suggestion/" + suggestionId
             }).success(function (response) {
                 deferred.resolve(response);
             }).error(function (response) {
@@ -448,9 +483,11 @@
             setStatus: setStatus,
             getDirectorOtherSuggestion: getDirectorOtherSuggestion,
             getAdminOtherSuggestion: getAdminOtherSuggestion,
+            viewOtherSuggestion: viewOtherSuggestion,
+            getDirectorTeacherAssignSuggestion: getDirectorTeacherAssignSuggestion,
+            getAdminTeacherAssignSuggestion: getAdminTeacherAssignSuggestion,
             getDirectorOtherAssignSuggestion: getDirectorOtherAssignSuggestion,
-            getAdminOtherAssignSuggestion: getAdminOtherAssignSuggestion,
-            viewOtherSuggestion: viewOtherSuggestion
+            getAdminOtherAssignSuggestion: getAdminOtherAssignSuggestion
         }
 
     })
