@@ -54,7 +54,7 @@
                 status: vm.cmpl.statusId
             }
 
-            $state.go("management.addComment", { obj: suggestion }, { reload: true });
+            $state.go("management.addCommentsToSuggestion", { obj: suggestion }, { reload: true });
 
         }
 
