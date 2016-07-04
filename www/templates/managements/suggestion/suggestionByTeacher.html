@@ -5,6 +5,14 @@
         background-size: 300px;
         background-repeat: no-repeat;
     }
+    .tname {
+        font-size: 12px;
+        float: right;
+    }
+    .footer {
+        background:white;
+        border-top:white;
+    }
 </style>
 
 <ion-view view-title="Suggestions" hide-back-button="true" class="watermark purple-back">
@@ -49,10 +57,10 @@
         <div class="card" ng-repeat="cmpl in suggestionsByTeacher" ng-show="suggestionsByTeacher.length >= 0">
             <ion-item class="item-text-wrap">
                 <div class="row">
-                    <div class="col col-75">
-                        <h2>{{cmpl.suggestionTitle}}</h2>
+                    <div class="col col-70">
+                        <h3><b>{{cmpl.suggestionTitle}}</b></h3>
                     </div>
-                    <div class="col" style="text-align:right">
+                    <div class="col col-30" style="text-align:right">
                         <p style="font-size:10px"><span am-time-ago="cmpl.createdAt"></span></p>
                     </div>
                 </div>
@@ -61,6 +69,9 @@
                     <div class="col col-100">
                         <p style="font-size:13px">{{cmpl.suggestionDesc}}</p>
                     </div>
+                </div>
+                <div class="footer item item-divider text-left">
+                    <span class="tname text-right">- To {{cmpl.student.charAt(0).toUpperCase() + cmpl.student.slice(1).toLowerCase()}}</span>
                 </div>
             </ion-item>
         </div>
