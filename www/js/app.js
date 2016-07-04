@@ -469,6 +469,32 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     }
                 }
             })
+            .state('management.assignSuggestion', {
+                url: '/assignSuggestion',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/suggestion/assignSuggestionTab.html'
+                    }
+                }
+            })
+            .state('management.assignSuggestion.assignTeacherSuggestion', {
+                url: '/assignTeacherSuggestion',
+                views: {
+                    'assign-sugg-teacher': {
+                        templateUrl: 'templates/managements/suggestion/assignTeacherSuggestion.html',
+                        controller: 'assignTeacherSuggestionCtrl as vm'
+                    }
+                }
+            })
+            .state('management.assignSuggestion.assignOtherSuggestion', {
+                url: '/assignOtherSuggestion',
+                views: {
+                    'assign-sugg-other': {
+                        templateUrl: 'templates/managements/suggestion/assignOtherSuggestion.html',
+                        controller: 'assignOtherSuggestionCtrl as vm'
+                    }
+                }
+            })
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             .state('management.addSuggestion', {
                 url: "/addSuggestion",
