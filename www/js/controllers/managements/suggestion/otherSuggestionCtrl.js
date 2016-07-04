@@ -8,8 +8,8 @@
 
     function ($http, $scope, $state, USER, managementSuggestionService, customService) {
 
-        var vm = this;
         console.log('managementOtherSuggestionCtrl');
+
     });
 
 })();
