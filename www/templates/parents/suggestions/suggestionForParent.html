@@ -5,18 +5,22 @@
         background-size: 300px;
         background-repeat: no-repeat;
     }
+    .tname {
+        font-size: 11px;
+        float: right;
+        margin-top: 5px;
+    }
+    .footer {
+        background:#5051a6;
+        color:white;
+    }
 </style>
 <ion-view view-title="Suggestion For Parents" class="purple-back watermark">
-    <ion-content class="has-subheader">
+    <ion-content>
 
         <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
 
-        <ion-list>
-            <select class="button-block-margin" ng-options="std.studentName for std in childs track by std.studentId" ng-model="suggestion.chldSelected">
-                <option value="">Select Child</option>
-            </select>
-        </ion-list>
-        <div id="sugg" class="card" ng-repeat="cmpl in suggestionsByTeacher">
+        <div class="card" ng-repeat="cmpl in suggestionsByTeacher">
             <ion-item class="item-text-wrap">
                 <div class="row">
                     <div class="col col-70">
@@ -31,6 +35,10 @@
                     <div class="col col-100">
                         <p style="font-size:13px;height:100%">{{cmpl.suggestionDesc}}</p>
                     </div>
+                </div>
+                <div class="footer item item-divider text-left">
+                    {{cmpl.student}}
+                    <span class="tname text-right">-{{cmpl.teacher}}</span>
                 </div>
             </ion-item>
         </div>

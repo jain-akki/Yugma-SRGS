@@ -5,14 +5,14 @@ angular.module("yugma")
        TeacherSuggestions = [];
        OtherSuggestions = [];
 
-       var getSuggestionByTeacher = function (studentId) {
+       var getSuggestionByTeacher = function (parentId) {
 
            var deferred = $q.defer();
-           console.log('studentId: ',studentId);
+           console.log('studentId: ', parentId);
            $http({
                method: "GET",
                contentType: "application/json",
-               url: baseUrl + "/student-suggestion-by-student/" + studentId
+               url: baseUrl + "/student-suggestion-by-student/" + parentId
            }).success(function (response) {
                deferred.resolve(response);
            }).error(function (response) {
