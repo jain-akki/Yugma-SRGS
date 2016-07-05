@@ -32,7 +32,8 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                 url: '/yugma',
                 abstract: true,
                 // cache: false,
-                templateUrl: 'templates/parents/sidebar.html'
+                templateUrl: 'templates/parents/sidebar.html',
+                controller: 'sideMenuCtrl'
             })
             .state('yugma.dashboard', {
                 url: '/dashboard',
