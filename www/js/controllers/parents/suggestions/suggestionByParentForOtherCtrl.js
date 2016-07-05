@@ -22,22 +22,6 @@
 
         });
 
-        /**
-		 * When user pull complaint list 
-		 * do refresh call immediately
-		 */
-        $scope.doRefresh = function () {
-
-            $scope.otherSuggestions = [];
-
-            suggestionService.getOtherSuggestion(USER.parentId()).then(function (response) {
-
-                $scope.otherSuggestions = response;
-                $scope.$broadcast('scroll.refreshComplete');
-
-            });
-        };
-
     })
 
 })();
