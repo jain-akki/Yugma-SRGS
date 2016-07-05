@@ -29,24 +29,6 @@
                 }
 
             });
-
-            /**
-             * When user pull complaint list 
-             * do refresh call immediately
-             */
-            $scope.doRefresh = function () {
-
-                $scope.suggestionsByTeacher = [];
-
-                managementSuggestionService.getSuggestionByTeacher(USER.parentId()).then(function (response) {
-
-                    $scope.suggestionsByTeacher = response;
-                    console.log('OnRefresh');
-                    $scope.$broadcast('scroll.refreshComplete');
-
-                });
-            };
-
         });
 
 })();
