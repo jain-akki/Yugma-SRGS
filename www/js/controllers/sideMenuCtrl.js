@@ -3,7 +3,7 @@
     'use strict';
 
     angular.module('yugma')
-        .controller('sideMenuCtrl', function($scope, $localStorage) {
+        .controller('sideMenuCtrl', function($scope, $localStorage, USER) {
             console.log('sideMenuCtrl');
             $scope.menuItem = false;
             $scope.toggle = function () {
@@ -20,7 +20,11 @@
                 return $scope.menuItem;
             };
 
-            $scope.roleName = $localStorage.sessionData.employeeName;
+            if ($localStorage.sessionData) {
+                $scope.roleName = $localStorage.sessionData.employeeName;
+            } else {
+                $scope.roleName = USER.parentName();
+            }
         
         })
 })();
