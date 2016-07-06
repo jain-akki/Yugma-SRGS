@@ -1,9 +1,17 @@
+<style>
+    .bg {
+        background: #b2b4ee;
+    }
+
+    .sub-menu {
+        transition: 1s all linear;
+    }
+</style>
 <ion-side-menus enable-menu-with-back-views="false">
   <ion-side-menu-content>
     <ion-nav-bar class="sidebar-header" align-title="center">
       <ion-nav-back-button style="color:white">
       </ion-nav-back-button>
-
 
       <ion-nav-buttons side="left">
         <button class="button button-icon button-clear ion-navicon sidebar-ion-navicon" menu-toggle="left">
@@ -29,15 +37,22 @@
         <ion-item menu-close href="#/management/assignComplaint/assignTeacherComplaint" class="item item-icon-left sidebar-item-content" ng-click="pageChange()">
           <i class="icon ion-arrow-graph-up-right sidebar-ion-ios-gear" ></i> Assigned Complaints
         </ion-item>
-        <ion-item menu-close href="#/management/suggestionByTeacher" class="item item-icon-left sidebar-item-content">
-            <i class="icon ion-sad sidebar-ion-ios-chatboxes"></i> Suggestion By Teacher
+        <ion-item class="icon item-icon-left item-icon-right" ng-click="toggle()" ng-class="{active: isShown()}" style="background:#b2b4ee;color:white;">
+            <i class="icon ion-information" style="font-size:20px; color:#5051a6;"></i>
+            Suggestion
+            <i class="icon" ng-class="isShown() ? 'ion-chevron-up' : 'ion-chevron-down' " style="font-size:20px;"></i>
+        </ion-item>  
+        <ion-item id="sub-menu" ng-show="isShown()" style="padding:0px;background:#b2b4ee;">
+            <ion-item menu-close href="#/management/suggestionByTeacher" class="bg ripplelink item item-icon-left sidebar-item-content" style="padding-left:10px;color:white;font-size:14px;">
+                <i class="icon ion-sad sidebar-ion-ios-chatboxes" style="font-size:15px;color:#5051a6;margin-left:10px;"></i> Suggestion By Teacher
+            </ion-item>
+            <ion-item menu-close href="#/management/suggestion/teacherSuggestion" class="bg ripplelink item item-icon-left sidebar-item-content" style="padding-left:10px;color:white;font-size:14px;">
+                <i class="icon ion-email" style="font-size:15px;color:#5051a6;margin-left:10px;"></i> Suggestion For Teacher
+            </ion-item>
+            <ion-item menu-close href="#/management/assignSuggestion/assignTeacherSuggestion" class="bg ripplelink item item-icon-left sidebar-item-content" style="padding-left:10px;color:white;font-size:14px;">
+                <i class="icon ion-clipboard" style="font-size:15px;color:#5051a6;margin-left:10px;"></i> Assigned Suggestion
+            </ion-item>
         </ion-item>
-          <ion-item menu-close href="#/management/suggestion/teacherSuggestion" class="item item-icon-left sidebar-item-content">
-              <i class="icon ion-sad sidebar-ion-ios-chatboxes"></i> <p>Suggestion For Teacher </p>
-          </ion-item>
-          <ion-item menu-close href="#/management/assignSuggestion/assignTeacherSuggestion" class="item item-icon-left sidebar-item-content">
-              <i class="icon ion-sad sidebar-ion-ios-chatboxes"></i> <p>Assigned Suggestion</p>
-          </ion-item>
         <ion-item menu-close href="#/management/homework/addHomework" class="item item-icon-left sidebar-item-content">
           <i class="icon ion-ios-book sidebar-ion-home"></i> Homework
         </ion-item>

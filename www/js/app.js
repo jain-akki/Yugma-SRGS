@@ -247,9 +247,7 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                 url: '/management',
                 abstract: true,
                 templateUrl: 'templates/managements/sidebar.html',
-                controller: function ($scope, $state, customService, authService, $localStorage) {
-                    $scope.roleName = $localStorage.sessionData.employeeName;
-                }
+                controller: 'sideMenuCtrl'
             })
             .state('management.dashboard', {
                 url: '/dashboard',
