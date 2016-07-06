@@ -6,46 +6,58 @@
 
     .controller('assignTeacherSuggestionCtrl',
 
-    function ($scope, $state, $stateParams, USER, managementSuggestionService, customService) {
+    function ($scope, $state, $stateParams, USER, managementSuggestionService, customService, $q) {
 
         console.log('assignTeacherSuggestionCtrl');
 
         var vm = this;
 
         var roles = USER.roles();
+
         customService._on();
 
-        function getDirectorTeacherAssignSuggestion() {
-            managementSuggestionService.getDirectorTeacherAssignSuggestion(USER.parentId()).then(function (response) {
-                customService._off();
-                console.log("getDirectorTeacherAssignSuggestion ", response);
-                vm.allSuggestion = response;
-            });
-        }
+        vm.allSuggestion = [];
 
-        function getAdminTeacherAssignSuggestion() {
-
-            managementSuggestionService.getAdminTeacherAssignSuggestion(USER.parentId()).then(function (response) {
-                customService._off();
-                console.log("getAdminTeacherAssignSuggestion", response);
-                vm.allSuggestion = response;
-            });
-        }
-
-        angular.forEach(roles, function (val, index) {
-
-            if (val.roleId === 2 || val.roleId === 3) {
-
-                /***** For director and principle *******/
-                getDirectorTeacherAssignSuggestion();
-
-            } else {
-
-                /****** For admin, teacher and co-ordinator *******/
-                // if(_.isEmpty(val.standardIds)) { return; }
-                getAdminTeacherAssignSuggestion();
+        function getSuggestions() {
+            var q = $q.defer();
+            function getDirectorTeacherAssignSuggestion() {
+                managementSuggestionService.getDirectorTeacherAssignSuggestion(USER.parentId()).then(function (response) {
+                    customService._off();
+                    vm.allSuggestion = response;
+                    q.resolve(vm.suggestions);
+                });
             }
+            function getAdminTeacherAssignSuggestion() {
+                managementSuggestionService.getAdminTeacherAssignSuggestion(USER.parentId()).then(function (response) {
+                    customService._off();
+                    vm.allSuggestion = response;
+                    q.resolve(vm.suggestions);
+                });
+            }
+            angular.forEach(roles, function (val, index) {
+                if (val.roleId === 2 || val.roleId === 3) {
+                    /***** For director and principle *******/
+                    getDirectorTeacherAssignSuggestion();
+                } else {
+                    /****** For admin, teacher and co-ordinator *******/
+                    getAdminTeacherAssignSuggestion();
+                }
+            });
+            return q.promise;
+        }
+
+        getSuggestions().then(function (response) {
+            vm.allSuggestions = response;
         });
+
+        $scope.doRefresh = function () {
+
+            getSuggestions().then(function (response) {
+                vm.allSuggestions = response;
+                $scope.$broadcast('scroll.refreshComplete');
+            });
+
+        };
 
         vm.goBack = function () {
             $state.go("management.assignSuggestion.assignTeacherSuggestion", {}, { reload: true });

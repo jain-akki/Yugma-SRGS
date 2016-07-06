@@ -21,8 +21,11 @@
     </ion-nav-buttons>
 
     <ion-content class="padding" id="complaints">
+
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+
         <ion-list class="teacher-complaint-list">
-            <ion-item class="ComplaintSpace item-remove-animate item-icon-right" ng-repeat="cmpl in vm.allSuggestions" type="item-text-wrap" href="#/management/viewTeacherSuggestion/{{cmpl.encryptId}}/teacher">
+            <ion-item class="ComplaintSpace item-icon-right" ng-repeat="cmpl in vm.allSuggestions" type="item-text-wrap" href="#/management/viewTeacherSuggestion/{{cmpl.encryptId}}/teacher">
                 <div class="complaint-lists">
                     <div class="row">
                         <div class="col col-75">

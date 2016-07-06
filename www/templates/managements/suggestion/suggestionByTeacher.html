@@ -24,6 +24,9 @@
         <a menu-toggle="right" class="button button-icon button-clear ion-ios-compose-outline sidebar-ion-navicon" ui-sref="management.addSuggestion"></a>
     </ion-nav-buttons>
     <ion-content class="padding" id="complaints"> 
+
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+
         <ion-list class="teacher-complaint-list">
             <ion-item id="cmplEmpty" style="display:none">
                 <div class="row">

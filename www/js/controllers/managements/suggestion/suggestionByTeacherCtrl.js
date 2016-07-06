@@ -17,18 +17,20 @@
             $scope.suggestionsByTeacher = [];
 
             managementSuggestionService.getSuggestionByTeacher(USER.parentId()).then(function (response) {
-
-                $scope.suggestionsByTeacher = response;
-
                 customService._off();
-
-                console.log("TeacherSuggestions Object: ", response);
-
+                $scope.suggestionsByTeacher = response;
                 if ($scope.suggestionsByTeacher.length === 0) {
                     $("#cmplEmpty").css("display", "inherit");
                 }
-
             });
-        });
 
+            $scope.doRefresh = function () {
+
+                managementSuggestionService.getSuggestionByTeacher(USER.parentId()).then(function (response) {
+                    $scope.suggestionsByTeacher = response;
+                    $scope.$broadcast('scroll.refreshComplete');
+                });
+
+            };
+        });
 })();
