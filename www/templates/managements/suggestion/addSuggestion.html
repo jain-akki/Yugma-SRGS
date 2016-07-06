@@ -6,7 +6,10 @@
         background-repeat: no-repeat;
     }
 </style>
-<ion-view view-title="Add Suggestion" class="purple-back watermark">
+<ion-view view-title="Add Suggestion" hide-back-button="true" class="purple-back watermark">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-android-arrow-back sidebar-ion-navicon" ng-click="goBack()"></button>
+    </ion-nav-buttons>
     <ion-nav-buttons side="right">
         <button class="button button-icon button-clear ion-ios-undo sidebar-ion-navicon" ng-click="clearHistory()"></button>
     </ion-nav-buttons>

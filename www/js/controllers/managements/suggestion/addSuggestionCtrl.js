@@ -65,7 +65,7 @@
             };
 
             $scope.goBack = function () {
-                $state.transitionTo('management.suggestionByTeacher', {}, { reload: true });
+                $state.go('management.suggestionByTeacher', {}, { reload: true });
             }
 
             $scope.clearHistory = function () {

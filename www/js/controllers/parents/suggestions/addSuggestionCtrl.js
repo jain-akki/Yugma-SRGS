@@ -171,7 +171,6 @@
                 }
 
                 $scope.clearHistory = function () {
-                    //  $state.reload();
                     $state.go($state.current, {}, { reload: true });
                 }
         })
