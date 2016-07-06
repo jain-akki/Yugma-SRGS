@@ -15,18 +15,20 @@
         $scope.teacherSuggestions = [];
 
         suggestionService.getTeacherSuggestions(USER.parentId()).then(function (response) {
-
-            $scope.teacherSuggestions = response;
-
             customService._off();
-
-            console.log("TeacherSuggestions Object: ", response);
-
+            $scope.teacherSuggestions = response;
             if ($scope.teacherSuggestions.length === 0) {
                 $("#cmplEmpty").css("display", "inherit");
             }
-
         });
-    })
 
+        $scope.doRefresh = function () {
+
+            suggestionService.getTeacherSuggestions(USER.parentId()).then(function (response) {
+                $scope.teacherSuggestions = response;
+                $scope.$broadcast('scroll.refreshComplete');
+            });
+
+        };
+    })
 })();

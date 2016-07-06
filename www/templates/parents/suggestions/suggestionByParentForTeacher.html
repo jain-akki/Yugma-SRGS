@@ -15,6 +15,9 @@
         <a menu-toggle="right" class="button button-icon button-clear ion-ios-compose-outline sidebar-ion-navicon" ui-sref="yugma.addSuggestion"></a>
     </ion-nav-buttons>
     <ion-content class="padding watermark" id="complaints">
+
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+
         <ion-list class="teacher-complaint-list">
             <ion-item id="cmplEmpty" style="display:none">
                 <div class="row">
@@ -41,7 +44,7 @@
                     Tap top-right icon,<br>to add new complaint.
                 </div>
             </ion-item>
-            <ion-item class="ComplaintSpace item-remove-animate item-icon-right animated lightSpeedIn" ng-repeat="cmpl in teacherSuggestions" ng-show="teacherSuggestions.length >= 0"
+            <ion-item class="ComplaintSpace item-icon-right" ng-repeat="cmpl in teacherSuggestions" ng-show="teacherSuggestions.length >= 0"
                       type="item-text-wrap" href="#/yugma/suggestionByParentForTeacherView/{{cmpl.id}}">
                 <div class="complaint-lists">
                     <div class="row">
