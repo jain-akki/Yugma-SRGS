@@ -242,6 +242,15 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     }
                 }
             })
+            .state('yugma.poll', {
+                url: '/poll',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/feedback/poll.html',
+                        controller: 'pollCtrl as vm'
+                    }
+                }
+            })
 //----------------------------------------------------------------------------------------------------
             .state('management', {
                 url: '/management',
