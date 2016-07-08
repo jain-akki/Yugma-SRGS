@@ -1,16 +1,34 @@
-﻿.poll{
-    .poll-btn-size{
-        font-size: $custom-icon-font-size - 6px; 
-        i{
-            font-size: 14px;
-        }
-    }
+﻿.poll-style{
+    
     .question {
-        background-color: #5061a6;
-        color: white;
-        .question-icon {
-            font-size: $custom-icon-font-size; 
-            text-align: center;
+        background-color: $btn-bg-color;
+        color: $color-white;
+        height: 35px;
+        font-size: 15px;
+        span {
+            i {
+                text-align: center;
+                margin-right: 10px;
+            }
         }
     }
+
+    .optn {
+        padding: 15px;
+        margin-left: 20px;
+        .optn-mar {
+            .btn{
+                background-color: #4CAF50;
+                @include border(2px solid darkgreen);
+                border-radius:2px;
+                color: $color-white;
+                margin:2px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+            }
+        }
+    }
+
 }

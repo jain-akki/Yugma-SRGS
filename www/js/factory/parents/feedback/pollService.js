@@ -9,7 +9,7 @@
         var fetchPollsForParent = function (childStandardIds, user) {
             
             var deferred = $q.defer();
-            console.log('childStandardIds ', childStandardIds, 'user ', user)
+
             $http({
                 method: "GET",
                 contentType: "application/json",
@@ -23,7 +23,7 @@
             return deferred.promise;
         }
 
-        var saveParentData = function (pollAnswer) {
+        var savePollResult = function (pollAnswer) {
 
             var deferred = $q.defer();
             
@@ -43,7 +43,7 @@
 
         return {
             fetchPollsForParent: fetchPollsForParent,
-            saveParentData: saveParentData
+            savePollResult: savePollResult
         }
     })
 })();

@@ -1,32 +1,19 @@
-﻿<ion-view view-title="Quick Poll" class="purple-back poll">
-    <ion-content class="watermark">
-
+﻿<ion-view view-title="Quick Poll" class="purple-back poll-style watermark">
+    <ion-content class="padding">
         <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
-
         <div ng-repeat="poll in vm.pollData">
             <div class="card">
                 <div class="item item-divider question">
-                    <div class="row ">
-                        <div class="col col-10 question-icon">
-                            <i class="ion-help-circled"></i>
-                        </div>
-                        <div class="col">
-                            &nbsp;&nbsp;{{ poll.pollQuestion}}
-                        </div>
+                    <span><i>{{$index + 1}})</i>{{ poll.pollQuestion}}</span>
+                </div>
+                <div class="optn">
+                    <div class="optn-mar inline" ng-repeat="optn in poll.options">
+                        <button class="btn" ng-click="vm.selectAnswer(optn.id, poll)">
+                            {{optn.name}}
+                        </button>
                     </div>
                 </div>
-                <div class="item item-text-wrap">
-                    <button class="poll-btn-size button button-outline button-royal" ng-click="vm.selectAnswer(1,poll)">
-                        <i class="ion-checkmark-round poll-icon"></i> {{poll.options[0].name}}
-                    </button>
-                    <button class="poll-btn-size button button-outline button-positive" ng-click="vm.selectAnswer(2,poll)">
-                        <i class="ion-close-round"></i> {{poll.options[1].name}}
-                    </button>
-                    <button class="poll-btn-size button button-outline button-calm" ng-click="vm.selectAnswer(3,poll)">
-                        <i class="ion-trash-a"></i> {{poll.options[2].name}}
-                    </button>
-                </div>
             </div>
-        </div> 
+        </div>
     </ion-content>
 </ion-view>
