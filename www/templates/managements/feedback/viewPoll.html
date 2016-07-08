@@ -1,0 +1,14 @@
+﻿<ion-view view-title="Poll" class="purple-back watermark">
+    <ion-content class="view-poll">
+        <div class="card  list " ng-repeat="poll in vm.results">
+            <div class="item item-divider question">
+                <span><i>{{$index + 1}})</i>{{poll.pollQuestion}}</span>
+            </div>
+            <div class="item item-bar center" ng-repeat="option in poll.options">
+                <p> <b>{{option.name}}: {{option.count}}%</b></p>
+                <progress class="progress-bar" value="{{option.count}}" max="100" />
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+

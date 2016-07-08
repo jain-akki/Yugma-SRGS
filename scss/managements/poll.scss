@@ -1,0 +1,161 @@
+﻿.add-poll{
+    width: 100%;
+
+    .form-style{
+        width: 100%;
+        padding: 10px;
+        font: 95% Arial, Helvetica, sans-serif;
+        color:black;
+
+        .center{
+            text-align: center;
+        }
+
+        .form-select{
+            height: 60%;
+            border: 1px solid #ccc;
+        }
+
+        span{
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom:3px;
+        }
+
+        .wid{
+            width: 100%;
+        }
+
+        input, select
+        {
+            -webkit-transition: all 0.30s ease-in-out;
+            -moz-transition: all 0.30s ease-in-out;
+            -ms-transition: all 0.30s ease-in-out;
+            -o-transition: all 0.30s ease-in-out;
+            outline: none;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            margin-bottom: 4%;
+            border: 1px solid #ccc;
+            padding: 3%;
+            font: 95% Arial, Helvetica, sans-serif;
+        }
+        
+        input:focus,
+        select:focus
+        {
+            box-shadow: 0 0 5px #5061a6;
+            padding: 3%;
+            border: 1px solid #5061a6;
+        }
+
+        input[type="submit"],
+        input[type="button"]{
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            width: 100%;
+            padding: 3%;
+            background: #5061a6;
+            border-bottom: 2px solid #7576d8;
+            border-top-style: none;
+            border-right-style: none;
+            border-left-style: none;    
+            color: #fff;
+        }
+
+        input[type="submit"]:hover,
+        input[type="button"]:hover{
+            background: #4d4ea5;
+        }
+
+        .select-button{
+            margin-left: 21%;
+        }    
+
+
+        select{
+            color:black;
+        }
+    }
+}
+
+.view-poll{
+    
+    .card {
+        color: black;
+    }
+
+    .question {
+        background-color: $btn-bg-color;
+        color: $color-white;
+        height: 35px;
+        font-size: 15px;
+        span {
+            i {
+                text-align: center;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .progress-bar {
+        margin-top: 0px;
+        background-color: #f3f3f3;
+        border: 0;
+        height: 18px;
+        border-radius: 9px;
+    }
+
+    .item-bar {
+        height: 70px;
+    }
+
+    progress {
+        display: block;
+        -webkit-appearance: none;
+        border: none;
+    }
+        
+    progress::-webkit-progress-bar {
+        background: #cecdcd;
+        border-radius: 50px;
+        padding: 2px;
+        box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    progress::-webkit-progress-value {
+        border-radius: 50px;
+        box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+        background: -webkit-linear-gradient(45deg, transparent, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%), -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)), -webkit-linear-gradient(left, #b2b4ee, #5061a6);
+        background-size: 25px 14px, 100% 100%, 100% 100%;
+        -webkit-animation: move 5s linear 0 infinite;
+    }
+
+    @-webkit-keyframes move {
+        0% {
+            background-position: 0px 0px, 0 0, 0 0;
+        }
+
+        100% {
+            background-position: -100px 0px, 0 0, 0 0;
+        }
+    }
+}
+
+.poll-tab {
+    .view-tab,
+    .add-tab {
+        @include border-top(2px solid #fff);
+    }
+}
+
+

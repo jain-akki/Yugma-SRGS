@@ -568,6 +568,35 @@ angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage'
                     }
                 }
             })
+            .state('management.pollTab', {
+                url: '/pollTab',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/feedback/pollTabs.html'
+                    }
+                }
+            })
+            .state('management.pollTab.addPoll', {
+                url: '/addPoll',
+                cache: false,
+                views: {
+                    'add-poll': {
+                        templateUrl: 'templates/managements/feedback/addPoll.html',
+                        controller: 'addPollCtrl as vm'
+                    }
+                }
+            })
+            .state('management.pollTab.viewPoll', {
+                url: "/viewPoll",
+                cache: false,
+                views: {
+                    'view-poll': {
+                        templateUrl: 'templates/managements/feedback/viewPoll.html',
+                        controller: 'viewPollCtrl as vm'
+                    }
+                }
+            })
 
         /**
          * When need to remove # from url uncomment below line of code

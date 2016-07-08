@@ -1,0 +1,56 @@
+﻿<ion-view view-title="Poll" class="purple-back watermark managementCmpl">
+    <ion-content>
+        <div class="row add-poll">
+            <form id="poll" class="form-style card" name="poll" ng-submit=" vm.addPoll()">
+                <div class="list">
+                    <label class="item-stacked-label">
+                        <span class="input-label">Title:</span>
+                        <input type="text" ng-model="vm.pollTitle" placeholder="Enter title" required>
+                    </label>
+
+                    <label class="item-stacked-label">
+                        <span class="input-label">Due Date:</span>
+                        <input class="wid" type="date" ng-model="vm.pollDueDate" required>
+                    </label>
+
+                    <label class="item-stacked-label">
+                        <span class="input-label">Category:</span>
+                        <select class="form-select" ng-options="category as category.name for category in vm.categories" ng-model="vm.selectCategory" required>
+                            <option value="" style="display:none;">Select Categories</option>
+                        </select>
+                    </label>
+
+                    <label class="item-stacked-label">
+                        <span class="input-label">Poll Type:</span>
+                        <select class="form-select" ng-options="type as type.name for type in vm.types" ng-model="vm.selectType" required>
+                            <option value="" style="display:none;">Select Type</option>
+                        </select>
+                    </label>
+
+                    <div ng-show="vm.selectType.id == 2 && selectedStd.length === 0">
+                        <div class="button select-button" ng-value='select.stdName' ng-click="showPopup()"> Select Standard  &nbsp;<i class="ion-android-open"></i></div>
+                    </div>
+
+                    <div class="row" ng-show="selectedStd.length !== 0">
+                        <div class="col">
+                            <a class="button button-small" ng-repeat="std in selectedStd">{{std}}</a>
+                        </div>
+                        <div class="col col-10">
+                            <button class="button button-small ion-android-open" ng-click="showPopup()"></button>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col center">
+                            <button type="reset" class="button button-outline text-center button-stable" ng-click="selectedStd = [];">Clear</button>
+                        </div>
+                        <div class="col center">
+                            <button id="submitBtn" type="submit" class="button button-positive button-outline animated bounceInBottom" ng-disabled="poll.$invalid">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>
+
