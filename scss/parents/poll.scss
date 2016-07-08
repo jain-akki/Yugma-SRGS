@@ -1,0 +1,16 @@
+﻿.poll{
+    .poll-btn-size{
+        font-size: $custom-icon-font-size - 6px; 
+        i{
+            font-size: 14px;
+        }
+    }
+    .question {
+        background-color: #5061a6;
+        color: white;
+        .question-icon {
+            font-size: $custom-icon-font-size; 
+            text-align: center;
+        }
+    }
+}
