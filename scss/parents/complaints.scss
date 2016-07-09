@@ -1,0 +1,202 @@
+#complaints{
+    @extend #login-view;
+    margin-bottom: 0px;
+}
+
+.complaint-ion-ios-people,
+.complaint-ion-ios-flower-outline {
+    @extend .sidebar-ion-home;
+    @include border-top(2px solid $background-color);
+    color: $color-white;
+    & + span {
+        color: $color-white;
+    }
+}
+
+.complaints-tab {
+    background-color: $btn-bg-color;
+    color: $color-white;
+}
+
+select {
+    width: $width;
+    height: 50px;
+    color: $btn-bg-color;
+    background-color: $background-color;
+}
+
+.ComplaintSpace {
+    margin-bottom: 3px;
+    // background-color: transparent !important;
+    a {
+        padding: 0px 0px 0px 10px !important;
+        // background-color: transparent !important;
+    }
+    a.activated {
+        background-color: #E0E3F3 !important;
+    }
+}
+
+.card-text {
+    font-size: $custom-textbox-font-size - 5px;
+}
+
+.card-complaint {
+    margin: 5px 5px;
+}
+
+.item-stacked-label {
+    span:first-child {
+        &::after {
+            content: "*";
+            color: red;
+            margin-left: 4px;
+        }
+    }
+    background: $color-white;
+}
+
+.button-to-select {
+    background-color: #B1B3EE !important;
+    color: $color-white !important;
+}
+
+.button-block-margin {
+    margin: 5%;
+    width: $width - 10% !important;
+    background-color: $btn-bg-color !important;
+    color: $color-white !important;
+    padding: 0px 20px;
+    font-size: $custom-textbox-font-size;
+}
+
+// .button-block-margin:active {
+//     background-color: #B1B3EE  !important;
+//     border-color: $btn-bg-color;
+//     color: $btn-bg-color !important;
+// }
+
+#otherData {
+    display: none;
+    margin: 10px 10px 0px 10px;
+}
+
+#subCategory {
+    display: none;
+}
+
+#teacher {
+    display: none;
+}
+
+
+a.tab-item {
+    color: $color-white !important;
+}
+
+.viewComplaint {
+    margin-bottom: 44px;
+}
+
+.comment {
+
+    .commentListMarginBottom {
+        // margin-bottom: 42px;
+        .item {
+            padding: 9px 9px 6px 11px;
+            .commentParentName {
+                color: forestgreen;
+                font-size: small;
+                font-weight: 600;
+                width: 65%;
+                float: left;
+
+            }
+            .commentCreateDate {
+                text-align: right;
+                font-size: smaller;
+            }
+        }
+    }
+    .commentForm {
+        background-color: $btn-bg-color;
+        height: 12%;
+        width:100%;
+        position: fixed;
+        bottom: 0;
+        textarea {
+            resize: none;
+            margin-top: 2px;
+            position: absolute;
+            width: $width - 20%;
+            height: $height - 20%;
+            color: $color-white;
+            background-color: $transparent;
+        }
+        .commentBtn {
+            top: 50%;
+            margin-top:0;
+            height: $height;
+            position: absolute;
+            transform: translateY(-50%);
+            button {
+                top: 50%;
+                position: relative;
+                color: $color-white;
+                transform: translateY(-50%);
+                color: $btn-bg-color;
+            }
+        }
+    }
+}
+
+#cmplEmpty {
+
+    position: relative;
+    box-shadow: 3px 3px;
+    margin-top: 50% !important;
+    border-color: $transparent;
+    transform: translateY(-50%);
+    background-color:rgba(118, 118, 118, 0.54);
+    
+     .up-circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background-color: $btn-bg-color;
+    }
+    
+    .uf-bar {
+        height: 25%;
+        margin-top: 7px;
+        width: $width - 50%;
+        margin-bottom: 10px; 
+        background-color: $btn-bg-color;
+    }
+
+    .us-bar {
+        height: 17%;
+        width: $width;
+        margin-bottom: 10px;
+        background-color: $btn-bg-color;
+    }
+
+    .ut-bar {
+        height: 15%;
+        width: 25%;
+        margin-bottom: 10px;
+        background-color: $btn-bg-color;
+    }
+
+    .empty-text {
+        width: $width;
+        margin-left: 20%;
+        text-align: center;
+        color: $color-white;
+    }
+    
+  }
+  
+  #cmplOtherEmpty {
+      @extend #cmplEmpty;
+  }

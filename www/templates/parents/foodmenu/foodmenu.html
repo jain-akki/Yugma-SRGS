@@ -1,0 +1,35 @@
+<style>
+  .watermark {
+    background-image: url(img/logot.png);
+    background-position: center;
+    background-size: 300px;
+    background-repeat: no-repeat;
+  }
+</style>
+<ion-view view-title="Foodmenu" class="purple-back">
+  <ion-content class="watermark">
+    <ion-list>
+      <tab-slide-box tab="{{day}}">
+        <div class="tsb-icons">
+          <div class="tsb-ic-wrp">
+            <ion-scroll direction="x" class="tsb-hscroll" id="days">
+              <a href="javascript:;" id="days-text" class="{{tab.icon}}" ng-repeat="tab in tabs" on-finish-render="test()"><b>{{tab.text}}</b></a>
+            </ion-scroll>
+          </div>
+        </div>
+        <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+          <ion-slide ng-repeat="tab in tabs">
+            <div class="card" id="food-card">
+              <div ng-repeat="val in vm.foodmenu">
+                <div class="list card" id="list-cards">
+                  <a href="" class="item item-icon-left">
+                    <!--<i class="icon ion-spoon "></i>-->
+                    <b>{{val.food}}</b>
+                  </a>
+                </div>  
+                </div>
+            </div>  
+          </ion-slide>
+        </ion-slide-box>
+      </tab-slide-box>
+    </ion-list>

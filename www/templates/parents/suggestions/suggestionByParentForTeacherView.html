@@ -1,0 +1,64 @@
+﻿<style>
+    .watermark {
+        background-image: url(img/logot.png);
+        background-position: center;
+        background-size: 300px;
+        background-repeat: no-repeat;
+    }
+</style>
+<ion-view view-title="{{cmpl.title}}" class="purple-back watermark">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-android-arrow-back sidebar-ion-navicon" ng-click="goBack()"></button>
+    </ion-nav-buttons>
+    <ion-content class="padding animated fadeInRight viewComplaint">
+        <div class="card card-complaint">
+            <div class="item item-text-wrap card-text">
+                <div><b>Suggestion Against: </b>{{cmpl.categoryName}}</div>
+            </div>
+        </div>
+        <div class="card card-complaint" ng-show="{{cmpl.authorityName.length}}">
+            <div class="item item-text-wrap card-text">
+                <div><b>Assigned To: </b>{{cmpl.authorityName}}</div>
+            </div>
+        </div>
+        <div class="card card-complaint">
+            <div class="item item-text-wrap card-text">
+                <div><b>Description: </b>{{cmpl.description}}</div>
+            </div>
+        </div>
+        <div class="card card-complaint" ng-show="{{cmpl.rca.length}}">
+            <div class="item item-text-wrap card-text">
+                <div><b>Root Cause: </b>{{cmpl.rca}}</div>
+            </div>
+        </div>
+        <div class="card card-complaint">
+            <div class="item item-text-wrap card-text">
+                <div><b>Status: </b>{{cmpl.statusName}}</div>
+            </div>
+        </div>
+        <div class="card card-complaint" ng-show="{{cmpl.closedOn.length}}">
+            <div class="item item-text-wrap card-text">
+                <div><b>Closed On: </b>{{cmpl.closedDate}}</div>
+            </div>
+        </div>
+        <div class="card card-complaint">
+            <div class="item item-text-wrap card-text">
+                <div><b>Created At: </b>{{cmpl.date}}</div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="tabs tabs-icon-top complaints-tab">
+        <a class="tab-item" href="#/yugma/respond/{{cmpl.id}}/{{cmpl.title}}/{{cmpl.statusId}}" nav-direction="back">
+            <i class="icon ion-android-chat"></i> Comments
+        </a>
+        <a class="tab-item" ng-hide="cmpl.statusId == 4 || cmpl.statusId == 6" nav-direction="back" ng-click="closeSuggestion()">
+            <i class="icon ion-close-circled"></i> Close Suggestion
+        </a>
+        <a class="tab-item" ng-show="cmpl.statusId == 4" nav-direction="back" ng-click="satisfySuggestion()">
+            <i class="icon ion-happy"></i> Happy ?
+        </a>
+        <a class="tab-item" ng-show="cmpl.statusId == 4" nav-direction="back" ng-click="reOpenSuggestion()">
+            <i class="icon ion-sad-outline"></i> Reopen Suggestion
+        </a>
+    </div>
+</ion-view>

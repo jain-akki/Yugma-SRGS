@@ -1,0 +1,42 @@
+<style>
+  .watermark {
+    background-image: url(img/logot.png);
+    background-position: center;
+    background-size: 300px;
+    background-repeat: no-repeat;
+  }
+</style>
+
+<ion-view view-title="Homework" class="purple-back">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-ios-undo sidebar-ion-navicon" ng-click="vm.clearHistory()"></button>
+    </ion-nav-buttons>
+    <div class="bar bar-subheader button-to-select" ng-show="vm.childs.length > 1">
+        <h2 class="title add-complaint-child-name">Select child</h2>
+    </div>
+    <ion-content class="padding watermark has-subheader">
+        <ion-list class="studentName" ng-show="vm.childs.length > 1">
+            <button id="test" class="button button-block button-positive button-block-margin animated bounceInRight" ng-click="vm.selectChild(child)" ng-repeat="child in vm.childs">
+                {{child.studentName}}
+            </button>
+        </ion-list>
+        <div class="studentName homework" ng-repeat="val in vm.homework" style="color:black">
+            <div class="list card animated flipInY">
+                <div class="item">
+                    <h2 class="hwTitle"><i class="icon ion-ios-book"> {{val.homeworkTitle}}</i></h2>
+                </div>
+                <div class="item2">
+                    <p><b>Description</b> <span class="hwDescription"><span am-time-ago="val.createdAt"></span></span></p>
+                    {{val.description}}
+                </div>
+                <div class="item row">
+                    <div class="col">
+                        <i class="icon ion-person-stalker hwIcon"> {{val.teacherName}}</i>
+                    </div>
+                    <div class="col hwDueDate">{{val.hwDuedate}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

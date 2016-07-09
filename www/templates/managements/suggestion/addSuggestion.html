@@ -1,0 +1,42 @@
+﻿<style>
+    .watermark {
+        background-image: url(img/logot.png);
+        background-position: center;
+        background-size: 300px;
+        background-repeat: no-repeat;
+    }
+</style>
+<ion-view view-title="Add Suggestion" hide-back-button="true" class="purple-back watermark">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-android-arrow-back sidebar-ion-navicon" ng-click="goBack()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-clear ion-ios-undo sidebar-ion-navicon" ng-click="clearHistory()"></button>
+    </ion-nav-buttons>
+    <ion-content class="has-subheader">
+        <ion-list id="std" class="teachersName">
+            <select class="button-block-margin" ng-options="std.name for std in totalStandards track by std.id" ng-model="suggestion.stdSelected">
+                <option value="">Select Standard</option>
+            </select>
+        </ion-list>
+        <ion-list id="chld" class="teachersName">
+            <select class="button-block-margin" ng-options="std.name for std in totalChild track by std.id" ng-model="suggestion.chldSelected">
+                <option value="">Select Child</option>
+            </select>
+        </ion-list>
+
+        <ion-list class="padding" id="addSuggForm">
+            <form name="complaintForm" class="list trans-back" ng-submit="suggestionSubmit(suggestion)">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Suggestion Title <sapn style="font-size: 80%;padding: 5px;">(max 30)</span>
+                    <input type="text" class="input-style" ng-model="suggestion.title" maxlength="30" required>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Suggestion Description</span>
+                    <textarea rows="10" class="input-style" ng-model="suggestion.description" required></textarea>
+                </label>
+                <button type="submit" class="button button-block animated bounceInBottom login-btn-purpleb" ng-disabled="complaintForm.$invalid">Submit</button>
+            </form>
+        </ion-list>
+    </ion-content>
+</ion-view>

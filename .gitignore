@@ -4,3 +4,7 @@
 node_modules/
 platforms/
 plugins/
+.io-config.json
+ionic.project
+www/lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js
+www/lib/ionic-platform-web-client/dist/ionic.io.bundle.js

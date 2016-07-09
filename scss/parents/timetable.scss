@@ -1,0 +1,119 @@
+$color-black_30: rgba(0, 0, 0, 0.3);
+$color-black_100: rgba(0, 0, 0, 1);
+$color_celeste_approx: #ccc;
+
+.tabbed-slidebox {
+	.slider {
+		height: 100%;
+	}
+	.slider-slides {
+		width: 100%;
+	}
+	.slider-slide {
+		padding-top: 0;
+		color: $color-black;
+	
+		text-align: center;
+		font-weight: 300;
+	
+	}
+	.tsb-icons {
+		text-align: center;
+		margin: 10px 0;
+		position: relative;
+
+		a {
+			display: inline-block;
+			width: 54px;
+			font-size: 15px;
+			color: $color-white;
+			&.active {
+				color: $color-white;
+				font-size: 15px;
+			}
+		}
+		&:after {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 0 1.4em 1.4em 1.4em;
+	
+			position: absolute;
+			content: "";
+			display: block;
+			bottom: -12px;
+			left: 50%;
+			margin-left: -14px;
+		}
+		.scroll a {
+			width: auto;
+			line-height: 1.5em;
+			text-decoration: none;
+			margin: 0 15px;
+			border-bottom: 3px solid transparent;
+			&.active {
+				border-bottom: 3px solid $color_celeste_approx;
+			}
+		}
+	}
+	.tsb-ic-wrp {
+		display: flex;
+		position: relative;
+	}
+	.tabbed-slidebox {
+		position: relative;
+		height: 100%;
+		overflow: hidden;
+	}
+	&.btm .slider {
+		margin-bottom: -50px;
+	}
+}
+.tsb-hscroll.scroll-view {
+	white-space: nowrap;
+	margin: 0 auto;
+  overflow: hidden;
+	width: $width;
+	margin-top: -12px;
+	background: linear-gradient(to right, #1e5799 0%,#5061a6 0%,#5061a6 0%,#5061a6 0%,#727ca5 52%,#5061a6 100%,#7881a5 100%);
+	.scroll-bar {
+		visibility: hidden;
+	}
+}
+
+.timetableCard {
+	background-color: $transparent;
+	margin-top: -3px; 
+}
+
+.timetableTime {
+	@include border(2px solid #5061a6);
+	background-color:#999acc;
+	color: $color-white;
+	box-shadow:2px
+}
+
+.timetableContent {
+	margin: -8px 0px -8px 0px;
+	.timetableContentTime {
+		@include border-right(2px solid #5061a6);
+		background-color: $color-white;
+	}
+	.timetableContentDay {
+		@include border-left(2px solid #5061a6);
+		background-color: $color-white;
+	}
+}
+
+.slider-slide h3 {
+	color: #fff;
+	margin-top: 10px;
+}
+
+.tabbed-slidebox .tsb-icons:after {
+	display: none;
+}
+
+ion-slide.slider-slide {
+	background-color: transparent !important;
+}

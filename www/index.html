@@ -1,21 +1,101 @@
-<!DOCTYPE html>
+﻿    <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>NxtLife Technologies</title>
-    <link href="css/ionic.app.css" rel="stylesheet">
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="cordova.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
-    <script src="js/services.js"></script>
-  </head>
-  <body ng-app="yugma">
-    <ion-nav-bar class="bar-positive">
-      <ion-nav-back-button>
-      </ion-nav-back-button>
-    </ion-nav-bar>
-    <ion-nav-view></ion-nav-view>
-  </body>
-</html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title>Yugma SRGS</title>
+  <link href="css/ionic.app.css" rel="stylesheet">
+  
+  <!--
+    base url for app,
+    useful if we need to remove # from url
+    <base href="/">
+  -->
+  <script src="lib/jquery/dist/jquery.min.js"></script>
+  <script src="lib/underscore/underscore-min.js"></script>
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+  <script src="lib/moment/moment.js"></script>
+  <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+  <script src="lib/angular-moment/angular-moment.min.js"></script>
+
+  <!-- <script src="cordova.js"></script> -->
+  <script src="js/app.js"></script>
+  <script src="js/app.config.js"></script>
+  <script src="lib/ngstorage/ngStorage.min.js"></script>
+  <script src="js/provider/provider.js"></script>
+  <script src="js/controllers/loginCtrl.js"></script>
+  <script src="js/controllers/dashboardCtrl.js"></script>
+  <script src="js/controllers/parents/complaints/teacherComplaintCtrl.js"></script>
+  <script src="js/controllers/parents/parentAccount.js"></script>
+  <script src="js/controllers/parents/complaints/addComplaintCtrl.js"></script>
+  <script src="js/controllers/parents/complaints/addTeacherCommentCtrl.js"></script>
+  <script src="js/controllers/parents/complaints/addOtherCommentCtrl.js"></script>
+  <script src="js/controllers/parents/complaints/teacherViewComplaintCtrl.js"></script>
+  <script src="js/controllers/parents/complaints/otherViewComplaintCtrl.js"></script>
+  <script src="js/controllers/parents/complaints/otherComplaintCtrl.js"></script>
+  <script src="js/controllers/parents/homework/homeworkCtrl.js"></script>
+  <script src="js/controllers/parents/timetable/timetableCtrl.js"></script>
+  <script src="js/controllers/parents/foodmenu/foodmenuCtrl.js"></script>
+  <script src="js/controllers/managements/complaints/teacherComplaintsCtrl.js"></script>
+  <script src="js/controllers/managements/complaints/teacherViewComplaintCtrl.js"></script>
+  <script src="js/controllers/managements/complaints/closeComplaintCtrl.js"></script>
+  <script src="js/controllers/managements/complaints/commentCtrl.js"></script>
+  <script src="js/controllers/managements/complaints/otherViewComplaintCtrl.js"></script>
+  <script src="js/controllers/managements/complaints/editComplaintCtrl.js"></script>
+  <script src="js/controllers/managements/complaints/otherComplaintsCtrl.js"></script>
+  <script src="js/controllers/managements/complaints/assignTeacherComplaintCtrl.js"></script>
+  <script src="js/controllers/managements/complaints/assignOtherComplaintCtrl.js"></script>
+  <script src="js/controllers/managements/directives/floatingButton.js"></script>
+  <script src="js/controllers/managements/homework/addHomeworkCtrl.js"></script>
+  <script src="js/controllers/managements/homework/dueHomeworkCtrl.js"></script>
+  <script src="js/controllers/managements/homework/editHomeworkCtrl.js"></script>
+  <script src="js/controllers/managements/homework/oldHomeworkCtrl.js"></script>
+  <script src="js/controllers/managements/managementAccountCtrl.js"></script>
+  <script src="js/factory/managements/complaint/complaintService.js"></script>
+  <script src="js/factory/managements/homework/homeworkService.js"></script>
+  <script src="js/factory/managements/complaint/commentService.js"></script>
+  <script src="js/services/services.js"></script>
+  <script src="js/services/customService.js"></script>
+  <script src="js/factory/authService.js"></script>
+  <script src="js/factory/notificationsService.js"></script>
+  <script src="js/factory/parents/complaint/complaintService.js"></script>
+  <script src="js/factory/parents/complaint/commentService.js"></script>
+  <script src="js/factory/parents/homework/homeworkService.js"></script>
+  <script src="js/factory/parents/timetable/timetableService.js"></script>
+  <script src="js/factory/parents/foodmenu/foodmenuService.js"></script>
+  <script src="js/controllers/parents/suggestions/suggestionByParentForTeacherCtrl.js"></script>  
+  <script src="js/controllers/parents/suggestions/suggestionForParentCtrl.js"></script>
+  <script src="js/controllers/parents/suggestions/addSuggestionCtrl.js"></script>
+  <script src="js/controllers/parents/suggestions/suggestionByParentForTeacherViewCtrl.js"></script>
+  <script src="js/controllers/parents/suggestions/respondCtrl.js"></script>
+  <script src="js/controllers/parents/suggestions/suggestionByParentForOtherCtrl.js"></script>
+  <script src="js/controllers/parents/suggestions/suggestionByParentForOtherViewCtrl.js"></script>
+  <script src="js/controllers/parents/suggestions/addOtherCommentCtrl.js"></script>
+  <script src="js/controllers/parents/feedback/pollCtrl.js"></script>
+  <script src="js/factory/parents/feedback/pollService.js"></script>
+  <script src="js/controllers/sideMenuCtrl.js"></script>
+  <script src="js/factory/parents/suggestion/suggestionService.js"></script>
+  <script src="js/factory/parents/suggestion/respondService.js"></script>
+  <script src="js/controllers/managements/suggestion/suggestionByTeacherCtrl.js"></script>
+  <script src="js/controllers/managements/suggestion/teacherSuggestionCtrl.js"></script>
+  <script src="js/controllers/managements/suggestion/viewTeacherSuggestionCtrl.js"></script>
+  <script src="js/controllers/managements/suggestion/addSuggestionCtrl.js"></script>
+  <script src="js/controllers/managements/suggestion/commentCtrl.js"></script>
+  <script src="js/controllers/managements/suggestion/closeSuggestionCtrl.js"></script>
+  <script src="js/controllers/managements/suggestion/editSuggestionCtrl.js"></script>
+  <script src="js/controllers/managements/suggestion/otherSuggestionCtrl.js"></script>
+  <script src="js/controllers/managements/suggestion/viewOtherSuggestionCtrl.js"></script>
+  <script src="js/controllers/managements/suggestion/assignTeacherSuggestionCtrl.js"></script>
+  <script src="js/controllers/managements/suggestion/assignOtherSuggestionCtrl.js"></script>
+  <script src="js/controllers/managements/feedback/addPollCtrl.js"></script>
+  <script src="js/controllers/managements/feedback/viewPollCtrl.js"></script>
+  <script src="js/factory/managements/feedback/pollService.js"></script>
+  <script src="js/factory/managements/suggestion/suggestionService.js"></script>
+  <script src="js/factory/managements/suggestion/commentService.js"></script>
+</head>
+
+<body ng-app="yugma">
+  <ion-nav-view></ion-nav-view>
+</body></html>

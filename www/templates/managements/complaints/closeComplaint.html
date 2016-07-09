@@ -1,0 +1,31 @@
+<style>
+  .watermark {
+    background-image: url(img/logot.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90%;
+  }
+</style>
+<ion-view view-title="Close Complaints" hide-back-button="true" class="purple-back watermark">
+
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-android-arrow-back sidebar-ion-navicon" ng-click="vm.goBack()"></button>
+  </ion-nav-buttons>
+
+  <ion-content class="padding">
+    <ion-list class="padding">
+      <form name="complaintForm" class="list trans-back" ng-submit="vm.closeComplaint(complaint)">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Root Cause <sapn style="font-size: 80%;"></span>
+          <input type="text" class="input-style" ng-model="complaint.rca" required autofocus>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Comment</span>
+          <textarea rows="10" class="input-style" ng-model="complaint.comment" required></textarea>
+        </label>
+        <button type="submit" class="button button-block animated bounceInBottom login-btn-purpleb" ng-disabled="complaintForm.$invalid">Submit</button>
+      </form>
+    </ion-list>
+  </ion-content>
+
+</ion-view>

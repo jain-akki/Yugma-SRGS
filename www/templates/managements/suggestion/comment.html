@@ -1,0 +1,63 @@
+﻿<style>
+    .watermark-addComp {
+        background-image: url(img/logot.png);
+        background-repeat: no-repeat;
+        background-position: center 200px;
+        background-size: 300px;
+    }
+
+    ::-webkit-input-placeholder {
+        color: black !important;
+    }
+</style>
+<ion-view view-title="Add comment" hide-back-button="true" class="purple-back watermark-addComp comment">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-android-arrow-back sidebar-ion-navicon" ng-click="vm.goBack()"></button>
+    </ion-nav-buttons>
+    <ion-content class="padding commentListMarginBottom">
+        <ion-list id="commentEmpty" ng-show="vm.comments.length===0" class="teacher-complaint-list">
+            <ion-item id="cmplEmpty">
+                <div class="row">
+                    <div class="col col-25">
+                        <div class="up-circle"> </div>
+                    </div>
+                    <div class="col">
+                        <div class="uf-bar row"> </div>
+                        <div class="us-bar row"> </div>
+                        <div class="ut-bar row"> </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-25">
+                        <div class="up-circle" style="background-color:#fff"> </div>
+                    </div>
+                    <div class="col">
+                        <div class="row uf-bar" style="background-color:#fff"> </div>
+                        <div class="row us-bar" style="background-color:#fff"> </div>
+                        <div class="row ut-bar" style="background-color:#fff"> </div>
+                    </div>
+                </div>
+                <div class="row empty-text">
+                    No comment here.
+                </div>
+            </ion-item>
+        </ion-list>
+        <div class="card card-complaint" ng-repeat="cmpl in vm.comments">
+            <div class="item item-text-wrap card-text">
+                <div class="commentParentName">{{cmpl.parentName}}</div>
+                <div class="commentCreateDate"><span am-time-ago="cmpl.dateTime"></span></div>
+                <div>{{cmpl.comment}}</div>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar keyboard-attach style="background-color:#5051A6;padding: 11px 10px 10px 10px;" class="item-input-inset" ng-hide="vm.statusId == 4 || vm.statusId == 6">
+        <form name="commentForm" style="padding:0px" class="row" ng-submit="vm.setComment(vm.teacher)">
+            <label class="item-input-wrapper" style="margin-top:0px">
+                <input type="text" id="comment-textarea" ng-model="vm.teacher.comment" placeholder="Type a comment..." required />
+            </label>
+            <button class="button" type="submit" id="send">
+                Send
+            </button>
+        </form>
+    </ion-footer-bar>
+</ion-view>

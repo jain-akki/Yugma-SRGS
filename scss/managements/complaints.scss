@@ -1,0 +1,65 @@
+.viewCmpl {
+
+  .card {
+
+    margin: 3px !important;
+
+    a.cmpln {
+      padding: 0px;
+      min-height: 61px;
+    }
+
+    .cmpln {
+
+      .name {
+        font-size: $custom-textbox-font-size - 4px;
+        color: gray;  
+      }
+
+      i {
+        color: $btn-bg-color;
+      }
+
+      .title {
+        font-size: $custom-textbox-font-size - 4px;
+        color: $color-black;
+      }
+    }
+  }  
+}
+
+.editCmpln {
+
+  .title {
+    margin-left: 17px;
+    margin-bottom: -17px;
+    color: $color-black;
+    font-size: $custom-textbox-font-size;
+  }
+  
+  .check {
+    margin: 15px;
+    background-color: $btn-bg-color;
+    color: $color-white;
+    border-color: $transparent;
+    width: $width;
+  }
+
+  select {
+    height: 42px !important;
+  }
+
+  .button-block-margin {
+    padding: 0px 10px;
+  }
+
+  .editCkb {
+    padding: 9px 55px !important;
+  }
+
+}
+
+p.lblGreen {
+  color: #00A54B;
+  font-weight: 600;
+}

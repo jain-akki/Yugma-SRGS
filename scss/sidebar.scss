@@ -1,0 +1,33 @@
+.sidebar-purplel {
+    background-color: $btn-bg-color;
+    color: $color-white;
+}
+
+.sidebar-header {
+   background-color: $btn-bg-color;
+   color: $color-white;
+}
+
+.sidebar-item-content {
+    a {
+        background-color: $background-color !important;
+        color: $color-white !important;
+    }
+}
+
+.tab-nav {
+   background-color: $btn-bg-color !important;
+   border: none !important;
+}
+
+.sidebar-ion-navicon {
+    color: $color-white !important;
+}
+
+.sidebar-header-title {
+    color: $color-white;
+}
+
+.item-complex .item-content.activated{
+    background-color: #8587C6 !important;   
+}

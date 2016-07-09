@@ -1,0 +1,202 @@
+﻿<style>
+    .watermark {
+        background-image: url(img/logot.png);
+        background-position: center;
+        background-size: 300px;
+        background-repeat: no-repeat;
+    }
+</style>
+
+<ion-view view-title="View Suggestion" hide-back-button="true" class="purple-back watermark managementCmpl">
+
+    <ion-nav-buttons side="left">
+        <a ng-click="vm.goBack()" class="button button-icon button-clear ion-ios-arrow-back sidebar-ion-navicon"></a>
+    </ion-nav-buttons>
+
+    <ion-nav-buttons side="right">
+        <a menu-toggle="right" id="editBtn" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6" class="button button-icon button-clear ion-edit sidebar-ion-navicon" ng-click="vm.goToEdit()"></a>
+    </ion-nav-buttons>
+
+    <ion-content class="padding viewCmpl" style="margin-bottom:53px">
+        <div class="list card">
+            <a class="item item-icon-left cmpln">
+                <div class="row cmpln">
+                    <div class="col col-20">
+                        <i class="icon ion-hammer"></i>
+                    </div>
+                    <div>
+                        <div class="row title">
+                            Against:
+                        </div>
+                        <div class="row name">
+                            {{vm.cmpl.categoryName}}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="list card">
+            <a class="item item-icon-left cmpln">
+                <div class="row cmpln">
+                    <div class="col col-20">
+                        <i class="icon ion-social-tumblr"></i>
+                    </div>
+                    <div>
+                        <div class="row title">
+                            Title:
+                        </div>
+                        <div class="row name">
+                            {{vm.cmpl.title}}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="list card">
+            <a class="item item-icon-left cmpln">
+                <div class="row cmpln">
+                    <div class="col col-20">
+                        <i class="icon ion-person-add"></i>
+                    </div>
+                    <div>
+                        <div class="row title">
+                            Assigned to:
+                        </div>
+                        <div class="row name">
+                            {{vm.cmpl.authorityName}}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="list card">
+            <a class="item item-icon-left cmpln">
+                <div class="row cmpln">
+                    <div class="col col-20">
+                        <i class="icon ion-document-text"></i>
+                    </div>
+                    <div>
+                        <div class="row title">
+                            Description:
+                        </div>
+                        <div class="row name item-text-wrap">
+                            <p>
+                                {{vm.cmpl.description}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="list card">
+            <a class="item item-icon-left cmpln">
+                <div class="row cmpln">
+                    <div class="col col-20">
+                        <i class="icon ion-help"></i>
+                    </div>
+                    <div>
+                        <div class="row title">
+                            Root Cause:
+                        </div>
+                        <div class="row name">
+                            {{vm.cmpl.rca}}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="list card">
+            <a class="item item-icon-left cmpln">
+                <div class="row cmpln">
+                    <div class="col col-20">
+                        <i class="icon ion-arrow-graph-up-right"></i>
+                    </div>
+                    <div>
+                        <div class="row title">
+                            Status
+                        </div>
+                        <div class="row name">
+                            {{vm.cmpl.statusName}}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="list card">
+            <a class="item item-icon-left cmpln">
+                <div class="row cmpln">
+                    <div class="col col-20">
+                        <i class="icon ion-minus-circled"></i>
+                    </div>
+                    <div>
+                        <div class="row title">
+                            Closed on:
+                        </div>
+                        <div class="row name">
+                            {{vm.cmpl.closedDate}}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="list card">
+            <a class="item item-icon-left cmpln">
+                <div class="row cmpln">
+                    <div class="col col-20">
+                        <i class="icon ion-plus-circled"></i>
+                    </div>
+                    <div>
+                        <div class="row title">
+                            Created at:
+                        </div>
+                        <div class="row name">
+                            {{vm.cmpl.date}}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="list card">
+            <a class="item item-icon-left cmpln">
+                <div class="row cmpln">
+                    <div class="col col-20">
+                        <i class="icon ion-person-stalker"></i>
+                    </div>
+                    <div>
+                        <div class="row title">
+                            Parents:
+                        </div>
+                        <div class="row name">
+                            {{vm.cmpl.parentName}}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="list card">
+            <a class="item item-icon-left cmpln">
+                <div class="row cmpln">
+                    <div class="col col-20">
+                        <i class="icon ion-android-checkmark-circle"></i>
+                    </div>
+                    <div>
+                        <div class="row title">
+                            Priority
+                        </div>
+                        <div class="row name">
+                            {{vm.cmpl.priorityName}}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </ion-content>
+    <div class="tabs tabs-icon-top complaints-tab">
+        <a href="" class="tab-item" ng-click="vm.addComment()">
+            <i class="icon ion-android-chat"></i> Comments
+        </a>
+        <a class="tab-item" nav-direction="swap" ui-sref="management.closeSuggestion({suggestionId: vm.cmpl.id, name: vm.name})" ng-hide="vm.cmpl.statusId == 4 || vm.cmpl.statusId == 6">
+            <i class="icon ion-close-circled"></i> Close Suggestion
+        </a>
+    </div>
+</ion-view>

@@ -1,0 +1,266 @@
+.login-ion-person {
+    font-size: $custom-icon-font-size;
+    color: $btn-bg-color;
+    &:first-child {
+        padding-right: 15px;
+    }
+}
+
+.login-ion-locked {
+    @extend .login-ion-person;
+}
+
+.login-ion-android-call {
+    @extend .login-ion-person;
+}
+
+.loginUsername {
+    font-size: $custom-icon-font-size !important;
+    padding-right: 25px !important;
+    letter-spacing: 1px;
+}
+
+.login-item-input {
+    margin-bottom: 5px;
+    background: $transparent;
+    border: none;
+    @include border-bottom(1px solid $btn-bg-color);
+}
+
+.loginPassword {
+    @extend .loginUsername;
+}
+
+.login-item-radio {
+    input {
+        &:checked {
+            + .radio-content {
+                .item-content {
+                    background: $btn-bg-color;
+                    color: #bdc3c7;
+                }
+            }
+        }
+    }
+}
+
+.login-item-content {
+    padding-right: 45px;
+}
+
+.cmplPopup {
+    
+    .button-default{
+        margin: 16px 6px -10px -8px;
+        @include border-radius(0px);
+        background-color: $transparent !important;
+        color: $btn-bg-color !important;
+        @include border-top(1px solid $btn-bg-color);
+        @include border-right(1px solid $btn-bg-color);
+    }
+    .button-default:active {
+        background-color: $background-color !important;
+        color: white !important;
+    }
+    button.button.ng-binding.button-positive{
+        font-weight: bold;
+        width: $width + 5%;
+        margin: 16px -10px -10px -8px;
+        color: $color-white !important;
+        @include border-radius(0px);
+        background-color: $btn-bg-color !important;
+    }
+    .popup-body {
+        margin-top: 10px;
+        padding: 10px;
+        font-size: larger;
+    }
+}
+
+.customPopup {
+    
+    @extend .cmplPopup;
+    top: 5% !important;
+    bottom: initial !important;
+    .popup {
+        box-shadow: 4px 4px 1px  rgba(14, 14, 14, 0.37);
+        background-color: $color-white;
+        width: 280px;
+    }
+    .popup-head {
+        letter-spacing: 0.1em;
+    }
+    .button-default{
+        margin: 0px 6px -10px -10px;
+    }
+    button.button.ng-binding.button-positive {
+        margin: 0px -10px -10px -8px;
+    }
+    .popup-body {
+        padding: 0px 5px;
+    }
+    .popup-buttons {
+        height: 45px;
+        min-height: initial;
+        padding: 0px 10px 10px 10px;
+    }
+    textarea {
+        resize: none;
+        padding: 8px;
+        height: 100px;
+        overflow: auto;
+        margin-bottom: 8px;
+        line-height: 20px;
+        width: $width;
+        background-color: $transparent;
+        overflow-y: auto;
+    }
+}
+
+.customConfirm {
+
+    @extend .cmplPopup;
+    .popup-head {
+        display: none;
+    }
+    .popup {
+        box-shadow: 4px 4px 1px  rgba(14, 14, 14, 0.37);
+        background-color: $color-white;
+    }
+    .popup-buttons {
+        min-height: initial;
+        padding: 0px 10px 10px 8px;
+    }
+    
+}
+
+.customAlert {
+
+    button.button.ng-binding.button-positive {
+        font-weight: bold;
+        width: $width + 5%;
+        margin: 0px -10px -10px -8px;
+        color: $btn-bg-color !important;
+        background-color: $transparent !important;
+        @include border-top(2px solid #CAC9C9);
+    }
+    button.button.ng-binding.button-positive:active {
+        background: $background-color !important;
+    }
+
+    div.popup{
+        box-shadow: 4px 4px 1px  rgba(14, 14, 14, 0.37);
+        background-color: $color-white;
+    }
+    
+    .popup-head {
+        display: none;
+    }
+    
+    .popup-body {
+        text-align: center;
+        margin-top: 10px;
+        padding: 10px;
+        font-size: larger;
+    }
+    
+    .popup-buttons {
+        min-height: initial;
+        padding: 8px 10px 10px 8px;
+    }
+}
+
+.loginRemovePadding {
+    padding: 1px;
+    .col {
+        padding: 1px;
+    }
+}
+
+.login-ion-person-stalker {
+    padding-top: 10px !important;
+    color: #bdc3c7;
+}
+
+.login-ion-university {
+    @extend .login-ion-person-stalker;
+}
+
+.list-inset {
+	background-color: $transparent !important;
+}
+
+.button {
+	.login-ion-arrow-right-c {
+        color: $btn-bg-color;
+		&:before {
+			font-size: 30px;
+		}
+	}
+}
+
+#login-view{
+    background-color: $background-color;
+}
+
+.login-btn-purpleb {
+    @include setLinkSelectorStyle {
+        background-color: $btn-bg-color;
+        line-height: 36px;
+        min-height: 38px;
+        @include border-radius(0px);
+        margin-top: 27px !important;
+    }
+    &.activated {
+        background-color:#a5a6dc;
+    }
+    color: $color-white;
+}
+
+.purple-back {
+    background-color: $background-color;
+    color: $color-white;
+}
+
+.dark-purple-back {
+    background-color: $btn-bg-color;
+    color: $color-white !important;
+}
+
+.login-radio {
+    margin-top: 80px;
+}
+
+.purple-text {
+    color: $btn-bg-color;
+}
+
+::-webkit-input-placeholder {
+   color: #525252 !important;
+}
+
+.login-header-title {
+    color: $color-white !important;
+}
+
+.sidebar-ion-home {
+    color: $btn-bg-color;
+}
+
+.sidebar-ion-ios-chatboxes,
+.sidebar-ion-ios-gear,
+.sidebar-ion-power {
+    @extend .sidebar-ion-home;
+}
+
+.login-button-dark {
+    color: $color-black !important;
+}
+
+.resendOtp.ng-hide-remove {
+    animation: bounceInLeft 1.5s;
+}
+
+.changeNo.ng-hide-remove {
+    animation: bounceInRight 1.5s;
+}

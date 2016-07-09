@@ -1,0 +1,63 @@
+<style>
+  .watermark {
+    background-image: url(img/logot.png);
+    background-position: center;
+    background-size: 300px;
+    background-repeat: no-repeat;
+  }
+</style>
+<ion-view view-title="Timetable" class="purple-back">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon button-clear ion-ios-undo sidebar-ion-navicon" ng-click="vm.clearHistory()"></button>
+  </ion-nav-buttons>
+  <div class="bar bar-subheader button-to-select" ng-show="vm.childs.length > 1">
+    <h2 class="title add-complaint-child-name">Select child</h2>
+  </div>
+  <ion-content class="watermark has-subheader">
+    <ion-list class="studentName" ng-show="vm.childs.length > 1">
+      <button id="test" class="button button-block button-positive button-block-margin animated bounceInRight" ng-click="vm.selectChild(child)"
+        ng-repeat="child in vm.childs">
+        {{child.studentName}}
+      </button>
+    </ion-list>
+    <ion-list ng-if="vm.timetable.length">
+      <tab-slide-box tab="{{day}}">
+        <div class="tsb-icons">
+          <div class="tsb-ic-wrp">
+            <ion-scroll direction="x" class="tsb-hscroll">
+              <a href="javascript:;" class="{{tab.icon}}" ng-repeat="tab in tabs" on-finish-render="test()" style="font-size:13px;">
+                  <b>{{tab.text}}</b>
+              </a>
+            </ion-scroll>
+          </div>
+        </div>
+        <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+          <ion-slide ng-repeat="tab in tabs">
+            <div class="card timetableCard">
+              <div class="row">
+                <div class="col col-40 timetableTime">
+                  <b>Time</b>
+                </div>
+                <div class="col timetableTime">
+                  <b>Subject</b>
+                </div>
+              </div>
+              <ion-scroll>
+                <div ng-repeat="val in vm.timetable">
+                  <div class="row timetableContent">
+                    <div class="col col-40 timetableContentTime">
+                      {{val.time}}
+                    </div>
+                    <div class="col timetableContentDay">
+                      {{val.day}}
+                    </div>
+                  </div>
+                </div>
+              </ion-scroll>
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+      </tab-slide-box>
+    </ion-list>
+  </ion-content>
+</ion-view>

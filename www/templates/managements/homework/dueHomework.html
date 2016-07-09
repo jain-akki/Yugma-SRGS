@@ -1,0 +1,44 @@
+<style>
+  .watermark {
+    background-image: url(img/logot.png);
+    background-position: center;
+    background-size: 300px;
+    background-repeat: no-repeat;
+  }
+</style>
+
+<ion-view view-title="Due Homework" cache-view="false" class="purple-back watermark">
+
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon button-clear ion-navicon sidebar-ion-navicon"></button>
+  </ion-nav-buttons>
+
+  <ion-content class="padding">
+    <ion-list class="teacher-complaint-list">
+      <ion-item class="ComplaintSpace item-remove-animate item-icon-right" ng-repeat="cmpl in vm.dueHomework" type="item-text-wrap" href="#/management/homework/editHomework/{{cmpl.homeworkId}}">
+        <div class="complaint-lists">
+          <div class="row">
+            <div class="col col-67">
+              <h2>{{cmpl.homeworkTitle}}</h2>
+            </div>
+            <div class="col" style="text-align:right">
+              <span class="icon icon-accessory responsive-sm" style="padding-top:18px">
+                <p style="font-size: 84%;">{{cmpl.standardId}}th standard</p>
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-67">
+              <p style="font-size:13px">{{cmpl.description}}</p>
+            </div>
+            <div class="col" style="text-align:right">
+              <p class="icon icon-accessory responsive-sm" style="padding-top:18px">
+                <p style="font-size:10px">{{cmpl.due}}</p>
+              </p>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

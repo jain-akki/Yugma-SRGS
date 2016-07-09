@@ -1,0 +1,40 @@
+<style>
+  .watermark {
+    background-image: url(img/logot.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90%;
+  }
+</style>
+
+<ion-view view-title="Add new homework" class="purple-back watermark">
+  <ion-content class="padding editCmpln">
+    <ion-list>
+      <div class="row title">
+        select standard
+      </div>
+      <div class="row ">
+        <select class="button-block-margin" ng-options="homework.id as homework.name for homework in standards track by homework.id" ng-model="homework.standardId">
+          <option value="" style="display:none;">select standard</option>
+        </select>
+      </div>
+    </ion-list>
+    <form class="form-inline" name="homeworkForm" ng-submit="vm.addHomework(homework)">
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Title</span>
+          <input type="text" ng-model="homework.subject" autofocus required>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Description</span>
+          <textarea rows="6" class="input-style" ng-model="homework.description" required></textarea>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Due Date</span>
+          <input type="date" ng-model="homework.dueDate" required>
+        </label>
+        <button type="submit" class="button button-block animated bounceInBottom login-btn-purpleb" ng-disabled="homeworkForm.$invalid">Submit</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,53 @@
+<style>
+	.watermark {
+		background-image: url(img/logot.png);
+		background-position: center;
+		background-size: 300px;
+		background-repeat: no-repeat;
+	}
+</style>
+<ion-view view-title="Account" class="purple-back">
+	<ion-nav-buttons side="right">
+		<a menu-toggle="right" class="button button-icon button-clear ion-power sidebar-ion-navicon" ng-click="vm.logout()"></a>
+	</ion-nav-buttons>
+	<ion-content class="watermark account">
+		<ion-list>
+			<label class="item item-input card">
+				<span class="input-label"><b>Username:</b> {{vm.parentName}}</span>
+			</label>
+			<label class="item item-input card">
+				<span class="input-label"><b>Contact No:</b> {{vm.contactNo}}</span>
+			</label>
+			<label class="item item-input card">
+				<span class="input-label"><b>Email Id:</b> {{vm.emailId}}</span>
+			</label>
+			<label class="item item-input card" ng-show="vm.childs.length === 1">
+				<span class="input-label"><b>Student Name:</b> {{vm.childs[0].studentName}}</span>
+			</label>
+			<label class="item item-input card" ng-show="vm.childs.length === 1">
+				<span class="input-label"><b>Standard:</b> {{vm.childs[0].standardName}}</span>
+			</label>
+			<label class="item card" ng-hide="vm.childs.length === 1" style="margin-top:12px;">
+				<div class="row" style=" padding:10px;padding-left: 0px;"><b>Childs</div>
+				<div class="row item divider" style="padding:0px">
+					<div class="col col-30" style="color:black">
+					Class
+					</div>
+					<div class="col" style="color:black;margin-left: 16px;">
+					Name</b>
+					</div>
+				</div>	
+				<div ng-repeat="child in vm.childs">	
+					<div class="row" style="margin-top:-10px">
+						<div class="col col-25" style="color:black">
+						{{child.standardName}}
+						</div>
+						<div class="col" style="color:black">
+						{{child.studentName}}
+						</div>
+					</div>	
+				</div>	
+			</label>
+		</ion-list>
+	</ion-content>
+</ion-view>

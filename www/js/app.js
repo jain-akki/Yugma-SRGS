@@ -1,68 +1,679 @@
-angular.module('yugma', ['ionic', 'yugma.controllers', 'yugma.services'])
+angular.module('yugma', ['ionic', 'ionic.service.core', 'ngCordova', 'ngStorage', 'ionic.service.push', 'yugma.controllers', 'yugma.services', 'angularMoment'])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
-    }
-    if (window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-  });
-})
+    .config(function ($stateProvider, $locationProvider, $urlRouterProvider, $ionicConfigProvider) {
 
-.config(function($stateProvider, $urlRouterProvider) {
+        /**
+         * Set tabs position on bottom of screen in android
+         */
+        $ionicConfigProvider.tabs.position('bottom');
 
-  $stateProvider
+        /**
+         * Hide back button text value
+         */
+        $ionicConfigProvider.backButton.text('');
 
-    .state('tab', {
-      url: '/tab',
-      abstract: true,
-      templateUrl: 'templates/tabs.html'
+        $stateProvider
+
+            .state("login", {
+                url: "/login",
+                templateUrl: "templates/login/login.html",
+                controller: "LoginCtrl"
+            })
+            .state('login.parents', {
+                url: "/parents",
+                cache: false,
+                templateUrl: 'templates/login/login-parents.html'
+            })
+            .state('login.managements', {
+                url: "/managements",
+                templateUrl: 'templates/login/login-managements.html',
+            })
+            .state('yugma', {
+                url: '/yugma',
+                abstract: true,
+                // cache: false,
+                templateUrl: 'templates/parents/sidebar.html',
+                controller: 'sideMenuCtrl'
+            })
+            .state('yugma.dashboard', {
+                url: '/dashboard',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/dashboard.html',
+                        controller: 'DashCtrl'
+                    }
+                }
+            })
+            .state('yugma.homework', {
+                url: '/homework',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/homework/homework.html',
+                        controller: 'homeworkCtrl as vm'
+                    }
+                }
+            })
+            .state('yugma.timetable', {
+                url: '/timetable',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/timetable/timetable.html',
+                        controller: 'timetableCtrl as vm'
+                    }
+                }
+            })
+            .state('yugma.foodmenu', {
+                url: '/foodmenu',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/foodmenu/foodmenu.html',
+                        controller: 'foodmenuCtrl as vm'
+                    }
+                }
+            })
+            .state('yugma.complaints', {
+                url: '/complaints',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/complaints/complaint-tabs.html'
+                    }
+                }
+            })
+            .state('yugma.complaints.teacher-complaint', {
+                url: '/teacher-complaint',
+                views: {
+                    'complaint-teacher': {
+                        templateUrl: 'templates/parents/complaints/complaintsTeacher.html',
+                        controller: 'teacherComplaintsCtrl'
+                    }
+                }
+            })
+            .state('yugma.complaints.other-complaint', {
+                url: '/other-complaint',
+                views: {
+                    'complaint-other': {
+                        templateUrl: 'templates/parents/complaints/complaintsOthers.html',
+                        controller: 'otherComplaintsCtrl'
+                    }
+                }
+            })
+            .state('yugma.new-complaint', {
+                url: '/new-complaint',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/complaints/newComplaint.html',
+                        controller: 'newComplaintCtrl'
+                    }
+                }
+            })
+            .state('yugma.add-teacher-comment', {
+                url: '/add-teacher-comment/:complaintId/:title/:statusId',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/complaints/comment.html',
+                        controller: 'addTeacherCommentCtrl as vm'
+                    }
+                }
+            })
+            .state('yugma.add-other-comment', {
+                url: '/add-other-comment/:complaintId/:title/:statusId',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/complaints/comment.html',
+                        controller: 'addOtherCommentCtrl as vm'
+                    }
+                }
+            })
+            .state('yugma.teacher-complaint-detail', {
+                url: '/view-teacher-complaint/:complaintId',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/complaints/teacherViewComplaint.html',
+                        controller: 'teacherViewComplaintCtrl'
+                    }
+                }
+            })
+            .state('yugma.other-complaint-detail', {
+                url: '/view-other-complaint/:complaintId',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/complaints/otherViewComplaint.html',
+                        controller: 'otherViewComplaintCtrl'
+                    }
+                }
+            })
+            .state('yugma.account', {
+                url: '/account',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/parentAccount.html',
+                        controller: 'AccountCtrl as vm'
+                    }
+                }
+            })
+            .state('yugma.suggestions', {
+                url: '/suggestions',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/suggestions/suggestion-tabs.html'
+                    }
+                }
+            })
+            .state('yugma.suggestions.suggestionByParentForTeacher', {
+                url: "/suggestionByParentForTeacher",
+                views: {
+                    'for-teacher': {
+                        templateUrl: "templates/parents/suggestions/suggestionByParentForTeacher.html",
+                        controller: 'suggestionByParentCtrl as vm'
+                     }
+                }
+            })
+            .state('yugma.suggestions.suggestionByParentForOther', {
+                url: "/suggestionByParentForOther",
+                views: {
+                    'for-other': {
+                        templateUrl: "templates/parents/suggestions/suggestionByParentForOther.html",
+                        controller: 'suggestionByParentForOtherCtrl as vm'
+                    }
+                }
+            })
+            .state('yugma.suggestionForParent', {
+                url: "/suggestionForParent",
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/parents/suggestions/suggestionForParent.html",
+                        controller: 'suggestionForParentCtrl as vm'
+                     }
+                }
+            })
+            .state('yugma.addSuggestion', {
+                url: "/addSuggestion",
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/parents/suggestions/addSuggestion.html",
+                        controller: 'addSuggestionCtrl as vm'
+                     }
+                }
+            })
+            .state('yugma.suggestionByParentForTeacherView', {
+                url: '/suggestionByParentForTeacherView/:suggestionId',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/suggestions/suggestionByParentForTeacherView.html',
+                        controller: 'suggestionByParentViewCtrl'
+                    }
+                }
+            })
+            .state('yugma.suggestionByParentForOtherView', {
+                url: '/suggestionByParentForOtherView/:suggestionId',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/suggestions/suggestionByParentForOtherView.html',
+                        controller: 'suggestionByParentForOtherViewCtrl'
+                    }
+                }
+            })
+            .state('yugma.respond', {
+                url: '/respond/:suggestionId/:title/:statusId',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/suggestions/respond.html',
+                        controller: 'respondCtrl as vm'
+                    }
+                }
+            })
+            .state('yugma.otherComment', {
+                url: '/otherComment/:suggestionId/:title/:statusId',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/suggestions/respond.html',
+                        controller: 'addOtherCommentCtrl as vm'
+                    }
+                }
+            })
+            .state('yugma.poll', {
+                url: '/poll',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/parents/feedback/poll.html',
+                        controller: 'pollCtrl as vm'
+                    }
+                }
+            })
+//----------------------------------------------------------------------------------------------------
+            .state('management', {
+                url: '/management',
+                abstract: true,
+                templateUrl: 'templates/managements/sidebar.html',
+                controller: 'sideMenuCtrl'
+            })
+            .state('management.dashboard', {
+                url: '/dashboard',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/dashboard.html',
+                        controller: 'DashCtrl'
+                    }
+                }
+            })
+
+            .state('management.complaints', {
+                url: '/complaints',
+                // cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/complaints/complaint-tab.html'
+                    }
+                }
+
+            })
+            .state('management.complaints.teacher-complaint', {
+                url: "/teacher-complaint",
+                views: {
+                    'complaint-teacher': {
+                        templateUrl: 'templates/managements/complaints/teacherComplaints.html',
+                        controller: 'managementTeacherComplaintsCtrl as vm'
+                    }
+                }
+            })
+            .state('management.complaints.other-complaint', {
+                url: "/other-complaint",
+                views: {
+                    'complaint-other': {
+                        templateUrl: 'templates/managements/complaints/otherComplaints.html',
+                        controller: 'managementOtherComplaintsCtrl as vm'
+                    }
+                }
+            })
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            .state('management.view-teacher-complaint', {
+                url: '/view-teacher-complaint/:complaintId/:name',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/complaints/viewComplaint.html',
+                        controller: 'managementTeacherViewComplaintCtrl as vm'
+                    }
+                }
+            })
+            .state('management.view-other-complaint', {
+                url: '/view-other-complaint/:complaintId/:name',
+                // cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/complaints/viewComplaint.html',
+                        controller: 'managementOtherViewComplaintCtrl as vm'
+                    }
+                }
+            })
+            .state('management.edit', {
+                url: '/edit',
+                cache: false,
+                params: {
+                  obj: null  
+                },
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/complaints/editComplaint.html',
+                        controller: 'managementTeacherEditComplaintCtrl as vm'
+                    }
+                }
+            })
+            .state('management.closeCmpl', {
+                url: '/closeCmpl/:complaintId/:name',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/complaints/closeComplaint.html',
+                        controller: 'managementTeacherCloseComplaintCtrl as vm'
+                    }
+                }
+            })
+            .state('management.add-comment', {
+                url: '/add-comment',
+                params: {
+                  obj: null
+                },
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/complaints/comment.html',
+                        controller: 'managementCommentCtrl as vm'
+                    }
+                }
+            })
+            .state('management.assignComplaint', {
+                url: '/assignComplaint',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/complaints/assignComplaintTab.html'
+                    }
+                }
+            })
+            .state('management.assignComplaint.assignTeacherComplaint', {
+                url: '/assignTeacherComplaint',
+                views: {
+                    'complaint-teacher': {
+                        templateUrl: 'templates/managements/complaints/assignTeacherComplaints.html',
+                        controller: 'assignTeacherComplaintCtrl as vm'
+                    }
+                }
+            })
+            .state('management.assignComplaint.assignOtherComplaint', {
+                url: '/assignOtherComplaint',
+                views: {
+                    'complaint-other': {
+                        templateUrl: 'templates/managements/complaints/assignOtherComplaints.html',
+                        controller: 'assignOtherComplaintCtrl as vm'
+                    }
+                }
+            })
+            .state('management.assign-view-teacher-complaint', {
+                url: '/assign-view-teacher-complaint/:complaintId/:name',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/complaints/viewComplaint.html',
+                        controller: 'assignTeacherComplaintCtrl as vm'
+                    }
+                }
+            })
+//==============================================================================================
+            .state('management.suggestionByTeacher', {
+                url: '/suggestionByTeacher',
+                cache:false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/suggestion/suggestionByTeacher.html',
+                        controller: 'suggestionByTeacherCtrl as vm'
+                    }
+                }
+            })
+            .state('management.suggestion', {
+                url: '/suggestion',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/suggestion/suggestion-tab.html',
+                    }
+                }
+            })
+            .state('management.suggestion.teacherSuggestion', {
+                url: '/teacherSuggestion',
+                cache: false,
+                views: {
+                    'for-teacher': {
+                        templateUrl: 'templates/managements/suggestion/teacherSuggestion.html',
+                        controller: 'managementTeacherSuggestionsCtrl as vm'
+                    }
+                }
+            })
+            .state('management.viewTeacherSuggestion', {
+                url: '/viewTeacherSuggestion/:suggestionId/:name',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/suggestion/viewSuggestion.html',
+                        controller: 'managementTeacherViewSuggestionCtrl as vm'
+                    }
+                }
+            })
+            .state('management.addCommentsToSuggestion', {
+                url: '/addCommentsToSuggestion',
+                params: {
+                    obj: null
+                },
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/suggestion/comment.html',
+                        controller: 'managementSuggestionCommentCtrl as vm'
+                    }
+                }
+            })
+            .state('management.closeSuggestion', {
+                url: '/closeSuggestion/:suggestionId/:name',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/suggestion/closeSuggestion.html',
+                        controller: 'managementTeacherCloseSuggestionCtrl as vm'
+                    }
+                }
+            })
+            .state('management.editSuggestion', {
+                url: '/editSuggestion',
+                cache: false,
+                params: {
+                    obj: null
+                },
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/suggestion/editSuggestion.html',
+                        controller: 'managementTeacherEditSuggestionCtrl as vm'
+                    }
+                }
+            })
+            .state('management.suggestion.otherSuggestion', {
+                url: "/otherSuggestion",
+                views: {
+                    'for-other': {
+                        templateUrl: 'templates/managements/suggestion/otherSuggestion.html',
+                        controller: 'managementOtherSuggestionCtrl as vm'
+                    }
+                }
+            })
+            .state('management.viewOtherSuggestion', {
+                url: '/viewOtherSuggestion/:suggestionId/:name',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/suggestion/viewSuggestion.html',
+                        controller: 'managementOtherViewSuggestionCtrl as vm'
+                    }
+                }
+            })
+            .state('management.assignSuggestion', {
+                url: '/assignSuggestion',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/suggestion/assignSuggestionTab.html'
+                    }
+                }
+            })
+            .state('management.assignSuggestion.assignTeacherSuggestion', {
+                url: '/assignTeacherSuggestion',
+                views: {
+                    'assign-sugg-teacher': {
+                        templateUrl: 'templates/managements/suggestion/assignTeacherSuggestion.html',
+                        controller: 'assignTeacherSuggestionCtrl as vm'
+                    }
+                }
+            })
+            .state('management.assignSuggestion.assignOtherSuggestion', {
+                url: '/assignOtherSuggestion',
+                views: {
+                    'assign-sugg-other': {
+                        templateUrl: 'templates/managements/suggestion/assignOtherSuggestion.html',
+                        controller: 'assignOtherSuggestionCtrl as vm'
+                    }
+                }
+            })
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            .state('management.addSuggestion', {
+                url: "/addSuggestion",
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: "templates/managements/suggestion/addSuggestion.html",
+                        controller: 'newSuggestionCtrl as vm'
+                    }
+                }
+            })
+//==========================================================================================            
+            .state('management.homework',{
+                url: '/homework',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/homework/homeworkTab.html'
+                    }
+                }
+            })
+            .state('management.homework.addHomework',{
+                url: '/addHomework',
+                views: {
+                    'new-homework': {
+                        templateUrl: 'templates/managements/homework/addHomework.html',
+                        controller: 'addHomeworkCtrl as vm'
+                    }
+                }
+            })
+            .state('management.homework.dueHomework',{
+                url: '/dueHomework',
+                views: {
+                    'due-homework': {
+                        templateUrl: 'templates/managements/homework/dueHomework.html',
+                        controller: 'dueHomeworkCtrl as vm'
+                    }
+                }
+            })
+            .state('management.homework.editHomework',{
+                url: '/editHomework/:homeworkId',
+                views: {
+                    'due-homework': {
+                        templateUrl: 'templates/managements/homework/editHomework.html',
+                        controller: 'editHomeworkCtrl as vm'
+                    }
+                }
+            })
+            .state('management.homework.oldHomework',{
+                url: '/oldHomework',
+                views: {
+                    'old-homework': {
+                        templateUrl: 'templates/managements/homework/oldHomework.html',
+                        controller: 'oldHomeworkCtrl as vm'
+                    }
+                }
+            })
+            .state('management.account', {
+                url: '/account',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/managementAccount.html',
+                        controller: 'managementAccountCtrl as vm'
+                    }
+                }
+            })
+            .state('management.pollTab', {
+                url: '/pollTab',
+                cache: false,
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/managements/feedback/pollTabs.html'
+                    }
+                }
+            })
+            .state('management.pollTab.addPoll', {
+                url: '/addPoll',
+                cache: false,
+                views: {
+                    'add-poll': {
+                        templateUrl: 'templates/managements/feedback/addPoll.html',
+                        controller: 'addPollCtrl as vm'
+                    }
+                }
+            })
+            .state('management.pollTab.viewPoll', {
+                url: "/viewPoll",
+                cache: false,
+                views: {
+                    'view-poll': {
+                        templateUrl: 'templates/managements/feedback/viewPoll.html',
+                        controller: 'viewPollCtrl as vm'
+                    }
+                }
+            })
+
+        /**
+         * When need to remove # from url uncomment below line of code
+         *   $locationProvider.html5Mode(true);
+         */
+
+        $urlRouterProvider.otherwise('/yugma/dashboard');
+
+        $urlRouterProvider.otherwise(function ($injector, $location, $state) {
+
+            var data = $injector.get('$localStorage');
+            var state = $injector.get('$state');
+
+            if (data.employeeName) {
+                // state.go("management.complaint.teacherComplaint");
+                state.go("management.dashboard");
+            } else {
+                state.go("yugma.dashboard");
+            }
+
+        });
     })
 
-    .state('tab.dash', {
-      url: '/dash',
-      views: {
-        'tab-dash': {
-          templateUrl: 'templates/tab-dash.html',
-          controller: 'DashCtrl'
-        }
-      }
+    .config(function ($httpProvider) {
+
+        $httpProvider.interceptors.push(function ($rootScope, $q, $injector) {
+
+            return {
+                request: function (config) {
+                    config.timeout = 5000;
+                    return config;
+                },
+                responseError: function (res) {
+
+                    var state = $injector.get('$state');
+                    var data = $injector.get('$localStorage');
+                    var $ionicPopup = $injector.get('$ionicPopup');
+                    var $ionicLoading = $injector.get('$ionicLoading');
+
+                    var template;
+                    var title;
+
+                    switch (res.status) {
+                        case 400:
+                            title = "Error 400",
+                            template = "Error 400: Bad request"
+                            break;
+                        case 403:
+                            title = "Error 403",
+                            template = "Error 403: Access Denied/Forbidden"
+                            break;
+                        case 404:
+                            title = "Error 404",
+                            template = "Error 404: File not found."
+                            break;
+                    
+                        default:
+                            template = "connection timeout"
+                            break;
+                    }
+
+                    var alertPopup = $ionicPopup.alert({
+                      title: title,
+                      template: template,
+                      cssClass: 'customAlert'
+                    });
+
+                    $ionicLoading.hide();
+
+                    alertPopup.then(function(res) {
+                      if (data.employeeName) {
+                        state.go("management.dashboard");
+                      } else {
+                        state.go("yugma.dashboard");
+                      }
+                    });
+                }
+            }
+        })
     })
-
-    .state('tab.chats', {
-      url: '/chats',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
-        }
-      }
-    })
-
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
-        }
-      }
-    })
-
-    .state('tab.account', {
-      url: '/account',
-      views: {
-        'tab-account': {
-          templateUrl: 'templates/tab-account.html',
-          controller: 'AccountCtrl'
-        }
-      }
-    });
-
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/chats');
-
-});

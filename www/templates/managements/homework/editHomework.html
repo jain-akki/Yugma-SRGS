@@ -1,0 +1,34 @@
+<style>
+  .watermark {
+    background-image: url(img/logot.png);
+    background-position: center;
+    background-size: 300px;
+    background-repeat: no-repeat;
+  }
+</style>
+
+<ion-view view-title="Edit homework" class="purple-back watermark " hide-back-button="false">
+  <ion-content class="padding">
+    <ion-list>
+      <form name="complaintForm" class="list trans-back" ng-submit="vm.updateHomework()">
+        <label class="item item-input item-stacked-label">
+          <p class="lblGreen">Title</p>
+          <input type="text" class="input-style" ng-model="vm.hw.homeworkTitle">
+        </label>
+        <label class="item item-input item-stacked-label">
+          <p class="lblGreen">Description</p>
+          <textarea rows="10" class="input-style" ng-model="vm.hw.description"></textarea>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <p class="lblGreen">Created At</p>
+          <p style="color: #111;font-weight: 300;">{{vm.hw.createDate}}</p>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <p class="lblGreen">Due Date</p>
+          <input type="date" ng-model="vm.hw.dueDate">
+        </label>
+        <button type="submit" class="button button-block animated bounceInBottom login-btn-purpleb" ng-disabled="complaintForm.$invalid">Submit</button>
+      </form>
+    </ion-list>
+  </ion-content>
+</ion-view>

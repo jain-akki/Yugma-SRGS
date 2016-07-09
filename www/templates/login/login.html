@@ -1,0 +1,36 @@
+<ion-view view-title="Sign-In" name="login-view" id="login-view" style="background-image: url(img/logot.png);
+    background-position: center 200px;
+    background-size: 300px;
+    background-repeat: no-repeat;
+    ">
+  <div class="bar bar-header dark-purple-back ">
+    <h1 class="title login-header-title">Login</h1>
+  </div>
+  <ion-content class="padding login-radio">
+    <div class="row loginRemovePadding ">
+      <div class="col animated bounceInLeft">
+        <label class="item item-radio login-item-radio">
+          <input type="radio" name="group" id="radio-parents" ng-model="category.state" value="parents" ng-click="loginCategory()">
+          <div class="radio-content">
+            <div class="item-content login-item-content">
+              Parents
+            </div>
+            <i class="radio-icon ion-person-stalker login-ion-person-stalker"></i>
+          </div>
+       </label>
+      </div>
+      <div class="col animated bounceInRight" id="school">
+        <label class="item item-radio login-item-radio">
+          <input type="radio" name="group" ng-model="category.state" value="managements" ng-click="loginCategory()">
+          <div class="radio-content">
+            <div class="item-content" >
+              School
+            </div>
+            <i class="radio-icon ion-university login-ion-university"></i>
+          </div>
+       </label>
+      </div>
+    </div>
+    <div ui-view></div>
+  </ion-content>
+</ion-view>

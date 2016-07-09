@@ -1,0 +1,31 @@
+<div class="list list-inset">
+	<form name="loginContact" ng-submit="authenticateUser(parentsCredentials)" ng-show="parentsCredentials.displayUserTextbox">
+		<div class="item item-input login-item-input">
+			<i class="icon ion-android-call placeholder-icon login-ion-android-call"></i>
+			<input type="tel" class="loginUsername animated bounceInLeft" ng-model="parentsCredentials.contact" maxlength="10" minlength="10" placeholder="Contact number" required autofocus>
+			<button id="other" class="button button-clear purple-text" type="submit" ng-disabled="loginContact.$invalid">
+				<i class="icon ion-arrow-right-c positive login-ion-arrow-right-c"></i>
+			</button>
+		</div>
+	</form>
+	<form name="loginOtp" ng-submit="otpVerification(parentsCredentials)" ng-show="!parentsCredentials.displayUserTextbox">
+		<div class="item item-input login-item-input">
+			<i class="icon ion-locked placeholder-icon login-ion-locked"></i>
+			<input type="text" class="loginUsername animated bounceInLeft" ng-model="parentsCredentials.otp" maxlength="4" minlength="4"
+				placeholder="Enter otp" required>
+			<button class="button button-clear purple-text" type="submit" ng-disabled="loginOtp.$invalid">
+				<i class="icon ion-arrow-right-c positive login-ion-arrow-right-c"></i>
+			</button>
+		</div>
+		<div class="row resendOtp" style="text-align:center" ng-show="parentsCredentials.displayResendBtn">
+			<div class="col">
+				<button class="button button-clear button-dark login-button-dark" ng-click="resendOtp()"><i class="ion-paper-airplane"></i> Resend OTP</button>
+			</div>
+		</div>
+		<div class="row changeNo" style="text-align:center" ng-show="parentsCredentials.displayChangeContactBtn">
+			<div class="col">
+				<button class="button button-clear button-dark login-button-dark" ng-click="changeContact()"><i class="ion-edit"></i> Change Number</button>
+			<div>
+		</div>
+	</form>
+</div>

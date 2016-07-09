@@ -1,0 +1,79 @@
+﻿<style>
+    .watermark {
+        background-image: url(img/logot.png);
+        background-position: center;
+        background-size: 300px;
+        background-repeat: no-repeat;
+    }
+    .tname {
+        font-size: 12px;
+        float: right;
+    }
+    .footer {
+        background:white;
+        border-top:white;
+    }
+</style>
+
+<ion-view view-title="Suggestions" hide-back-button="true" class="watermark purple-back">
+
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon button-clear ion-navicon sidebar-ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <a menu-toggle="right" class="button button-icon button-clear ion-ios-compose-outline sidebar-ion-navicon" ui-sref="management.addSuggestion"></a>
+    </ion-nav-buttons>
+    <ion-content class="padding" id="complaints"> 
+
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+
+        <ion-list class="teacher-complaint-list">
+            <ion-item id="cmplEmpty" style="display:none">
+                <div class="row">
+                    <div class="col col-25">
+                        <div class="up-circle"> </div>
+                    </div>
+                    <div class="col">
+                        <div class="uf-bar row"> </div>
+                        <div class="us-bar row"> </div>
+                        <div class="ut-bar row"> </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-25">
+                        <div class="up-circle" style="background-color:#fff"> </div>
+                    </div>
+                    <div class="col">
+                        <div class="row uf-bar" style="background-color:#fff"> </div>
+                        <div class="row us-bar" style="background-color:#fff"> </div>
+                        <div class="row ut-bar" style="background-color:#fff"> </div>
+                    </div>
+                </div>
+                <div class="row empty-text">
+                    Tap top-right icon,<br>to add new complaint.
+                </div>
+            </ion-item>
+        </ion-list>
+        <div class="card" ng-repeat="cmpl in suggestionsByTeacher" ng-show="suggestionsByTeacher.length >= 0">
+            <ion-item class="item-text-wrap">
+                <div class="row">
+                    <div class="col col-70">
+                        <h3><b>{{cmpl.suggestionTitle}}</b></h3>
+                    </div>
+                    <div class="col col-30" style="text-align:right">
+                        <p style="font-size:10px"><span am-time-ago="cmpl.createdAt"></span></p>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+                    <div class="col col-100">
+                        <p style="font-size:13px">{{cmpl.suggestionDesc}}</p>
+                    </div>
+                </div>
+                <div class="footer item item-divider text-left">
+                    <span class="tname text-right">- To {{cmpl.student.charAt(0).toUpperCase() + cmpl.student.slice(1).toLowerCase()}}</span>
+                </div>
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,6 +1,6 @@
 {
-  "name": "Ionic-Demo",
-  "app_id": "",
+  "name": "Yugma SRGS",
+  "app_id": "b530d107",
   "gulpStartupTasks": [
     "sass",
     "watch"

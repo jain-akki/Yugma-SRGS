@@ -1,0 +1,19 @@
+﻿<ion-view view-title="Quick Poll" class="purple-back poll-style watermark">
+    <ion-content class="padding">
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+        <div ng-repeat="poll in vm.pollData">
+            <div class="card">
+                <div class="item item-divider question">
+                    <span><i>{{$index + 1}})</i>{{ poll.pollQuestion}}</span>
+                </div>
+                <div class="optn">
+                    <div class="optn-mar inline" ng-repeat="optn in poll.options">
+                        <button class="btn" ng-click="vm.selectAnswer(optn.id, poll)">
+                            {{optn.name}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

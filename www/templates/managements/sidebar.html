@@ -1,0 +1,68 @@
+<style>
+    .bg {
+        background: #b2b4ee;
+    }
+
+    .sub-menu {
+        transition: 1s all linear;
+    }
+</style>
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="sidebar-header" align-title="center">
+      <ion-nav-back-button style="color:white">
+      </ion-nav-back-button>
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon sidebar-ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-header-bar class="sidebar-header">
+      <h1 class="title sidebar-header-title" style="text-align:center">{{roleName}}</h1>
+    </ion-header-bar>
+    
+    <ion-content class="sidebar sidebar-purplel">
+      <ion-list id="list-item">
+        <ion-item menu-close href="#/management/dashboard" class="item item-icon-left sidebar-item-content">
+          <i class="icon ion-home sidebar-ion-home"></i> Dashboard
+        </ion-item>
+        <ion-item menu-close href="#/management/complaints/teacher-complaint" class="item item-icon-left sidebar-item-content" ng-click="pageChange()">
+          <i class="icon ion-sad sidebar-ion-ios-chatboxes"></i> Complaints
+        </ion-item>
+        <ion-item menu-close href="#/management/assignComplaint/assignTeacherComplaint" class="item item-icon-left sidebar-item-content" ng-click="pageChange()">
+          <i class="icon ion-arrow-graph-up-right sidebar-ion-ios-gear" ></i> Assigned Complaints
+        </ion-item>
+        <ion-item class="icon item-icon-left item-icon-right" ng-click="toggle()" ng-class="{active: isShown()}" style="background:#b2b4ee;color:white;">
+            <i class="icon ion-information" style="font-size:20px; color:#5051a6;"></i>
+            Suggestion
+            <i class="icon" ng-class="isShown() ? 'ion-chevron-up' : 'ion-chevron-down' " style="font-size:20px;"></i>
+        </ion-item>  
+        <ion-item id="sub-menu" ng-show="isShown()" style="padding:0px;background:#b2b4ee;">
+            <ion-item menu-close href="#/management/suggestionByTeacher" class="bg ripplelink item item-icon-left sidebar-item-content" style="padding-left:10px;color:white;font-size:14px;">
+                <i class="icon ion-sad sidebar-ion-ios-chatboxes" style="font-size:15px;color:#5051a6;margin-left:10px;"></i> Suggestion By Teacher
+            </ion-item>
+            <ion-item menu-close href="#/management/suggestion/teacherSuggestion" class="bg ripplelink item item-icon-left sidebar-item-content" style="padding-left:10px;color:white;font-size:14px;">
+                <i class="icon ion-email" style="font-size:15px;color:#5051a6;margin-left:10px;"></i> Suggestion For Teacher
+            </ion-item>
+            <ion-item menu-close href="#/management/assignSuggestion/assignTeacherSuggestion" class="bg ripplelink item item-icon-left sidebar-item-content" style="padding-left:10px;color:white;font-size:14px;">
+                <i class="icon ion-clipboard" style="font-size:15px;color:#5051a6;margin-left:10px;"></i> Assigned Suggestion
+            </ion-item>
+        </ion-item>
+        <ion-item menu-close href="#/management/homework/addHomework" class="item item-icon-left sidebar-item-content">
+          <i class="icon ion-ios-book sidebar-ion-home"></i> Homework
+        </ion-item>
+        <ion-item menu-close href="#/management/pollTab/viewPoll" class="ripplelink item item-icon-left sidebar-item-content">
+            <i class="icon ion-help sidebar-ion-ios-gear"></i> Feedback
+        </ion-item>
+        <ion-item menu-close href="#/management/account" class="item item-icon-left sidebar-item-content">
+          <i class="icon ion-person sidebar-ion-ios-gear"></i> Account
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

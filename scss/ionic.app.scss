@@ -20,3 +20,17 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+@import "animate";
+@import "variables";
+@import "dashboard";
+@import "sidebar";
+@import "login";
+@import "parents/complaints";
+@import "parents/timetable";
+@import "parents/homework";
+@import "parents/foodmenu";
+@import "parents/parentAccount";
+@import "managements/complaints";
+@import "managements/floatingButton";
+@import "parents/poll";
+@import "managements/poll";

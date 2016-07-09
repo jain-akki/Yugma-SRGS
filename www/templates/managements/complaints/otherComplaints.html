@@ -1,0 +1,49 @@
+  <style>
+    .watermark {
+        background-image: url(img/logot.png);
+        background-position: center;
+        background-size: 300px;
+        background-repeat: no-repeat;
+    }
+  </style>
+
+<ion-view view-title="Complaints" hide-back-button="true">
+
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon button-clear ion-navicon sidebar-ion-navicon"></button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="right">
+    <ion-floating-menu menu-color="#5051A6" menu-open-color="#5051A6">
+      <ion-floating-item icon="ion-sad" button-color="#5051A6" click="myEvent()" text="view all complaint"></ion-floating-item>
+      <ion-floating-item icon="ion-arrow-graph-up-right" button-color="#5051A6" click="vm.viewAssignCmpl()" text="view assign complaint"></ion-floating-item>
+    </ion-floating-menu>
+  </ion-nav-buttons>
+
+  <ion-content class="padding watermark" id="complaints">
+    <ion-list class="teacher-complaint-list">
+      <ion-item class="ComplaintSpace item-remove-animate item-icon-right" ng-repeat="cmpl in vm.allComplaints" type="item-text-wrap" href="#/management/view-other-complaint/{{cmpl.encryptId}}/other">
+        <div class="complaint-lists">
+          <div class="row">
+            <div class="col col-75">
+              <h2>{{cmpl.againstName}}</h2>
+            </div>
+            <div class="col" style="text-align:right">
+              <p class="icon icon-accessory responsive-sm" style="padding-top:18px">
+                <p style="font-size: 84%;">{{cmpl.statusName}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-70">
+              <p style="font-size:13px">{{cmpl.title}}</p>
+            </div>
+            <div class="col" style="text-align:right">
+              <p style="font-size:10px"><span am-time-ago="cmpl.createdAt"></span></p>
+            </div>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+</ion-view>
