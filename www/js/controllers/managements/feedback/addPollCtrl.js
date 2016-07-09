@@ -38,8 +38,12 @@
         }, true);
 
         $scope.$watch("vm.selectType", function (newVal, oldVal) {
-
+            //if (oldVal.id === 2) {
+            //    $('#submitBtn').attr('disabled', 'disabled');
+            //}
+            $scope.selectedStd = [];
             if (newVal) {
+                
                 if (newVal.id != oldVal) {
                     vm.pollType = newVal.id;
                 }

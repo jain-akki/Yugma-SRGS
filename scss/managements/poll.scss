@@ -1,6 +1,5 @@
 ﻿.add-poll{
     width: 100%;
-
     .form-style{
         width: 100%;
         padding: 10px;
@@ -24,6 +23,21 @@
 
         .wid{
             width: 100%;
+        }
+
+        .bor{
+            border: 1px solid #ccc;
+            height: 33px;
+            margin-top: 2px;
+            .bor-wid{
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .bor-btn{
+                padding-top: 0px;
+                margin-right: 2px;
+            }
         }
 
         input, select

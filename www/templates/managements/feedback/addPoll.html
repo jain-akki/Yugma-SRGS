@@ -1,7 +1,7 @@
 ﻿<ion-view view-title="Poll" class="purple-back watermark managementCmpl">
     <ion-content>
         <div class="row add-poll">
-            <form id="poll" class="form-style card" name="poll" ng-submit=" vm.addPoll()">
+            <form id="poll" class="form-style card" name="poll">
                 <div class="list">
                     <label class="item-stacked-label">
                         <span class="input-label">Title:</span>
@@ -31,21 +31,24 @@
                         <div class="button select-button" ng-value='select.stdName' ng-click="showPopup()"> Select Standard  &nbsp;<i class="ion-android-open"></i></div>
                     </div>
 
-                    <div class="row" ng-show="selectedStd.length !== 0">
-                        <div class="col">
-                            <a class="button button-small" ng-repeat="std in selectedStd">{{std}}</a>
+                    <div class="item-stacked-label" ng-show="selectedStd.length !== 0">
+                        <span class="row input-label">Selected Standard:</span>
+                        <div class="row bor" ng-click="showPopup()">
+                            <div class="row bor-wid">
+                                <label ng-repeat="std in selectedStd track by std">{{std}}, &nbsp;</label>
+                            </div>
+                            <div class="col col-10 bor-btn">
+                                <button class="button button-small button-stable ion-android-open"></button>
+                            </div>
                         </div>
-                        <div class="col col-10">
-                            <button class="button button-small ion-android-open" ng-click="showPopup()"></button>
-                        </div>
-                    </div>
-                    <br />
+                    </div>  
+                    
                     <div class="row">
                         <div class="col center">
                             <button type="reset" class="button button-outline text-center button-stable" ng-click="selectedStd = [];">Clear</button>
                         </div>
                         <div class="col center">
-                            <button id="submitBtn" type="submit" class="button button-positive button-outline animated bounceInBottom" ng-disabled="poll.$invalid">Submit</button>
+                            <button id="submitBtn" type="submit" ng-click="vm.addPoll()" class="button button-positive button-outline animated bounceInBottom" ng-disabled="poll.$invalid">Submit</button>
                         </div>
                     </div>
                 </div>
